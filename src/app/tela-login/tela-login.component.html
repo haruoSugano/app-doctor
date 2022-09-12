@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sistema Receituário</title>
+    <link rel="stylesheet" href="tela-login.component.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="img-box">
+            <h3 class="titulo">Bem Vindo de Volta!</h3>
+            <h4 class="subtitulo">Entre e tenha acesso às suas receitas!</h4>
+            <img class="logo" src="logo.png">
+        </div>
+        <div class="form-box">
+            <h2>Faça Login</h2>
+            <p> Não possui conta? <a href="./tela-cadastro.component.html"> Cadastre-se </a> </p>
+            <form action="#">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite o seu email" required>
+                </div>
+
+                <div class="input-group w50">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="input-group">
+                    <button>Entrar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
