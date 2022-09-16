@@ -1,14 +1,10 @@
-/**
- * Arquivo: src/routes/index.js
- * Descricao: arquivo responsavel pela chamada da Api usuario da aplicacao
- */
-
 const express = require("express");
+const usuarioRoutes = require("./usuario.routes");
+const medicoRoutes = require("./medico.routes");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.status(200).send({ success: "true", message: "OK" });
-});
+router.use("/api/", usuarioRoutes);
+router.use("/api/", medicoRoutes);
 
 module.exports = router;
