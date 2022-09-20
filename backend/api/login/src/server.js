@@ -2,6 +2,7 @@
  * Arquivo: src/app.js
  * Descricao: arquivo responsavel pela toda configuracao do backend
  */
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -11,7 +12,7 @@ const router = require("./routes/index");
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());

@@ -2,7 +2,6 @@
  * Arquivo: controllers/usuario.controller.js
  * Descricao: arquivo responsavel pelo CRUD da classe usuario
  */
-require('dotenv').config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const Usuario = require("../models/usuario.model");
@@ -58,6 +57,7 @@ exports.findAll = async (req, res, next) => {
     try {
         const usuarios = await Usuario.find({});
         if (usuarios.length === 0) return res.status(200).send({ message: "Nenhum usuario cadastrado na base de dados" });
+
         return res.status(200).send({ message: "Usuarios encontrados com sucesso!", usuarios });
     } catch (error) {
         return res.status(404).send({ message: `Erro ao selecionar todos os usuarios` });
@@ -65,10 +65,10 @@ exports.findAll = async (req, res, next) => {
 };
 
 exports.findById = async (req, res, next) => {
-    const { id } = req.params;
+    const id = req.params.id;
     try {
-        const usuario = await Usuario.findById(id);
-        if (usuario === null) {
+        const usuario = await Usuario.findById(id, "-senha");
+        if (!usuario) {
             return res.status(404).send({ error: "Usuario informado nao existe!" });
         }
         return res.status(200).send({ message: "Usuario encontrado com sucesso!", usuario });
@@ -138,10 +138,10 @@ exports.login = async (req, res, next) => {
             return res.status(400).send({ message: "E-mail ou senha inválida!" });
         }
 
-        const secret = process.env.SECRET
-
+        const secret = process.env.SECRET;
+        console.log(secret)
         const token = jwt.sign({
-            id: usuario._id,
+            id: usuario.id,
         }, secret);
 
         res.status(200).send({ message: "Autenticação realizada com sucesso", token });
