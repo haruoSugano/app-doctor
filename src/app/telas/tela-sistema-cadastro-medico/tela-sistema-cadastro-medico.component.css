@@ -241,37 +241,18 @@ body{
 }
 
 .dica-senha{
-  color:white !important;
+  color:rgb(252, 214, 0) !important;
 }
 
 div.row.senha.col-12{
   display: flex;
 }
 
-
-
-.anexo{
-  width: 500px;
-  text-align: center;
-  justify-content: center;
-  margin-left: 250px;
-  margin-top: 20px;
-}
-
 .assinatura{
   font-size: 20px;
+  margin-top: 10px;
 }
 
-
-div.row.anexo.col-12{
-  justify-content: center;
-}
-
-div.formulario > div{
-  justify-content: center;
-}
-
-input#formFiles.form-control{
-  justify-content: center;
-  text-align: center;
+div.row.botoes.col-12{
+  margin-top: 20px;
 }

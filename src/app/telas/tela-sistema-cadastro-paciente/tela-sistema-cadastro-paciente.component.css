@@ -192,7 +192,7 @@ form{
 
 #titulo{
   color:white;
-  margin-top: 5px;
+  margin-top: 40px;
   margin-bottom: 20px;
   margin-left: 80px;
 }
@@ -241,7 +241,7 @@ body{
 }
 
 .dica-senha{
-  color:white !important;
+  color:rgb(252, 214, 0) !important;
 }
 
 div.row.senha.col-12{
@@ -261,4 +261,11 @@ div.row.senha.col-12{
 select{
   background-color: #007bff;
   color: #212121;
+}
+
+div.row.botoes.col-12{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
 }
