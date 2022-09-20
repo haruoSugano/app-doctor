@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tela-login.component.html',
   styleUrls: ['./tela-login.component.css']
 })
+
 export class TelaLoginComponent{
 
 }

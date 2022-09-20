@@ -5,6 +5,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 body{
     background-image: url(background.jpg);
     background-position: center;
@@ -15,16 +16,42 @@ body{
     justify-content: center;
     min-height: 100vh;
 }
-.w50{
-    width: 50%;
-    display: block;
-    padding-right: 15px;
-    width: 100%;
+
+.input-group .div-checkbox p{
+  color: #2351cf;
+  font-size: 15px;
 }
+
+.input-group .div-checkbox input{
+  height: 20px;
+  width: 30px;
+}
+
+.input-group .div-checkbox{
+  margin-top: 5px;
+  display: flex;
+  float: left;
+  text-align: left;
+  justify-content: left;
+}
+
+.input-group
+
+.w50{
+    padding-right: 15px;
+}
+
+.span{
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+
 .box{
     display: flex;
     width: 930px;
 }
+
 
 .img-box{
     background-color: rgba(255, 255, 255, 0.5);
@@ -37,23 +64,31 @@ body{
     text-align: center;
 }
 
-
 .titulo, .subtitulo{
   padding: 5px;
 }
 
+
+
+
 .subtitulo{
   color: #3D3D3D;
 }
+
+
 
 .logo{
   margin-top: 10px;
   padding: 0;
 }
 
+
+
 .img-box img{
     width: 100%
 }
+
+
 
 .form-box{
     background-color: rgba(255, 255, 255, 0.4);
@@ -62,26 +97,38 @@ body{
     border-radius: 0 20px 20px 0;
 }
 
+
+
+
 .form-box h2{
     font-size: 30px;
-    margin-top: 70px;
+    margin-top: 50px;
 }
+
+
 .form-box p{
     font-weight: bold;
     color: #3D3D3D;
 }
+
+
 .form-box p a{
     color: #2351cf;
     text-decoration: none;
 }
 
+
 .form-box form{
     margin: 20px 0;
 }
 
+
+
 form .input-group{
     margin-bottom: 15px;
 }
+
+
 
 form .input-group label{
     color: #3D3D3D;
@@ -90,11 +137,13 @@ form .input-group label{
     margin-bottom: 5px;
 }
 
+
+
 form .input-group input{
     width: 100%;
     height: 47px;
     background-color: rgba(255, 255, 255, 0.32);
-    border-radius: 20px;
+    border-radius: 20px !important;
     outline: none;
     border: 2px solid transparent;
     padding: 15px;
@@ -102,9 +151,14 @@ form .input-group input{
     color: #616161;
     transition: all 0.4s ease;
 }
+
+
 form .input-group input:focus{
     border-color: #0043fc7e;
 }
+
+
+
 form .input-group button{
     width: 100%;
     height: 47px;
@@ -117,6 +171,9 @@ form .input-group button{
     cursor: pointer;
     font-size: 16px;
 }
+
+
+
 @media (max-width:930px) {
     .img-box{
         display: none;

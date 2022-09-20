@@ -1,0 +1,277 @@
+
+  strong{
+    color: rgb(253, 253, 253);
+  }
+
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent; }
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline; }
+
+  a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none; }
+    a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+      color: inherit;
+      text-decoration: none; }
+    a:not([href]):not([tabindex]):focus {
+      outline: 0; }
+
+  /* espaçamento do ícone pro texto do menu */
+  .mr-3,
+  .mx-3 {
+    margin-right: 1rem !important; }
+
+
+  /* margin do texto lorem ipsun */
+
+  .p-4 {
+    padding: 1.5rem !important; }
+
+
+  @media print {
+    .navbar {
+      display: none; }
+
+    .table .thead-dark th {
+      color: inherit;
+      border-color: #dee2e6; } }
+
+
+
+  body {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: normal;
+    background: #fff;
+    color: gray; }
+
+
+  a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    color: #2f89fc; }
+    a:hover, a:focus {
+      text-decoration: none !important;
+      outline: none !important;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+
+
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #212121;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    position: relative;
+}
+
+#sidebar .h6 {
+      color: #fff;
+}
+
+#sidebar.active {
+      margin-left: -250px;
+}
+
+#sidebar.active .custom-menu {
+        margin-right: -50px;
+}
+
+#sidebar h1 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 20px;
+}
+
+#sidebar h1 .logo {
+        color: #fff;
+        display: block;
+        padding: 10px 30px;
+        background: #2f89fc;
+}
+
+
+#sidebar ul.components {
+      padding: 0;
+}
+
+#sidebar ul li {
+      font-size: 16px;
+}
+
+#sidebar ul li > ul {
+        margin-left: 10px;
+}
+
+#sidebar ul li > ul li {
+          font-size: 14px;
+}
+
+
+#sidebar ul li a {
+        padding: 15px 30px;
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li a:hover {
+          color: #fff;
+          background: #2f89fc;
+          border-bottom: 1px solid #2f89fc;
+}
+
+
+#sidebar ul li.active > a:hover {
+    background: #2f89fc;
+    border-bottom: 1px solid #2f89fc;
+}
+
+    @media (max-width: 991.98px) {
+      #sidebar {
+        margin-left: -250px; }
+        #sidebar.active {
+          margin-left: 0; }
+        #sidebar .custom-menu {
+          margin-right: -60px !important;
+          top: 10px !important; } }
+        #sidebar .custom-menu {
+          display: inline-block;
+          position: absolute;
+          top: 10px;
+          right: 0;
+          margin-right: -50px;
+          -webkit-transition: 0.3s;
+          -o-transition: 0.3s;
+          transition: 0.3s; }
+      @media (prefers-reduced-motion: reduce) {
+        #sidebar .custom-menu {
+          -webkit-transition: none;
+          -o-transition: none;
+          transition: none; } }
+      #sidebar .custom-menu .btn.btn-primary {
+        background: transparent;
+        border-color: transparent; }
+        #sidebar .custom-menu .btn.btn-primary i {
+          color: black;
+          font-size: 24px; }
+        #sidebar .custom-menu .btn.btn-primary:hover, #sidebar .custom-menu .btn.btn-primary:focus {
+          background: transparent !important;
+          border-color: transparent !important; }
+
+
+
+  @media (max-width: 991.98px) {
+    #sidebarCollapse span {
+      display: none; } }
+
+  #content {
+    width: 100%;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+form{
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+#titulo{
+  color:white;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 80px;
+}
+
+div>label{
+  color: white;
+  margin-bottom: 5px;
+}
+
+.icone-titulo{
+  margin-right: 10px;
+}
+
+.input{
+  background-color: #dee2e615;
+  color: white;
+  margin-bottom: 10px;
+}
+
+
+input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+
+textarea::placeholder {
+  color: blue;
+}
+
+.endereco-1{
+  display: flex;
+}
+
+.endereco-2{
+  display: flex;
+}
+
+body{
+  background-image: url(background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.dica-senha{
+  color:white !important;
+}
+
+div.row.senha.col-12{
+  display: flex;
+}
+
+
+
+.anexo{
+  width: 500px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 250px;
+  margin-top: 20px;
+}
+
+.assinatura{
+  font-size: 20px;
+}
+
+
+div.row.anexo.col-12{
+  justify-content: center;
+}
+
+div.formulario > div{
+  justify-content: center;
+}
+
+input#formFiles.form-control{
+  justify-content: center;
+  text-align: center;
+}

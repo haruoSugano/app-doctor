@@ -14,11 +14,11 @@
         <div class="img-box">
             <h3 class="titulo">Bem Vindo de Volta!</h3>
             <h4 class="subtitulo">Entre e tenha acesso às suas receitas!</h4>
-            <img class="logo" src="logo.png">
+            <img class="logo" src="/assets/resources/img/logo.png">
         </div>
         <div class="form-box">
             <h2>Faça Login</h2>
-            <p> Não possui conta? <a href="./tela-cadastro.component.html"> Cadastre-se </a> </p>
+            <p> Não possui conta? <a [routerLink]="['/cadastro']"> Cadastre-se </a> </p>
             <form action="#">
                 <div class="input-group">
                     <label for="email">E-mail</label>
@@ -27,7 +27,11 @@
 
                 <div class="input-group w50">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    <input type="password" id="password" placeholder="Digite sua senha" required >
+                    <div class="div-checkbox">
+                      <input id="caixa-checkbox" type="checkbox" onclick="mostrarSenha()">
+                      <p class="mostrar-senha">Mostrar Senha</p>
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -37,5 +41,15 @@
             </form>
         </div>
     </div>
+    <script>
+      function mostrarSenha() {
+        var senha = document.getElementById("password");
+        if (senha.type === "password" ) {
+          senha.type = "text";
+        } else {
+          senha.type = "password";
+        }
+      }
+    </script>
 </body>
 </html>

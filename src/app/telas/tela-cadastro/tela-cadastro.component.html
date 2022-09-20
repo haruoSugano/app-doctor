@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,12 +12,12 @@
     <div class="box">
         <div class="img-box">
             <h3 class="titulo">Bem Vindo!</h3>
-            <h4 class="subtitulo">Cadastre-se e tenha acesso às suas receitas!</h4>
-            <img class="logo" src="logo.png">
+            <h4 class="subtitulo">Cadastre-se no APP DOCTOR!</h4>
+            <img class="logo" src="/assets/resources/img/logo.png">
         </div>
         <div class="form-box">
             <h2>Criar Conta</h2>
-            <p> Já possui conta? <a href="#"> Login </a> </p>
+            <p> Já possui conta? <a [routerLink]="['/login']" > Login </a> </p>
             <form action="#">
                 <div class="input-group">
                     <label for="nome"> Nome Completo</label>
@@ -31,14 +30,13 @@
                 </div>
 
                 <div class="input-group w50">
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="Digite sua senha" required>
-                </div>
+                    <label for="password">Senha</label><input type="password" name="password" id="password"  minlength="8" maxlength="30" onKeyUp="verificaForcaSenha();" placeholder="Digite sua senha"/>
+                    <div class="div-checkbox">
+                      <input id="caixa-checkbox" type="checkbox" onclick="mostrarSenha()">
+                      <p class="mostrar-senha">Mostrar Senha</p>
+                    </div>
+                  </div>
 
-                <div class="input-group w50">
-                    <label for="Confirmarsenha">Confirmar Senha</label>
-                    <input type="password" id="Confirmarsenha" placeholder="Confirme a senha" required>
-                </div>
 
                 <div class="input-group">
                     <button>Cadastrar</button>
@@ -47,5 +45,17 @@
             </form>
         </div>
     </div>
+
+<script>
+    function mostrarSenha() {
+      var senha = document.getElementById("password");
+      if (senha.type === "password" ) {
+        senha.type = "text";
+      } else {
+        senha.type = "password";
+      }
+    }
+</script>
+
 </body>
 </html>
