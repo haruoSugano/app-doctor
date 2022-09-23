@@ -18,7 +18,7 @@
         </div>
         <div class="form-box">
             <h2>Faça Login</h2>
-            <p> Não possui conta? <a [routerLink]="['/cadastro']"> Cadastre-se </a> </p>
+            <p> Não possui conta? <a routerLink="/usuarios" routerLinkActive="active"> Cadastre-se </a> </p>
             <form action="#">
                 <div class="input-group">
                     <label for="email">E-mail</label>
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="input-group">
-                    <button>Entrar</button>
+                    <button routerLink="/home" routerLinkActive="active">Entrar</button>
                 </div>
 
             </form>

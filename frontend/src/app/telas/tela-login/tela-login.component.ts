@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-tela-login',
@@ -7,5 +7,4 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class TelaLoginComponent{
-
 }

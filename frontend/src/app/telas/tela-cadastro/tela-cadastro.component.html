@@ -17,7 +17,7 @@
         </div>
         <div class="form-box">
             <h2>Criar Conta</h2>
-            <p> Já possui conta? <a [routerLink]="['/login']" > Login </a> </p>
+            <p> Já possui conta? <a routerLink="/" routerLinkActive="active" > Login </a> </p>
             <form action="#">
                 <div class="input-group">
                     <label for="nome"> Nome Completo</label>
@@ -39,7 +39,7 @@
 
 
                 <div class="input-group">
-                    <button>Cadastrar</button>
+                    <button routerLink="/home" routerLinkActive="active">Cadastrar</button>
                 </div>
 
             </form>
