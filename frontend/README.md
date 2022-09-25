@@ -1,5 +1,5 @@
 # App Doctor
-
+![Logo app-doctor](../frontend/src/assets/resources/img/logo.png)
 ## Objetivo:
 *
 
