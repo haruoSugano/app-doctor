@@ -21,15 +21,16 @@
           Já possui conta?
           <a routerLink="/" routerLinkActive="active"> Login </a>
         </p>
-        <form [formGroup]="form" (ngSubmit)="submitForm()" action="#">
+        <form action="#">
           <div class="input-group">
             <label for="nome"> Nome Completo</label>
             <input
               type="text"
               id="nome"
+              name="nome"
               placeholder="Digite o seu nome completo"
               required
-              formControlName="nome"
+              [(ngModel)]="usuarioForm.nome"
             />
           </div>
 
@@ -38,38 +39,46 @@
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="Digite o seu email"
               required
-              formControlName="email"
+              [(ngModel)]="usuarioForm.email"
             />
           </div>
 
           <div class="input-group w50">
-            <label for="password">Senha</label
-            ><input
+            <label for="password">Senha</label>
+            <input
               type="password"
-              name="password"
+              name="senha"
               id="password"
               minlength="8"
               maxlength="30"
               onKeyUp="verificaForcaSenha();"
               placeholder="Digite sua senha"
-              formControlName="senha"
+              [(ngModel)]="usuarioForm.senha"
             />
-            <div class="div-checkbox">
+
+            <div class="input-group w50">
+              <label for="password">Confirmar a Senha</label>
               <input
-                id="caixa-checkbox"
-                type="checkbox"
-                onclick="mostrarSenha()"
+                type="password"
+                name="confirmarSenha"
+                id="password"
+                minlength="8"
+                maxlength="30"
+                placeholder="Digite sua senha"
+                [(ngModel)]="usuarioForm.confirmarSenha"
               />
+            </div>
+            <div class="div-checkbox">
+              <input id="caixa-checkbox" type="checkbox" />
               <p class="mostrar-senha">Mostrar Senha</p>
             </div>
           </div>
 
           <div class="input-group">
-            <button>
-              Cadastrar
-            </button>
+            <button (click)="createUsuario()">Cadastrar</button>
           </div>
         </form>
       </div>

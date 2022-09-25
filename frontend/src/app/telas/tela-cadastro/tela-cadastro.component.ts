@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from "@angular/forms";
-import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-tela-cadastro',
@@ -8,32 +9,43 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./tela-cadastro.component.css']
 })
 export class TelaCadastroComponent implements OnInit {
-  form: FormGroup;
+  @Input() usuarioForm = {
+    nome: "",
+    senha: "",
+    confirmarSenha: "",
+    email: "",
+    isAdmin: false,
+    isMedico: false
+  };
 
-  constructor(public fb: FormBuilder, private http: HttpClient) {
-    this.form = this.fb.group({
-      nome: [''],
-      email: [''],
-      senha: [''],
-      confirmarSenha: [''],
-    });
-  }
+  constructor(
+    private router: Router,
+    private usuarioService: UsuarioService
+  ) { }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
 
-  submitForm() {
-    let formData: any = new FormData();
+  createUsuario() {
+    const usuario = this.usuarioForm;
 
-    formData.append('nome', this.form.get('nome').value);
-    formData.append('email', this.form.get('email').value);
-    formData.append('senha', this.form.get('senha').value);
-    formData.append('confirmarSenha', this.form.get('confirmarSenha').value);
-
-    this.http.post("http://localhost:3000/api/usuarios", formData)
-      .subscribe({
-        next: (res) => console.log(res),
-        error: (err) => console.log(err)
+    if (usuario.nome && usuario.email && usuario.senha && usuario.confirmarSenha) {
+      this.usuarioService.createUsuario(usuario).subscribe((data: {}) => {
+        this.router.navigate(['/usuarios']);
       });
+
+      this.usuarioForm = {
+        nome: "",
+        senha: "",
+        confirmarSenha: "",
+        email: "",
+        isAdmin: false,
+        isMedico: false
+      };
+
+      return alert("Usuário cadastrado com sucesso");
+    }
+
+    alert("É necessário preencher todos os campos");
   }
 }
 
