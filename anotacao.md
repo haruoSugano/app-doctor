@@ -9,3 +9,7 @@ https://attacomsian.com/blog/http-requests-axios
 adicionando pelo post os usuarios
 
 https://www.positronx.io/angular-httpclient-http-service/
+
+autenticação
+
+https://www.positronx.io/angular-jwt-user-authentication-tutorial/
