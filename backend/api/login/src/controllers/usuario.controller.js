@@ -126,7 +126,7 @@ exports.login = async (req, res, next) => {
             return res.status(400).send({ message: "A senha é obrigatório" });
         }
 
-        const usuario = await Usuario.findOne({ email }).select('+senha');
+        let usuario = await Usuario.findOne({ email }).select('+senha');
 
         if (!usuario) {
             return res.status(400).send({ message: "Usuário não encontrado" });
@@ -138,13 +138,16 @@ exports.login = async (req, res, next) => {
             return res.status(400).send({ message: "E-mail ou senha inválida!" });
         }
 
+        usuario = {};
+
         const secret = process.env.SECRET;
-        console.log(secret)
         const token = jwt.sign({
             id: usuario.id,
         }, secret);
 
-        res.status(200).send({ message: "Autenticação realizada com sucesso", token });
+        usuario = await Usuario.findOne({ email }).select('-senha').select('-email').select('-nome').select('-isAdmin').select('-isMedico');
+
+        res.status(200).send({ message: "Autenticação realizada com sucesso", token, usuario });
     } catch (error) {
         return res.status(500).send({ message: `Erro na autenticação` || err.message });
     }
