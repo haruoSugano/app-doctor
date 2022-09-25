@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
 
@@ -41,11 +40,12 @@ export class TelaCadastroComponent implements OnInit {
         isAdmin: false,
         isMedico: false
       };
+      alert("Usuário cadastrado com sucesso");
 
-      return alert("Usuário cadastrado com sucesso");
+      this.router.navigate(["/usuarios"]);
     }
 
-    alert("É necessário preencher todos os campos");
+    return alert("É necessário preencher todos os campos");
   }
 }
 
