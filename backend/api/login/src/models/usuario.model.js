@@ -3,7 +3,7 @@
  * Descricao: arquivo responsavel pelo modelo da classe "Usuario"
  */
 
-const mongoose = require("../../../login/src/config/database");
+const mongoose = require("../config/database");
 
 const UsuarioSchema = new mongoose.Schema({
     nome: {
