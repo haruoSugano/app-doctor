@@ -43,13 +43,16 @@
 
 
 
-  body {
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.8;
-    font-weight: normal;
-    background: #fff;
-    color: gray; }
+      body{
+        background-image: url(background.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
 
 
   a {
@@ -188,13 +191,14 @@
 form{
   margin-left: 80px;
   margin-right: 80px;
+  background-color: #00000071;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 #titulo{
   color:white;
-  margin-top: 40px;
   margin-bottom: 20px;
-  margin-left: 80px;
 }
 
 div>label{
@@ -248,8 +252,6 @@ div.row.senha.col-12{
   display: flex;
 }
 
-
-
 .anexo{
   width: 500px;
   text-align: center;
@@ -269,3 +271,9 @@ div.row.botoes.col-12{
   text-align: center;
   margin-top: 30px;
 }
+
+select.form-control.input>option{
+  background-color: #012e5e;
+}
+
+

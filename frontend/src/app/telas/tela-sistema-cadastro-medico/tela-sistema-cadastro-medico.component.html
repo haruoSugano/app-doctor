@@ -19,33 +19,36 @@
 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="#"><span class="fa fa-home mr-3 icone"></span> Página Inicial</a>
+            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span> Página Inicial</a>
           </li>
 
           <li>
-              <a href="#"><span class="fa fa-user-md mr-3 icone icone-cadastrar-medico"  style="color:rgb(255, 255, 255)">
-              </span> <strong>Cadastrar Médico</strong>
-              </a>
+              <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"  style="color:rgb(255, 255, 255)"></span> <strong>Cadastrar Médico</strong></a>
           </li>
 
 
           <li>
-            <a href="#"><span class="fa fa-search mr-3 icone"></span> Pesquisar Médico</a>
+            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span> Pesquisar Médico</a>
           </li>
 
 
 
           <li>
-            <a href="#"><span class="fa fa-user mr-3 icone"></span> Cadastrar Paciente</a>
+            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span> Cadastrar Paciente</a>
           </li>
 
 
           <li>
-            <a href="#"><span class="fa fa-search mr-3 icone"></span> Pesquisar Paciente</a>
+            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span> Pesquisar Paciente</a>
           </li>
 
           <li>
-            <a href="#"><span class="fa fa-address-card-o mr-3 icone"></span> Realizar Consulta</a>
+            <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="fa fa-address-card-o mr-3"></span> Realizar Consulta</a>
+          </li>
+
+
+          <li>
+            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
           </li>
 
 
@@ -57,12 +60,14 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <header>
-         <h3 id="titulo"> <span class="fa fa-user-plus icone-titulo"></span>Cadastrar Médico</h3>
-        </header>
 
         <div class="formulario">
           <form>
+            <div>
+              <header class="col-12">
+                <h3 id="titulo"> <span class="fa fa-user-plus icone-titulo"></span>Cadastrar Médico</h3>
+               </header>
+            </div>
             <div class="row nome col-12">
               <div class="col nome">
                 <label>Nome Completo</label>
@@ -105,13 +110,43 @@
 
             <div class="row endereco-2 col-12">
                 <div class="col-md-6 col-sm-6">
-                    <label>Estado</label>
+                    <label>Cidade</label>
                     <input  type="text" class="form-control input" placeholder="Ex: São Paulo">
                 </div>
 
                 <div class="col-md-3 col-sm-3">
-                  <label>Cidade</label>
-                  <input  type="text" class="form-control input" placeholder="Ex: SP">
+                  <label>Estado</label>
+                  <select id="estado" name="estado" type="text" class="form-control input" required>
+                    <option selected>Selecionar Estado...</option>
+                    <option>AC</option>
+                    <option>AL</option>
+                    <option>AP</option>
+                    <option>AM</option>
+                    <option>BA</option>
+                    <option>CE</option>
+                    <option>DF</option>
+                    <option>ES</option>
+                    <option>GO</option>
+                    <option>MA</option>
+                    <option>MT</option>
+                    <option>MS</option>
+                    <option>MG</option>
+                    <option>PA</option>
+                    <option>PB</option>
+                    <option>PR</option>
+                    <option>PE</option>
+                    <option>PI</option>
+                    <option>RJ</option>
+                    <option>RN</option>
+                    <option>RS</option>
+                    <option>RO</option>
+                    <option>RR</option>
+                    <option>SC</option>
+                    <option>SP</option>
+                    <option>SE</option>
+                    <option>TO</option>
+                  </select>
+
                 </div>
 
                 <div class="col-md-3 col-sm-3">

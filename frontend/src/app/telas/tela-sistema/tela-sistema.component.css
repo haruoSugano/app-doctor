@@ -38,14 +38,15 @@
 
 
 
-  body {
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.8;
-    font-weight: normal;
-    background: #fff;
-    color: gray; }
-
+      body{
+        background-image: url(background.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
 
   a {
     -webkit-transition: .3s all ease;
@@ -159,5 +160,12 @@
     transition: all 0.3s;
   }
 
+  h2{
+    color: #dee2e6;
+  }
 
-  
+  p{
+    color: #dee2e6;
+  }
+
+

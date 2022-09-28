@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tela-sistema-cadastro-paciente.component.css']
 })
 export class TelaSistemaCadastroPacienteComponent implements OnInit {
+logout() {
+throw new Error('Method not implemented.');
+}
 
   constructor() { }
 

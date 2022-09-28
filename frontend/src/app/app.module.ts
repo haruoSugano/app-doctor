@@ -11,6 +11,7 @@ import { TelaSistemaCadastroPacienteComponent } from './telas/tela-sistema-cadas
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpRequestInterceptor } from "./shared/helpers/http.interceptor";
+import { TelaSistemaRealizarConsultaComponent } from './telas/tela-sistema-realizar-consulta/tela-sistema-realizar-consulta.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpRequestInterceptor } from "./shared/helpers/http.interceptor";
     TelaLoginComponent,
     TelaSistemaComponent,
     TelaSistemaCadastroMedicoComponent,
-    TelaSistemaCadastroPacienteComponent
+    TelaSistemaCadastroPacienteComponent,
+    TelaSistemaRealizarConsultaComponent
   ],
   imports: [
     BrowserModule,
