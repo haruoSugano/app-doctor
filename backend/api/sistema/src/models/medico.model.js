@@ -11,9 +11,11 @@ class Medico extends Model {
         telefone: DataTypes.INTEGER,
         endereco: DataTypes.STRING,
         numero: DataTypes.STRING,
+        assinatura: DataTypes.STRING
       },
       {
         sequelize,
+        tableName: "medicos",
       }
     );
   }
