@@ -14,6 +14,7 @@ class Paciente extends Model {
         estado: DataTypes.STRING,
         cidade: DataTypes.STRING,
         cep: DataTypes.INTEGER,
+        status_consulta: DataTypes.BOOLEAN
       },
       {
         sequelize,

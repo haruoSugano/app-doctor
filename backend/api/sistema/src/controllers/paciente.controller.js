@@ -162,6 +162,7 @@ exports.update = async (req, res, next) => {
     estado,
     cidade,
     cep,
+    status_consulta,
   } = req.body;
 
   try {
@@ -235,6 +236,7 @@ exports.update = async (req, res, next) => {
         estado: estado,
         cidade: cidade,
         cep: cep,
+        status_consulta: status_consulta,
         medico_id: medico_id,
       },
       { where: { id: paciente_id } }
