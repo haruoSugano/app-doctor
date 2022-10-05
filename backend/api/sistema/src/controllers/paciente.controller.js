@@ -1,5 +1,3 @@
-const { Op } = require("sequelize");
-
 const Medico = require("../models/medico.model");
 const Paciente = require("../models/paciente.model");
 
@@ -22,7 +20,7 @@ exports.create = async (req, res, next) => {
     const medico = await Medico.findByPk(medico_id);
 
     if (!medico) {
-      return res.status(400).send({ error: "Médico não encontrado" });
+      return res.status(400).send({ message: "Médico não encontrado" });
     }
 
     if (!name) {
@@ -97,6 +95,18 @@ exports.create = async (req, res, next) => {
   }
 };
 
+exports.findAll = async (req, res, next) => {
+  try {
+    const pacientes = await Paciente.findAll();
+
+    return res.status(200).send({ pacientes });
+  } catch (error) {
+    return res
+      .status(500)
+      .send({ error: "Ocorreu um erro ao buscar os pacientes" });
+  }
+};
+
 exports.findByMedico = async (req, res, next) => {
   const { medico_id } = req.params;
 
@@ -119,17 +129,6 @@ exports.findByMedico = async (req, res, next) => {
   }
 };
 
-exports.findAll = async (req, res, next) => {
-  try {
-    const pacientes = await Paciente.findAll();
-
-    return res.status(200).send({ pacientes });
-  } catch (error) {
-    return res
-      .status(500)
-      .send({ error: "Ocorreu um erro ao buscar os pacientes" });
-  }
-};
 
 exports.findByPaciente = async (req, res, next) => {
   const { paciente_id } = req.params;
