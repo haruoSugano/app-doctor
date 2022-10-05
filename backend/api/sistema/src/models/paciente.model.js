@@ -14,7 +14,7 @@ class Paciente extends Model {
         estado: DataTypes.STRING,
         cidade: DataTypes.STRING,
         cep: DataTypes.INTEGER,
-        status_consulta: DataTypes.BOOLEAN
+        status_consulta: DataTypes.BOOLEAN,
       },
       {
         sequelize,
@@ -28,7 +28,10 @@ class Paciente extends Model {
       foreignKey: "medico_id",
       as: "medicos",
     });
+    this.hasMany(models.Receituario, {
+      foreignKey: "paciente_id",
+      as: "receituarios",
+    });
   }
 }
-
 module.exports = Paciente;
