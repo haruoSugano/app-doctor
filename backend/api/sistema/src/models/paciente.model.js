@@ -1,31 +1,33 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Medico extends Model {
+class Paciente extends Model {
   static init(sequelize) {
     super.init(
       {
         name: DataTypes.STRING,
         email: DataTypes.STRING,
         data_nascimento: DataTypes.DATE,
-        crm: DataTypes.INTEGER,
+        cpf: DataTypes.INTEGER,
         telefone: DataTypes.INTEGER,
         endereco: DataTypes.STRING,
         numero: DataTypes.STRING,
-        assinatura: DataTypes.STRING,
+        estado: DataTypes.STRING,
+        cidade: DataTypes.STRING,
+        cep: DataTypes.INTEGER,
       },
       {
         sequelize,
-        tableName: "medicos",
+        tableName: "pacientes",
       }
     );
   }
 
   static associate(models) {
-    this.hasMany(models.Paciente, {
+    this.belongsTo(models.Medico, {
       foreignKey: "medico_id",
-      as: "pacientes",
+      as: "medicos",
     });
   }
 }
 
-module.exports = Medico;
+module.exports = Paciente;
