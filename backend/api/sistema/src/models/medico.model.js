@@ -5,7 +5,6 @@ class Medico extends Model {
     super.init(
       {
         name: DataTypes.STRING,
-        email: DataTypes.STRING,
         data_nascimento: DataTypes.DATE,
         crm: DataTypes.INTEGER,
         telefone: DataTypes.INTEGER,
@@ -21,14 +20,14 @@ class Medico extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Paciente, {
-      foreignKey: "medico_id",
-      as: "pacientes",
-    });
     this.hasMany(models.Receituario, {
       foreignKey: "medico_id",
       as: "receituarios"
-    })
+    });
+    this.hasMany(models.Agenda, {
+      foreignKey: "medico_id",
+      as: "agendas"
+    });
   }
 }
 

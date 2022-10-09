@@ -5,7 +5,6 @@ exports.create = async (req, res, next) => {
   const { medico_id } = req.params;
   const {
     name,
-    email,
     data_nascimento,
     cpf,
     telefone,
@@ -13,7 +12,7 @@ exports.create = async (req, res, next) => {
     numero,
     estado,
     cidade,
-    cep,
+    cep
   } = req.body;
 
   try {
@@ -25,10 +24,6 @@ exports.create = async (req, res, next) => {
 
     if (!name) {
       return res.status(400).send({ message: "Campo nome é obrigatório" });
-    }
-
-    if (!email) {
-      return res.status(400).send({ message: "Campo e-mail é obrigatório" });
     }
 
     if (!data_nascimento) {
@@ -65,17 +60,12 @@ exports.create = async (req, res, next) => {
       return res.status(400).send({ message: "Campo cep é obrigatório" });
     }
 
-    if (await Paciente.findOne({ where: { email } })) {
-      return res.status(400).send({ message: "Este e-mail já existe" });
-    }
-
     if (await Paciente.findOne({ where: { cpf } })) {
       return res.status(400).send({ message: "CPF já existe" });
     }
 
     const paciente = await Paciente.create({
       name,
-      email,
       data_nascimento,
       cpf,
       telefone,
@@ -83,15 +73,14 @@ exports.create = async (req, res, next) => {
       numero,
       estado,
       cidade,
-      cep,
-      medico_id,
+      cep
     });
 
     return res.status(201).send({ paciente });
   } catch (error) {
     return res
       .status(500)
-      .send({ error: "Ocorreu um erro ao cadastrar o paciente" });
+      .send({ error: "Ocorreu um erro ao cadastrar o paciente", error });
   }
 };
 
@@ -152,7 +141,6 @@ exports.update = async (req, res, next) => {
 
   const {
     name,
-    email,
     data_nascimento,
     cpf,
     telefone,
@@ -175,10 +163,6 @@ exports.update = async (req, res, next) => {
 
     if (!name) {
       return res.status(400).send({ message: "Campo nome é obrigatório" });
-    }
-
-    if (!email) {
-      return res.status(400).send({ message: "Campo e-mail é obrigatório" });
     }
 
     if (!data_nascimento) {
@@ -215,10 +199,6 @@ exports.update = async (req, res, next) => {
       return res.status(400).send({ message: "Campo cep é obrigatório" });
     }
 
-    // if (await Paciente.findOne({ where: { email } }) ) {
-    //   return res.status(400).send({ message: "Este e-mail já existe" });
-    // }
-
     // if (await Paciente.findOne({ where: { cpf } })) {
     //   return res.status(400).send({ message: "CPF já existe" });
     // }
@@ -226,7 +206,6 @@ exports.update = async (req, res, next) => {
     const paciente_atualizado = await Paciente.update(
       {
         name: name,
-        email: email,
         data_nascimento: data_nascimento,
         cpf: cpf,
         telefone: telefone,

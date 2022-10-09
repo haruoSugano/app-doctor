@@ -14,10 +14,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       data_nascimento: {
         type: Sequelize.DATE,
         allowNull: false,

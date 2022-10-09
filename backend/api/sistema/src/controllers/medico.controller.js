@@ -1,15 +1,12 @@
 const Medico = require("../models/medico.model");
 
 exports.create = async (req, res, next) => {
-  let { name, email, data_nascimento, crm, telefone, endereco, numero } =
+  let { name, data_nascimento, crm, telefone, endereco, numero } =
     req.body;
   const { path: url } = req.file;
 
   try {
     if (!name) return res.status(400).send({ message: "O nome é obrigatório" });
-
-    if (!email)
-      return res.status(400).send({ message: "O e-mail é obrigatório" });
 
     if (!data_nascimento)
       return res
@@ -27,10 +24,6 @@ exports.create = async (req, res, next) => {
     if (!numero)
       return res.status(400).send({ message: "O Numero é obrigatório" });
 
-    if (await Medico.findOne({ where: { email } })) {
-      return res.status(400).send({ error: "Este e-mail já existe" });
-    }
-
     if (await Medico.findOne({ where: { crm } })) {
       return res.status(400).send({ error: "Este crm já existe" });
     }
@@ -41,7 +34,6 @@ exports.create = async (req, res, next) => {
 
     const medico = await Medico.create({
       name,
-      email,
       data_nascimento,
       crm,
       telefone,
@@ -92,14 +84,10 @@ exports.findById = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
   const { medico_id } = req.params;
-  const { name, email, data_nascimento, crm, telefone, endereco, numero } =
+  const { name, data_nascimento, crm, telefone, endereco, numero } =
     req.body;
   const { path: url } = req.file;
   try {
-    if (await Medico.findOne({ where: { email } })) {
-      return res.status(400).send({ error: "Este e-mail já existe" });
-    }
-
     if (await Medico.findOne({ where: { crm } })) {
       return res.status(400).send({ error: "Este crm já existe" });
     }
@@ -107,7 +95,6 @@ exports.update = async (req, res, next) => {
     const medico = await Medico.upsert({
       id: medico_id,
       name,
-      email,
       data_nascimento,
       crm,
       telefone,
