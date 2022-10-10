@@ -21,8 +21,12 @@ class Agenda extends Model {
       as: "medicos",
     });
     this.belongsTo(models.Paciente, {
-        foreignKey: "paciente_id",
-        as: "pacientes",
+      foreignKey: "paciente_id",
+      as: "pacientes",
+    });
+    this.hasMany(models.Receituario, {
+      foreignKey: "agenda_id",
+      as: "receituarios"
     });
   }
 }

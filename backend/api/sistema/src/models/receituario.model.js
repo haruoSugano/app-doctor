@@ -4,7 +4,7 @@ class Receituario extends Model {
   static init(sequelize) {
     super.init(
       {
-        descricao: DataTypes.STRING
+        descricao: DataTypes.STRING,
       },
       {
         sequelize,
@@ -19,8 +19,12 @@ class Receituario extends Model {
       as: "medicos",
     });
     this.belongsTo(models.Paciente, {
-        foreignKey: "paciente_id",
-        as: "pacientes",
+      foreignKey: "paciente_id",
+      as: "pacientes",
+    });
+    this.belongsTo(models.Agenda, {
+      foreignKey: "agenda_id",
+      as: "agendas"
     });
   }
 }

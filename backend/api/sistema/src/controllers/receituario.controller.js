@@ -1,9 +1,10 @@
 const Medico = require("../models/medico.model");
 const Paciente = require("../models/paciente.model");
+const Agenda = require("../models/agenda.model");
 const Receituario = require("../models/receituario.model");
 
 exports.create = async (req, res, next) => {
-  const { medico_id, paciente_id } = req.params;
+  const { agenda_id, medico_id, paciente_id } = req.params;
   const { descricao } = req.body;
 
   try {
@@ -11,12 +12,18 @@ exports.create = async (req, res, next) => {
 
     const medico = await Medico.findByPk(medico_id);
 
+    const agenda = await Agenda.findByPk(agenda_id);
+
     if (!medico) {
       return res.status(400).send({ message: "Medico não encontrado" });
     }
 
     if (!paciente) {
       return res.status(400).send({ message: "Paciente não encontrado" });
+    }
+
+    if (!agenda) {
+      return res.status(400).send({ message: "Agendamento não encontrado" });
     }
 
     if (!descricao) {
@@ -27,6 +34,7 @@ exports.create = async (req, res, next) => {
       descricao,
       medico_id,
       paciente_id,
+      agenda_id
     });
 
     return res.status(201).send({ receituario });

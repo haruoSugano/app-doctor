@@ -16,12 +16,12 @@ connection.authenticate().then(() => {
 
 Medico.init(connection);
 Paciente.init(connection);
-Receituario.init(connection);
 Agenda.init(connection);
+Receituario.init(connection);
 
 Medico.associate(connection.models);
 Paciente.associate(connection.models);
-Receituario.associate(connection.models);
 Agenda.associate(connection.models);
+Receituario.associate(connection.models);
 
 module.exports = connection;

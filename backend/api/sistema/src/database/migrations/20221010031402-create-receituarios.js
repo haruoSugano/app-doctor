@@ -24,6 +24,13 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
+      agenda_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "agendas", key: "id" },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       descricao: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -43,3 +50,4 @@ module.exports = {
     return queryInterface.dropTable("receituarios");
   },
 };
+
