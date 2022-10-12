@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
   	<title>App Doctor</title>
     <meta charset="utf-8">
@@ -19,16 +19,16 @@
 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span> Página Inicial</a>
+            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span>Página Inicial</a>
           </li>
 
           <li>
-              <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span> Cadastrar Médico</a>
+              <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Cadastrar Médico</a>
           </li>
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span> Pesquisar Médico</a>
+            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
           </li>
 
 
@@ -39,16 +39,16 @@
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span> Pesquisar Paciente</a>
+            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
           </li>
 
           <li>
-            <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="fa fa-address-card-o mr-3"></span> Realizar Consulta</a>
+            <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
           </li>
 
 
           <li>
-            <a><span class="fa fa-sign-out mr-3"></span> Sair</a>
+            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
           </li>
           <!-- <li>
             <a href="#"><span class="fa fa-cogs mr-3"></span> Configurações</a>
@@ -225,76 +225,6 @@
         </div>
       </div>
 	</div>
-
-<!-- script para formatar cpf xxx.xxx.xxx.xx -->
-<script>
-  function formataCPF(cpf) {
-    const elementoAlvo = cpf
-    const cpfAtual = cpf.value
-
-    let cpfAtualizado;
-
-    cpfAtualizado = cpfAtual.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
-     function( regex, argumento1, argumento2, argumento3, argumento4 ) {
-            return argumento1 + '.' + argumento2 + '.' + argumento3 + '-' + argumento4;
-    })
-    elementoAlvo.value = cpfAtualizado;
-    }
-</script>
-
-
-
-<!-- script para formatar cep xxx.xxx.xxx.xx -->
-<script>
-  function formataCEP(cep) {
-    const elementoAlvo = cep
-    const cepAtual = cep.value
-
-    let cepAtualizado;
-
-    cepAtualizado = cepAtual.replace(/(\d{5})(\d{3})/,
-     function( regex, argumento1, argumento2) {
-            return argumento1 + '-' + argumento2;
-    })
-    elementoAlvo.value = cepAtualizado;
-    }
-</script>
-
-
-
-<!-- script para formatar telefone (xx)xxxxx-xxxx -->
-<script>
-  function mascaraTelefone(event) {
-      let tecla = event.key;
-      let telefone = event.target.value.replace(/\D+/g, "");
-
-      if (/^[0-9]$/i.test(tecla)) {
-          telefone = telefone + tecla;
-          let tamanho = telefone.length;
-
-          if (tamanho >= 12) {
-              return false;
-          }
-
-          if (tamanho > 10) {
-              telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-          } else if (tamanho > 5) {
-              telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-          } else if (tamanho > 2) {
-              telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-          } else {
-              telefone = telefone.replace(/^(\d*)/, "($1");
-          }
-
-          event.target.value = telefone;
-      }
-
-      if (!["Backspace", "Delete"].includes(tecla)) {
-          return false;
-      }
-  }
-</script>
-
 </body>
 </html>
 

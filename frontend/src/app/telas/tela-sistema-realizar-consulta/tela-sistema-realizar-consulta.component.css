@@ -53,7 +53,6 @@ a:not([href]):not([tabindex]) {
     }
 
 
-
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
@@ -157,6 +156,8 @@ a {
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
+
+
     @media (prefers-reduced-motion: reduce) {
       #sidebar .custom-menu {
         -webkit-transition: none;

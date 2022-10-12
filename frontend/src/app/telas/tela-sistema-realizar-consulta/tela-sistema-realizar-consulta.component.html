@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
   	<title>App Doctor</title>
     <meta charset="utf-8">
@@ -23,23 +23,23 @@
           </li>
 
           <li>
-              <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span> Cadastrar Médico</a>
+              <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Cadastrar Médico</a>
           </li>
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span> Pesquisar Médico</a>
+            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
           </li>
 
 
 
           <li>
-            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span> Cadastrar Paciente</a>
+            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Cadastrar Paciente</a>
           </li>
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span> Pesquisar Paciente</a>
+            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
           </li>
 
           <li>
@@ -61,11 +61,6 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-
-
-
-
-
        <!-- <div class="row titulo-e-pesquisar">
           <div>
             <header>
@@ -210,7 +205,7 @@
                   <h5 class="width: 10px">Deseja adicionar atestado?</h5>
                 </div>
                 <div class="col-6">
-                  <button id="btn-adicionar-atestado" class="btn-adicionar-atestado" >Adicionar</button>
+                  <button id="btn-adicionar-atestado" class="btn-adicionar-atestado" onclick="mostrarDescricaoAtestado()">Adicionar</button>
                 </div>
             </div>
 
@@ -237,91 +232,5 @@
         </div>
       </div>
 	</div>
-
-
-<!-- script para formatar cpf xxx.xxx.xxx.xx -->
-<script>
-  function formataCPF(cpf) {
-    const elementoAlvo = cpf
-    const cpfAtual = cpf.value
-
-    let cpfAtualizado;
-
-    cpfAtualizado = cpfAtual.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
-     function( regex, argumento1, argumento2, argumento3, argumento4 ) {
-            return argumento1 + '.' + argumento2 + '.' + argumento3 + '-' + argumento4;
-    })
-    elementoAlvo.value = cpfAtualizado;
-    }
-</script>
-
-
-
-<!-- script para formatar cep xxx.xxx.xxx.xx -->
- <script>
-  function formataCEP(cep) {
-    const elementoAlvo = cep
-    const cepAtual = cep.value
-
-    let cepAtualizado;
-
-    cepAtualizado = cepAtual.replace(/(\d{5})(\d{3})/,
-     function( regex, argumento1, argumento2) {
-            return argumento1 + '-' + argumento2;
-    })
-    elementoAlvo.value = cepAtualizado;
-    }
-</script>
-
-
-
-<!--script para formatar telefone (xx)xxxxx-xxxx -->
-<script>
-  function mascaraTelefone(event) {
-      let tecla = event.key;
-      let telefone = event.target.value.replace(/\D+/g, "");
-
-      if (/^[0-9]$/i.test(tecla)) {
-          telefone = telefone + tecla;
-          let tamanho = telefone.length;
-
-          if (tamanho >= 12) {
-              return false;
-          }
-
-          if (tamanho > 10) {
-              telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-          } else if (tamanho > 5) {
-              telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-          } else if (tamanho > 2) {
-              telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-          } else {
-              telefone = telefone.replace(/^(\d*)/, "($1");
-          }
-
-          event.target.value = telefone;
-      }
-
-      if (!["Backspace", "Delete"].includes(tecla)) {
-          return false;
-      }
-  }
-</script>
-
-<!-- script para ocultar/mostrar descrição do atestado -->
-
-<script>
-  var btn = document.getElementById('btn-adicionar-atestado');
-  var container = document.querySelector('.container-escondido');
-  btn.addEventListener('click', function() {
-
-  if(container.style.display === 'none') {
-      container.style.display = 'block';
-  } else {
-      container.style.display = 'none';
-  }
-});
-</script>
-
 </body>
 </html>

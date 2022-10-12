@@ -1,4 +1,20 @@
 
+
+  .wrapper {
+    width: 100%; }
+
+    a[data-toggle="collapse"] {
+      position: relative; }
+
+    .dropdown-toggle::after {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
+
   a {
     color: #007bff;
     text-decoration: none;
@@ -38,6 +54,7 @@
 
 
 
+
       body{
         background-image: url(background.jpg);
         background-position: center;
@@ -70,41 +87,63 @@
     -o-transition: all 0.3s;
     transition: all 0.3s;
     position: relative; }
+
     #sidebar .h6 {
       color: #fff; }
+
     #sidebar.active {
       margin-left: -250px; }
+
       #sidebar.active .custom-menu {
         margin-right: -50px; }
+
     #sidebar h1 {
       margin-bottom: 20px;
       font-weight: 700;
       font-size: 20px; }
+
       #sidebar h1 .logo {
         color: #fff;
         display: block;
         padding: 10px 30px;
         background: #2f89fc; }
+
     #sidebar ul.components {
       padding: 0; }
+
+
     #sidebar ul li {
       font-size: 16px; }
+
+
       #sidebar ul li > ul {
         margin-left: 10px; }
+
+
         #sidebar ul li > ul li {
           font-size: 14px; }
+
+
+
       #sidebar ul li a {
         padding: 15px 30px;
         display: block;
         color: rgba(255, 255, 255, 0.6);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+
+
         #sidebar ul li a:hover {
           color: #fff;
           background: #2f89fc;
           border-bottom: 1px solid #2f89fc; }
+
+
       #sidebar ul li.active > a {
         background: transparent;
         color: #fff; }
+
+
         #sidebar ul li.active > a:hover {
           background: #2f89fc;
           border-bottom: 1px solid #2f89fc; }
@@ -130,6 +169,7 @@
           -webkit-transition: 0.3s;
           -o-transition: 0.3s;
           transition: 0.3s; }
+
       @media (prefers-reduced-motion: reduce) {
         #sidebar .custom-menu {
           -webkit-transition: none;
@@ -167,5 +207,7 @@
   p{
     color: #dee2e6;
   }
+
+  /* dasdadsdada */
 
 

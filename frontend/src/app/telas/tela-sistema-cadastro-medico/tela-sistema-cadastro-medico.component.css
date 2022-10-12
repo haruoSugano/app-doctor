@@ -43,13 +43,15 @@
 
 
 
-  body {
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.8;
-    font-weight: normal;
-    background: #fff;
-    color: gray; }
+      body{
+        background-image: url(background.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
 
 
   a {
@@ -155,6 +157,7 @@
           -webkit-transition: 0.3s;
           -o-transition: 0.3s;
           transition: 0.3s; }
+
       @media (prefers-reduced-motion: reduce) {
         #sidebar .custom-menu {
           -webkit-transition: none;
@@ -229,16 +232,6 @@ textarea::placeholder {
 
 .endereco-2{
   display: flex;
-}
-
-body{
-  background-image: url(background.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
 }
 
 .dica-senha{

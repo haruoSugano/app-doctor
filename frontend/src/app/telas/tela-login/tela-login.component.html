@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,10 +17,6 @@
       </div>
       <div class="form-box">
         <h2>Faça Login</h2>
-        <p>
-          Não possui conta?
-          <a routerLink="/usuarios" routerLinkActive="active"> Cadastre-se </a>
-        </p>
         <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
           <div class="input-group">
             <label for="email">E-mail</label>
@@ -60,15 +56,6 @@
         </form>
       </div>
     </div>
-    <script>
-      function mostrarSenha() {
-        var senha = document.getElementById("password");
-        if (senha.type === "password") {
-          senha.type = "text";
-        } else {
-          senha.type = "password";
-        }
-      }
-    </script>
+
   </body>
 </html>

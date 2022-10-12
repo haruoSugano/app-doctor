@@ -1,16 +1,16 @@
+function formataCEP(cep) {
+  const elementoAlvo = cep
+  const cepAtual = cep.value
 
- function formataCEP(cep) {
-    const elementoAlvo = cep
-    const cepAtual = cep.value
+  let cepAtualizado;
 
-    let cepAtualizado;
-
-    cepAtualizado = cepAtual.replace(/(\d{5})(\d{3})/,
-     function( regex, argumento1, argumento2) {
-            return argumento1 + '-' + argumento2;
+  cepAtualizado = cepAtual.replace(/(\d{5})(\d{3})/,
+    function( regex, argumento1, argumento2) {
+      return argumento1 + '-' + argumento2;
     })
-    elementoAlvo.value = cepAtualizado;
+  elementoAlvo.value = cepAtualizado;
 }
+
 function mascaraTelefone(event) {
       let tecla = event.key;
       let telefone = event.target.value.replace(/\D+/g, "");
@@ -40,4 +40,39 @@ function mascaraTelefone(event) {
           return false;
       }
 }
+function mostrarSenha() {
+  var senha = document.getElementById("password");
+    if (senha.type === "password") {
+      senha.type = "text";
+    } else {
+      senha.type = "password";
+  }
+}
+
+//script para ocultar/mostrar descrição do atestado -->
+function mostrarDescricaoAtestado() {
+  var btn = document.getElementById('btn-adicionar-atestado');
+  var container = document.querySelector('.container-escondido');
+  btn.addEventListener('click', function() {
+
+    if(container.style.display === 'none') {
+        container.style.display = 'block';
+    } else {
+        container.style.display = 'none';
+    }
+  });
+}
+
+/* function ocultarEMostrarMenu(){
+  var submenu = document.getElementById('sidebar');
+  if(submenu.style.display == 'block'){
+    submenu.style.display = 'none';
+  }else{
+    submenu.style.display = 'block';
+  }
+}
+ */
+
+
+
 
