@@ -27,13 +27,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "src/assets/resources/js/script.js",
-              "src/assets/resources/js/bootstrap.min.js",
-              "src/assets/resources/js/jquery.min.js",
-              "src/assets/resources/js/main.js",
-              "src/assets/resources/js/popper.js"
+              "src/assets/resources/js/script.js"
             ]
-            
+
           },
           "configurations": {
             "production": {
