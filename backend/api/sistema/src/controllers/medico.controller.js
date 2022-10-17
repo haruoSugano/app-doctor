@@ -1,35 +1,23 @@
 const Medico = require("../models/medico.model");
+const rabbitmq = require("../config/rabbit/rabbit");
 
 exports.create = async (req, res, next) => {
-  let { name, data_nascimento, crm, telefone, endereco, numero } =
-    req.body;
+  let { name, data_nascimento, crm, telefone, endereco, numero } = req.body;
   const { path: url } = req.file;
 
   try {
-    if (!name) return res.status(400).send({ message: "O nome é obrigatório" });
-
-    if (!data_nascimento)
+    if (
+      !name ||
+      !data_nascimento ||
+      !crm ||
+      !telefone ||
+      !endereco ||
+      !numero ||
+      !req.file
+    ) {
       return res
         .status(400)
-        .send({ message: "A Data de nascimento é obrigatório" });
-
-    if (!crm) return res.status(400).send({ message: "O CRM é obrigatório" });
-
-    if (!telefone)
-      return res.status(400).send({ message: "O Telefone é obrigatório" });
-
-    if (!endereco)
-      return res.status(400).send({ message: "O endereço é obrigatório" });
-
-    if (!numero)
-      return res.status(400).send({ message: "O Numero é obrigatório" });
-
-    if (await Medico.findOne({ where: { crm } })) {
-      return res.status(400).send({ error: "Este crm já existe" });
-    }
-
-    if (!req.file) {
-      return res.status(400).send({ error: "A assinatura é obrigatório! " });
+        .send({ message: "É necessário preencher todos os dados do médico!" });
     }
 
     const medico = await Medico.create({
@@ -55,6 +43,25 @@ exports.create = async (req, res, next) => {
 exports.findAll = async (req, res, next) => {
   try {
     const medicos = await Medico.findAll();
+
+    if (!medicos) {
+      return res
+        .status(400)
+        .send({ message: "Nenhum médico cadastrado na base de dados" });
+    }
+
+    rabbitmq()
+      .then((conn) => conn.createChannel())
+      .then((ch) => {
+        console.log("Channel created!");
+
+        const queue = "medico";
+
+        ch.assertQueue(queue);
+
+        console.log("Sending message");
+        ch.sendToQueue(queue, Buffer.from(JSON.stringify(medicos)), { persistent: true });
+      });
 
     return res.status(200).send(medicos);
   } catch (error) {
@@ -84,8 +91,7 @@ exports.findById = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
   const { medico_id } = req.params;
-  const { name, data_nascimento, crm, telefone, endereco, numero } =
-    req.body;
+  const { name, data_nascimento, crm, telefone, endereco, numero } = req.body;
   const { path: url } = req.file;
   try {
     if (await Medico.findOne({ where: { crm } })) {

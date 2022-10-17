@@ -17,6 +17,7 @@
     "nodemon": "^2.0.19"
   },
   "dependencies": {
+    "amqplib": "^0.10.3",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

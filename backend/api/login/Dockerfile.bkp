@@ -1,0 +1,13 @@
+FROM node
+
+WORKDIR /usr/app/api/login
+
+COPY package.json /usr/app/api/login/
+
+RUN npm install
+
+COPY . /usr/app/api/login
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]

@@ -9,7 +9,7 @@ const Agenda = require("../models/agenda.model");
 const connection = new Sequelize(dbconfig);
 
 connection.authenticate().then(() => {
-    console.log("Conectado com sucesso na base de dados...");
+    console.log("Conectado com sucesso na base de dados PostgreSQL", new Date());
 }).catch((error) => {
     console.error("Não foi possível conectar com o banco de dados: ", error);
 });

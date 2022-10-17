@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.10.3",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
