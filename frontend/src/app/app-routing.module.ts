@@ -9,13 +9,13 @@ import { TelaSistemaRealizarConsultaComponent } from './telas/tela-sistema-reali
 import { TelaSistemaComponent } from './telas/tela-sistema/tela-sistema.component';
 
 const routes: Routes = [
-  { path: '', component: TelaLoginComponent } ,
-  { path: 'home', component: TelaSistemaComponent },
-  { path: 'cadastrar-medico', component: TelaSistemaCadastroMedicoComponent},
-  {path: 'pesquisar-medico', component: TelaSistemaPesquisarMedicoComponent},
-  { path: 'cadastrar-paciente', component: TelaSistemaCadastroPacienteComponent },
-  { path: 'realizar-consulta', component: TelaSistemaRealizarConsultaComponent },
-  { path: '',   redirectTo: '/', pathMatch: 'full' }
+  { path: '', component: TelaLoginComponent },
+  { path: 'home', component: TelaSistemaComponent, canActivate: [AuthGuard] },
+  { path: 'cadastrar-medico', component: TelaSistemaCadastroMedicoComponent, canActivate: [AuthGuard] },
+  { path: 'pesquisar-medico', component: TelaSistemaPesquisarMedicoComponent, canActivate: [AuthGuard] },
+  { path: 'cadastrar-paciente', component: TelaSistemaCadastroPacienteComponent, canActivate: [AuthGuard] },
+  { path: 'realizar-consulta', component: TelaSistemaRealizarConsultaComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
