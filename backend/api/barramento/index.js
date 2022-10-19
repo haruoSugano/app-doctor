@@ -18,6 +18,6 @@ app.post("/message", async (req, res) => {
 
 consumerQueue();
 
-app.listen(6000, () => {
-  console.log("listening on port 6000");
+app.listen(10000, () => {
+  console.log("listening on port 10000");
 });

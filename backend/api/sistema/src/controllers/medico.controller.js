@@ -1,5 +1,5 @@
 const Medico = require("../models/medico.model");
-const rabbitmq = require("../config/rabbit/rabbit");
+const rabbitmq = require("../config/rabbit/");
 
 exports.create = async (req, res, next) => {
   let { name, data_nascimento, crm, telefone, endereco, numero } = req.body;
@@ -49,19 +49,6 @@ exports.findAll = async (req, res, next) => {
         .status(400)
         .send({ message: "Nenhum médico cadastrado na base de dados" });
     }
-
-    rabbitmq()
-      .then((conn) => conn.createChannel())
-      .then((ch) => {
-        console.log("Channel created!");
-
-        const queue = "medico";
-
-        ch.assertQueue(queue);
-
-        console.log("Sending message");
-        ch.sendToQueue(queue, Buffer.from(JSON.stringify(medicos)), { persistent: true });
-      });
 
     return res.status(200).send(medicos);
   } catch (error) {
