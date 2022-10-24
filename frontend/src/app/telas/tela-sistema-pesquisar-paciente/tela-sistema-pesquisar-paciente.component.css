@@ -194,7 +194,7 @@ a:hover, a:focus {
   transition: all 0.3s;
 }
 
-span.fa.fa-user-md.icone-titulo::before{
+span.fa.fa-user.icone-titulo::before{
   margin-right: 10px;
 }
 

@@ -49,6 +49,42 @@ function mostrarSenha() {
   }
 }
 
+function mostrarSenhaDois() {
+  let btn = document.querySelector('.fa-eye');
+  btn.addEventListener('click', function() {
+    let input = document.querySelector('#password');
+    if(input.getAttribute('type') == 'password') {
+        input.setAttribute('type', 'text');
+    } else {
+        input.setAttribute('type', 'password');
+    }
+  });
+}
+
+/* function mostrarSenhaDois() {
+  var senha = document.getElementById("eye-confirmar-senha");
+    if (senha.type === "password") {
+      senha.type = "text";
+    } else {
+      senha.type = "password";
+  }
+} */
+
+/* function mostrarSenhaDois{
+  let btn = document.querySelector('.fa-eye');
+  btn.addEventListener('click', function() {
+    let input = document.querySelector('#password');
+    if(input.getAttribute('type') == 'password') {
+        input.setAttribute('type', 'text');
+    } else {
+        input.setAttribute('type', 'password');
+    }
+});
+} */
+
+
+
+
 //script para ocultar/mostrar descrição do atestado -->
 function mostrarDescricaoAtestado() {
   var btn = document.getElementById('btn-adicionar-atestado');
@@ -63,6 +99,17 @@ function mostrarDescricaoAtestado() {
   });
 }
 
+function limparForm() {
+	document.getElementById('formulario').reset();
+}
+
+
+
+
+
+
+
+
 /* function ocultarEMostrarMenu(){
   var submenu = document.getElementById('sidebar');
   if(submenu.style.display == 'block'){
@@ -72,6 +119,7 @@ function mostrarDescricaoAtestado() {
   }
 }
  */
+
 
 
 

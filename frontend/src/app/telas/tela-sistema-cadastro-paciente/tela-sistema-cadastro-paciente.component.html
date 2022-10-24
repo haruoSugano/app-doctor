@@ -28,7 +28,7 @@
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
+            <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
           </li>
 
 
@@ -39,7 +39,7 @@
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
+            <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
           </li>
 
           <li>
@@ -48,7 +48,7 @@
 
 
           <li>
-            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
+            <a><span class="fa fa-sign-out mr-3"></span> Sair</a>
           </li>
           <!-- <li>
             <a href="#"><span class="fa fa-cogs mr-3"></span> Configurações</a>
@@ -61,7 +61,7 @@
 
 
         <div class="formulario">
-          <form>
+          <form id="formulario">
             <div class="col-12">
               <header>
                 <h3 id="titulo"> <span class="fa fa-user-plus icone-titulo"></span>Cadastrar Paciente</h3>
@@ -211,11 +211,11 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                  <button  id="limpar"  type="button" class="btn btn-danger" style="width:100%;"><span class="fa fa-close mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Limpar</button>
+                  <button onclick="limparForm()"  type="button" class="btn btn-danger" style="width:100%;"><span class="fa fa-close mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Limpar</button>
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                  <button id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
+                  <button routerLink="/home" id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
                 </div>
               </div>
 

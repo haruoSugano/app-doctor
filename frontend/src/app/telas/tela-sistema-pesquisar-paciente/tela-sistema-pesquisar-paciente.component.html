@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="tela-sistema-pesquisar-medico.component.css">
+		<link rel="stylesheet" href="tela-sistema-pesquisar-paciente.component.css">
 
   </head>
 
@@ -34,29 +34,24 @@
               <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Cadastrar Médico</a>
           </li>
 
-
           <li>
-            <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="fa fa-search mr-3" style="color:rgb(255, 255, 255)"></span><strong>Pesquisar Médico</strong></a>
+            <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
           </li>
 
-
-
           <li>
-            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span> Cadastrar Paciente</a>
+            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Cadastrar Paciente</a>
           </li>
 
-
           <li>
-            <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
+            <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="fa fa-search mr-3" style="color:rgb(255, 255, 255)"></span><strong>Pesquisar Paciente</strong></a>
           </li>
 
           <li>
             <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
           </li>
 
-
           <li>
-            <a><span class="fa fa-sign-out mr-3"></span> Sair</a>
+            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
           </li>
 
 
@@ -75,11 +70,11 @@
             <div class="row titulo-e-pesquisar col-12">
               <div class="titulo col-5">
                 <header>
-                  <h3 id="titulo"> <span class="fa fa-user-md icone-titulo"></span>Pesquisar Médico</h3>
+                  <h3 id="titulo"><span class="fa fa-user icone-titulo"></span>Pesquisar Paciente</h3>
                 </header>
               </div>
               <div class="input-group col">
-                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do médico" aria-label="Search" aria-describedby="search-addon"/>
+                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon"/>
                 <button type="button" class="btn btn-outline-primary">Pesquisar</button>
               </div>
             </div>
@@ -94,12 +89,12 @@
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Data de Nascimento</th>
-                        <th>CRM</th>
+                        <th>CPF</th>
                         <th>Telefone</th>
                         <th>Endereço</th>
                         <th>Número</th>
-                        <th>Cidade</th>
                         <th>Estado</th>
+                        <th>Cidade</th>
                         <th>CEP</th>
                         <th>Usuário</th>
                         <th>Senha</th>
@@ -124,7 +119,7 @@
 
                         <td class="td_item">{{user.dataNascimento}}</td>
 
-                        <td class="td_item">{{user.crm}}</td>
+                        <td class="td_item">{{user.cpf}}</td>
 
                         <td class="td_item">
                           <div class="div_item" *ngIf="user.isEdit">
@@ -155,19 +150,19 @@
 
                         <td class="td_item">
                           <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.cidade" class="form-control"/>
+                            <input type="text" [(ngModel)]="user.estado" class="form-control"/>
                           </div>
                           <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.cidade}}
+                            {{user.estado}}
                           </div>
                         </td>
 
                         <td class="td_item">
                           <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.estado" class="form-control"/>
+                            <input type="text" [(ngModel)]="user.cidade" class="form-control"/>
                           </div>
                           <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.estado}}
+                            {{user.cidade}}
                           </div>
                         </td>
 

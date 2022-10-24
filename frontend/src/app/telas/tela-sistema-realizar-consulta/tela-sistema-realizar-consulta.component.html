@@ -28,18 +28,18 @@
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
+            <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
           </li>
 
 
 
           <li>
-            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Cadastrar Paciente</a>
+            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span> Cadastrar Paciente</a>
           </li>
 
 
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
+            <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
           </li>
 
           <li>
@@ -48,7 +48,7 @@
 
 
           <li>
-            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
+            <a><span class="fa fa-sign-out mr-3"></span> Sair</a>
           </li>
 
 
@@ -89,50 +89,45 @@
 
               <div class="input-group col">
                 <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary">Search</button>
+                <button type="button" class="btn btn-outline-primary">Pesquisar</button>
               </div>
-
             </div>
-
-
-
 
             <div class="row nome col-12">
               <div class="col nome">
                 <label>Nome Completo</label>
-                <input id="nome" name="nome" type="text" class="form-control input"  placeholder="Digite o Nome" required>
+                <input id="nome" name="nome" type="text" class="form-control input"   required disabled="disabled">
               </div>
             </div>
 
             <div class="row nascimento-crm-telefone col-12">
                 <div class="form-group col-4" >
                   <label class="data-nascimento">Data de Nascimento</label>
-                  <input  id="data"  name="begin" type="date" class="form-control input"   placeholder="Data de Nascimento" value="" min="1940-01-01" max="2023-12-31" required>
+                  <input  id="data"  name="begin" type="date" class="form-control input"    value="" min="1940-01-01" max="2023-12-31" required disabled="disabled">
                 </div>
 
                 <div class="form-group col-4">
                   <label>CPF</label>
-                  <input id="cpf" name="cpf" type="text" class="form-control input"  placeholder="Ex: 99999999999" onblur="formataCPF(this)" required>
+                  <input id="cpf" name="cpf" type="text" class="form-control input"  onblur="formataCPF(this)" required disabled="disabled">
                 </div>
 
 
                 <div class="form-group col-4">
                   <label>Telefone (com DDD)</label>
-                  <input id="telefone" name="telefone" type="tel"  class="form-control input"  placeholder="Ex: 11999999999"  onkeydown="return mascaraTelefone(event)" required>
+                  <input id="telefone" name="telefone" type="tel"  class="form-control input"   onkeydown="return mascaraTelefone(event)" required disabled="disabled">
                   <div class="help-block with-errors"></div>
                 </div>
-
             </div>
 
             <div class= "row endereco-1 col-12 ">
               <div class="col-8">
                 <label>Endereço</label>
-                <input id="endereco" name="endereco" type="text" class="form-control input"  placeholder="Ex: Rua App Doctor" required>
+                <input id="endereco" name="endereco" type="text" class="form-control input"  required disabled="disabled">
               </div>
 
               <div class="col-4">
                 <label>Número</label>
-                <input id="numero" name="numero" type="number" class="form-control input"  placeholder="Ex: 398" required>
+                <input id="numero" name="numero" type="number" class="form-control input"   required disabled="disabled">
               </div>
             </div>
 
@@ -140,8 +135,8 @@
             <div class="row endereco-2 col-12">
                 <div class="col-md-3 col-sm-3">
                     <label>Estado</label>
-                    <select id="estado" name="estado" type="text" class="form-control input" required>
-                      <option selected>Selecionar Estado...</option>
+                    <select id="estado" name="estado" type="text" class="form-control input" required disabled="disabled">
+                      <option selected></option>
                       <option>AC</option>
                       <option>AL</option>
                       <option>AP</option>
@@ -175,12 +170,12 @@
 
                 <div class="col-md-6 col-sm-6">
                   <label>Cidade</label>
-                  <input id="cidade" name="cidade" type="text" class="form-control input" placeholder="Ex: São Paulo" required>
+                  <input id="cidade" name="cidade" type="text" class="form-control input" required disabled="disabled">
                 </div>
 
                 <div class="col-md-3 col-sm-3">
                   <label>CEP</label>
-                  <input id="cep" name="cep" type="text" class="form-control input" onblur="formataCEP(this)" placeholder="Ex: 9999999" required>
+                  <input id="cep" name="cep" type="text" class="form-control input" onblur="formataCEP(this)" required disabled="disabled">
                 </div>
             </div>
 
@@ -201,10 +196,10 @@
             </div>
 
             <div class="row atestado col-12">
-                <div class="col-4">
-                  <h5 class="width: 10px">Deseja adicionar atestado?</h5>
+                <div class="col-md-3">
+                  <h5 class="adicionar-atestado-text">Deseja adicionar atestado?</h5>
                 </div>
-                <div class="col-6">
+                <div class="col-6 btn-adicionar-atestado">
                   <button id="btn-adicionar-atestado" class="btn-adicionar-atestado" onclick="mostrarDescricaoAtestado()">Adicionar</button>
                 </div>
             </div>
@@ -225,7 +220,7 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                  <button id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
+                  <button routerLink="/home" id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
                 </div>
               </div>
           </form>

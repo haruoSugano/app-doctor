@@ -26,31 +26,25 @@
               <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"  style="color:rgb(255, 255, 255)"></span><strong>Cadastrar Médico</strong></a>
           </li>
 
-
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
+            <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
           </li>
 
-
-
           <li>
-            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Cadastrar Paciente</a>
+            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span> Cadastrar Paciente</a>
           </li>
 
-
           <li>
-            <a routerLink="/" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
+            <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a>
           </li>
 
           <li>
             <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
           </li>
 
-
           <li>
-            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
+            <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
           </li>
-
 
           <!-- <li>
             <a href="#"><span class="fa fa-cogs mr-3"></span> Configurações</a>
@@ -62,7 +56,7 @@
       <div id="content" class="p-4 p-md-5 pt-5">
 
         <div class="formulario">
-          <form>
+          <form id="formulario">
             <div>
               <header class="col-12">
                 <h3 id="titulo"> <span class="fa fa-user-plus icone-titulo"></span>Cadastrar Médico</h3>
@@ -159,12 +153,15 @@
 
                   <div class="col-6">
                     <label>Senha</label>
-                    <input id="senha" name="senha" type="password"  class="form-control input input-senha" aria-describedby="passwordHelpBlock" placeholder="Ex: App@doctor123">
+                    <input id="password" name="password" type="password"  class="form-control input input-senha" aria-describedby="passwordHelpBlock" placeholder="Ex: App@doctor123">
+                    <span id="eye-senha" class="fa fa-eye senha"></span>
+
                   </div>
 
                   <div class="col-6">
                     <label>Confirmar Senha</label>
-                    <input id="senha" name="senha" type="password"  class="form-control input input-confirmar-senha" aria-describedby="passwordHelpBlock" placeholder="Ex: App@doctor123">
+                    <input id="password" name="password" type="password"  class="form-control input input-confirmar-senha" aria-describedby="passwordHelpBlock" placeholder="Ex: App@doctor123">
+                    <span onclick="mostrarSenhaDois()" id="eye-confirmar-senha" class="fa fa-eye confirmar-senha"></span>
                   </div>
               </div>
 
@@ -173,8 +170,6 @@
                   Sua senha deve ter entre 8 e 20 caracteres, os quais devem ser letras,sem espaços, com pelo menos 1 número e 1 caracter especial.
                 </small>
               </div>
-
-
 
               <div class="row anexo col-12">
                 <div class="col-12">
@@ -194,11 +189,11 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                  <button  id="limpar"  type="button" class="btn btn-danger" style="width:100%;"><span class="fa fa-close mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Limpar</button>
+                  <button onclick="limparForm()" id="limpar"  type="button" class="btn btn-danger" style="width:100%;"><span class="fa fa-close mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Limpar</button>
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                  <button id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
+                  <button routerLink="/home"  id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
                 </div>
               </div>
           </form>

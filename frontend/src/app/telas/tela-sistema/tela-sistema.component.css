@@ -56,7 +56,7 @@
 
 
       body{
-        background-image: url(background.jpg);
+        background-image: url(src/assets/resources/img/background.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
