@@ -5,6 +5,7 @@ class Medico extends Model {
     super.init(
       {
         name: DataTypes.STRING,
+        email: DataTypes.STRING,
         data_nascimento: DataTypes.DATE,
         crm: DataTypes.INTEGER,
         telefone: DataTypes.INTEGER,

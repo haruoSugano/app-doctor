@@ -10,16 +10,18 @@ WORKDIR /usr/app
 COPY package*.json ./
 
 ## Executa npm install para adicionar as dependências e criar a pasta node_modules
+RUN npm cache clean --force
 RUN npm install
+RUN npm install -g nodemon
 
-## Copia tudo que está no diretório onde o arquivo Dockerfile está
+## Copia tudo que está no diretório onde o arquivo Dockerfile está 
 ## para dentro da pasta /usr/app do container
 ## Vamos ignorar a node_modules por isso criaremos um .dockerignore
-COPY . .
+COPY . ./usr/app
 
 ## Container ficará ouvindo os acessos na porta 3000
-EXPOSE 4200
+EXPOSE 3000
 
 ## Não se repete no Dockerfile
 ## Executa o comando npm start para iniciar o script que que está no package.json
-CMD ["npm", "start"]
+CMD npm start

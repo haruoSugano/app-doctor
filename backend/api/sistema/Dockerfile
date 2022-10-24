@@ -1,13 +1,10 @@
-FROM node
-
-WORKDIR /usr/app/api/sistema
-
-COPY package.json /usr/app/api/sistema
-
+FROM node:alpine
+WORKDIR /usr/app
+COPY package*.json ./
+RUN npm cache clean --force
 RUN npm install
-
-COPY . /usr/app/api/sistema
-
+RUN npm install -g nodemon
+RUN npm i -g sequelize-cli
+COPY . ./usr/app
 EXPOSE 4000
-
-CMD ["npm", "run", "dev"]
+CMD npm start

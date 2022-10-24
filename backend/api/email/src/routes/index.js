@@ -1,7 +1,8 @@
 const express = require("express");
-const emailRoutes = require("./email.routes");
+const subscribe_mail = require("../config/rabbit/consume/subscribe_mail");
 const router = express.Router();
 
-router.use("/mail/", emailRoutes);
+subscribe_mail("cadastro");
+subscribe_mail("agendamento");
 
 module.exports = router;

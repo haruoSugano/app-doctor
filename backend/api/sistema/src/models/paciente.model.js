@@ -5,6 +5,7 @@ class Paciente extends Model {
     super.init(
       {
         name: DataTypes.STRING,
+        email: DataTypes.STRING,
         data_nascimento: DataTypes.DATE,
         cpf: DataTypes.INTEGER,
         telefone: DataTypes.INTEGER,

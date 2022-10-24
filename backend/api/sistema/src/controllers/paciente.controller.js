@@ -5,6 +5,7 @@ exports.create = async (req, res, next) => {
   const { medico_id } = req.params;
   const {
     name,
+    email,
     data_nascimento,
     cpf,
     telefone,
@@ -22,42 +23,8 @@ exports.create = async (req, res, next) => {
       return res.status(400).send({ message: "Médico não encontrado" });
     }
 
-    if (!name) {
-      return res.status(400).send({ message: "Campo nome é obrigatório" });
-    }
-
-    if (!data_nascimento) {
-      return res
-        .status(400)
-        .send({ message: "Campo data de nascimento é obrigatório" });
-    }
-
-    if (!cpf) {
-      return res.status(400).send({ message: "Campo cpf é obrigatório" });
-    }
-
-    if (!telefone) {
-      return res.status(400).send({ message: "Campo telefone é obrigatório" });
-    }
-
-    if (!endereco) {
-      return res.status(400).send({ message: "Campo endereco é obrigatório" });
-    }
-
-    if (!numero) {
-      return res.status(400).send({ message: "Campo numero é obrigatório" });
-    }
-
-    if (!estado) {
-      return res.status(400).send({ message: "Campo estado é obrigatório" });
-    }
-
-    if (!cidade) {
-      return res.status(400).send({ message: "Campo cidade é obrigatório" });
-    }
-
-    if (!cep) {
-      return res.status(400).send({ message: "Campo cep é obrigatório" });
+    if (!name || !email || !data_nascimento || !cpf || !telefone || !endereco || !numero || !estado || !cidade || !cep) {
+      return res.status(400).send({ message: "É necessário preencher todos os campos" });
     }
 
     if (await Paciente.findOne({ where: { cpf } })) {
@@ -66,6 +33,7 @@ exports.create = async (req, res, next) => {
 
     const paciente = await Paciente.create({
       name,
+      email,
       data_nascimento,
       cpf,
       telefone,
@@ -141,6 +109,7 @@ exports.update = async (req, res, next) => {
 
   const {
     name,
+    email,
     data_nascimento,
     cpf,
     telefone,
@@ -161,42 +130,8 @@ exports.update = async (req, res, next) => {
       return res.status(400).send({ error: "Paciente não encontrado" });
     }
 
-    if (!name) {
-      return res.status(400).send({ message: "Campo nome é obrigatório" });
-    }
-
-    if (!data_nascimento) {
-      return res
-        .status(400)
-        .send({ message: "Campo data de nascimento é obrigatório" });
-    }
-
-    if (!cpf) {
-      return res.status(400).send({ message: "Campo cpf é obrigatório" });
-    }
-
-    if (!telefone) {
-      return res.status(400).send({ message: "Campo telefone é obrigatório" });
-    }
-
-    if (!endereco) {
-      return res.status(400).send({ message: "Campo endereco é obrigatório" });
-    }
-
-    if (!numero) {
-      return res.status(400).send({ message: "Campo numero é obrigatório" });
-    }
-
-    if (!estado) {
-      return res.status(400).send({ message: "Campo estado é obrigatório" });
-    }
-
-    if (!cidade) {
-      return res.status(400).send({ message: "Campo cidade é obrigatório" });
-    }
-
-    if (!cep) {
-      return res.status(400).send({ message: "Campo cep é obrigatório" });
+    if (!name || !email || !data_nascimento || !cpf || !telefone || !endereco || !numero || !estado || !cidade || !cep) {
+      return res.status(400).send({ message: "É necessário preencher todos os campos" });
     }
 
     // if (await Paciente.findOne({ where: { cpf } })) {
@@ -206,6 +141,7 @@ exports.update = async (req, res, next) => {
     const paciente_atualizado = await Paciente.update(
       {
         name: name,
+        email: email,
         data_nascimento: data_nascimento,
         cpf: cpf,
         telefone: telefone,

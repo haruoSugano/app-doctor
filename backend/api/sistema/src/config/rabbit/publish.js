@@ -6,7 +6,7 @@ module.exports = async (message) => {
     .then(async (ch) => {
       console.log("Channel created");
 
-      const queue = "cadastro";
+      const queue = "agendamento";
       ch.assertQueue(queue, { durable: false });
 
       console.log("Sending message");

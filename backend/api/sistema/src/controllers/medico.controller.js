@@ -2,12 +2,13 @@ const Medico = require("../models/medico.model");
 const rabbitmq = require("../config/rabbit/");
 
 exports.create = async (req, res, next) => {
-  let { name, data_nascimento, crm, telefone, endereco, numero } = req.body;
+  let { name, email, data_nascimento, crm, telefone, endereco, numero } = req.body;
   const { path: url } = req.file;
 
   try {
     if (
       !name ||
+      !email ||
       !data_nascimento ||
       !crm ||
       !telefone ||
@@ -22,6 +23,7 @@ exports.create = async (req, res, next) => {
 
     const medico = await Medico.create({
       name,
+      email,
       data_nascimento,
       crm,
       telefone,
@@ -78,7 +80,7 @@ exports.findById = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
   const { medico_id } = req.params;
-  const { name, data_nascimento, crm, telefone, endereco, numero } = req.body;
+  const { name, email, data_nascimento, crm, telefone, endereco, numero } = req.body;
   const { path: url } = req.file;
   try {
     if (await Medico.findOne({ where: { crm } })) {
@@ -88,6 +90,7 @@ exports.update = async (req, res, next) => {
     const medico = await Medico.upsert({
       id: medico_id,
       name,
+      email,
       data_nascimento,
       crm,
       telefone,
