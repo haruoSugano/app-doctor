@@ -44,13 +44,13 @@
 
 
       body{
-        background-image: url(background.jpg);
+        background-image: url(src/assets/resources/img/background.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
+        min-height: 115vh;
       }
 
 
@@ -65,9 +65,19 @@
       -webkit-box-shadow: none;
       box-shadow: none; }
 
+      #sidebar {
+        width: 250px !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 999;
+        background: #212121;
+        color: #fff;
+        transition: all 0.3s !important;
+      }
 
-
-#sidebar {
+/* #sidebar {
     min-width: 250px;
     max-width: 250px;
     background: #212121;
@@ -77,7 +87,7 @@
     transition: all 0.3s;
     position: relative;
 }
-
+ */
 #sidebar .h6 {
       color: #fff;
 }
@@ -178,7 +188,7 @@
   @media (max-width: 991.98px) {
     #sidebarCollapse span {
       display: none; } }
-
+/*
   #content {
     width: 100%;
     padding: 0;
@@ -186,7 +196,23 @@
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+  } */
+
+
+  #content {
+    width: calc(100% -250px) !important;
+    padding: 0;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    right: 0;
+    position: absolute;
   }
+
+  #content.active {
+    width: 100%;
+}
+
 
 form{
   margin-left: 80px;
@@ -254,3 +280,32 @@ div.row.botoes.col-12{
 select.form-control.input>option{
   background-color: #012e5e;
 }
+
+.fa-eye.senha{
+  color: white;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 440px;
+  margin-right: 560px;
+}
+
+.fa-eye.confirmar-senha{
+  color: white;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 440px;
+  margin-right: 155px;
+}
+
+input.password {
+  border-radius: 0;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
