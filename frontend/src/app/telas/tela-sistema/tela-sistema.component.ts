@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
+
 
 @Component({
   selector: 'app-tela-sistema',
@@ -12,5 +13,7 @@ export class TelaSistemaComponent implements OnInit {
   logout() {
     this.authService.doLogout();
   }
-  ngOnInit() { }
+  ngOnInit() {
+  }
+
 }
