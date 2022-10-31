@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="tela-sistema-pesquisar-medico.component.css">
+		<link rel="stylesheet" href="tela-sistema-usuarios-pacientes.component.css">
 
   </head>
 
@@ -32,20 +32,20 @@
           </li>
 
           <div class="dropdown1">
-            <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span><strong>Médicos</strong><span class="um fa fa-caret-down"></span></button>
+            <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span>Médicos<span class="um fa fa-caret-down"></span></button>
             <div id="myDropdown1" class="dropdown-content1">
               <li>
                 <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="um fa fa-user-plus mr-3"></span>Cadastrar Médico</a>
               </li>
               <li>
-                <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span><strong>Pesquisar Médico</strong></a>
+                <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a>
               </li>
             </div>
           </div>
 
 
           <div class="dropdown2">
-            <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span>Pacientes<span class="fa fa-caret-down"></span></button>
+            <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span>Pacientes<span class="dois fa fa-caret-down"></span></button>
             <div id="myDropdown2" class="dropdown-content2">
               <li>
                 <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="dois fa fa-user-plus mr-3"></span>Cadastrar Paciente</a>
@@ -62,7 +62,7 @@
 
 
           <div class="dropdown3">
-            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
+            <button onclick="myFunction3()" class="dropbtn3"><span class="quatro fa fa-cogs mr-3"></span><strong>Configurações</strong><span class="tres fa fa-caret-down"></span></button>
             <div id="myDropdown3" class="dropdown-content3">
 
               <li>
@@ -70,13 +70,13 @@
               </li>
 
               <div class="dropdown4">
-                <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span> Usuários<span class="fa fa-caret-down"></span></button>
+                <button onclick="myFunction4()" class="dropbtn4"><span class="quatro fa fa-users mr-3"></span><strong> Usuários</strong><span class="quatro fa fa-caret-down"></span></button>
                 <div id="myDropdown4" class="dropdown-content4">
                   <li>
-                    <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Pacientes</a>
+                    <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="quatro fa fa-user mr-3"></span><strong>Pacientes</strong></a>
                   </li>
                   <li>
-                    <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Médicos</a>
+                    <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="quatro fa fa-user-md mr-3"></span>Médicos</a>
                   </li>
                 </div>
               </div>
@@ -99,11 +99,11 @@
             <div class="row titulo-e-pesquisar col-12">
               <div class="titulo col-5">
                 <header>
-                  <h3 id="titulo"> <span class="fa fa-user-md icone-titulo"></span>Pesquisar Médico</h3>
+                  <h3 id="titulo"><span class="fa fa-user icone-titulo"></span>Usuários Pacientes</h3>
                 </header>
               </div>
               <div class="input-group col">
-                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do médico" aria-label="Search" aria-describedby="search-addon"/>
+                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon"/>
                 <button type="button" class="btn btn-outline-primary">Pesquisar</button>
               </div>
             </div>
@@ -116,15 +116,6 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nome</th>
-                        <th>Data de Nascimento</th>
-                        <th>CRM</th>
-                        <th>Telefone</th>
-                        <th>Endereço</th>
-                        <th>Número</th>
-                        <th>Cidade</th>
-                        <th>Estado</th>
-                        <th>CEP</th>
                         <th>Usuário</th>
                         <th>Senha</th>
                         <th style="width: 15%;" class="text-center">Ação</th>
@@ -135,74 +126,6 @@
                     <tr *ngFor="let user of usersArray;let i= index">
 
                         <td class="td_item">{{i+1}}</td>
-
-
-                        <td class="td_item">
-                            <div class="div_item" *ngIf="user.isEdit">
-                                <input type="text" [(ngModel)]="user.nome" class="form-control"/>
-                            </div>
-                            <div class="div_item" *ngIf="!user.isEdit">
-                                {{user.nome}}
-                            </div>
-                        </td>
-
-                        <td class="td_item">{{user.dataNascimento}}</td>
-
-                        <td class="td_item">{{user.crm}}</td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="tel" [(ngModel)]="user.telefone" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.telefone}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.endereco" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.endereco}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="number" [(ngModel)]="user.numero" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.numero}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.cidade" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.cidade}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.estado" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.estado}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.cep" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.cep}}
-                          </div>
-                        </td>
 
                         <td class="td_item">{{user.usuario}}</td>
 

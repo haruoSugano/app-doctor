@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/services/auth.service';
+
 
 @Component({
   selector: 'app-tela-sistema-realizar-consulta',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TelaSistemaRealizarConsultaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) {}
+
+  logout() {
+    this.authService.doLogout();
+  }
 
   ngOnInit(): void {
   }

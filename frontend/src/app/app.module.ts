@@ -12,6 +12,8 @@ import { HttpRequestInterceptor } from "./shared/helpers/http.interceptor";
 import { TelaSistemaRealizarConsultaComponent } from './telas/tela-sistema-realizar-consulta/tela-sistema-realizar-consulta.component';
 import { TelaSistemaPesquisarMedicoComponent } from './telas/tela-sistema-pesquisar-medico/tela-sistema-pesquisar-medico.component';
 import { TelaSistemaPesquisarPacienteComponent } from './telas/tela-sistema-pesquisar-paciente/tela-sistema-pesquisar-paciente.component';
+import { TelaSistemaUsuariosMedicosComponent } from './telas/tela-sistema-usuarios-medicos/tela-sistema-usuarios-medicos.component';
+import { TelaSistemaUsuariosPacientesComponent } from './telas/tela-sistema-usuarios-pacientes/tela-sistema-usuarios-pacientes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TelaSistemaPesquisarPacienteComponent } from './telas/tela-sistema-pesq
     TelaSistemaCadastroPacienteComponent,
     TelaSistemaRealizarConsultaComponent,
     TelaSistemaPesquisarMedicoComponent,
-    TelaSistemaPesquisarPacienteComponent
+    TelaSistemaPesquisarPacienteComponent,
+    TelaSistemaUsuariosMedicosComponent,
+    TelaSistemaUsuariosPacientesComponent
   ],
 
   imports: [

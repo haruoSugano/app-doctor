@@ -11,6 +11,9 @@ function formataCEP(cep) {
   elementoAlvo.value = cepAtualizado;
 }
 
+
+
+
 function mascaraTelefone(event) {
       let tecla = event.key;
       let telefone = event.target.value.replace(/\D+/g, "");
@@ -40,6 +43,41 @@ function mascaraTelefone(event) {
           return false;
       }
 }
+
+
+//validar senhas tela cadastro medico e paciente
+
+
+function validarSenha(){
+  var senha = formuser.passwordSenha.value;
+  var rep_senha = formuser.passwordConfirmarSenha.value;
+
+  /* if(senha == "" || senha.length <= 5){
+    alert('Preencha o campo senha com minimo 6 caracteres');
+    formuser.senha.focus();
+    return false;
+  } */
+
+ /*  if(rep_senha == "" || rep_senha.length <= 5){
+    alert('Preencha o campo senha com minimo 6 caracteres');
+    formuser.rep_senha.focus();
+    return false;
+  } */
+
+  if (senha != rep_senha) {
+    alert('As senhas devem ser iguais!');
+    formuser.senha.focus();
+    return false;
+  }
+}
+
+
+
+
+
+
+
+//script para mostrar senha (caixa de seleção da tela login)
 function mostrarSenha() {
   var senha = document.getElementById("password");
     if (senha.type === "password") {
@@ -49,6 +87,30 @@ function mostrarSenha() {
   }
 }
 
+//tela cadastrar medico e paciente (msenha)
+function mostrarSenha2() {
+  var senha = document.getElementById("passwordSenha");
+    if (senha.type === "password") {
+      senha.type = "text";
+    } else {
+      senha.type = "password";
+  }
+}
+
+
+//tela cadastrar medico e paciente (confirmar senha)
+function mostrarSenha3() {
+  var senha = document.getElementById("passwordConfirmarSenha");
+    if (senha.type === "password") {
+      senha.type = "text";
+    } else {
+      senha.type = "password";
+  }
+}
+
+
+
+/*
 function mostrarSenhaDois() {
   let btn = document.querySelector('.fa-eye');
   btn.addEventListener('click', function() {
@@ -60,15 +122,27 @@ function mostrarSenhaDois() {
     }
   });
 }
-
-/* function mostrarSenhaDois() {
-  var senha = document.getElementById("eye-confirmar-senha");
+ */
+/*
+function mostrarSenhaDois() {
+  var senha = document.getElementById("password");
     if (senha.type === "password") {
       senha.type = "text";
     } else {
       senha.type = "password";
   }
-} */
+}
+
+function mostrarSenhaDois() {
+  var senha = document.getElementById("eye-senha");
+    if (senha.type === "password") {
+      senha.type = "text";
+    } else {
+      senha.type = "password";
+  }
+}
+
+ */
 
 /* function mostrarSenhaDois{
   let btn = document.querySelector('.fa-eye');
@@ -80,6 +154,25 @@ function mostrarSenhaDois() {
         input.setAttribute('type', 'password');
     }
 });
+} */
+/*
+function teste4() {
+  let container = document.querySelector('div.confirmar-senha');
+  let input = document.querySelector('input.input-senha');
+  let icon = document.querySelector('img.eye');
+
+  icon.addEventListener('click', function() {
+    container.classList.toggle('visible');
+  if(container.classList.contains('visible')) {
+    icon.src = 'assets/resources/img/eye-off.svg';
+    input.type = 'text';
+  } else {
+    icon.src = 'assets/resources/img/eye.svg';
+    input.type = 'password';
+  }
+});
+
+
 } */
 
 
@@ -191,3 +284,14 @@ window.onclick = function(event) {
       }
     }
   }
+
+
+  /*
+  var dropdown1 = document.getElementById("dropdown1");
+  document.documentElement.onclick = function(event){
+    if (event.target !== dropdown1) {
+        dropdown1.style.display = 'none';
+    }
+  }
+
+ */

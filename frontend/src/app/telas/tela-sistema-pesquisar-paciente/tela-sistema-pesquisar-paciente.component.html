@@ -26,38 +26,67 @@
 	  		<h1><a href="tela-sistema.component.html" class="logo">AppDoctor</a></h1>
 
         <ul class="list-unstyled components mb-5">
+
           <li class="active">
-            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3" ></span>Página Inicial</a>
+            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span>Página Inicial</a>
           </li>
 
-          <li>
-              <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Cadastrar Médico</a>
-          </li>
-
-          <li>
-            <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="fa fa-search mr-3"></span>Pesquisar Médico</a>
-          </li>
-
-          <li>
-            <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Cadastrar Paciente</a>
-          </li>
-
-          <li>
-            <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="fa fa-search mr-3" style="color:rgb(255, 255, 255)"></span><strong>Pesquisar Paciente</strong></a>
-          </li>
-
-          <li>
-            <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
-          </li>
-
-          <li>
-            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
-          </li>
+          <div class="dropdown1">
+            <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span>Médicos<span class="um fa fa-caret-down"></span></button>
+            <div id="myDropdown1" class="dropdown-content1">
+              <li>
+                <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="um fa fa-user-plus mr-3"></span>Cadastrar Médico</a>
+              </li>
+              <li>
+                <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a>
+              </li>
+            </div>
+          </div>
 
 
-          <!-- <li>
-            <a href="#"><span class="fa fa-cogs mr-3"></span> Configurações</a>
-          </li> -->
+          <div class="dropdown2">
+            <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span><strong>Pacientes</strong><span class="dois fa fa-caret-down"></span></button>
+            <div id="myDropdown2" class="dropdown-content2">
+              <li>
+                <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="dois fa fa-user-plus mr-3"></span>Cadastrar Paciente</a>
+              </li>
+              <li>
+                <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="dois fa fa-search mr-3"></span><strong>Pesquisar Paciente</strong></a>
+              </li>
+              <li>
+                <a routerLink="/realizar-consulta" routerLinkActive="active"><span class=" dois fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
+              </li>
+            </div>
+          </div>
+
+
+
+          <div class="dropdown3">
+            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
+            <div id="myDropdown3" class="dropdown-content3">
+
+              <li>
+                <a href="#"><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a>
+              </li>
+
+              <div class="dropdown4">
+                <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span> Usuários<span class="fa fa-caret-down"></span></button>
+                <div id="myDropdown4" class="dropdown-content4">
+                  <li>
+                    <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Pacientes</a>
+                  </li>
+                  <li>
+                    <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Médicos</a>
+                  </li>
+                </div>
+              </div>
+
+              <li>
+                <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
+              </li>
+
+            </div>
+          </div>
         </ul>
     	</nav>
 
