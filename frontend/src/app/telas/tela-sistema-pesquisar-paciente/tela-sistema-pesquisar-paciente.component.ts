@@ -21,11 +21,8 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 2,
       "nome": "Vinicius Alves",
@@ -37,8 +34,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -53,8 +48,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -69,8 +62,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -85,8 +76,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -101,8 +90,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -117,8 +104,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -133,8 +118,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -149,8 +132,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -165,8 +146,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -181,8 +160,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -197,8 +174,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -213,8 +188,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -229,8 +202,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -245,8 +216,6 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
 
@@ -261,12 +230,8 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       "estado": "SP",
       "cidade": "São Paulo",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
-
   ]
 
   constructor(public authService: AuthService) {}

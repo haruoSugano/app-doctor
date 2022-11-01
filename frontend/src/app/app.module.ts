@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+//telas sistemas
 import { TelaLoginComponent } from './telas/tela-login/tela-login.component';
 import { TelaSistemaComponent } from './telas/tela-sistema/tela-sistema.component';
 import { TelaSistemaCadastroMedicoComponent } from './telas/tela-sistema-cadastro-medico/tela-sistema-cadastro-medico.component';
@@ -15,6 +17,12 @@ import { TelaSistemaPesquisarPacienteComponent } from './telas/tela-sistema-pesq
 import { TelaSistemaUsuariosMedicosComponent } from './telas/tela-sistema-usuarios-medicos/tela-sistema-usuarios-medicos.component';
 import { TelaSistemaUsuariosPacientesComponent } from './telas/tela-sistema-usuarios-pacientes/tela-sistema-usuarios-pacientes.component';
 
+//telas recuperação de senha
+import { TelaEnviarEmailComponent } from './telas-recuperar-senha/tela-enviar-email/tela-enviar-email.component';
+import { TelaNovaSenhaComponent } from './telas-recuperar-senha/tela-nova-senha/tela-nova-senha.component';
+import { TelaSistemaPacienteComponent } from './telas-pacientes/tela-sistema-paciente/tela-sistema-paciente.component';
+import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-pacientes/tela-sistema-paciente-historico-consultas/tela-sistema-paciente-historico-consultas.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +34,11 @@ import { TelaSistemaUsuariosPacientesComponent } from './telas/tela-sistema-usua
     TelaSistemaPesquisarMedicoComponent,
     TelaSistemaPesquisarPacienteComponent,
     TelaSistemaUsuariosMedicosComponent,
-    TelaSistemaUsuariosPacientesComponent
+    TelaSistemaUsuariosPacientesComponent,
+    TelaEnviarEmailComponent,
+    TelaNovaSenhaComponent,
+    TelaSistemaPacienteComponent,
+    TelaSistemaPacienteHistoricoConsultasComponent,
   ],
 
   imports: [

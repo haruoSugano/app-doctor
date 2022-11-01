@@ -103,7 +103,7 @@
                 </header>
               </div>
               <div class="input-group col">
-                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon"/>
+                <input type="search" class="form-control rounded input-pesquisar" placeholder="Pesquisar paciente" aria-label="Search" aria-describedby="search-addon"/>
                 <button type="button" class="btn btn-outline-primary">Pesquisar</button>
               </div>
             </div>
@@ -116,6 +116,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>CPF</th>
                         <th>Usuário</th>
                         <th>Senha</th>
                         <th style="width: 15%;" class="text-center">Ação</th>
@@ -123,15 +124,17 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let user of usersArray;let i= index">
+                    <tr *ngFor="let user of usersArray; let i= index">
 
                         <td class="td_item">{{i+1}}</td>
+
+                        <td class="td_item">{{user.cpf}}</td>
 
                         <td class="td_item">{{user.usuario}}</td>
 
                         <td class="td_item">
                           <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.senha" class="form-control"/>
+                            <input type="text"  class="form-control"/>
                           </div>
                           <div class="div_item" *ngIf="!user.isEdit">
                             {{user.senha}}

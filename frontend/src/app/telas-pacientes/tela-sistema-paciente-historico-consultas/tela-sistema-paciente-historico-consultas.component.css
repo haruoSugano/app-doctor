@@ -1,0 +1,481 @@
+.wrapper {
+  width: 100%;
+}
+
+strong{
+  color: rgb(253, 253, 253);
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus {
+  outline: 0;
+}
+
+    /* espaçamento do ícone pro texto do menu */
+.mr-3,.mx-3 {
+  margin-right: 1rem !important;
+}
+/* margin do texto lorem ipsun */
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+@media print {
+  .navbar {display: none;}
+  .table .thead-dark th {color: inherit; border-color: #dee2e6;}
+
+}
+
+body{
+  background-image: url(src/assets/resources/img/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+  color: #2f89fc;
+}
+
+a:hover, a:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* /* #sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #212121;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+}
+ */
+
+
+#sidebar {
+  width: 250px !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+  background: #212121;
+  color: #fff;
+  transition: all 0.3s !important;
+}
+
+
+#sidebar .h6 {
+  color: #fff;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#sidebar.active .custom-menu {
+  margin-right: -50px;
+}
+
+#sidebar h1 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#sidebar h1 .logo {
+  color: #fff;
+  display: block;
+  padding: 10px 30px;
+  background: #2f89fc;
+}
+
+#sidebar ul.components {
+  padding: 0;
+}
+
+#sidebar ul li {
+  font-size: 16px;
+}
+
+#sidebar ul li > ul {
+  margin-left: 10px;
+}
+
+#sidebar ul li > ul li {
+  font-size: 14px;
+}
+
+#sidebar ul li a {
+  padding: 15px 30px;
+  display: block;
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li a:hover {
+  color: #fff;
+  background: #2f89fc;
+  border-bottom: 1px solid #2f89fc;
+}
+
+#sidebar ul li.active > a:hover {
+  background: #2f89fc;
+  border-bottom: 1px solid #2f89fc;
+}
+
+@media (max-width: 991.98px) {
+  #sidebar {margin-left: -250px;}
+  #sidebar.active {margin-left: 0;}
+  #sidebar .custom-menu {margin-right: -60px !important;top: 10px !important;}
+}
+
+#sidebar .custom-menu {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  margin-right: -50px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #sidebar .custom-menu {
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none; }
+
+}
+
+#sidebar .custom-menu .btn.btn-primary {
+  background: transparent;
+  border-color: transparent;
+}
+
+#sidebar .custom-menu .btn.btn-primary i {
+  color: black;
+  font-size: 24px;
+}
+
+#sidebar .custom-menu .btn.btn-primary:hover, #sidebar .custom-menu .btn.btn-primary:focus {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+@media (max-width: 991.98px) {
+  #sidebarCollapse span {display: none;}
+
+}
+
+
+#content {
+  width: calc(100%) !important;
+  padding: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  right: 0;
+  position: absolute;
+}
+
+span.fa.fa-user.icone-titulo::before{
+  margin-right: 10px;
+}
+
+#titulo{
+  color:white;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.input-pesquisar::placeholder{
+  color: rgb(0, 0, 0);
+}
+
+div.row.titulo-e-pesquisar.col-12{
+  background-color: #0057b300;
+  padding-right: 0;
+  padding-left: 10px;
+}
+
+h3#titulo{
+  width: 300px;
+}
+
+input.form-control.rounded.input-pesquisar{
+  border-radius: 5px 0px 0px 5px !important;
+  position: relative;
+}
+
+.input-group {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      width: 100%;
+      height: 30px;
+      margin-right: 0;
+}
+
+div.row-3{
+  background-color: #00000071;
+  border-radius: 10px;
+  white-space: nowrap;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+
+div.col-12 {
+  overflow-y: auto;
+  height: 400px;
+}
+
+
+
+div.row-1{
+  margin-left: 250px !important;
+}
+
+
+.td_item, .div_item{
+  color: rgb(255, 255, 255) !important;
+}
+
+td.td_item{
+  text-align: center;
+  justify-content: center;
+}
+
+th{
+  color: rgb(255, 255, 255);
+  background-color: #ffffff3d;
+  text-align: center;
+  justify-content: center;
+}
+
+button.btn.btn-sm.btn-sucesss{
+  margin-right: 5px;
+}
+
+/* table {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+ */
+/*  table tbody,
+table thead {
+  display: block;
+}
+
+/* Agora vamos definir o elemento tbody, para overflow: auto. Ativando assim as barras de rolagem. */
+
+
+div.col-12 thead th {
+  position: sticky;
+  top: 0;
+  border: solid white 1px;
+}
+
+th {
+  background: #4400ff;
+}
+
+div.row-2{
+  height: 60px;
+  margin-right: -22px;
+}
+
+  h2{
+    color: #dee2e6;
+  }
+
+  p{
+    color: #dee2e6;
+  }
+
+
+  /* DROPDOWN 3 ---------------------------------*/
+  div.dropdown3{
+    width: 100% !important;
+  }
+
+  .dropbtn3 {
+    background-color: #3498db00 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    padding: 15px !important;
+    font-size: 15px !important;
+    border: none !important;
+    width: 100% !important;
+    justify-content: left !important;
+    text-align: left !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  span.fa.fa-cogs.mr-3{
+    margin-left: 15px !important;
+    margin-right: 14px !important;
+
+  }
+
+  span.fa.fa-caret-down{
+    margin-left: 10px !important;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn3:hover, .dropbtn3:focus {
+    background-color: #2f89fc !important;
+  }
+
+  /* The container <div> - needed tqo position the dropdown content */
+  .dropdown3 {
+    position: relative !important;
+    display: inline-block !important;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content3 {
+    position: absolute !important;
+    display: none !important;
+    width: 100% !important;
+    background-color: #212121 !important;
+    border: 1px solid white !important;
+    box-shadow: 0px 8px 16px 0px #2f89fc  !important;
+    margin-left: 15px !important;
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */s
+  .dropdown-content3 a {
+    padding: 12px 16px !important;
+    text-decoration: none !important;
+    display: block !important;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content3 a:hover {
+    background-color: #2f89fc !important;
+  }
+
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show{display:block!important;
+  }
+
+
+  span.fa.fa-home.mr-3{
+    color:  rgba(255, 255, 255, 0.6) !important;
+    margin-right: 15px !important;
+  }
+
+  span.fa.fa-file.mr-3{
+    color: white;
+  }
+
+  a.historico-consultas{
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

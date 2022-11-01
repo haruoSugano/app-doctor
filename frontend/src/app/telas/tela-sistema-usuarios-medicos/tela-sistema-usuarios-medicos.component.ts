@@ -14,6 +14,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
   usersArray = [
     {
       "id": 1,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -21,6 +22,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 2,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -28,6 +30,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 3,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -35,6 +38,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 4,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -42,6 +46,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 5,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -49,6 +54,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 6,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -56,6 +62,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 7,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -63,6 +70,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 8,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -70,6 +78,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 9,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -77,6 +86,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 10,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -84,6 +94,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 11,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -91,6 +102,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 12,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -98,6 +110,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 13,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -105,6 +118,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 14,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -112,6 +126,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 15,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false
@@ -119,6 +134,7 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
     {
       "id": 16,
+      "crm": "123456",
       "usuario": "Vinicius@appdoctor.com",
       "senha": "Appdoctor@123",
       "isEdit": false

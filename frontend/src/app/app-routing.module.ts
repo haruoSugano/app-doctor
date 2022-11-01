@@ -10,6 +10,12 @@ import { TelaSistemaRealizarConsultaComponent } from './telas/tela-sistema-reali
 import { TelaSistemaComponent } from './telas/tela-sistema/tela-sistema.component';
 import { TelaSistemaUsuariosMedicosComponent } from './telas/tela-sistema-usuarios-medicos/tela-sistema-usuarios-medicos.component';
 import { TelaSistemaUsuariosPacientesComponent } from './telas/tela-sistema-usuarios-pacientes/tela-sistema-usuarios-pacientes.component';
+//telas recuperação de senha
+import { TelaEnviarEmailComponent } from './telas-recuperar-senha/tela-enviar-email/tela-enviar-email.component';
+import { TelaNovaSenhaComponent } from './telas-recuperar-senha/tela-nova-senha/tela-nova-senha.component';
+//telas pacientes
+import { TelaSistemaPacienteComponent } from './telas-pacientes/tela-sistema-paciente/tela-sistema-paciente.component';
+import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-pacientes/tela-sistema-paciente-historico-consultas/tela-sistema-paciente-historico-consultas.component';
 
 
 const routes: Routes = [
@@ -22,7 +28,15 @@ const routes: Routes = [
   { path: 'realizar-consulta', component: TelaSistemaRealizarConsultaComponent,  },
   { path: 'usuarios-medicos', component: TelaSistemaUsuariosMedicosComponent, },
   {path: 'usuarios-pacientes', component: TelaSistemaUsuariosPacientesComponent, },
-  { path: '', redirectTo: '/', pathMatch: 'full' }
+  //telas para recuperar senha:
+  {path: 'recuperar-senha-envio-email', component: TelaEnviarEmailComponent},
+  {path: 'recuperar-senha-nova-senha', component: TelaNovaSenhaComponent},
+  //telas sistemas pacientes:
+  {path: 'home/pacientes', component: TelaSistemaPacienteComponent, },
+  {path: 'historico-consultas', component: TelaSistemaPacienteHistoricoConsultasComponent,},
+
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

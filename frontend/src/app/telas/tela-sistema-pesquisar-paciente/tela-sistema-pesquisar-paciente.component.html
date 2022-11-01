@@ -125,8 +125,6 @@
                         <th>Estado</th>
                         <th>Cidade</th>
                         <th>CEP</th>
-                        <th>Usuário</th>
-                        <th>Senha</th>
                         <th style="width: 15%;" class="text-center">Ação</th>
                     </tr>
                 </thead>
@@ -201,17 +199,6 @@
                           </div>
                           <div class="div_item" *ngIf="!user.isEdit">
                             {{user.cep}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">{{user.usuario}}</td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.senha" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.senha}}
                           </div>
                         </td>
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Sistema Receituário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="tela-nova-senha.component.css"/>
+  </head>
+
+  <body>
+      <div class="form-box">
+        <div>
+          <img class="logo" src="/assets/resources/img/logo.png" />
+        </div>
+        <h2><span class="fa fa-lock"></span>Alterar senha</h2>
+
+
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" name="formuser" action="#" method="POST">
+
+          <div class= "row senha col-12 ">
+            <div class="col-6">
+              <label class="senhaLabel">Senha</label>
+              <input id="passwordSenha" name="passwordSenha" type="password"  class="form-control input input-senha" aria-describedby="passwordHelpBlock" placeholder="Ex: App@doctor123">
+              <span onclick="mostrarSenha2()" class="fa fa-eye senha"></span>
+            </div>
+
+            <div class="col-6">
+              <label class="confirmarSenhaLabel">Confirmar Senha</label>
+              <input id="passwordConfirmarSenha" name="passwordConfirmarSenha" type="password"  class="form-control input input-confirmar-senha" aria-describedby="passwordHelpBlock" placeholder="Ex: App@doctor123">
+              <span onclick="mostrarSenha3()" class="fa fa-eye confirmar-senha"></span>
+            </div>
+          </div>
+
+        <div class="dica-senha">
+          <small id="dica-senha" class="form-text text-muted dica-senha">
+            Sua senha deve ter entre 8 e 20 caracteres, os quais devem ser letras, sem espaços, com pelo menos 1 número e 1 caracter especial.
+          </small>
+        </div>
+
+
+          <div class="input-group">
+            <button onclick="validarSenha()" id="cadastrar" type="button" class="btn btn-success" style="width:100%;">Atualizar senha</button>
+          </div>
+        </form>
+      </div>
+  </body>
+</html>

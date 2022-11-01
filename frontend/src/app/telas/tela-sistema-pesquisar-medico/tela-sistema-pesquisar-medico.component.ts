@@ -20,11 +20,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 2,
       "nome": "Vinicius Alves",
@@ -36,11 +33,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 3,
       "nome": "Vinicius Alves",
@@ -52,11 +46,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 4,
       "nome": "Vinicius Alves",
@@ -68,11 +59,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 5,
       "nome": "Vinicius Alves",
@@ -84,11 +72,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 6,
       "nome": "Vinicius Alves",
@@ -100,11 +85,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 7,
       "nome": "Vinicius Alves",
@@ -116,11 +98,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 8,
       "nome": "Vinicius Alves",
@@ -132,11 +111,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 9,
       "nome": "Vinicius Alves",
@@ -148,11 +124,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 10,
       "nome": "Vinicius Alves",
@@ -164,11 +137,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 11,
       "nome": "Vinicius Alves",
@@ -180,11 +150,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 12,
       "nome": "Vinicius Alves",
@@ -196,11 +163,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 13,
       "nome": "Vinicius Alves",
@@ -212,11 +176,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 14,
       "nome": "Vinicius Alves",
@@ -228,11 +189,8 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
-
     {
       "id": 15,
       "nome": "Vinicius Alves",
@@ -244,8 +202,6 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       "cidade": "São Paulo",
       "estado": "SP",
       "cep": "12345-678",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
       "isEdit": false
     },
   ]
@@ -258,7 +214,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   onEdit(item: any) {
     debugger;
     this.usersArray.forEach(element => {

@@ -51,19 +51,6 @@ function mascaraTelefone(event) {
 function validarSenha(){
   var senha = formuser.passwordSenha.value;
   var rep_senha = formuser.passwordConfirmarSenha.value;
-
-  /* if(senha == "" || senha.length <= 5){
-    alert('Preencha o campo senha com minimo 6 caracteres');
-    formuser.senha.focus();
-    return false;
-  } */
-
- /*  if(rep_senha == "" || rep_senha.length <= 5){
-    alert('Preencha o campo senha com minimo 6 caracteres');
-    formuser.rep_senha.focus();
-    return false;
-  } */
-
   if (senha != rep_senha) {
     alert('As senhas devem ser iguais!');
     formuser.senha.focus();
