@@ -103,7 +103,7 @@
                 </header>
               </div>
               <div class="input-group col">
-                <input type="search" class="form-control rounded input-pesquisar" placeholder="Pesquisar Médico" aria-label="Search" aria-describedby="search-addon"/>
+                <input name="search" [(ngModel)]="filter"type="search" class="form-control rounded input-pesquisar" placeholder="Pesquisar Médico" aria-label="Search" aria-describedby="search-addon"/>
                 <button type="button" class="btn btn-outline-primary">Pesquisar</button>
               </div>
             </div>
@@ -117,14 +117,14 @@
                     <tr>
                         <th>Id</th>
                         <th>CRM</th>
-                        <th>Usuário</th>
+                        <th (click)="sort('usuario')">Usuário<span role="button" style="margin-left:5px" *ngIf="key =='usuario'">{{reverse ? '▲' : '▼'}}</span></th>
                         <th>Senha</th>
                         <th style="width: 15%;" class="text-center">Ação</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let user of usersArray;let i= index">
+                    <tr *ngFor="let user of usersArray | filter:filter | orderBy: key : reverse;let i= index">
 
                         <td class="td_item">{{i+1}}</td>
 

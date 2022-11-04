@@ -5,13 +5,23 @@ import { AuthService } from 'src/services/auth.service';
 @Component({
   selector: 'app-tela-sistema-pesquisar-medico',
   templateUrl: './tela-sistema-pesquisar-medico.component.html',
-  styleUrls: ['./tela-sistema-pesquisar-medico.component.css']
+  styleUrls: ['./tela-sistema-pesquisar-medico.component.css'],
 })
+
 export class TelaSistemaPesquisarMedicoComponent implements OnInit {
+  filter: string;
+
+  key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
+  reverse: boolean = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
   usersArray = [
     {
       "id": 1,
-      "nome": "Vinicius Alves",
+      "nome": "Vinicius Souza",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -24,7 +34,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 2,
-      "nome": "Vinicius Alves",
+      "nome": "Alice",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -37,7 +47,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 3,
-      "nome": "Vinicius Alves",
+      "nome": "Helio",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -50,7 +60,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 4,
-      "nome": "Vinicius Alves",
+      "nome": "Nathalia",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -63,7 +73,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 5,
-      "nome": "Vinicius Alves",
+      "nome": "Giovane",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -76,7 +86,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 6,
-      "nome": "Vinicius Alves",
+      "nome": "José",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -89,7 +99,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 7,
-      "nome": "Vinicius Alves",
+      "nome": "Kassio",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -102,7 +112,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 8,
-      "nome": "Vinicius Alves",
+      "nome": "João",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -115,7 +125,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 9,
-      "nome": "Vinicius Alves",
+      "nome": "Tadeu",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -128,7 +138,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 10,
-      "nome": "Vinicius Alves",
+      "nome": "Nicole",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -141,7 +151,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 11,
-      "nome": "Vinicius Alves",
+      "nome": "Ana",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -154,7 +164,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 12,
-      "nome": "Vinicius Alves",
+      "nome": "Maria",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -167,7 +177,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 13,
-      "nome": "Vinicius Alves",
+      "nome": "Marcos",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",
@@ -180,7 +190,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     },
     {
       "id": 14,
-      "nome": "Vinicius Alves",
+      "nome": "Junior",
       "dataNascimento": "28/04/1993",
       "crm": "123456789",
       "telefone": "(11) 97417-01928",

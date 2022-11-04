@@ -103,7 +103,7 @@
                 </header>
               </div>
               <div class="input-group col">
-                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon"/>
+                <input type="search" name="search" [(ngModel)]="filter" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon"/>
                 <button type="button" class="btn btn-outline-primary">Pesquisar</button>
               </div>
             </div>
@@ -116,7 +116,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nome</th>
+                        <th (click)="sort('nome')">Nome<span role="button" style="margin-left:5px" *ngIf="key =='nome'">{{reverse ? '▲' : '▼'}}</span></th>
                         <th>Data de Nascimento</th>
                         <th>CPF</th>
                         <th>Telefone</th>
@@ -130,7 +130,7 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let user of usersArray;let i= index">
+                    <tr *ngFor="let user of usersArray | filter:filter | orderBy: key : reverse;let i= index">
 
                         <td class="td_item">{{i+1}}</td>
 
@@ -209,7 +209,7 @@
                             </div>
                             <div class="div_item" *ngIf="!user.isEdit">
                                 <button class="btn btn-sm btn-success" (click)="onEdit(user)">Editar</button>
-                                <button class="btn btn-sm btn-danger" style="margin-left: 5px;">Excluir</button>
+                                <button (click)="removeUser(i)" class="btn btn-sm btn-danger" style="margin-left: 5px;">Excluir</button>
                             </div>
                         </td>
                     </tr>

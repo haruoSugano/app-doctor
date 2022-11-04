@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 //telas sistemas
 import { TelaLoginComponent } from './telas/tela-login/tela-login.component';
@@ -22,6 +24,7 @@ import { TelaEnviarEmailComponent } from './telas-recuperar-senha/tela-enviar-em
 import { TelaNovaSenhaComponent } from './telas-recuperar-senha/tela-nova-senha/tela-nova-senha.component';
 import { TelaSistemaPacienteComponent } from './telas-pacientes/tela-sistema-paciente/tela-sistema-paciente.component';
 import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-pacientes/tela-sistema-paciente-historico-consultas/tela-sistema-paciente-historico-consultas.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -47,12 +50,18 @@ import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-paciente
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    OrderModule,
   ],
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: HttpRequestInterceptor,
     multi: true
   }],
+
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}

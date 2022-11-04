@@ -111,13 +111,16 @@
               <div class="titulo col-5">
                 <header>
                   <h3 id="titulo"> <span class="fa fa-user icone-titulo"></span>Dados do Paciente</h3>
-
                 </header>
 
               </div>
 
               <div class="input-group col">
-                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon" />
+                <input  [(ngModel)]="usersArray" list="lista" type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon" />
+                <datalist id="lista">
+                  <option  *ngFor="let user of usersArray;let i= index">{{user.nome}}</option>
+
+                </datalist>
                 <button type="button" class="btn btn-outline-primary">Pesquisar</button>
               </div>
             </div>

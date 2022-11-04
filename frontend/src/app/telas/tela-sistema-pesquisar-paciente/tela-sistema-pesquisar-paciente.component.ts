@@ -8,13 +8,21 @@ import { AuthService } from 'src/services/auth.service';
 })
 
 export class TelaSistemaPesquisarPacienteComponent implements OnInit {
+  filter: string;
+
+  key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
+  reverse: boolean = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   usersArray = [
     {
       "id": 1,
       "nome": "Vinicius Alves",
       "dataNascimento": "28/04/1993",
-      "cpf": "503.213.388-47",
+      "cpf": "203.843.291-48",
       "telefone": "(11) 97417-01928",
       "endereco": "Rua App Doctor",
       "numero": "00",
@@ -25,7 +33,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
     },
     {
       "id": 2,
-      "nome": "Vinicius Alves",
+      "nome": "Helio Haruo",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -39,8 +47,8 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 3,
-      "nome": "Vinicius Alves",
-      "dataNascimento": "28/04/1993",
+      "nome": "Alice",
+      "dataNascimento": "28/04/1994",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
       "endereco": "Rua App Doctor",
@@ -53,7 +61,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 4,
-      "nome": "Vinicius Alves",
+      "nome": "João",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -67,7 +75,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 5,
-      "nome": "Vinicius Alves",
+      "nome": "Tadeu",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -81,7 +89,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 6,
-      "nome": "Vinicius Alves",
+      "nome": "Kassio",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -95,7 +103,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 7,
-      "nome": "Vinicius Alves",
+      "nome": "Giovane",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -109,7 +117,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 8,
-      "nome": "Vinicius Alves",
+      "nome": "Nathalia",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -123,7 +131,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 9,
-      "nome": "Vinicius Alves",
+      "nome": "José",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -137,7 +145,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 10,
-      "nome": "Vinicius Alves",
+      "nome": "Marcos",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -151,7 +159,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 11,
-      "nome": "Vinicius Alves",
+      "nome": "Carlos",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -165,7 +173,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 12,
-      "nome": "Vinicius Alves",
+      "nome": "Vinicius Souza",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -179,7 +187,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 13,
-      "nome": "Vinicius Alves",
+      "nome": "Vinicius Cardoso",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -193,7 +201,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 14,
-      "nome": "Vinicius Alves",
+      "nome": "Ana Souza",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -207,7 +215,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 15,
-      "nome": "Vinicius Alves",
+      "nome": "Anna Matos",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -221,7 +229,7 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
 
     {
       "id": 16,
-      "nome": "Vinicius Alves",
+      "nome": "Bruno Alves",
       "dataNascimento": "28/04/1993",
       "cpf": "503.213.388-47",
       "telefone": "(11) 97417-01928",
@@ -249,6 +257,10 @@ export class TelaSistemaPesquisarPacienteComponent implements OnInit {
       element.isEdit = false;
     });
     item.isEdit = true;
+  }
+
+  removeUser(index): void{
+    this.usersArray.splice(index, 1)
   }
 
 }
