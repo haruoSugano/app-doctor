@@ -14,7 +14,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(router);
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 6001;
 
 app.listen(port, () => {
     console.log("Aplicacao executando na porta: ", port);

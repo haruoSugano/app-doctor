@@ -1,3 +1,4 @@
+require("dotenv").config();
 const nodemailer = require("nodemailer");
 const token = require("../../token.json");
 
@@ -5,21 +6,21 @@ const email = process.env.EMAIL;
 const port = process.env.PORT_EMAIL;
 const smtp = process.env.SMTP;
 
-
 module.exports = async (emailContent, cb) => {
   try {
 
     let transporter = nodemailer.createTransport({
+      service: "gmail.googleapis.com",
       host: smtp,
       port: port,
       secure: true,
       auth: {
         type: "OAuth2",
         user: email,
-        scope: "https://www.googleapis.com/",
+        scope: "https://mail.google.com/",
         clientId: token.client_id,
         clientSecret: token.client_secret,
-        refreshToken: token.refresh_token
+        refreshToken: token.refresh_token,
       },
     });
 

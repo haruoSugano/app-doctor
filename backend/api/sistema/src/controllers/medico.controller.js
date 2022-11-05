@@ -1,18 +1,24 @@
+require("dotenv").config();
+const path = require("path");
 const Medico = require("../models/medico.model");
-const rabbitmq = require("../config/rabbit/");
+// const publish = require("../config/rabbit/publish");
 
 exports.create = async (req, res, next) => {
-  let { name, data_nascimento, crm, telefone, endereco, numero } = req.body;
+  let { name, email, data_nascimento, crm, telefone, endereco, numero, cidade, estado, cep } = req.body;
   const { path: url } = req.file;
 
   try {
     if (
       !name ||
+      !email ||
       !data_nascimento ||
       !crm ||
       !telefone ||
       !endereco ||
       !numero ||
+      !cidade ||
+      !estado ||
+      !cep ||
       !req.file
     ) {
       return res
@@ -22,13 +28,45 @@ exports.create = async (req, res, next) => {
 
     const medico = await Medico.create({
       name,
+      email,
       data_nascimento,
       crm,
       telefone,
       endereco,
       numero,
+      cidade,
+      estado,
+      cep,
       assinatura: url,
     });
+
+    // const mail = {
+    //   from: process.env.EMAIL,
+    //   to: email,
+    //   subject: "[NO-REPLY] Seus dados foram cadastrado no nosso aplicativo",
+    //   text: "Cadastro de seus dados",
+    //   html: `<body>
+    //           <h1>Comunicado</h1>
+    //           <p>Seus dados foram cadastrado com sucesso</p>
+    //           <ol>
+    //               <li>Dr(a): ${name}</li>
+    //               <li>CRM: ${crm}</li>
+    //           </ol>
+    //         </body>
+    //         `,
+    //   attachments: [
+    //     {
+    //       filename: "logo.png",
+    //       path: path.resolve(__dirname, "..", "..", "tmp", "imgs", "logo.png"),
+    //       cid: "logo",
+    //     },
+    //   ],
+    //   auth: {
+    //     user: process.env.EMAIL,
+    //   },
+    // };
+
+    // publish(mail, "medico");
 
     return res
       .status(201)
@@ -76,25 +114,71 @@ exports.findById = async (req, res, next) => {
   }
 };
 
+exports.findByName = async (req, res, next) => {
+  const { crm } = req.body;
+  try {
+    if (!crm) {
+      return res.status(400).send({ error: "Crm deve ser informado" });
+    }
+
+
+  } catch (error) {
+    
+  }
+};
+
 exports.update = async (req, res, next) => {
   const { medico_id } = req.params;
-  const { name, data_nascimento, crm, telefone, endereco, numero } = req.body;
-  const { path: url } = req.file;
+  const { name, email, data_nascimento, crm, telefone, endereco, numero, cidade, estado, cep, assinatura } = req.body;
+  let url = assinatura;
   try {
-    if (await Medico.findOne({ where: { crm } })) {
-      return res.status(400).send({ error: "Este crm já existe" });
+    if (req.file) url = req.file.path;
+
+    if ( !name || !email || !data_nascimento || !crm || !telefone || !endereco || !numero || !cidade || !estado || !cep ||!url) {
+      return res.status(400).send({ message: "É necessário preencher todos os dados do médico!" });
     }
 
     const medico = await Medico.upsert({
       id: medico_id,
       name,
+      email,
       data_nascimento,
       crm,
       telefone,
       endereco,
       numero,
-      assinatura: url,
+      cidade,
+      estado,
+      cep,
+      assinatura: assinatura ? assinatura : url,
     });
+
+    const mail = {
+      from: process.env.EMAIL,
+      to: email,
+      subject: "[NO-REPLY] Seus dados foram atualizado",
+      text: "Atualização de seus dados",
+      html: `<body>
+              <h1>Comunicado</h1>
+              <p>Seus dados foram atualizados com sucesso</p>
+              <ol>
+                  <li>Usuário: ${email}</li>
+              </ol>
+            </body>
+            `,
+      attachments: [
+        {
+          filename: "logo.png",
+          path: path.resolve(__dirname, "..", "tmp", "imgs", "logo.png"),
+          cid: "logo",
+        },
+      ],
+      auth: {
+        user: process.env.EMAIL,
+      },
+    };
+
+    publish(mail);
 
     return res
       .status(200)

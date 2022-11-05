@@ -5,14 +5,15 @@ class Paciente extends Model {
     super.init(
       {
         name: DataTypes.STRING,
+        email: DataTypes.STRING,
         data_nascimento: DataTypes.DATE,
-        cpf: DataTypes.INTEGER,
-        telefone: DataTypes.INTEGER,
+        cpf: DataTypes.STRING,
+        telefone: DataTypes.STRING,
         endereco: DataTypes.STRING,
         numero: DataTypes.STRING,
         estado: DataTypes.STRING,
         cidade: DataTypes.STRING,
-        cep: DataTypes.INTEGER,
+        cep: DataTypes.STRING,
         status_consulta: DataTypes.BOOLEAN,
       },
       {

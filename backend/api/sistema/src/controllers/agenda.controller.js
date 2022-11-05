@@ -1,6 +1,9 @@
+// require("dotenv").config();
+// const path = require("path");
 const Medico = require("../models/medico.model");
 const Paciente = require("../models/paciente.model");
 const Agenda = require("../models/agenda.model");
+// const publish = require("../config/rabbit/publish");
 
 exports.create = async (req, res, next) => {
   const { medico_id, paciente_id } = req.params;
@@ -28,6 +31,37 @@ exports.create = async (req, res, next) => {
       medico_id,
       paciente_id,
     });
+
+    // const mail = {
+    //   from: process.env.EMAIL,
+    //   to: paciente.email,
+    //   subject: "[NO-REPLY] Agendamento APP DOCTOR",
+    //   text: "Agendamento realizado com sucesso",
+    //   html: `<body>
+    //           <h3>Agendamento</h3>
+    //           <ol>
+    //               <li>Médico: ${medico.name}</li>
+    //               <li>Nome: ${paciente.name}</li>
+    //               <li>Data: ${data}</li>
+    //               <li>Hora: ${hora}</li>
+    //           </ol>
+    //           <p>Verifique o seu agendamento no nosso aplicativo</p>
+    //           <p>Link de acesso:</p><a href="www.google.com">APP DOCTOR</a>
+    //         </body>
+    //         `,
+    //   attachments: [
+    //     {
+    //       filename: "logo.png",
+    //       path: path.resolve(__dirname, "..", "..", "tmp", "imgs", "logo.png"),
+    //       cid: "logo",
+    //     },
+    //   ],
+    //   auth: {
+    //     user: process.env.EMAIL,
+    //   },
+    // };
+
+    // publish(mail, "agendamento");
 
     return res.status(201).send({ agenda });
   } catch (error) {

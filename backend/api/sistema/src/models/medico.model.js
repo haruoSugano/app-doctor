@@ -5,11 +5,15 @@ class Medico extends Model {
     super.init(
       {
         name: DataTypes.STRING,
+        email: DataTypes.STRING,
         data_nascimento: DataTypes.DATE,
-        crm: DataTypes.INTEGER,
-        telefone: DataTypes.INTEGER,
+        crm: DataTypes.STRING,
+        telefone: DataTypes.STRING,
         endereco: DataTypes.STRING,
         numero: DataTypes.STRING,
+        cidade: DataTypes.STRING,
+        estado: DataTypes.STRING,
+        cep: DataTypes.STRING,
         assinatura: DataTypes.STRING,
       },
       {

@@ -14,16 +14,20 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       data_nascimento: {
         type: Sequelize.DATE,
         allowNull: false,
       },
       crm: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       telefone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       endereco: {
@@ -31,6 +35,18 @@ module.exports = {
         allowNull: false,
       },
       numero: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cidade: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      estado: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cep: {
         type: Sequelize.STRING,
         allowNull: false,
       },

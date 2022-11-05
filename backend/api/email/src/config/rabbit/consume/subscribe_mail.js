@@ -1,13 +1,11 @@
 const sendMail = require("../../../mails/sendMail");
 const createConnectionAmqp = require("../index");
 
-module.exports = async () =>
+module.exports = async (queue) =>
   createConnectionAmqp()
     .then((conn) => conn.createChannel())
     .then(async (ch) => {
-      console.log("Channel created");
-
-      const queue = "email";
+      console.log("Channel created: " + queue);
 
       console.log(
         "[*] Waiting for messages in %s. To exit press CTRL+C",

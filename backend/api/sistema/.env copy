@@ -1,0 +1,7 @@
+DB_HOST=localhost
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=123456
+PGDATA=app-doctor
+DB_PORT=5432
+PORT=4000
+EMAIL=appdoctor514@gmail.com
