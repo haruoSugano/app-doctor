@@ -1,265 +1,329 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-  	<title>App Doctor</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="tela-sistema-cadastro-paciente.component.css">
+    <title>App Doctor</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="tela-sistema-cadastro-paciente.component.css"
+    />
   </head>
   <body>
-
-		<div class="wrapper d-flex align-items-stretch">
-
-			<nav id="sidebar">
-       <!--  <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-	          <i class="fa fa-bars"></i>
-	          <span class="sr-only">Toggle Menu</span>
-	        </button>
-        </div> -->
-	  		<h1><a href="tela-sistema.component.html" class="logo">AppDoctor</a></h1>
-
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <h1>
+          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
+        </h1>
         <ul class="list-unstyled components mb-5">
 
           <li class="active">
-            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span>Página Inicial</a>
+            <a routerLink="/home" routerLinkActive="active"
+              ><span class="fa fa-home mr-3"></span>Página Inicial</a
+            >
           </li>
-
-          <div class="dropdown1">
-            <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span>Médicos<span class="um fa fa-caret-down"></span></button>
-            <div id="myDropdown1" class="dropdown-content1">
-              <li>
-                <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="um fa fa-user-plus mr-3"></span>Cadastrar Médico</a>
-              </li>
-              <li>
-                <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a>
-              </li>
-            </div>
-          </div>
-
-
-          <div class="dropdown2">
-            <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span><strong>Pacientes</strong><span class="dois fa fa-caret-down"></span></button>
-            <div id="myDropdown2" class="dropdown-content2">
-              <li>
-                <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="dois fa fa-user-plus mr-3"></span><strong>Cadastrar Paciente</strong></a>
-              </li>
-              <li>
-                <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="dois fa fa-search mr-3"></span>Pesquisar Paciente</a>
-              </li>
-              <li>
-                <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="dois fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
-              </li>
-            </div>
-          </div>
-
-
-
-          <div class="dropdown3">
-            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
-            <div id="myDropdown3" class="dropdown-content3">
-
-              <li>
-                <a href="#"><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a>
-              </li>
-
-              <div class="dropdown4">
-                <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span>Usuários<span class="fa fa-caret-down"></span></button>
-                <div id="myDropdown4" class="dropdown-content4">
-                  <li>
-                    <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Pacientes</a>
-                  </li>
-                  <li>
-                    <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Médicos</a>
-                  </li>
-                </div>
-              </div>
-
-              <li>
-                <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span>Sair</a>
-              </li>
-
-            </div>
-          </div>
+          <li>
+            <a routerLink="/cadastrar-medico" routerLinkActive="active"
+              ><span class="fa fa-user-md mr-3"></span>Cadastrar Médico</a
+            >
+          </li>
+          <li>
+            <a routerLink="/pesquisar-medico" routerLinkActive="active"
+              ><span class="fa fa-search mr-3"></span>Pesquisar Médico</a
+            >
+          </li>
+          <li>
+            <a routerLink="/cadastrar-paciente" routerLinkActive="active"
+              ><span
+                class="fa fa-user mr-3"
+                style="color: rgb(255, 255, 255)"
+              ></span
+              ><strong>Cadastrar Paciente</strong></a
+            >
+          </li>
+          <li>
+            <a routerLink="/pesquisar-paciente" routerLinkActive="active"
+              ><span class="fa fa-search mr-3"></span>Pesquisar Paciente</a
+            >
+          </li>
+          <li>
+            <a routerLink="/realizar-consulta" routerLinkActive="active"
+              ><span class="fa fa-address-card-o mr-3"></span>Realizar
+              Consulta</a
+            >
+          </li>
+          <li>
+            <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
+          </li>
+          <!-- <li>
+            <a href="#"><span class="fa fa-cogs mr-3"></span> Configurações</a>
+          </li> -->
         </ul>
-    	</nav>
-
-        <!-- Page Content  -->
+      </nav>
+      <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-
-
         <div class="formulario">
-          <form id="formulario" name="formuser" action="#" method="POST">
+          <form id="formulario" action="#">
             <div class="col-12">
               <header>
-                <h3 id="titulo"> <span class="fa fa-user-plus icone-titulo"></span>Cadastrar Paciente</h3>
+                <h3 id="titulo">
+                  <span class="fa fa-user-plus icone-titulo"></span>Cadastrar
+                  Paciente
+                </h3>
               </header>
             </div>
-
             <div class="row nome col-12">
               <div class="col nome">
                 <label>Nome Completo</label>
-                <input id="nome" name="nome" type="text" class="form-control input"  placeholder="Digite o Nome">
+                <input
+                  id="nome"
+                  name="nome"
+                  type="text"
+                  class="form-control input"
+                  placeholder="Digite o Nome"
+                  [(ngModel)]="pacienteForm.name"
+                />
               </div>
             </div>
-
-            <div class="row nascimento-crm-telefone col-12">
-                <div class="form-group col-4" >
-                  <label class="data-nascimento">Data de Nascimento</label>
-                  <input  id="data"  name="begin" type="date" class="form-control input"   placeholder="Data de Nascimento" value="" min="1940-01-01" max="2023-12-31">
-                </div>
-
-                <div class="form-group col-4">
-                  <label>CPF</label>
-                  <input id="cpf" name="cpf" type="text" class="form-control input"  placeholder="Ex: 99999999999" onblur="formataCPF(this)" pattern="[0-9]{11}" required>
-                </div>
-
-
-                <div class="form-group col-4">
-                  <label>Telefone (com DDD)</label>
-                  <input id="telefone" name="telefone" type="tel"  class="form-control input"  placeholder="Ex: 11999999999"  onkeydown="return mascaraTelefone(event)" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
-                  <div class="help-block with-errors"></div>
-                </div>
-
+            <div class="row email col-12">
+              <div class="col email">
+                <label>E-mail</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="text"
+                  class="form-control input"
+                  placeholder="Digite o e-mail"
+                  [(ngModel)]="pacienteForm.email"
+                />
+              </div>
             </div>
+            <div class="row nascimento-crm-telefone col-12">
+              <div class="form-group col-4">
+                <label class="data-nascimento">Data de Nascimento</label>
+                <input
+                  id="data"
+                  name="begin"
+                  type="date"
+                  class="form-control input"
+                  placeholder="Data de Nascimento"
+                  value=""
+                  min="1940-01-01"
+                  max="2023-12-31"
+                  [(ngModel)]="pacienteForm.data_nascimento"
+                />
+              </div>
+              <div class="form-group col-4">
+                <label>CPF</label>
+                <input
+                  id="cpf"
+                  name="cpf"
+                  type="text"
+                  class="form-control input"
+                  placeholder="Ex: 99999999999"
+                  onblur="formataCPF(this)"
+                  pattern="[0-9]{11}"
+                  required
+                  [(ngModel)]="pacienteForm.cpf"
+                />
+              </div>
+              <div class="form-group col-4">
+                <label>Telefone (com DDD)</label>
+                <input
+                  id="telefone"
+                  name="telefone"
+                  type="tel"
+                  class="form-control input"
+                  placeholder="Ex: 11999999999"
 
-            <div class= "row endereco-1 col-12 ">
+                  pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$"
+                  required
+                  [(ngModel)]="pacienteForm.telefone"
+                />
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="row endereco-1 col-12">
               <div class="col-8">
                 <label>Endereço</label>
-                <input id="endereco" name="endereco" type="text" class="form-control input"  placeholder="Ex: Rua App Doctor">
+                <input
+                  id="endereco"
+                  name="endereco"
+                  type="text"
+                  class="form-control input"
+                  placeholder="Ex: Rua App Doctor"
+                  [(ngModel)]="pacienteForm.endereco"
+                />
               </div>
-
               <div class="col-4">
                 <label>Número</label>
-                <input id="numero" name="numero" type="number" class="form-control input"  placeholder="Ex: 398">
+                <input
+                  id="numero"
+                  name="numero"
+                  type="text"
+                  class="form-control input"
+                  placeholder="Ex: 398"
+                  [(ngModel)]="pacienteForm.numero"
+                />
               </div>
             </div>
-
-
             <div class="row endereco-2 col-12">
-                <div class="col-md-3 col-sm-3">
-                    <label>Estado</label>
-                    <select id="estado" name="estado" type="text" class="form-control input" required>
-                      <option selected>Selecionar Estado...</option>
-                      <option>AC</option>
-                      <option>AL</option>
-                      <option>AP</option>
-                      <option>AM</option>
-                      <option>BA</option>
-                      <option>CE</option>
-                      <option>DF</option>
-                      <option>ES</option>
-                      <option>GO</option>
-                      <option>MA</option>
-                      <option>MT</option>
-                      <option>MS</option>
-                      <option>MG</option>
-                      <option>PA</option>
-                      <option>PB</option>
-                      <option>PR</option>
-                      <option>PE</option>
-                      <option>PI</option>
-                      <option>RJ</option>
-                      <option>RN</option>
-                      <option>RS</option>
-                      <option>RO</option>
-                      <option>RR</option>
-                      <option>SC</option>
-                      <option>SP</option>
-                      <option>SE</option>
-                      <option>TO</option>
-                    </select>
-                    <!-- <input id="estado" name="estado" type="text" class="form-control input" placeholder="Ex: SP"> -->
-
-                    <!-- <select id="estado" class="form-control input">
-                      <option selected>Escolher</option>
-                      <option>AC</option>
-                      <option>AL</option>
-                      <option>AP</option>
-                      <option>AM</option>
-                      <option>BA</option>
-                      <option>CE</option>
-                      <option>DF</option>
-                      <option>ES</option>
-                      <option>GO</option>
-                      <option>MA</option>
-                      <option>MT</option>
-                      <option>MS</option>
-                      <option>MG</option>
-                      <option>PA</option>
-                      <option>PB</option>
-                      <option>PR</option>
-                      <option>PE</option>
-                      <option>PI</option>
-                      <option>RJ</option>
-                      <option>RN</option>
-                      <option>RS</option>
-                      <option>RO</option>
-                      <option>RR</option>
-                      <option>SC</option>
-                      <option>SP</option>
-                      <option>SE</option>
-                      <option>TO</option>
-                    </select> -->
-                 </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <label>Cidade</label>
-                  <input id="cidade" name="cidade" type="text" class="form-control input" placeholder="Ex: São Paulo">
-                </div>
-
-                <div class="col-md-3 col-sm-3">
-                  <label>CEP</label>
-                  <input id="cep" name="cep" type="text" class="form-control input" onblur="formataCEP(this)" placeholder="Ex: 9999999">
-                </div>
+              <div class="col-md-3 col-sm-3">
+                <label>Estado</label>
+                <select
+                  id="estado"
+                  name="estado"
+                  type="text"
+                  class="form-control input"
+                  required
+                  [(ngModel)]="pacienteForm.estado"
+                >
+                  <option selected>Selecionar Estado...</option>
+                  <option>AC</option>
+                  <option>AL</option>
+                  <option>AP</option>
+                  <option>AM</option>
+                  <option>BA</option>
+                  <option>CE</option>
+                  <option>DF</option>
+                  <option>ES</option>
+                  <option>GO</option>
+                  <option>MA</option>
+                  <option>MT</option>
+                  <option>MS</option>
+                  <option>MG</option>
+                  <option>PA</option>
+                  <option>PB</option>
+                  <option>PR</option>
+                  <option>PE</option>
+                  <option>PI</option>
+                  <option>RJ</option>
+                  <option>RN</option>
+                  <option>RS</option>
+                  <option>RO</option>
+                  <option>RR</option>
+                  <option>SC</option>
+                  <option>SP</option>
+                  <option>SE</option>
+                  <option>TO</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <label>Cidade</label>
+                <input
+                  id="cidade"
+                  name="cidade"
+                  type="text"
+                  class="form-control input"
+                  placeholder="Ex: São Paulo"
+                  [(ngModel)]="pacienteForm.cidade"
+                />
+              </div>
+              <div class="col-md-3 col-sm-3">
+                <label>CEP</label>
+                <input
+                  id="cep"
+                  name="cep"
+                  type="text"
+                  class="form-control input"
+                  onblur="formataCEP(this)"
+                  placeholder="Ex: 9999999"
+                  [(ngModel)]="pacienteForm.cep"
+                />
+              </div>
             </div>
-
-              <div class= "row senha col-12 ">
-
-                  <div class="col-6">
-                    <label>Senha</label>
-                    <input id="passwordSenha" name="passwordSenha" type="password" class="form-control input input-senha" aria-describedby="passwordHelpBlock" placeholder="Ex: App@doctor123">
-                    <span onclick="mostrarSenha2()" class="fa fa-eye senha"></span>
-                  </div>
-
-                  <div class="col-6">
-                    <label>Confirmar Senha</label>
-                    <input id="passwordConfirmarSenha" name="passwordConfirmarSenha" type="password"  class="form-control input input-confirmar-senha" aria-describedby="passwordHelpBlock" placeholder="App@doctor12">
-                    <span onclick="mostrarSenha3()" class="fa fa-eye confirmar-senha"></span>
-                  </div>
+            <div class="row senha col-12">
+              <div class="col-6">
+                <label>Senha</label>
+                <input
+                  id="senha"
+                  name="senha"
+                  type="password"
+                  class="form-control input input-senha"
+                  aria-describedby="passwordHelpBlock"
+                  placeholder="Ex: App@doctor123"
+                />
+              </div>
+              <div class="col-6">
+                <label>Confirmar Senha</label>
+                <input
+                  id="senha"
+                  name="senha"
+                  type="password"
+                  class="form-control input input-confirmar-senha"
+                  aria-describedby="passwordHelpBlock"
+                  placeholder="App@doctor12"
+                />
+              </div>
+            </div>
+            <div>
+              <small id="dica-senha" class="form-text text-muted dica-senha">
+                Sua senha deve ter entre 8 e 20 caracteres, os quais devem ser
+                letras, sem espaços, com pelo menos 1 número e 1 caracter
+                especial.
+              </small>
+            </div>
+            <div class="row botoes col-12">
+              <div class="col-md-4 col-sm-4">
+                <button
+                  id="cadastrar"
+                  type="button"
+                  class="btn btn-success"
+                  style="width: 100%"
+                  (click)="addPaciente()"
+                >
+                  <span
+                    class="fa fa-user-plus mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Cadastrar
+                </button>
+              </div>
+              <div class="col-md-4 col-sm-4">
+                <button
+                  onclick="limparForm()"
+                  type="button"
+                  class="btn btn-danger"
+                  style="width: 100%"
+                >
+                  <span
+                    class="fa fa-close mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Limpar
+                </button>
               </div>
 
-              <div>
-                <small id="dica-senha" class="form-text text-muted dica-senha">
-                  Sua senha deve ter entre 8 e 20 caracteres, os quais devem ser letras, sem espaços, com pelo menos 1 número e 1 caracter especial.
-                </small>
+              <div class="col-md-4 col-sm-4">
+                <button
+                  routerLink="/home"
+                  id="home"
+                  type="button"
+                  class="btn btn-secondary"
+                  style="width: 100%"
+                >
+                  <span
+                    class="fa fa-home mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Página Inicial
+                </button>
               </div>
-
-              <div class="row botoes col-12" >
-                <div class="col-md-4 col-sm-4">
-                  <button onclick="validarSenha()" id="cadastrar" type="button" class="btn btn-success" style="width:100%;"><span class="fa fa-user-plus mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Cadastrar</button>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                  <button onclick="limparForm()"  type="button" class="btn btn-danger" style="width:100%;"><span class="fa fa-close mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Limpar</button>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                  <button routerLink="/home" id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
-                </div>
-              </div>
-
-
+            </div>
           </form>
-
         </div>
       </div>
-	</div>
-</body>
+    </div>
+  </body>
 </html>
-
-

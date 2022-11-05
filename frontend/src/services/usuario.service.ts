@@ -8,7 +8,7 @@ import { Usuario } from 'src/app/shared/models/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-  URL = environment.API_URL;
+  URL = environment.API_LOGIN;
 
   httpOptions = {
     headers: new HttpHeaders({

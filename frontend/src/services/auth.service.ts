@@ -10,7 +10,7 @@ import { Usuario } from "../app/shared/models/usuario";
   providedIn: 'root'
 })
 export class AuthService {
-  endpoint: string = environment.API_URL
+  endpoint: string = environment.API_LOGIN
   headers = new HttpHeaders().set("Content-Type", "application/json");
   currentUser = {};
 

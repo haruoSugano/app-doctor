@@ -1,224 +1,281 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-  	<title>App Doctor</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>App Doctor</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
 
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="tela-sistema-pesquisar-paciente.component.css">
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="tela-sistema-pesquisar-paciente.component.css"
+    />
   </head>
 
   <body>
-
-		<div class="wrapper d-flex align-items-stretch">
-
-			<nav id="sidebar">
-       <!--  <div class="custom-menu">
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <!--  <div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 	          <i class="fa fa-bars"></i>
 	          <span class="sr-only">Toggle Menu</span>
 	        </button>
         </div> -->
-	  		<h1><a href="tela-sistema.component.html" class="logo">AppDoctor</a></h1>
+        <h1>
+          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
+        </h1>
 
         <ul class="list-unstyled components mb-5">
-
           <li class="active">
-            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span>Página Inicial</a>
+            <a routerLink="/home" routerLinkActive="active"
+              ><span class="fa fa-home mr-3"></span>Página Inicial</a
+            >
           </li>
-
-          <div class="dropdown1">
-            <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span>Médicos<span class="um fa fa-caret-down"></span></button>
-            <div id="myDropdown1" class="dropdown-content1">
-              <li>
-                <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="um fa fa-user-plus mr-3"></span>Cadastrar Médico</a>
-              </li>
-              <li>
-                <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a>
-              </li>
-            </div>
-          </div>
-
-
-          <div class="dropdown2">
-            <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span><strong>Pacientes</strong><span class="dois fa fa-caret-down"></span></button>
-            <div id="myDropdown2" class="dropdown-content2">
-              <li>
-                <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="dois fa fa-user-plus mr-3"></span>Cadastrar Paciente</a>
-              </li>
-              <li>
-                <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="dois fa fa-search mr-3"></span><strong>Pesquisar Paciente</strong></a>
-              </li>
-              <li>
-                <a routerLink="/realizar-consulta" routerLinkActive="active"><span class=" dois fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
-              </li>
-            </div>
-          </div>
-
-
-
-          <div class="dropdown3">
-            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
-            <div id="myDropdown3" class="dropdown-content3">
-
-              <li>
-                <a href="#"><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a>
-              </li>
-
-              <div class="dropdown4">
-                <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span> Usuários<span class="fa fa-caret-down"></span></button>
-                <div id="myDropdown4" class="dropdown-content4">
-                  <li>
-                    <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Pacientes</a>
-                  </li>
-                  <li>
-                    <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Médicos</a>
-                  </li>
-                </div>
-              </div>
-
-              <li>
-                <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
-              </li>
-
-            </div>
-          </div>
+          <li>
+            <a routerLink="/cadastrar-medico" routerLinkActive="active"
+              ><span class="fa fa-user-md mr-3"></span>Cadastrar Médico</a
+            >
+          </li>
+          <li>
+            <a routerLink="/pesquisar-medico" routerLinkActive="active"
+              ><span class="fa fa-search mr-3"></span>Pesquisar Médico</a
+            >
+          </li>
+          <li>
+            <a routerLink="/cadastrar-paciente" routerLinkActive="active"
+              ><span class="fa fa-user mr-3"></span>Cadastrar Paciente</a
+            >
+          </li>
+          <li>
+            <a routerLink="/pesquisar-paciente" routerLinkActive="active"
+              ><span
+                class="fa fa-search mr-3"
+                style="color: rgb(255, 255, 255)"
+              ></span
+              ><strong>Pesquisar Paciente</strong></a
+            >
+          </li>
+          <li>
+            <a routerLink="/realizar-consulta" routerLinkActive="active"
+              ><span class="fa fa-address-card-o mr-3"></span>Realizar
+              Consulta</a
+            >
+          </li>
+          <li>
+            <a><span class="fa fa-sign-out mr-3"></span>Sair</a>
+          </li>
+          <!-- <li>
+            <a href="#"><span class="fa fa-cogs mr-3"></span> Configurações</a>
+          </li> -->
         </ul>
-    	</nav>
-
-        <!-- Page Content  -->
+      </nav>
+      <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-
         <div class="row-1">
-
           <div class="row-2">
             <div class="row titulo-e-pesquisar col-12">
               <div class="titulo col-5">
                 <header>
-                  <h3 id="titulo"><span class="fa fa-user icone-titulo"></span>Pesquisar Paciente</h3>
+                  <h3 id="titulo">
+                    <span class="fa fa-user icone-titulo"></span>Pesquisar
+                    Paciente
+                  </h3>
                 </header>
               </div>
               <div class="input-group col">
-                <input type="search" name="search" [(ngModel)]="filter" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon"/>
-                <button type="button" class="btn btn-outline-primary">Pesquisar</button>
+                <input
+                  type="search"
+                  class="form-control rounded input-pesquisar"
+                  placeholder="Digite o nome do paciente"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                />
+                <button type="button" class="btn btn-outline-primary">
+                  Pesquisar
+                </button>
               </div>
             </div>
           </div>
 
-
-        <div class="row-3">
-          <div class="col-12">
-            <table class="table table-striped table-bordered table-hover table-wrapper">
+          <div class="row-3">
+            <div class="col-12">
+              <table
+                class="table table-striped table-bordered table-hover table-wrapper"
+              >
                 <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th (click)="sort('nome')">Nome<span role="button" style="margin-left:5px" *ngIf="key =='nome'">{{reverse ? '▲' : '▼'}}</span></th>
-                        <th>Data de Nascimento</th>
-                        <th>CPF</th>
-                        <th>Telefone</th>
-                        <th>Endereço</th>
-                        <th>Número</th>
-                        <th>Estado</th>
-                        <th>Cidade</th>
-                        <th>CEP</th>
-                        <th style="width: 15%;" class="text-center">Ação</th>
-                    </tr>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Data de Nascimento</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Endereço</th>
+                    <th>Número</th>
+                    <th>Estado</th>
+                    <th>Cidade</th>
+                    <th>CEP</th>
+                    <th style="width: 15%" class="text-center">Ação</th>
+                  </tr>
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let user of usersArray | filter:filter | orderBy: key : reverse;let i= index">
+                  <tr *ngFor="let paciente of Paciente.pacientes">
+                    <td class="td_item">{{ paciente.id }}</td>
 
-                        <td class="td_item">{{i+1}}</td>
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="text"
+                          [(ngModel)]="paciente.name"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.name }}
+                      </div>
+                    </td>
 
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="text"
+                          [(ngModel)]="paciente.email"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.email }}
+                      </div>
+                    </td>
 
-                        <td class="td_item">
-                            <div class="div_item" *ngIf="user.isEdit">
-                                <input type="text" [(ngModel)]="user.nome" class="form-control"/>
-                            </div>
-                            <div class="div_item" *ngIf="!user.isEdit">
-                                {{user.nome}}
-                            </div>
-                        </td>
+                    <td class="td_item">{{ paciente.data_nascimento }}</td>
 
-                        <td class="td_item">{{user.dataNascimento}}</td>
+                    <td class="td_item">{{ paciente.cpf }}</td>
 
-                        <td class="td_item">{{user.cpf}}</td>
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="tel"
+                          [(ngModel)]="paciente.telefone"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.telefone }}
+                      </div>
+                    </td>
 
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="tel" [(ngModel)]="user.telefone" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.telefone}}
-                          </div>
-                        </td>
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="text"
+                          [(ngModel)]="paciente.endereco"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.endereco }}
+                      </div>
+                    </td>
 
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.endereco" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.endereco}}
-                          </div>
-                        </td>
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="number"
+                          [(ngModel)]="paciente.numero"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.numero }}
+                      </div>
+                    </td>
 
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="number" [(ngModel)]="user.numero" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.numero}}
-                          </div>
-                        </td>
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="text"
+                          [(ngModel)]="paciente.estado"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.estado }}
+                      </div>
+                    </td>
 
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.estado" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.estado}}
-                          </div>
-                        </td>
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="text"
+                          [(ngModel)]="paciente.cidade"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.cidade }}
+                      </div>
+                    </td>
 
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.cidade" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.cidade}}
-                          </div>
-                        </td>
+                    <td class="td_item">
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <input
+                          type="text"
+                          [(ngModel)]="paciente.cep"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        {{ paciente.cep }}
+                      </div>
+                    </td>
 
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.cep" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.cep}}
-                          </div>
-                        </td>
-
-                        <td style="width: 15%;" class=" td_item text-center">
-                            <div class="div_item" *ngIf="user.isEdit">
-                                <button class="btn btn-sm btn-success" style="margin-right: 5px;">Atualizar</button>
-                                <button class="btn btn-sm btn-danger" (click)="user.isEdit = false">Cancelar</button>
-                            </div>
-                            <div class="div_item" *ngIf="!user.isEdit">
-                                <button class="btn btn-sm btn-success" (click)="onEdit(user)">Editar</button>
-                                <button (click)="removeUser(i)" class="btn btn-sm btn-danger" style="margin-left: 5px;">Excluir</button>
-                            </div>
-                        </td>
-                    </tr>
+                    <td style="width: 15%" class="td_item text-center">
+                      <div class="div_item" *ngIf="!paciente.isEdit">
+                        <button
+                          class="btn btn-sm btn-success"
+                          style="margin-right: 5px"
+                          (click)="paciente.isEdit = true"
+                        >
+                          Atualizar
+                        </button>
+                        <button
+                          class="btn btn-sm btn-danger"
+                          style="margin-left: 5px"
+                          (click)="deletePaciente(paciente.id)"
+                        >
+                          Excluir
+                        </button>
+                      </div>
+                      <div class="div_item" *ngIf="paciente.isEdit">
+                        <button class="btn btn-sm btn-success" (click)="updatePaciente(paciente.id, paciente)">Editar</button>
+                        <button
+                          class="btn btn-sm btn-danger"
+                          (click)="paciente.isEdit = false"
+                        >
+                          Cancelar
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
-            </table>
+              </table>
+            </div>
           </div>
         </div>
-       </div>
       </div>
-	  </div>
+    </div>
   </body>
 </html>

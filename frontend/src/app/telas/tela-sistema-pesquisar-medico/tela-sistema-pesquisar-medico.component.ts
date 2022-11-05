@@ -1,233 +1,114 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
+import { MedicoService } from 'src/services/medico.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { mimeTypeValidator } from '../tela-sistema-cadastro-medico/mime-type.validator';
+import { Medico } from 'src/app/shared/models/medico';
 
 
 @Component({
   selector: 'app-tela-sistema-pesquisar-medico',
   templateUrl: './tela-sistema-pesquisar-medico.component.html',
-  styleUrls: ['./tela-sistema-pesquisar-medico.component.css'],
+  styleUrls: ['./tela-sistema-pesquisar-medico.component.css']
 })
-
 export class TelaSistemaPesquisarMedicoComponent implements OnInit {
-  filter: string;
+  Medico: any = [{}];
+  form: FormGroup;
+  priview: any = [{}];
+  image: any = [];
 
-  key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
-  reverse: boolean = false;
-  sort(key) {
-    this.key = key;
-    this.reverse = !this.reverse;
+  constructor(
+    public authService: AuthService,
+    public medicoService: MedicoService,
+    public router: Router,
+    public fb: FormBuilder
+  ) {
   }
-
-  usersArray = [
-    {
-      "id": 1,
-      "nome": "Vinicius Souza",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 2,
-      "nome": "Alice",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 3,
-      "nome": "Helio",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 4,
-      "nome": "Nathalia",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 5,
-      "nome": "Giovane",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 6,
-      "nome": "José",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 7,
-      "nome": "Kassio",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 8,
-      "nome": "João",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 9,
-      "nome": "Tadeu",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 10,
-      "nome": "Nicole",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 11,
-      "nome": "Ana",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 12,
-      "nome": "Maria",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 13,
-      "nome": "Marcos",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 14,
-      "nome": "Junior",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-    {
-      "id": 15,
-      "nome": "Vinicius Alves",
-      "dataNascimento": "28/04/1993",
-      "crm": "123456789",
-      "telefone": "(11) 97417-01928",
-      "endereco": "Rua App Doctor",
-      "numero": "00",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "12345-678",
-      "isEdit": false
-    },
-  ]
-
-  constructor(public authService: AuthService) {}
 
   logout() {
     this.authService.doLogout();
   }
 
+  loadMedico() {
+    return this.medicoService.getMedicos().subscribe((data: {}) => {
+      this.Medico = data;
+    })
+  }
+
+  uploadFile(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({
+      "file": file
+    });
+    this.form.get("file").updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.priview = reader.result as string;
+    }
+    reader.readAsDataURL(file);
+  }
+
+  deleteMedico(id: any) {
+    if (window.confirm("Você realmente quer deletar este medico?")) {
+      this.medicoService.deleteMedico(id).subscribe((data) => {
+        this.loadMedico();
+      });
+    }
+  }
+
+  updateMedico(id: any, medico: Medico) {
+    const data = this.form.value.file ? this.form.value : medico;
+    if (window.confirm("Você realmente quer atualizar os dados do medico?")) {
+      this.medicoService.updateMedico(id, data).subscribe(data => {
+        window.location.reload();
+      });
+    }
+  }
+
   ngOnInit(): void {
+    this.form = new FormGroup({
+      name: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      email: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      data_nascimento: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      crm: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      telefone: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      endereco: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      numero: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      cidade: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      estado: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      cep: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      file: new FormControl(null, {
+        validators: [Validators.required],
+        asyncValidators: [mimeTypeValidator]
+      }),
+    });
+    this.loadMedico();
   }
 
   onEdit(item: any) {
-    debugger;
-    this.usersArray.forEach(element => {
+    this.Medico.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;

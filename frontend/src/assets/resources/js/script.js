@@ -282,15 +282,3 @@ window.onclick = function(event) {
   }
 
  */
-
-
-/*   $scope.delete = function ( idx ) {
-    var person_to_delete = $scope.persons[idx];
-
-    API.DeletePerson({ id: person_to_delete.id }, function (success) {
-      $scope.persons.splice(idx, 1);
-    });
-  };
- */
-
-  

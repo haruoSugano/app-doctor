@@ -2,17 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
-//telas sistemas
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpRequestInterceptor } from "./shared/helpers/http.interceptor";
+import { FileUploadModule} from "ng2-file-upload";
 import { TelaLoginComponent } from './telas/tela-login/tela-login.component';
 import { TelaSistemaComponent } from './telas/tela-sistema/tela-sistema.component';
 import { TelaSistemaCadastroMedicoComponent } from './telas/tela-sistema-cadastro-medico/tela-sistema-cadastro-medico.component';
 import { TelaSistemaCadastroPacienteComponent } from './telas/tela-sistema-cadastro-paciente/tela-sistema-cadastro-paciente.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpRequestInterceptor } from "./shared/helpers/http.interceptor";
 import { TelaSistemaRealizarConsultaComponent } from './telas/tela-sistema-realizar-consulta/tela-sistema-realizar-consulta.component';
 import { TelaSistemaPesquisarMedicoComponent } from './telas/tela-sistema-pesquisar-medico/tela-sistema-pesquisar-medico.component';
 import { TelaSistemaPesquisarPacienteComponent } from './telas/tela-sistema-pesquisar-paciente/tela-sistema-pesquisar-paciente.component';
@@ -24,7 +21,6 @@ import { TelaEnviarEmailComponent } from './telas-recuperar-senha/tela-enviar-em
 import { TelaNovaSenhaComponent } from './telas-recuperar-senha/tela-nova-senha/tela-nova-senha.component';
 import { TelaSistemaPacienteComponent } from './telas-pacientes/tela-sistema-paciente/tela-sistema-paciente.component';
 import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-pacientes/tela-sistema-paciente-historico-consultas/tela-sistema-paciente-historico-consultas.component';
-import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -50,18 +46,13 @@ import { OrderModule } from 'ngx-order-pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule,
-    OrderModule,
+    FileUploadModule,
   ],
-
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: HttpRequestInterceptor,
     multi: true
   }],
-
   bootstrap: [AppComponent]
 })
-
-export class AppModule {
-}
+export class AppModule { }
