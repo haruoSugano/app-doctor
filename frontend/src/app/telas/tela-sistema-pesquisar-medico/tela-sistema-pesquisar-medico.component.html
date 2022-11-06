@@ -149,11 +149,12 @@
               </div>
               <div class="input-group col">
                 <input
-                  type="search"
+                  type="text"
                   class="form-control rounded input-pesquisar"
                   placeholder="Digite o nome do médico"
                   aria-label="Search"
                   aria-describedby="search-addon"
+                  [(ngModel)]="filtro" (ngModelChange)="filtrar(filtro)"
                 />
                 <button type="button" class="btn btn-outline-primary">
                   Pesquisar

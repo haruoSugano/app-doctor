@@ -17,6 +17,7 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
   form: FormGroup;
   priview: any = [{}];
   image: any = [];
+  filtro: string = '';
 
   constructor(
     public authService: AuthService,
@@ -64,6 +65,16 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
       this.medicoService.updateMedico(id, data).subscribe(data => {
         window.location.reload();
       });
+    }
+  }
+
+  filtrar(value: string) {
+    if (!value) {
+      this.filtro = this.Medico;
+    } else {
+      this.filtro = this.Medico.filter(x => {
+        x.crm.includes(value);
+      })
     }
   }
 

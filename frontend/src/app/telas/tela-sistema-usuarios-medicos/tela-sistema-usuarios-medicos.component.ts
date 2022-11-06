@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from 'src/services/usuario.service';
+import { Usuario } from "src/app/shared/models/usuario";
 import { AuthService } from 'src/services/auth.service';
 
 
@@ -10,149 +13,44 @@ import { AuthService } from 'src/services/auth.service';
 
 
 export class TelaSistemaUsuariosMedicosComponent implements OnInit {
+  @Input() usuarioForm = {
+    senha: "",
+  };
 
-  usersArray = [
-    {
-      "id": 1,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
+  Usuario: any = [{}];
 
-    {
-      "id": 2,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
+  constructor(
+    private authService: AuthService,
+    private usuarioService: UsuarioService,
+    private route: Router
+  ) { }
 
-    {
-      "id": 3,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
+  loadMedicosUsers() {
+    this.usuarioService.getUsuariosMedicos().subscribe((data: {}) => {
+      this.Usuario = data;
+    });
+  }
 
-    {
-      "id": 4,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 5,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 6,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 7,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 8,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 9,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 10,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 11,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 12,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 13,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 14,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 15,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 16,
-      "crm": "123456",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-  ]
-
-  constructor(public authService: AuthService) {}
+  updateUsuario(id: string, usuario: Usuario) {
+    usuario.senha = this.usuarioForm.senha;
+    if (window.confirm("Você realmente quer atualizar os dados deste paciente?")) {
+      this.usuarioService.updateUsuario(id, usuario).subscribe(data => {
+        window.alert("Atualizado com sucesso");
+        window.location.reload();
+      });
+    }
+  }
 
   logout() {
     this.authService.doLogout();
   }
 
   ngOnInit(): void {
+    this.loadMedicosUsers();
   }
 
   onEdit(item: any) {
-    debugger;
-    this.usersArray.forEach(element => {
+    this.Usuario.medicos.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;

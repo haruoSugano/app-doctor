@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from 'src/services/usuario.service';
+import { Usuario } from "src/app/shared/models/usuario";
 import { AuthService } from 'src/services/auth.service';
 
 
@@ -10,149 +13,44 @@ import { AuthService } from 'src/services/auth.service';
 
 
 export class TelaSistemaUsuariosPacientesComponent implements OnInit {
+  @Input() usuarioForm = {
+    senha: "",
+  };
 
-  usersArray = [
-    {
-      "id": 1,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
+  Usuario: any = [{}];
 
-    {
-      "id": 2,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 3,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 4,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 5,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 6,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 7,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 8,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 9,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 10,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 11,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 12,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 13,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 14,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 15,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-
-    {
-      "id": 16,
-      "cpf": "123.456.789.00",
-      "usuario": "Vinicius@appdoctor.com",
-      "senha": "Appdoctor@123",
-      "isEdit": false
-    },
-  ]
-
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    private usuarioService: UsuarioService,
+    private route: Router
+    ) {}
 
   logout() {
     this.authService.doLogout();
   }
 
+  loadPacienteUser() {
+    this.usuarioService.getUsuariosPacientes().subscribe((data: {}) => {
+      this.Usuario = data;
+    });
+  }
+
+  updateUsuario(id: string, usuario: Usuario) {
+    usuario.senha = this.usuarioForm.senha;
+    if (window.confirm("Você realmente quer atualizar os dados deste paciente?")) {
+      this.usuarioService.updateUsuario(id, usuario).subscribe(data => {
+        window.alert("Atualizado com sucesso");
+        window.location.reload();
+      });
+    }
+  }
+
   ngOnInit(): void {
+    this.loadPacienteUser();
   }
 
   onEdit(item: any) {
-    debugger;
-    this.usersArray.forEach(element => {
+    this.Usuario.pacientes.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;

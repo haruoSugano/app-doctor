@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Usuario } from 'src/app/shared/models/usuario';
 
@@ -26,7 +26,39 @@ export class UsuarioService {
     return this.http.post<Usuario>(`${this.URL}/usuarios`, usuario, this.httpOptions);
   }
 
+  getUsuariosPacientes(): Observable<Usuario> {
+    return this.http
+    .get<Usuario>(`${this.URL}/usuarios/pacientes`)
+    .pipe(retry(1), catchError(this.handleError))
+  }
+
+  getUsuariosMedicos(): Observable<Usuario> {
+    return this.http
+    .get<Usuario>(`${this.URL}/usuarios/medicos`)
+    .pipe(retry(1), catchError(this.handleError))
+  }
+
+  updateUsuario(id: string, usuario: Usuario): Observable<Usuario> {
+    return this.http
+      .put<Usuario>(this.URL + "/usuarios/" + id, JSON.stringify(usuario), this.httpOptions)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
   logout(): Observable<any> {
     return this.http.post(`${this.URL}/logout`, {}, this.httpOptions);
+  }
+
+  handleError(error: any) {
+    let errorMessage = "";
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\Message: ${error.message}`;
+    }
+
+    window.alert(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
   }
 }
