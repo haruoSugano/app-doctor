@@ -1,72 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-  	<title>App Doctor</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="tela-sistema-paciente.component.css">
-
+    <title>App Doctor</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="tela-sistema-paciente.component.css" />
   </head>
-
   <body>
-
-		<div class="wrapper d-flex align-items-stretch">
-
-			<nav id="sidebar">
-       <!--  <div class="custom-menu">
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <!--  <div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 	          <i class="fa fa-bars"></i>
 	          <span class="sr-only">Toggle Menu</span>
 	        </button>
         </div> -->
-	  		<h1><a href="tela-sistema.component.html" class="logo">AppDoctor</a></h1>
-
+        <h1>
+          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
+        </h1>
         <ul class="list-unstyled components mb-5">
-
           <li class="active">
-            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span><strong>Página Inicial</strong></a>
+            <a routerLink="/home" routerLinkActive="active"
+              ><span class="fa fa-home mr-3"></span
+              ><strong>Página Inicial</strong></a
+            >
           </li>
-
           <li class="active">
-            <a class="historico-consultas" routerLink="/historico-consultas" routerLinkActive="active"><span class="fa fa-file mr-3"></span>Histórico / Consultas</a>
+            <a
+              class="historico-consultas"
+              routerLink="/historico-consultas"
+              routerLinkActive="active"
+              ><span class="fa fa-file mr-3"></span>Histórico / Consultas</a
+            >
           </li>
-
-
           <div class="dropdown3">
-            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
+            <button onclick="myFunction3()" class="dropbtn3">
+              <span class="fa fa-cogs mr-3"></span>Configurações<span
+                class="fa fa-caret-down"
+              ></span>
+            </button>
             <div id="myDropdown3" class="dropdown-content3">
-
               <li>
-                <a href="#"><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a>
+                <a href="#"
+                  ><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a
+                >
               </li>
-
               <li>
-                <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
+                <a (click)="logout()"
+                  ><span class="fa fa-sign-out mr-3"></span> Sair</a
+                >
               </li>
-
             </div>
           </div>
         </ul>
-    	</nav>
-
-        <!-- Page Content  -->
+      </nav>
+      <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5">
-
         <div class="cabecalho">
           <header>
-            <img src="/assets/resources/img/logo.png" width="200px" height="150px">
-            <h2 class="mb-4">Bem vindo ao AppDoctor - Essa vai ser uma tela HOME</h2>
+            <img
+              src="/assets/resources/img/logo.png"
+              width="200px"
+              height="150px"
+            />
+            <h2 class="mb-4">
+              Bem vindo ao AppDoctor - Essa vai ser uma tela HOME
+            </h2>
           </header>
-
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-		  </div>
-
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
   </body>
 </html>

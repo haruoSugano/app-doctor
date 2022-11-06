@@ -9,13 +9,12 @@ import { AuthService } from 'src/services/auth.service';
 })
 export class TelaSistemaRealizarConsultaComponent implements OnInit {
 
-  constructor(public authService: AuthService) {}
-
-  logout() {
-    this.authService.doLogout();
-  }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    this.authService.doLogout();
+  }
 }

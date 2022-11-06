@@ -11,10 +11,10 @@ import { AuthService } from 'src/services/auth.service';
 export class TelaSistemaPacienteComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
-  logout() {
-    this.authService.doLogout();
-  }
   ngOnInit() {
   }
 
+  logout() {
+    this.authService.doLogout();
+  }
 }

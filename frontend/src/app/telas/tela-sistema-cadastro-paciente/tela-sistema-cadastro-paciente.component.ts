@@ -29,6 +29,9 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
     public router: Router
   ) { }
 
+  ngOnInit(): void {
+  }
+
   addPaciente() {
     const paciente = this.pacienteForm;
     this.pacienteService.createPaciente(paciente).subscribe((data: {}) => {
@@ -54,8 +57,4 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
     this.authService.doLogout();
     this.router.navigate(["/"]);
   }
-
-  ngOnInit(): void {
-  }
-
 }

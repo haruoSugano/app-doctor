@@ -11,19 +11,30 @@ import { AuthService } from 'src/services/auth.service';
   styleUrls: ['./tela-sistema-usuarios-pacientes.component.css']
 })
 
-
 export class TelaSistemaUsuariosPacientesComponent implements OnInit {
   @Input() usuarioForm = {
     senha: "",
   };
 
   Usuario: any = [{}];
+  filter: string;
+  key: string = 'email';
+  reverse: boolean = false;
 
   constructor(
     public authService: AuthService,
     private usuarioService: UsuarioService,
     private route: Router
-    ) {}
+  ) { }
+
+  ngOnInit(): void {
+    this.loadPacienteUser();
+  }
+
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   logout() {
     this.authService.doLogout();
@@ -45,16 +56,10 @@ export class TelaSistemaUsuariosPacientesComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.loadPacienteUser();
-  }
-
   onEdit(item: any) {
     this.Usuario.pacientes.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;
   }
-
 }
-

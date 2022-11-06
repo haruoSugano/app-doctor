@@ -6,6 +6,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpRequestInterceptor } from "./shared/helpers/http.interceptor";
 import { FileUploadModule} from "ng2-file-upload";
+import { OrderModule } from 'ngx-order-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { TelaLoginComponent } from './telas/tela-login/tela-login.component';
 import { TelaSistemaComponent } from './telas/tela-sistema/tela-sistema.component';
 import { TelaSistemaCadastroMedicoComponent } from './telas/tela-sistema-cadastro-medico/tela-sistema-cadastro-medico.component';
@@ -47,6 +50,8 @@ import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-paciente
     FormsModule,
     ReactiveFormsModule,
     FileUploadModule,
+    Ng2SearchPipeModule,
+    OrderModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

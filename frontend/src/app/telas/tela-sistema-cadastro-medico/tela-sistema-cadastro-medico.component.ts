@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from 'src/services/auth.service';
 import { MedicoService } from 'src/services/medico.service';
 import { Router } from '@angular/router';
-import { mimeTypeValidator } from './mime-type.validator';
+import { mimeTypeValidator } from '../../shared/validators/mime-type.validator';
 
 @Component({
   selector: 'app-tela-sistema-cadastro-medico',
@@ -34,7 +34,7 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
       cep: [""],
       assinatura: [null]
     });
-   }
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({

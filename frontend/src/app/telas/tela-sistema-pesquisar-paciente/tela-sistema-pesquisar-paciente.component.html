@@ -7,12 +7,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -22,7 +20,6 @@
       href="tela-sistema-pesquisar-paciente.component.css"
     />
   </head>
-
   <body>
     <div class="wrapper d-flex align-items-stretch">
       <nav id="sidebar">
@@ -35,7 +32,6 @@
         <h1>
           <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
         </h1>
-
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a routerLink="/home" routerLinkActive="active"
@@ -100,6 +96,8 @@
                   placeholder="Digite o nome do paciente"
                   aria-label="Search"
                   aria-describedby="search-addon"
+                  name="search"
+                  [(ngModel)]="filter"
                 />
                 <button type="button" class="btn btn-outline-primary">
                   Pesquisar
@@ -107,7 +105,6 @@
               </div>
             </div>
           </div>
-
           <div class="row-3">
             <div class="col-12">
               <table
@@ -119,7 +116,14 @@
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Data de Nascimento</th>
-                    <th>CPF</th>
+                    <th (click)="sort('cpf')">
+                      CPF<span
+                        role="button"
+                        style="margin-left: 5px"
+                        *ngIf="key == 'cpf'"
+                        >{{ reverse ? "▲" : "▼" }}</span
+                      >
+                    </th>
                     <th>Telefone</th>
                     <th>Endereço</th>
                     <th>Número</th>
@@ -129,9 +133,14 @@
                     <th style="width: 15%" class="text-center">Ação</th>
                   </tr>
                 </thead>
-
                 <tbody>
-                  <tr *ngFor="let paciente of Paciente.pacientes">
+                  <tr
+                    *ngFor="
+                      let paciente of Paciente.pacientes
+                        | filter: filter
+                        | orderBy: key:reverse
+                    "
+                  >
                     <td class="td_item">{{ paciente.id }}</td>
 
                     <td class="td_item">
@@ -159,11 +168,8 @@
                         {{ paciente.email }}
                       </div>
                     </td>
-
                     <td class="td_item">{{ paciente.data_nascimento }}</td>
-
                     <td class="td_item">{{ paciente.cpf }}</td>
-
                     <td class="td_item">
                       <div class="div_item" *ngIf="paciente.isEdit">
                         <input
@@ -176,7 +182,6 @@
                         {{ paciente.telefone }}
                       </div>
                     </td>
-
                     <td class="td_item">
                       <div class="div_item" *ngIf="paciente.isEdit">
                         <input
@@ -189,7 +194,6 @@
                         {{ paciente.endereco }}
                       </div>
                     </td>
-
                     <td class="td_item">
                       <div class="div_item" *ngIf="paciente.isEdit">
                         <input
@@ -202,7 +206,6 @@
                         {{ paciente.numero }}
                       </div>
                     </td>
-
                     <td class="td_item">
                       <div class="div_item" *ngIf="paciente.isEdit">
                         <input
@@ -215,7 +218,6 @@
                         {{ paciente.estado }}
                       </div>
                     </td>
-
                     <td class="td_item">
                       <div class="div_item" *ngIf="paciente.isEdit">
                         <input
@@ -228,7 +230,6 @@
                         {{ paciente.cidade }}
                       </div>
                     </td>
-
                     <td class="td_item">
                       <div class="div_item" *ngIf="paciente.isEdit">
                         <input
@@ -241,7 +242,6 @@
                         {{ paciente.cep }}
                       </div>
                     </td>
-
                     <td style="width: 15%" class="td_item text-center">
                       <div class="div_item" *ngIf="!paciente.isEdit">
                         <button
@@ -260,7 +260,12 @@
                         </button>
                       </div>
                       <div class="div_item" *ngIf="paciente.isEdit">
-                        <button class="btn btn-sm btn-success" (click)="updatePaciente(paciente.id, paciente)">Editar</button>
+                        <button
+                          class="btn btn-sm btn-success"
+                          (click)="updatePaciente(paciente.id, paciente)"
+                        >
+                          Editar
+                        </button>
                         <button
                           class="btn btn-sm btn-danger"
                           (click)="paciente.isEdit = false"

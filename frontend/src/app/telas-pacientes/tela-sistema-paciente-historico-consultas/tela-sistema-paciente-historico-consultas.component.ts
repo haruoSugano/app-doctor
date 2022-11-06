@@ -98,7 +98,6 @@ export class TelaSistemaPacienteHistoricoConsultasComponent implements OnInit {
     this.authService.doLogout();
   }
 
-
   ngOnInit(): void {
   }
 
@@ -109,8 +108,4 @@ export class TelaSistemaPacienteHistoricoConsultasComponent implements OnInit {
     });
     item.isEdit = true;
   }
-
 }
-
-
-

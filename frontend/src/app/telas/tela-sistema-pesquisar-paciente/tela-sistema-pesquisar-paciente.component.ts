@@ -12,12 +12,20 @@ import { Paciente } from 'src/app/shared/models/paciente';
 
 export class TelaSistemaPesquisarPacienteComponent implements OnInit {
   Paciente: any = {};
+  filter: string;
+  key: string = 'cpf';
+  reverse: boolean = false;
 
   constructor(
     public authService: AuthService,
     public pacienteService: PacienteService,
     public router: Router
   ) { }
+
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   ngOnInit(): void {
     this.loadPaciente();

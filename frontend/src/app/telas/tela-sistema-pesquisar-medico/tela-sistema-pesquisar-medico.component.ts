@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { MedicoService } from 'src/services/medico.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { mimeTypeValidator } from '../tela-sistema-cadastro-medico/mime-type.validator';
+import { mimeTypeValidator } from '../../shared/validators/mime-type.validator';
 import { Medico } from 'src/app/shared/models/medico';
 
 
@@ -17,7 +17,9 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
   form: FormGroup;
   priview: any = [{}];
   image: any = [];
-  filtro: string = '';
+  filter: string;
+  key: string = 'email';
+  reverse: boolean = false;
 
   constructor(
     public authService: AuthService,
@@ -25,6 +27,51 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     public router: Router,
     public fb: FormBuilder
   ) {
+  }
+
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      name: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      email: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      data_nascimento: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      crm: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      telefone: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      endereco: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      numero: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      cidade: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      estado: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      cep: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      file: new FormControl(null, {
+        validators: [Validators.required],
+        asyncValidators: [mimeTypeValidator]
+      }),
+    });
+    this.loadMedico();
+  }
+
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 
   logout() {
@@ -68,61 +115,10 @@ export class TelaSistemaPesquisarMedicoComponent implements OnInit {
     }
   }
 
-  filtrar(value: string) {
-    if (!value) {
-      this.filtro = this.Medico;
-    } else {
-      this.filtro = this.Medico.filter(x => {
-        x.crm.includes(value);
-      })
-    }
-  }
-
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      name: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      email: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      data_nascimento: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      crm: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      telefone: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      endereco: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      numero: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      cidade: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      estado: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      cep: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      file: new FormControl(null, {
-        validators: [Validators.required],
-        asyncValidators: [mimeTypeValidator]
-      }),
-    });
-    this.loadMedico();
-  }
-
   onEdit(item: any) {
     this.Medico.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;
   }
-
 }

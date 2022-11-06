@@ -1,96 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-  	<title>App Doctor</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="tela-sistema-realizar-consulta.component.css">
+    <title>App Doctor</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="tela-sistema-realizar-consulta.component.css"
+    />
   </head>
   <body>
-
     <div class="wrapper d-flex align-items-stretch">
-
-			<nav id="sidebar">
-       <!--  <div class="custom-menu">
+      <nav id="sidebar">
+        <!--  <div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 	          <i class="fa fa-bars"></i>
 	          <span class="sr-only">Toggle Menu</span>
 	        </button>
         </div> -->
-	  		<h1><a href="tela-sistema.component.html" class="logo">AppDoctor</a></h1>
-
+        <h1>
+          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
+        </h1>
         <ul class="list-unstyled components mb-5">
-
           <li class="active">
-            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span>Página Inicial</a>
+            <a routerLink="/home" routerLinkActive="active"
+              ><span class="fa fa-home mr-3"></span>Página Inicial</a
+            >
           </li>
-
           <div class="dropdown1">
-            <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span>Médicos<span class="um fa fa-caret-down"></span></button>
+            <button onclick="dropdown1()" class="dropbtn1">
+              <span class="um fa fa-user-md mr-3"></span>Médicos<span
+                class="um fa fa-caret-down"
+              ></span>
+            </button>
             <div id="myDropdown1" class="dropdown-content1">
               <li>
-                <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="um fa fa-user-plus mr-3"></span>Cadastrar Médico</a>
+                <a routerLink="/cadastrar-medico" routerLinkActive="active"
+                  ><span class="um fa fa-user-plus mr-3"></span>Cadastrar
+                  Médico</a
+                >
               </li>
               <li>
-                <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a>
+                <a routerLink="/pesquisar-medico" routerLinkActive="active"
+                  ><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a
+                >
               </li>
             </div>
           </div>
-
-
           <div class="dropdown2">
-            <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span><strong>Pacientes</strong><span class="dois fa fa-caret-down"></span></button>
+            <button onclick="myFunction2()" class="dropbtn2">
+              <span class="dois fa fa-user mr-3"></span
+              ><strong>Pacientes</strong
+              ><span class="dois fa fa-caret-down"></span>
+            </button>
             <div id="myDropdown2" class="dropdown-content2">
               <li>
-                <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="dois fa fa-user-plus mr-3"></span>Cadastrar Paciente</a>
+                <a routerLink="/cadastrar-paciente" routerLinkActive="active"
+                  ><span class="dois fa fa-user-plus mr-3"></span>Cadastrar
+                  Paciente</a
+                >
               </li>
               <li>
-                <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="dois fa fa-search mr-3"></span>Pesquisar Paciente</a>
+                <a routerLink="/pesquisar-paciente" routerLinkActive="active"
+                  ><span class="dois fa fa-search mr-3"></span>Pesquisar
+                  Paciente</a
+                >
               </li>
               <li>
-                <a routerLink="/realizar-consulta" routerLinkActive="active"><span class=" dois fa fa-address-card-o mr-3"></span><strong>Realizar Consulta</strong></a>
+                <a routerLink="/realizar-consulta" routerLinkActive="active"
+                  ><span class="dois fa fa-address-card-o mr-3"></span
+                  ><strong>Realizar Consulta</strong></a
+                >
               </li>
             </div>
           </div>
-
-
-
           <div class="dropdown3">
-            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
+            <button onclick="myFunction3()" class="dropbtn3">
+              <span class="fa fa-cogs mr-3"></span>Configurações<span
+                class="fa fa-caret-down"
+              ></span>
+            </button>
             <div id="myDropdown3" class="dropdown-content3">
-
               <li>
-                <a href="#"><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a>
+                <a href="#"
+                  ><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a
+                >
               </li>
-
               <div class="dropdown4">
-                <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span> Usuários<span class="fa fa-caret-down"></span></button>
+                <button onclick="myFunction4()" class="dropbtn4">
+                  <span class="fa fa-users mr-3"></span> Usuários<span
+                    class="fa fa-caret-down"
+                  ></span>
+                </button>
                 <div id="myDropdown4" class="dropdown-content4">
                   <li>
-                    <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Pacientes</a>
+                    <a
+                      routerLink="/usuarios-pacientes"
+                      routerLinkActive="active"
+                      ><span class="fa fa-user mr-3"></span>Pacientes</a
+                    >
                   </li>
                   <li>
-                    <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Médicos</a>
+                    <a routerLink="/usuarios-medicos" routerLinkActive="active"
+                      ><span class="fa fa-user-md mr-3"></span>Médicos</a
+                    >
                   </li>
                 </div>
               </div>
-
               <li>
-                <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
+                <a (click)="logout()"
+                  ><span class="fa fa-sign-out mr-3"></span> Sair</a
+                >
               </li>
-
             </div>
           </div>
         </ul>
-    	</nav>
-
-        <!-- Page Content  -->
+      </nav>
+      <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-       <!-- <div class="row titulo-e-pesquisar">
+        <!-- <div class="row titulo-e-pesquisar">
           <div>
             <header>
               <h3 id="titulo"> <span class="fa fa-user icone-titulo"></span>Dados do Paciente</h3>
@@ -104,110 +143,174 @@
           </div>
 
         </div> -->
-
         <div class="formulario">
           <form>
             <div class="row titulo-e-pesquisar col-12">
               <div class="titulo col-5">
                 <header>
-                  <h3 id="titulo"> <span class="fa fa-user icone-titulo"></span>Dados do Paciente</h3>
-
+                  <h3 id="titulo">
+                    <span class="fa fa-user icone-titulo"></span>Dados do
+                    Paciente
+                  </h3>
                 </header>
-
               </div>
-
               <div class="input-group col">
-                <input type="search" class="form-control rounded input-pesquisar" placeholder="Digite o nome do paciente" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary">Pesquisar</button>
+                <input
+                  type="search"
+                  class="form-control rounded input-pesquisar"
+                  placeholder="Digite o nome do paciente"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                />
+                <button type="button" class="btn btn-outline-primary">
+                  Pesquisar
+                </button>
               </div>
             </div>
-
             <div class="row nome col-12">
               <div class="col nome">
                 <label>Nome Completo</label>
-                <input id="nome" name="nome" type="text" class="form-control input"   required disabled="disabled">
+                <input
+                  id="nome"
+                  name="nome"
+                  type="text"
+                  class="form-control input"
+                  required
+                  disabled="disabled"
+                />
               </div>
             </div>
-
             <div class="row nascimento-crm-telefone col-12">
-                <div class="form-group col-4" >
-                  <label class="data-nascimento">Data de Nascimento</label>
-                  <input  id="data"  name="begin" type="date" class="form-control input"    value="" min="1940-01-01" max="2023-12-31" required disabled="disabled">
-                </div>
-
-                <div class="form-group col-4">
-                  <label>CPF</label>
-                  <input id="cpf" name="cpf" type="text" class="form-control input"  onblur="formataCPF(this)" required disabled="disabled">
-                </div>
-
-
-                <div class="form-group col-4">
-                  <label>Telefone (com DDD)</label>
-                  <input id="telefone" name="telefone" type="tel"  class="form-control input"   onkeydown="return mascaraTelefone(event)" required disabled="disabled">
-                  <div class="help-block with-errors"></div>
-                </div>
+              <div class="form-group col-4">
+                <label class="data-nascimento">Data de Nascimento</label>
+                <input
+                  id="data"
+                  name="begin"
+                  type="date"
+                  class="form-control input"
+                  value=""
+                  min="1940-01-01"
+                  max="2023-12-31"
+                  required
+                  disabled="disabled"
+                />
+              </div>
+              <div class="form-group col-4">
+                <label>CPF</label>
+                <input
+                  id="cpf"
+                  name="cpf"
+                  type="text"
+                  class="form-control input"
+                  onblur="formataCPF(this)"
+                  required
+                  disabled="disabled"
+                />
+              </div>
+              <div class="form-group col-4">
+                <label>Telefone (com DDD)</label>
+                <input
+                  id="telefone"
+                  name="telefone"
+                  type="tel"
+                  class="form-control input"
+                  onkeydown="return mascaraTelefone(event)"
+                  required
+                  disabled="disabled"
+                />
+                <div class="help-block with-errors"></div>
+              </div>
             </div>
-
-            <div class= "row endereco-1 col-12 ">
+            <div class="row endereco-1 col-12">
               <div class="col-8">
                 <label>Endereço</label>
-                <input id="endereco" name="endereco" type="text" class="form-control input"  required disabled="disabled">
+                <input
+                  id="endereco"
+                  name="endereco"
+                  type="text"
+                  class="form-control input"
+                  required
+                  disabled="disabled"
+                />
               </div>
-
               <div class="col-4">
                 <label>Número</label>
-                <input id="numero" name="numero" type="number" class="form-control input"   required disabled="disabled">
+                <input
+                  id="numero"
+                  name="numero"
+                  type="number"
+                  class="form-control input"
+                  required
+                  disabled="disabled"
+                />
               </div>
             </div>
-
-
             <div class="row endereco-2 col-12">
-                <div class="col-md-3 col-sm-3">
-                    <label>Estado</label>
-                    <select id="estado" name="estado" type="text" class="form-control input" required disabled="disabled">
-                      <option selected></option>
-                      <option>AC</option>
-                      <option>AL</option>
-                      <option>AP</option>
-                      <option>AM</option>
-                      <option>BA</option>
-                      <option>CE</option>
-                      <option>DF</option>
-                      <option>ES</option>
-                      <option>GO</option>
-                      <option>MA</option>
-                      <option>MT</option>
-                      <option>MS</option>
-                      <option>MG</option>
-                      <option>PA</option>
-                      <option>PB</option>
-                      <option>PR</option>
-                      <option>PE</option>
-                      <option>PI</option>
-                      <option>RJ</option>
-                      <option>RN</option>
-                      <option>RS</option>
-                      <option>RO</option>
-                      <option>RR</option>
-                      <option>SC</option>
-                      <option>SP</option>
-                      <option>SE</option>
-                      <option>TO</option>
-                    </select>
-                  <!--<input id="estado" name="estado" type="text" class="form-control input" placeholder="Ex: SP"> -->
-                 </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <label>Cidade</label>
-                  <input id="cidade" name="cidade" type="text" class="form-control input" required disabled="disabled">
-                </div>
-
-                <div class="col-md-3 col-sm-3">
-                  <label>CEP</label>
-                  <input id="cep" name="cep" type="text" class="form-control input" onblur="formataCEP(this)" required disabled="disabled">
-                </div>
+              <div class="col-md-3 col-sm-3">
+                <label>Estado</label>
+                <select
+                  id="estado"
+                  name="estado"
+                  type="text"
+                  class="form-control input"
+                  required
+                  disabled="disabled"
+                >
+                  <option selected></option>
+                  <option>AC</option>
+                  <option>AL</option>
+                  <option>AP</option>
+                  <option>AM</option>
+                  <option>BA</option>
+                  <option>CE</option>
+                  <option>DF</option>
+                  <option>ES</option>
+                  <option>GO</option>
+                  <option>MA</option>
+                  <option>MT</option>
+                  <option>MS</option>
+                  <option>MG</option>
+                  <option>PA</option>
+                  <option>PB</option>
+                  <option>PR</option>
+                  <option>PE</option>
+                  <option>PI</option>
+                  <option>RJ</option>
+                  <option>RN</option>
+                  <option>RS</option>
+                  <option>RO</option>
+                  <option>RR</option>
+                  <option>SC</option>
+                  <option>SP</option>
+                  <option>SE</option>
+                  <option>TO</option>
+                </select>
+                <!--<input id="estado" name="estado" type="text" class="form-control input" placeholder="Ex: SP"> -->
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <label>Cidade</label>
+                <input
+                  id="cidade"
+                  name="cidade"
+                  type="text"
+                  class="form-control input"
+                  required
+                  disabled="disabled"
+                />
+              </div>
+              <div class="col-md-3 col-sm-3">
+                <label>CEP</label>
+                <input
+                  id="cep"
+                  name="cep"
+                  type="text"
+                  class="form-control input"
+                  onblur="formataCEP(this)"
+                  required
+                  disabled="disabled"
+                />
+              </div>
             </div>
-
             <div class="form-group col-12">
               <label for="inputMedico">Médico Responsável</label>
               <select id="inputMedico" class="form-control col input" required>
@@ -218,43 +321,95 @@
                 <option>Dra. Nathalia</option>
               </select>
             </div>
-
             <div class="form-group col-12">
-              <label for="exampleFormControlTextarea1">Descrição Receituário</label>
-              <textarea class="form-control input" id="exampleFormControlTextarea1" rows="3" required></textarea>
+              <label for="exampleFormControlTextarea1"
+                >Descrição Receituário</label
+              >
+              <textarea
+                class="form-control input"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                required
+              ></textarea>
             </div>
-
             <div class="row atestado col-12">
-                <div class="col-md-3">
-                  <h5 class="adicionar-atestado-text">Deseja adicionar atestado?</h5>
-                </div>
-                <div class="col-6 btn-adicionar-atestado">
-                  <button id="btn-adicionar-atestado" class="btn-adicionar-atestado" onclick="mostrarDescricaoAtestado()">Adicionar</button>
-                </div>
-            </div>
-
-            <div class="form-group col-12 container-escondido" style="display: none;">
-              <label for="exampleFormControlTextarea1">Descrição do Atestado</label>
-              <textarea class="form-control input col-12" id="exampleFormControlTextarea1" rows="3" required></textarea>
-            </div>
-
-
-              <div class="row botoes col-12" >
-                <div class="col-md-4 col-sm-4">
-                  <button id="cadastrar" type="button" class="btn btn-success" style="width:100%;"><span class="fa fa-stethoscope mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Gerar Receituário</button>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                  <button  id="limpar"  type="button" class="btn btn-primary" style="width:100%;"><span class="fa fa-close mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Gerar Atestado</button>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                  <button routerLink="/home" id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
-                </div>
+              <div class="col-md-3">
+                <h5 class="adicionar-atestado-text">
+                  Deseja adicionar atestado?
+                </h5>
               </div>
+              <div class="col-6 btn-adicionar-atestado">
+                <button
+                  id="btn-adicionar-atestado"
+                  class="btn-adicionar-atestado"
+                  onclick="mostrarDescricaoAtestado()"
+                >
+                  Adicionar
+                </button>
+              </div>
+            </div>
+            <div
+              class="form-group col-12 container-escondido"
+              style="display: none"
+            >
+              <label for="exampleFormControlTextarea1"
+                >Descrição do Atestado</label
+              >
+              <textarea
+                class="form-control input col-12"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <div class="row botoes col-12">
+              <div class="col-md-4 col-sm-4">
+                <button
+                  id="cadastrar"
+                  type="button"
+                  class="btn btn-success"
+                  style="width: 100%"
+                >
+                  <span
+                    class="fa fa-stethoscope mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Gerar Receituário
+                </button>
+              </div>
+              <div class="col-md-4 col-sm-4">
+                <button
+                  id="limpar"
+                  type="button"
+                  class="btn btn-primary"
+                  style="width: 100%"
+                >
+                  <span
+                    class="fa fa-close mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Gerar Atestado
+                </button>
+              </div>
+              <div class="col-md-4 col-sm-4">
+                <button
+                  routerLink="/home"
+                  id="home"
+                  type="button"
+                  class="btn btn-secondary"
+                  style="width: 100%"
+                >
+                  <span
+                    class="fa fa-home mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Página Inicial
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
-	</div>
-</body>
+    </div>
+  </body>
 </html>

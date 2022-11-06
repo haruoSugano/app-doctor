@@ -8,7 +8,7 @@ import { AuthService } from 'src/services/auth.service';
   styleUrls: ['./tela-sistema.component.css']
 })
 export class TelaSistemaComponent implements OnInit {
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) { }
 
   logout() {
     this.authService.doLogout();

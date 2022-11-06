@@ -27,7 +27,6 @@
           <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
         </h1>
         <ul class="list-unstyled components mb-5">
-
           <li class="active">
             <a routerLink="/home" routerLinkActive="active"
               ><span class="fa fa-home mr-3"></span>Página Inicial</a
@@ -64,7 +63,9 @@
             >
           </li>
           <li>
-            <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
+            <a (click)="logout()"
+              ><span class="fa fa-sign-out mr-3"></span> Sair</a
+            >
           </li>
           <!-- <li>
             <a href="#"><span class="fa fa-cogs mr-3"></span> Configurações</a>
@@ -146,7 +147,6 @@
                   type="tel"
                   class="form-control input"
                   placeholder="Ex: 11999999999"
-
                   pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$"
                   required
                   [(ngModel)]="pacienteForm.telefone"
@@ -240,30 +240,6 @@
                   onblur="formataCEP(this)"
                   placeholder="Ex: 9999999"
                   [(ngModel)]="pacienteForm.cep"
-                />
-              </div>
-            </div>
-            <div class="row senha col-12">
-              <div class="col-6">
-                <label>Senha</label>
-                <input
-                  id="senha"
-                  name="senha"
-                  type="password"
-                  class="form-control input input-senha"
-                  aria-describedby="passwordHelpBlock"
-                  placeholder="Ex: App@doctor123"
-                />
-              </div>
-              <div class="col-6">
-                <label>Confirmar Senha</label>
-                <input
-                  id="senha"
-                  name="senha"
-                  type="password"
-                  class="form-control input input-confirmar-senha"
-                  aria-describedby="passwordHelpBlock"
-                  placeholder="App@doctor12"
                 />
               </div>
             </div>

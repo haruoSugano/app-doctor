@@ -5,35 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | Sistema Receituário</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="tela-enviar-email.component.css" />
   </head>
-
   <body>
-      <div class="form-box">
-        <div>
-          <img class="logo" src="/assets/resources/img/logo.png" />
-        </div>
-        <h2><span class="fa fa-key"></span>Recuperar sua senha</h2>
-        <p class="descrição">Insira o e-mail cadastrado para enviarmos um link de alteração de senha.</p>
-        <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-          <div class="input-group">
-            <label for="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Digite o seu email"
-              formControlName="email"
-              required/>
-          </div>
-
-          <div class="input-group">
-            <button [routerLink]="['/recuperar-senha-nova-senha']" routerLinkActive="router-link-active">Enviar link</button>
-          </div>
-        </form>
+    <div class="form-box">
+      <div>
+        <img class="logo" src="/assets/resources/img/logo.png" />
       </div>
-
-
+      <h2><span class="fa fa-key"></span>Recuperar sua senha</h2>
+      <p class="descrição">
+        Insira o e-mail cadastrado para enviarmos um link de alteração de senha.
+      </p>
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Digite o seu email"
+            formControlName="email"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <button
+            [routerLink]="['/recuperar-senha-nova-senha']"
+            routerLinkActive="router-link-active"
+          >
+            Enviar link
+          </button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

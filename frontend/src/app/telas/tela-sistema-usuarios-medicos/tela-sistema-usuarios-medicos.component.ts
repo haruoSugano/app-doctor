@@ -18,12 +18,24 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
   };
 
   Usuario: any = [{}];
+  filter: string;
+  key: string = 'email';
+  reverse: boolean = false;
 
   constructor(
     private authService: AuthService,
     private usuarioService: UsuarioService,
     private route: Router
   ) { }
+
+  ngOnInit(): void {
+    this.loadMedicosUsers();
+  }
+
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   loadMedicosUsers() {
     this.usuarioService.getUsuariosMedicos().subscribe((data: {}) => {
@@ -43,10 +55,6 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
 
   logout() {
     this.authService.doLogout();
-  }
-
-  ngOnInit(): void {
-    this.loadMedicosUsers();
   }
 
   onEdit(item: any) {
