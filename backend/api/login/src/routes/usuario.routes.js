@@ -14,6 +14,8 @@ const usuarioMiddleware = require("../middleware/login.middlware");
 router.post("/login", usuarioController.login);
 router.post("/usuarios", usuarioController.create); // localhost:8000/usuario/create
 router.all("/usuarios", usuarioMiddleware.checkToken, usuarioController.findAll);
+router.all("/usuarios/pacientes", usuarioMiddleware.checkToken, usuarioController.findByPaciente);
+router.all("/usuarios/medicos", usuarioMiddleware.checkToken, usuarioController.findByMedico);
 router.get("/usuarios/:id", usuarioController.findById);
 router.put("/usuarios/:id", usuarioMiddleware.checkToken, usuarioController.update);
 router.delete("/usuarios/:id", usuarioMiddleware.checkToken, usuarioController.delete);

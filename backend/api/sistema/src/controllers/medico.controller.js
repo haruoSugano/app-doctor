@@ -116,11 +116,15 @@ exports.findById = async (req, res, next) => {
 
 exports.findByName = async (req, res, next) => {
   const { crm } = req.body;
+
   try {
     if (!crm) {
       return res.status(400).send({ error: "Crm deve ser informado" });
     }
 
+    const medico = await Medico.findOne({ where: { crm } });
+
+    
 
   } catch (error) {
     

@@ -45,35 +45,35 @@ exports.create = async (req, res, next) => {
 
     const usuario = await novoUsuario.save();
 
-    const mail = {
-      from: process.env.EMAIL,
-      to: email,
-      subject: "[NO-REPLY] Bem-vindo ao APP DOCTOR",
-      text: "Registrado com sucesso no nosso aplicativo!",
-      html: `<body>
-              <h1>Seja bem-vindo ao App Doctor!</h1>
-              <p>Ao logar com os dados abaixo, você poderá acessar todos os documentos gerados em sua consulta, tais como: Receituário e Atestado.</p>
-              <ol>
-                  <li>Usuário: ${email}</li>
-                  <li>Senha: CPF somente numeros</li>
-              </ol>
-              <p>Recomendamos que altere a senha ao realizar seu primeiro acesso.</p>
-              <p>Link de acesso:</p><a href="www.google.com">APP DOCTOR</a>
-            </body>
-            `,
-      attachments: [
-        {
-          filename: "logo.png",
-          path: path.resolve(__dirname, "..", "tmp", "imgs", "logo.png"),
-          cid: "logo",
-        },
-      ],
-      auth: {
-        user: process.env.EMAIL,
-      },
-    };
+    // const mail = {
+    //   from: process.env.EMAIL,
+    //   to: email,
+    //   subject: "[NO-REPLY] Bem-vindo ao APP DOCTOR",
+    //   text: "Registrado com sucesso no nosso aplicativo!",
+    //   html: `<body>
+    //           <h1>Seja bem-vindo ao App Doctor!</h1>
+    //           <p>Ao logar com os dados abaixo, você poderá acessar todos os documentos gerados em sua consulta, tais como: Receituário e Atestado.</p>
+    //           <ol>
+    //               <li>Usuário: ${email}</li>
+    //               <li>Senha: CPF somente numeros</li>
+    //           </ol>
+    //           <p>Recomendamos que altere a senha ao realizar seu primeiro acesso.</p>
+    //           <p>Link de acesso:</p><a href="www.google.com">APP DOCTOR</a>
+    //         </body>
+    //         `,
+    //   attachments: [
+    //     {
+    //       filename: "logo.png",
+    //       path: path.resolve(__dirname, "..", "tmp", "imgs", "logo.png"),
+    //       cid: "logo",
+    //     },
+    //   ],
+    //   auth: {
+    //     user: process.env.EMAIL,
+    //   },
+    // };
 
-    publish(mail);
+    // publish(mail);
 
     return res
       .status(201)
@@ -101,6 +101,53 @@ exports.findAll = async (req, res, next) => {
   }
 };
 
+exports.findByPaciente = async (req, res, next) => {
+  try {
+    const usuarios = await Usuario.find({});
+
+    if (usuarios.length === 0)
+      return res
+        .status(200)
+        .send({ message: "Nenhum usuario cadastrado na base de dados" });
+
+
+    const pacientes = usuarios.filter((paciente) => {
+      return paciente.isMedico != true;
+    });
+
+    return res
+      .status(200)
+      .send({ pacientes });
+  } catch (error) {
+    return res
+      .status(404)
+      .send({ message: `Erro ao selecionar todos os Pacientes` });
+  }
+};
+
+exports.findByMedico = async (req, res, next) => {
+  try {
+    const usuarios = await Usuario.find({});
+
+    if (usuarios.length === 0)
+      return res
+        .status(200)
+        .send({ message: "Nenhum usuario cadastrado na base de dados" });
+
+    const medicos = usuarios.filter((medico) => {
+      return medico.isMedico === true;
+    });
+
+    return res
+      .status(200)
+      .send({ medicos });
+  } catch (error) {
+    return res
+      .status(404)
+      .send({ message: `Erro ao selecionar todos os Medicos` });
+  }
+};
+
 exports.findById = async (req, res, next) => {
   const id = req.params.id;
   try {
@@ -119,24 +166,26 @@ exports.findById = async (req, res, next) => {
 };
 
 exports.update = async (req, res, next) => {
-  const { nome, email } = req.body;
+  let { nome, senha } = req.body;
   const { id } = req.params;
   try {
-    if (await Usuario.findOne({ email })) {
-      return res
-        .status(400)
-        .send({ error: "Usuario com este e-mail ja existe" });
+
+    if (!nome || !senha) {
+      return res.status(404).send({ error: "Necessário preencher todos os campos" });
     }
 
-    if (await Usuario.findOne({ nome })) {
-      return res.status(400).send({ error: "Usuario com este nome ja existe" });
-    }
+    let usuario = await Usuario.findById(id, "-senha");
 
-    const usuario = await Usuario.findByIdAndUpdate(id, req.body);
-
-    if (usuario === null) {
+    if (!usuario) {
       return res.status(404).send({ error: "Usuario informado nao existe!" });
     }
+
+    const hash = await bcrypt.hash(senha, 12);
+
+    req.body.senha = hash;
+
+    usuario = await Usuario.findByIdAndUpdate(id, req.body);
+
     return res
       .status(200)
       .send({ message: `Usuario atualizado com sucesso! ${id}` });
