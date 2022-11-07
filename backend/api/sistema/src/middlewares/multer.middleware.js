@@ -3,10 +3,10 @@ const path = require("path");
 const crypto = require("crypto");
 
 const multerMiddleware = {
-    dest: path.resolve(__dirname, "..", "..", "tmp", "uploads"),
+    dest: "uploads",
     storage: multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, path.resolve(__dirname, "..", "..", "tmp", "uploads"));
+            cb(null, "uploads");
         },
         filename: function (req, file, cb) {
             crypto.randomBytes(16, (err, hash) => {

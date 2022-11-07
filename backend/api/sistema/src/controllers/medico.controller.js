@@ -6,7 +6,8 @@ const Medico = require("../models/medico.model");
 exports.create = async (req, res, next) => {
   let { name, email, data_nascimento, crm, telefone, endereco, numero, cidade, estado, cep } = req.body;
   const { path: url } = req.file;
-
+  const imgURL = `${req.protocol}://${req.get('host')}/`;
+  
   try {
     if (
       !name ||
@@ -37,7 +38,7 @@ exports.create = async (req, res, next) => {
       cidade,
       estado,
       cep,
-      assinatura: url,
+      assinatura: `${imgURL}${url}`,
     });
 
     // const mail = {
@@ -134,6 +135,7 @@ exports.findByName = async (req, res, next) => {
 exports.update = async (req, res, next) => {
   const { medico_id } = req.params;
   const { name, email, data_nascimento, crm, telefone, endereco, numero, cidade, estado, cep, assinatura } = req.body;
+  const imgURL = `${req.protocol}://${req.get('host')}/`;
   let url = assinatura;
   try {
     if (req.file) url = req.file.path;
@@ -154,35 +156,35 @@ exports.update = async (req, res, next) => {
       cidade,
       estado,
       cep,
-      assinatura: assinatura ? assinatura : url,
+      assinatura: assinatura ? assinatura : `${imgURL}${url}`,
     });
 
-    const mail = {
-      from: process.env.EMAIL,
-      to: email,
-      subject: "[NO-REPLY] Seus dados foram atualizado",
-      text: "Atualização de seus dados",
-      html: `<body>
-              <h1>Comunicado</h1>
-              <p>Seus dados foram atualizados com sucesso</p>
-              <ol>
-                  <li>Usuário: ${email}</li>
-              </ol>
-            </body>
-            `,
-      attachments: [
-        {
-          filename: "logo.png",
-          path: path.resolve(__dirname, "..", "tmp", "imgs", "logo.png"),
-          cid: "logo",
-        },
-      ],
-      auth: {
-        user: process.env.EMAIL,
-      },
-    };
+    // const mail = {
+    //   from: process.env.EMAIL,
+    //   to: email,
+    //   subject: "[NO-REPLY] Seus dados foram atualizado",
+    //   text: "Atualização de seus dados",
+    //   html: `<body>
+    //           <h1>Comunicado</h1>
+    //           <p>Seus dados foram atualizados com sucesso</p>
+    //           <ol>
+    //               <li>Usuário: ${email}</li>
+    //           </ol>
+    //         </body>
+    //         `,
+    //   attachments: [
+    //     {
+    //       filename: "logo.png",
+    //       path: path.resolve(__dirname, "..", "tmp", "imgs", "logo.png"),
+    //       cid: "logo",
+    //     },
+    //   ],
+    //   auth: {
+    //     user: process.env.EMAIL,
+    //   },
+    // };
 
-    publish(mail);
+    // publish(mail);
 
     return res
       .status(200)
