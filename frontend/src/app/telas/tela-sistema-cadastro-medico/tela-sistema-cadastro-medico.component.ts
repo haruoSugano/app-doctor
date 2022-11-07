@@ -86,7 +86,6 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
     reader.onload = () => {
       this.priview = reader.result as string;
     }
-
     reader.readAsDataURL(file);
   }
 

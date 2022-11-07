@@ -332,13 +332,14 @@
                           name="file"
                           accept="image/x-png,image/gif,image/jpeg, image/png"
                         />
-                        <img src="{{ priview }}" width="45px" height="45px" />
+                        <img src="{{ priview || medico.assinatura }}" width="45px" height="45px" />
                       </div>
                     </td>
                     <td class="td_item" *ngIf="!medico.isEdit">
                       <div class="div_item">
                         <img
-                          src="../../../assets/resources/img/assinatura.jpg"
+                          *ngIf="medico.assinatura"
+                          [src]="medico.assinatura"
                           width="45px"
                           height="45px"
                         />
