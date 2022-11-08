@@ -1,71 +1,3 @@
-h3.titulo-usuario{
-  color: white;
-  margin-bottom: 20px;
-}
-
-span.usuario.fa.fa-user{
-  margin-right: 10px;
-}
-
-div.row.usuario-paciente.col-12{
-  padding-top: 15px;
-  padding-bottom: 30px;
-  padding-left: 15px !important;
-  margin-left: 0px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #ffffff28;
-  border-radius: 10px;
-  width: 950px;
-  margin-right: 25px;
-  border: 1px white solid;
-
-}
-
-input.form-control.input.email-usuario{
-  margin-left: 12px;
-  width: 885px;
-}
-
-.botao-cadastrar-usuario{
-  background-color: #012e5e;
-  color: white;
-  border-radius: 5px;
-  width: 500px !important;
-  height: 40px;
-  border: none;
-  margin-left: 120px !important;
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-
-.botao-cadastrar-usuario{
-  background-color: #012e5e;
-  color: white;
-  border-radius: 5px;
-  width: 500px !important;
-  height: 40px;
-  border: none;
-  margin-left: 190px !important;
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-/* fim div usario apciente */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 body{
   background-image: url(src/assets/resources/img/background.jpg);
   background-position: center;
@@ -73,7 +5,28 @@ body{
   background-size: cover;
   align-items: center;
   justify-content: center;
-  min-height: 115vh;
+  min-height: 100vh;
+}
+
+.form-control.col.input.select{
+  width: 955px;
+}
+
+h5{
+  color: white;
+}
+
+div.titulo-consulta{
+  background-color: rgba(255, 255, 255, 0.418);
+  border-radius: 0px 10px 0px 10px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-top: 5px;
+  width: 955px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-bottom: solid 2px white;
+  border-left: solid 2px white;
 }
 
 
@@ -83,8 +36,8 @@ body{
   right: 10px;
   cursor: pointer;
   position: absolute;
-  margin-top: 595px;
-  margin-right: 610px;
+  margin-top: 430px;
+  margin-right: 560px;
 }
 
 .fa-eye.confirmar-senha{
@@ -93,8 +46,8 @@ body{
   right: 10px;
   cursor: pointer;
   position: absolute;
-  margin-top: 595px;
-  margin-right: 160px;
+  margin-top: 430px;
+  margin-right: 155px;
 }
 
 
@@ -309,14 +262,15 @@ body{
 }
 
 form{
-  margin-left: 80px;
+  margin-left: 80px !important;
   margin-right: 60px;
   background-color: #00000071;
   padding-top: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
-  padding-top: 10px !important;
   border-radius: 10px;
+  width: 950px;
+  margin-top: 45px;
   width: 1000px;
 }
 
@@ -390,6 +344,7 @@ div.row.botoes.col-12{
 select.form-control.input>option{
   background-color: #012e5e;
 }
+
 
 
 
@@ -675,18 +630,6 @@ select.form-control.input>option{
     margin-right: 17px !important;
   }
 
-  span.dois.fa.fa-caret-down{
-    color: white;
-  }
-
-  span.dois.fa.fa-user.mr-3{
-    color:white;
-  }
-
-  span.dois.fa.fa-user-plus.mr-3{
-    color: white;
-  }
-
   span.fa.fa-home.mr-3{
     margin-right: 14px !important;
   }
@@ -695,6 +638,9 @@ select.form-control.input>option{
     margin-left: 1px !important;
     margin-right: 20px !important;
   }
+
+
+
 
 
   /* DROPDOWN 5---------------------------------*/
@@ -761,6 +707,11 @@ select.form-control.input>option{
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
 
+
+  span.cinco.fa.fa-plus.mr-3{
+    color: white;
+  }
+
   span.fa.fa-home.mr-3{
     margin-right: 15px !important;
   }
@@ -769,6 +720,7 @@ select.form-control.input>option{
     margin-left: 1px !important;
     margin-right: 20px !important;
   }
+
 
   span.dois.fa.fa-search.mr-3{
     margin-right: 20px !important;
@@ -782,9 +734,16 @@ select.form-control.input>option{
     margin-right: 10px;
   }
 
+
   span.cinco.fa.fa-id-card.mr-3{
     margin-left: 10px !important;
     margin-right: 15px !important;
+    color: white;
   }
+
+  span.cinco.fa.fa-caret-down{
+    color: white;
+  }
+
 
 

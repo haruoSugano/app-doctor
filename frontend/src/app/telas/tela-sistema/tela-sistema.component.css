@@ -463,7 +463,7 @@ span.um.fa.fa-user-md.mr-3{
     width: 100%;
     background-color: #212121;
     border: 1px solid white;
-    box-shadow: 0px 8px 16px 0px rgba(216, 51, 51, 0.2);
+    box-shadow: 0px 8px 16px 0px  #2f89fc;
     margin-left: 15px;
     z-index: 1;
 
@@ -505,6 +505,102 @@ span.um.fa.fa-user-md.mr-3{
 
 
 
+
+
+
+
+
+
+
+  /* DROPDOWN 5---------------------------------*/
+  div.dropdown5{
+    width: 100%;
+  }
+
+  .dropbtn5 {
+    background-color: #3498db00;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    justify-content: left;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+  }
+
+  span.fa.fa-users.mr-3{
+    margin-left: 10px;
+  }
+
+  span.fa.fa-caret-down{
+    margin-left: 10px;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn5:hover, .dropbtn5:focus {
+    background-color: #2f89fc;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown5 {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content5 {
+    position: absolute;
+    display: none;
+    width: 100%;
+    background-color: #212121;
+    border: 1px solid white;
+    box-shadow: 0px 8px 16px 0px  #2f89fc;
+    margin-left: 15px;
+    z-index: 1;
+
+  }
+
+  /* Links inside the dropdown */s
+  .dropdown-content5 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content5 a:hover {background-color: rgb(230, 61, 61);}
+
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+
+  span.fa.fa-home.mr-3{
+    color: white;
+    margin-right: 15px !important;
+  }
+
+  span.um.fa.fa-search.mr-3{
+    margin-left: 1px !important;
+    margin-right: 20px !important;
+  }
+
+
+  span.dois.fa.fa-search.mr-3{
+    margin-right: 20px !important;
+  }
+
+  span.dois.fa.fa-address-card-o.mr-3{
+    margin-right: 18px !important;
+  }
+
+  span.cinco.fa.fa-id-card.mr-3{
+    margin-left: 10px !important;
+    margin-right: 15px !important;
+
+  }
 
 
 

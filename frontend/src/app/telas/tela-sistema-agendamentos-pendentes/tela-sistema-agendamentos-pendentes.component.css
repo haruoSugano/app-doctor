@@ -56,6 +56,8 @@ body{
   min-height: 100vh;
 }
 
+
+
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
@@ -70,7 +72,7 @@ a:hover, a:focus {
   box-shadow: none;
 }
 
-/* #sidebar {
+/* /* #sidebar {
   min-width: 250px;
   max-width: 250px;
   background: #212121;
@@ -79,7 +81,9 @@ a:hover, a:focus {
   -o-transition: all 0.3s;
   transition: all 0.3s;
   position: relative;
-} */
+}
+ */
+
 
 #sidebar {
   width: 250px !important;
@@ -92,6 +96,7 @@ a:hover, a:focus {
   color: #fff;
   transition: all 0.3s !important;
 }
+
 
 #sidebar .h6 {
   color: #fff;
@@ -197,14 +202,6 @@ a:hover, a:focus {
 
 }
 
-/* #content {
-  width: 80%;
-  padding: 0;
-  min-height: 100vh;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-} */
 
 #content {
   width: calc(100%) !important;
@@ -216,18 +213,13 @@ a:hover, a:focus {
   position: absolute;
 }
 
-#content.active {
-  width: 100%;
-}
-
-
-span.fa.fa-user-md.icone-titulo::before{
+span.fa.fa-user.icone-titulo::before{
   margin-right: 10px;
 }
 
 #titulo{
   color:white;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   margin-top: 5px;
 }
 
@@ -242,7 +234,7 @@ div.row.titulo-e-pesquisar.col-12{
 }
 
 h3#titulo{
-  width: 300px;
+  width: 400px;
 }
 
 input.form-control.rounded.input-pesquisar{
@@ -269,10 +261,13 @@ div.row-3{
   height: 600px;
 }
 
+
 div.col-12 {
   overflow-y: auto;
   height: 550px;
 }
+
+
 
 div.row-1{
   margin-left: 250px !important;
@@ -311,6 +306,7 @@ table thead {
 
 /* Agora vamos definir o elemento tbody, para overflow: auto. Ativando assim as barras de rolagem. */
 
+
 div.col-12 thead th {
   position: sticky;
   top: 0;
@@ -325,8 +321,6 @@ div.row-2{
   height: 60px;
   margin-right: -22px;
 }
-
-
 
 
 
@@ -604,23 +598,6 @@ div.row-2{
 
 
 
-
-
-
-    span.um.fa.fa-user-md.mr-3{
-      color: white;
-    }
-
-    span.um.fa.fa-search.mr-3{
-      color: white;
-      margin-left: 1px !important;
-      margin-right: 20px !important;
-    }
-
-    span.um.fa.fa-caret-down{
-      color: white;
-    }
-
     span.fa.fa-home.mr-3{
       margin-right: 14px !important;
     }
@@ -636,92 +613,131 @@ div.row-2{
 
 
 
-  /* DROPDOWN 5---------------------------------*/
-  div.dropdown5{
-    width: 100%;
-  }
 
-  .dropbtn5 {
-    background-color: #3498db00;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%;
-    justify-content: left;
-    text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 
-  }
 
-  span.fa.fa-users.mr-3{
-    margin-left: 10px;
-  }
+/* DROPDOWN 5---------------------------------*/
+div.dropdown5{
+  width: 100%;
+}
 
-  span.fa.fa-caret-down{
-    margin-left: 10px;
-  }
+.dropbtn5 {
+  background-color: #3498db00;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  justify-content: left;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 
-  /* Dropdown button on hover & focus */
-  .dropbtn5:hover, .dropbtn5:focus {
-    background-color: #2f89fc;
-  }
+}
 
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown5 {
-    position: relative;
-    display: inline-block;
-  }
+span.fa.fa-users.mr-3{
+  margin-left: 10px;
+}
 
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content5 {
-    position: absolute;
-    display: none;
-    width: 100%;
-    background-color: #212121;
-    border: 1px solid white;
-    box-shadow: 0px 8px 16px 0px  #2f89fc;
-    margin-left: 15px;
-    z-index: 1;
+span.fa.fa-caret-down{
+  margin-left: 10px;
+}
 
-  }
+/* Dropdown button on hover & focus */
+.dropbtn5:hover, .dropbtn5:focus {
+  background-color: #2f89fc;
+}
 
-  /* Links inside the dropdown */s
-  .dropdown-content5 a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
+/* The container <div> - needed to position the dropdown content */
+.dropdown5 {
+  position: relative;
+  display: inline-block;
+}
 
-  /* Change color of dropdown links on hover */
-  .dropdown-content5 a:hover {background-color: rgb(230, 61, 61);}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content5 {
+  position: absolute;
+  display: none;
+  width: 100%;
+  background-color: #212121;
+  border: 1px solid white;
+  box-shadow: 0px 8px 16px 0px  #2f89fc;
+  margin-left: 15px;
+  z-index: 1;
 
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;}
+}
 
-  span.fa.fa-home.mr-3{
-    margin-right: 15px !important;
-  }
+/* Links inside the dropdown */s
+.dropdown-content5 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
-  span.um.fa.fa-search.mr-3{
-    margin-left: 1px !important;
-    margin-right: 20px !important;
-  }
+/* Change color of dropdown links on hover */
+.dropdown-content5 a:hover {background-color: rgb(230, 61, 61);}
 
-  span.dois.fa.fa-search.mr-3{
-    margin-right: 20px !important;
-  }
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
 
-  span.dois.fa.fa-address-card-o.mr-3{
-    margin-right: 18px !important;
-  }
 
-  span.fa.fa-id-card.icone-titulo{
-    margin-right: 10px;
-  }
+span.cinco.fa.fa-clock-o.mr-3{
+  color: white;
+}
 
-  span.cinco.fa.fa-id-card.mr-3{
-    margin-left: 10px !important;
-    margin-right: 15px !important;
+span.cinco.fa.fa-caret-down{
+  color: white;
+}
+
+
+span.fa.fa-home.mr-3{
+  margin-right: 15px !important;
+}
+
+span.um.fa.fa-search.mr-3{
+  margin-left: 1px !important;
+  margin-right: 20px !important;
+}
+
+
+span.dois.fa.fa-search.mr-3{
+  margin-right: 20px !important;
+}
+
+span.dois.fa.fa-address-card-o.mr-3{
+  margin-right: 18px !important;
+}
+
+span.fa.fa-id-card.icone-titulo{
+  margin-right: 10px;
+}
+
+
+span.cinco.fa.fa-id-card.mr-3{
+  margin-left: 10px !important;
+  margin-right: 15px !important;
+  color: white;
+}
+
+
+
+select.form-control.input>option{
+  background-color: #012e5e;
+}
+
+select.select.input{
+  margin-left: 25px;
+  border-radius: 10px;
+  background-color: #0c4888;
+
+}
+
+select.select.input>option{
+  background-color: #012e5e;
+}
+
+.input{
+  background-color: #dee2e615;
+  color: white;
+  margin-bottom: 10px;
   }

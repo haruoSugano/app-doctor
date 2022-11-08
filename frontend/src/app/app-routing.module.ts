@@ -16,6 +16,9 @@ import { TelaNovaSenhaComponent } from './telas-recuperar-senha/tela-nova-senha/
 //telas pacientes
 import { TelaSistemaPacienteComponent } from './telas-pacientes/tela-sistema-paciente/tela-sistema-paciente.component';
 import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-pacientes/tela-sistema-paciente-historico-consultas/tela-sistema-paciente-historico-consultas.component';
+import { TelaSistemaAgendamentosPendentesComponent } from './telas/tela-sistema-agendamentos-pendentes/tela-sistema-agendamentos-pendentes.component';
+import { TelaSistemaAgendamentosNovosComponent } from './telas/tela-sistema-agendamentos-novos/tela-sistema-agendamentos-novos.component';
+import { TelaSistemaAgendamentosHistoricoComponent } from './telas/tela-sistema-agendamentos-historico/tela-sistema-agendamentos-historico.component';
 
 const routes: Routes = [
   { path: '', component: TelaLoginComponent },
@@ -33,7 +36,12 @@ const routes: Routes = [
   //telas sistemas pacientes:
   {path: 'home/pacientes', component: TelaSistemaPacienteComponent, },
   {path: 'historico-consultas', component: TelaSistemaPacienteHistoricoConsultasComponent,},
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+   //telas agendamentos
+   {path: 'agendamentos-pendentes', component: TelaSistemaAgendamentosPendentesComponent},
+   {path: 'agendamentos-novos', component: TelaSistemaAgendamentosNovosComponent},
+   {path: 'agendamentos-historico', component: TelaSistemaAgendamentosHistoricoComponent},
+
+    {path: '', redirectTo: '/', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

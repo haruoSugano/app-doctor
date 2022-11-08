@@ -24,6 +24,9 @@ import { TelaEnviarEmailComponent } from './telas-recuperar-senha/tela-enviar-em
 import { TelaNovaSenhaComponent } from './telas-recuperar-senha/tela-nova-senha/tela-nova-senha.component';
 import { TelaSistemaPacienteComponent } from './telas-pacientes/tela-sistema-paciente/tela-sistema-paciente.component';
 import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-pacientes/tela-sistema-paciente-historico-consultas/tela-sistema-paciente-historico-consultas.component';
+import { TelaSistemaAgendamentosHistoricoComponent } from './telas/tela-sistema-agendamentos-historico/tela-sistema-agendamentos-historico.component';
+import { TelaSistemaAgendamentosNovosComponent } from './telas/tela-sistema-agendamentos-novos/tela-sistema-agendamentos-novos.component';
+import { TelaSistemaAgendamentosPendentesComponent } from './telas/tela-sistema-agendamentos-pendentes/tela-sistema-agendamentos-pendentes.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-paciente
     TelaNovaSenhaComponent,
     TelaSistemaPacienteComponent,
     TelaSistemaPacienteHistoricoConsultasComponent,
+    TelaSistemaAgendamentosHistoricoComponent,
+    TelaSistemaAgendamentosNovosComponent,
+    TelaSistemaAgendamentosPendentesComponent,
   ],
 
   imports: [

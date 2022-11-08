@@ -273,6 +273,23 @@ window.onclick = function(event) {
   }
 
 
+function dropdown5() {
+  document.getElementById("myDropdown5").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn5')) {
+  var dropdowns = document.getElementsByClassName("dropdown-content5");
+  var i;
+for (i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
+}
+
   /*
   var dropdown1 = document.getElementById("dropdown1");
   document.documentElement.onclick = function(event){
@@ -282,3 +299,15 @@ window.onclick = function(event) {
   }
 
  */
+
+
+/*   $scope.delete = function ( idx ) {
+    var person_to_delete = $scope.persons[idx];
+
+    API.DeletePerson({ id: person_to_delete.id }, function (success) {
+      $scope.persons.splice(idx, 1);
+    });
+  };
+ */
+
+  

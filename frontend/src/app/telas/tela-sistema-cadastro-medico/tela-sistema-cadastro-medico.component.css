@@ -1,3 +1,60 @@
+h3.titulo-usuario{
+  color: white;
+  margin-bottom: 20px;
+}
+
+span.usuario.fa.fa-user{
+  margin-right: 10px;
+}
+
+div.row.usuario-medico.col-12{
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-left: 15px !important;
+  margin-left: 0px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: #ffffff28;
+  border-radius: 10px;
+  width: 950px;
+  margin-right: 25px;
+  border: 1px white solid;
+}
+
+input.form-control.input.email-usuario{
+  margin-left: 12px;
+  width: 885px;
+}
+
+.botao-cadastrar-usuario{
+  background-color: #012e5e;
+  color: white;
+  border-radius: 5px;
+  width: 500px !important;
+  height: 40px;
+  border: none;
+  margin-left: 200px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+/* fim div suario */
+img.img-priview{
+  width: 40% !important;
+  background-color: rgba(255, 255, 255, 0.473) !important;
+  border-radius: 0px 0px 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .wrapper {
   width: 100%;
 }
@@ -54,7 +111,7 @@ strong{
         background-size: cover;
         align-items: center;
         justify-content: center;
-        min-height: 110vh;
+        min-height: 165vh;
       }
 
 
@@ -220,10 +277,13 @@ strong{
 
 form{
   margin-left: 80px;
-  margin-right: 80px;
+  margin-right: 60px;
   background-color: #00000071;
-  padding: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: 10px;
+  width: 1000px;
 }
 
 #titulo{
@@ -291,8 +351,8 @@ select.form-control.input>option{
   right: 10px;
   cursor: pointer;
   position: absolute;
-  margin-top: 440px;
-  margin-right: 560px;
+  margin-top: 940px;
+  margin-right: 610px;
 }
 
 .fa-eye.confirmar-senha{
@@ -301,7 +361,7 @@ select.form-control.input>option{
   right: 10px;
   cursor: pointer;
   position: absolute;
-  margin-top: 440px;
+  margin-top: 940px;
   margin-right: 155px;
 }
 
@@ -567,7 +627,7 @@ input.password {
       width: 100%;
       background-color: #212121;
       border: 1px solid white;
-      box-shadow: 0px 8px 16px 0px rgba(216, 51, 51, 0.2);
+      box-shadow: 0px 8px 16px 0px  #2f89fc;
       margin-left: 15px;
       z-index: 1;
 
@@ -616,4 +676,97 @@ input.password {
 
   span.dois.fa.fa-address-card-o.mr-3{
     margin-right: 18px !important;
+  }
+
+
+
+
+  /* DROPDOWN 5---------------------------------*/
+  div.dropdown5{
+    width: 100%;
+  }
+
+  .dropbtn5 {
+    background-color: #3498db00;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    justify-content: left;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+  }
+
+  span.fa.fa-users.mr-3{
+    margin-left: 10px;
+  }
+
+  span.fa.fa-caret-down{
+    margin-left: 10px;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn5:hover, .dropbtn5:focus {
+    background-color: #2f89fc;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown5 {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content5 {
+    position: absolute;
+    display: none;
+    width: 100%;
+    background-color: #212121;
+    border: 1px solid white;
+    box-shadow: 0px 8px 16px 0px  #2f89fc;
+    margin-left: 15px;
+    z-index: 1;
+
+  }
+
+  /* Links inside the dropdown */s
+  .dropdown-content5 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content5 a:hover {background-color: rgb(230, 61, 61);}
+
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+  span.fa.fa-home.mr-3{
+    margin-right: 15px !important;
+  }
+
+  span.um.fa.fa-search.mr-3{
+    margin-left: 1px !important;
+    margin-right: 20px !important;
+  }
+
+  span.dois.fa.fa-search.mr-3{
+    margin-right: 20px !important;
+  }
+
+  span.dois.fa.fa-address-card-o.mr-3{
+    margin-right: 18px !important;
+  }
+
+  span.fa.fa-id-card.icone-titulo{
+    margin-right: 10px;
+  }
+
+  span.cinco.fa.fa-id-card.mr-3{
+    margin-left: 10px !important;
+    margin-right: 15px !important;
   }

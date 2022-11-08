@@ -24,109 +24,92 @@
     <div class="wrapper d-flex align-items-stretch">
       <nav id="sidebar">
         <!--  <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-	          <i class="fa fa-bars"></i>
-	          <span class="sr-only">Toggle Menu</span>
-	        </button>
-        </div> -->
-        <h1>
-          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
-        </h1>
-        <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a routerLink="/home" routerLinkActive="active"
-              ><span class="fa fa-home mr-3"></span>Página Inicial</a
-            >
-          </li>
-          <div class="dropdown1">
-            <button onclick="dropdown1()" class="dropbtn1">
-              <span class="um fa fa-user-md mr-3"></span>Médicos<span
-                class="um fa fa-caret-down"
-              ></span>
-            </button>
-            <div id="myDropdown1" class="dropdown-content1">
-              <li>
-                <a routerLink="/cadastrar-medico" routerLinkActive="active"
-                  ><span class="um fa fa-user-plus mr-3"></span>Cadastrar
-                  Médico</a
-                >
-              </li>
-              <li>
-                <a routerLink="/pesquisar-medico" routerLinkActive="active"
-                  ><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a
-                >
-              </li>
-            </div>
-          </div>
-          <div class="dropdown2">
-            <button onclick="myFunction2()" class="dropbtn2">
-              <span class="dois fa fa-user mr-3"></span
-              ><strong>Pacientes</strong
-              ><span class="dois fa fa-caret-down"></span>
-            </button>
-            <div id="myDropdown2" class="dropdown-content2">
-              <li>
-                <a routerLink="/cadastrar-paciente" routerLinkActive="active"
-                  ><span class="dois fa fa-user-plus mr-3"></span>Cadastrar
-                  Paciente</a
-                >
-              </li>
-              <li>
-                <a routerLink="/pesquisar-paciente" routerLinkActive="active"
-                  ><span class="dois fa fa-search mr-3"></span>Pesquisar
-                  Paciente</a
-                >
-              </li>
-              <li>
-                <a routerLink="/realizar-consulta" routerLinkActive="active"
-                  ><span class="dois fa fa-address-card-o mr-3"></span
-                  ><strong>Realizar Consulta</strong></a
-                >
-              </li>
-            </div>
-          </div>
-          <div class="dropdown3">
-            <button onclick="myFunction3()" class="dropbtn3">
-              <span class="fa fa-cogs mr-3"></span>Configurações<span
-                class="fa fa-caret-down"
-              ></span>
-            </button>
-            <div id="myDropdown3" class="dropdown-content3">
-              <li>
-                <a href="#"
-                  ><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a
-                >
-              </li>
-              <div class="dropdown4">
-                <button onclick="myFunction4()" class="dropbtn4">
-                  <span class="fa fa-users mr-3"></span> Usuários<span
-                    class="fa fa-caret-down"
-                  ></span>
-                </button>
-                <div id="myDropdown4" class="dropdown-content4">
-                  <li>
-                    <a
-                      routerLink="/usuarios-pacientes"
-                      routerLinkActive="active"
-                      ><span class="fa fa-user mr-3"></span>Pacientes</a
-                    >
-                  </li>
-                  <li>
-                    <a routerLink="/usuarios-medicos" routerLinkActive="active"
-                      ><span class="fa fa-user-md mr-3"></span>Médicos</a
-                    >
-                  </li>
-                </div>
-              </div>
-              <li>
-                <a (click)="logout()"
-                  ><span class="fa fa-sign-out mr-3"></span> Sair</a
-                >
-              </li>
-            </div>
-          </div>
-        </ul>
-      </nav>
+           <button type="button" id="sidebarCollapse" class="btn btn-primary">
+             <i class="fa fa-bars"></i>
+             <span class="sr-only">Toggle Menu</span>
+           </button>
+         </div> -->
+         <h1><a href="tela-sistema.component.html" class="logo">AppDoctor</a></h1>
+
+         <ul class="list-unstyled components mb-5">
+
+           <li class="active">
+             <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span>Página Inicial</a>
+           </li>
+
+           <div class="dropdown1">
+             <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span>Médicos<span class="um fa fa-caret-down"></span></button>
+             <div id="myDropdown1" class="dropdown-content1">
+               <li>
+                 <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="um fa fa-user-plus mr-3"></span>Cadastrar Médico</a>
+               </li>
+               <li>
+                 <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a>
+               </li>
+             </div>
+           </div>
+
+
+           <div class="dropdown2">
+             <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span><strong>Pacientes</strong><span class="dois fa fa-caret-down"></span></button>
+             <div id="myDropdown2" class="dropdown-content2">
+               <li>
+                 <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="dois fa fa-user-plus mr-3"></span>Cadastrar Paciente</a>
+               </li>
+               <li>
+                 <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="dois fa fa-search mr-3"></span>Pesquisar Paciente</a>
+               </li>
+               <li>
+                 <a routerLink="/realizar-consulta" routerLinkActive="active"><span class=" dois fa fa-address-card-o mr-3"></span><strong>Realizar Consulta</strong></a>
+               </li>
+             </div>
+           </div>
+
+           <div class="dropdown5">
+             <button onclick="dropdown5()" class="dropbtn5"><span class="cinco fa fa-id-card mr-3"></span>Agendamentos<span class="cinco fa fa-caret-down"></span></button>
+             <div id="myDropdown5" class="dropdown-content5">
+               <li>
+                 <a routerLink="/agendamentos-historico" routerLinkActive="active"><span class="cinco fa fa-history mr-3"></span>Histórico</a>
+               </li>
+               <li>
+                 <a routerLink="/agendamentos-novos" routerLinkActive="active"><span class="cinco fa fa-plus mr-3"></span>Novo</a>
+               </li>
+               <li>
+                 <a routerLink="/agendamentos-pendentes" routerLinkActive="active"><span class="cinco fa fa-clock-o mr-3"></span>Pendentes</a>
+               </li>
+             </div>
+           </div>
+
+           <div class="dropdown3">
+             <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
+             <div id="myDropdown3" class="dropdown-content3">
+
+               <li>
+                 <a href="#"><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a>
+               </li>
+
+               <div class="dropdown4">
+                 <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span> Usuários<span class="fa fa-caret-down"></span></button>
+                 <div id="myDropdown4" class="dropdown-content4">
+                   <li>
+                     <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Pacientes</a>
+                   </li>
+                   <li>
+                     <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Médicos</a>
+                   </li>
+                 </div>
+               </div>
+
+               <li>
+                 <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sair</a>
+               </li>
+
+             </div>
+           </div>
+         </ul>
+       </nav>
+
+
       <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
         <!-- <div class="row titulo-e-pesquisar">
@@ -313,7 +296,7 @@
             </div>
             <div class="form-group col-12">
               <label for="inputMedico">Médico Responsável</label>
-              <select id="inputMedico" class="form-control col input" required>
+              <select id="inputMedico" class="form-control col input" required disabled>
                 <option selected>Escolher Médico...</option>
                 <option>Dr. Vinicius Alves</option>
                 <option>Dra. Alice</option>
