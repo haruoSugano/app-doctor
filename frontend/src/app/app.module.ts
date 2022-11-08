@@ -27,6 +27,14 @@ import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-paciente
 import { TelaSistemaAgendamentosHistoricoComponent } from './telas/tela-sistema-agendamentos-historico/tela-sistema-agendamentos-historico.component';
 import { TelaSistemaAgendamentosNovosComponent } from './telas/tela-sistema-agendamentos-novos/tela-sistema-agendamentos-novos.component';
 import { TelaSistemaAgendamentosPendentesComponent } from './telas/tela-sistema-agendamentos-pendentes/tela-sistema-agendamentos-pendentes.component';
+import { TelaSistemaMedicoPadraoComponent } from './telas-medico-padrao/tela-sistema-medico-padrao/tela-sistema-medico-padrao.component';
+import { TelaCadastrarPacienteMedicoPadraoComponent } from './telas-medico-padrao/tela-cadastrar-paciente-medico-padrao/tela-cadastrar-paciente-medico-padrao.component';
+import { TelaPesquisarPacienteMedicoPadraoComponent } from './telas-medico-padrao/tela-pesquisar-paciente-medico-padrao/tela-pesquisar-paciente-medico-padrao.component';
+import { TelaRealizarConsultaMedicoPadraoComponent } from './telas-medico-padrao/tela-realizar-consulta-medico-padrao/tela-realizar-consulta-medico-padrao.component';
+import { TelaAgendamentosHistoricoMedicoPadraoComponent } from './telas-medico-padrao/tela-agendamentos-historico-medico-padrao/tela-agendamentos-historico-medico-padrao.component';
+import { TelaAgendamentosNovosMedicoPadraoComponent } from './telas-medico-padrao/tela-agendamentos-novos-medico-padrao/tela-agendamentos-novos-medico-padrao.component';
+import { TelaAgendamentosPendentesMedicoPadraoComponent } from './telas-medico-padrao/tela-agendamentos-pendentes-medico-padrao/tela-agendamentos-pendentes-medico-padrao.component';
+import { TelaUsuariosPacientesMedicoPadraoComponent } from './telas-medico-padrao/tela-usuarios-pacientes-medico-padrao/tela-usuarios-pacientes-medico-padrao.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +55,14 @@ import { TelaSistemaAgendamentosPendentesComponent } from './telas/tela-sistema-
     TelaSistemaAgendamentosHistoricoComponent,
     TelaSistemaAgendamentosNovosComponent,
     TelaSistemaAgendamentosPendentesComponent,
+    TelaSistemaMedicoPadraoComponent,
+    TelaCadastrarPacienteMedicoPadraoComponent,
+    TelaPesquisarPacienteMedicoPadraoComponent,
+    TelaRealizarConsultaMedicoPadraoComponent,
+    TelaAgendamentosHistoricoMedicoPadraoComponent,
+    TelaAgendamentosNovosMedicoPadraoComponent,
+    TelaAgendamentosPendentesMedicoPadraoComponent,
+    TelaUsuariosPacientesMedicoPadraoComponent,
   ],
 
   imports: [

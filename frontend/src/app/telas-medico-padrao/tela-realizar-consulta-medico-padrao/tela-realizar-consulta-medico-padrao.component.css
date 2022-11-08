@@ -1,0 +1,772 @@
+strong{
+  color: rgb(253, 253, 253);
+}
+
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent; }
+  a:hover {
+    color: #0056b3;
+    text-decoration: underline; }
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none; }
+  a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+    color: inherit;
+    text-decoration: none; }
+  a:not([href]):not([tabindex]):focus {
+    outline: 0; }
+
+/* espaçamento do ícone pro texto do menu */
+.mr-3,
+.mx-3 {
+  margin-right: 1rem !important; }
+
+
+/* margin do texto lorem ipsun */
+
+.p-4 {
+  padding: 1.5rem !important; }
+
+
+@media print {
+  .navbar {
+    display: none; }
+
+  .table .thead-dark th {
+    color: inherit;
+    border-color: #dee2e6; } }
+
+
+
+    body{
+      background-image: url(src/assets/resources/img/background.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      align-items: center;
+      justify-content: center;
+      min-height: 120vh;
+    }
+
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+  color: #2f89fc; }
+  a:hover, a:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+
+
+
+/* #sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #212121;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+} */
+
+#sidebar {
+  width: 250px !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+  background: #212121;
+  color: #fff;
+  transition: all 0.3s !important;
+}
+
+
+#sidebar .h6 {
+    color: #fff;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar.active .custom-menu {
+      margin-right: -50px;
+}
+
+#sidebar h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#sidebar h1 .logo {
+      color: #fff;
+      display: block;
+      padding: 10px 30px;
+      background: #2f89fc;
+}
+
+
+#sidebar ul.components {
+    padding: 0;
+}
+
+#sidebar ul li {
+    font-size: 16px;
+}
+
+#sidebar ul li > ul {
+      margin-left: 10px;
+}
+
+#sidebar ul li > ul li {
+        font-size: 14px;
+}
+
+
+#sidebar ul li a {
+      padding: 15px 30px;
+      display: block;
+      color: rgba(255, 255, 255, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li a:hover {
+        color: #fff;
+        background: #2f89fc;
+        border-bottom: 1px solid #2f89fc;
+}
+
+
+#sidebar ul li.active > a:hover {
+  background: #2f89fc;
+  border-bottom: 1px solid #2f89fc;
+}
+
+  @media (max-width: 991.98px) {
+    #sidebar {
+      margin-left: -250px; }
+      #sidebar.active {
+        margin-left: 0; }
+      #sidebar .custom-menu {
+        margin-right: -60px !important;
+        top: 10px !important; } }
+      #sidebar .custom-menu {
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        margin-right: -50px;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s; }
+
+
+    @media (prefers-reduced-motion: reduce) {
+      #sidebar .custom-menu {
+        -webkit-transition: none;
+        -o-transition: none;
+        transition: none; } }
+    #sidebar .custom-menu .btn.btn-primary {
+      background: transparent;
+      border-color: transparent; }
+      #sidebar .custom-menu .btn.btn-primary i {
+        color: black;
+        font-size: 24px; }
+      #sidebar .custom-menu .btn.btn-primary:hover, #sidebar .custom-menu .btn.btn-primary:focus {
+        background: transparent !important;
+        border-color: transparent !important; }
+
+
+
+@media (max-width: 991.98px) {
+  #sidebarCollapse span {
+    display: none; } }
+
+/* #content {
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+} */
+
+#content {
+  width: calc(100% -250px) !important;
+  padding: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  right: 0;
+  position: absolute;
+}
+
+#content.active {
+    width: 100%;
+}
+
+div.row.titulo-e-pesquisar.col-12{
+  display: flex;
+  justify-content: center;
+}
+
+
+div.row.endereco-1.col-12{
+  text-align: left;
+  justify-content: left;
+}
+
+form{
+  margin-left: 80px;
+  margin-right: 60px;
+  background-color: #00000071;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  width: 1000px !important;
+}
+
+#titulo{
+  color:white;
+  margin-bottom: 20px;
+}
+
+
+.input-pesquisar::placeholder{
+  color: rgb(0, 0, 0);
+}
+
+
+h3#titulo{
+  width: 300px;
+}
+
+input.form-control.rounded.input-pesquisar{
+  border-radius: 5px 0px 0px 5px !important;
+}
+
+
+input.form-control.rounded{
+  width: 200px;
+  height: 40px;
+  margin-left: 100px;
+}
+
+
+div.input-group>button{
+  height: 40px;
+  color: #dee2e6;
+}
+
+
+
+div.input-group{
+  width: 500px;
+  height: 50px;
+}
+
+
+div>label{
+color: rgb(255, 255, 255);
+margin-bottom: 5px;
+}
+
+.icone-titulo{
+margin-right: 10px;
+}
+
+.input{
+background-color: #dee2e615;
+color: white;
+margin-bottom: 10px;
+}
+
+
+input::placeholder {
+color: rgb(255, 255, 255);
+}
+
+
+textarea::placeholder {
+color: blue;
+}
+
+.endereco-1{
+display: flex;
+}
+
+.endereco-2{
+display: flex;
+}
+
+div.row.botoes.col-12{
+display: flex;
+justify-content: center;
+text-align: center;
+margin-top: 30px;
+}
+
+
+div.form-group.col-12{
+  margin-bottom: 5px;
+  margin-top: 5px;
+  display: inline-block;
+  width: 97%;
+}
+
+
+select.form-control.input>option{
+  background-color: #012e5e;
+}
+
+h5{
+  color: #ffffff;
+  font-size: 14px;
+  text-align: left;
+  justify-content: left;
+  display: flex;
+  width: 100%;
+}
+
+.btn-adicionar-atestado{
+  background-color: #4d4d4d;
+  border: 0;
+  color: rgb(253, 253, 253);
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 65px !important;
+  height: 20px;
+  margin-left: 0 !important;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+div.col-6.btn-adicionar-atestado{
+  text-align: left;
+  padding: 0;
+  margin-left: -10px;
+  text-align: center;
+  justify-content: center;
+}
+
+.adicionar-atestado-text{
+  margin-top: 5px;
+  margin-right: 0;
+}
+div.row.atestado.col-12{
+  margin-bottom: 10px;
+}
+
+div.col-md-1.col-sm-1{
+  justify-content: left;
+  text-align: left;
+}
+
+div.row.atestado.col-12{
+  display: flex !important;
+  float: left;
+}
+
+
+
+
+
+
+
+
+  /* DROPDOWN 1 ---------------------------------*/
+  div.dropdown1{
+    width: 100% !important;
+  }
+
+  .dropbtn1 {
+    background-color: #212121 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    padding: 15px !important;
+    font-size: 15px !important;
+    border: none !important;
+    width: 100% !important;
+    justify-content: left !important;
+    text-align: left !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    cursor: pointer;
+
+  }
+
+
+  span.um.fa.fa-user-md.mr-3{
+    margin-left: 17px;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn1:hover, .dropbtn1:focus {
+    background-color: #2f89fc !important;
+  }
+
+    /* The container <div> - needed to position the dropdown content */
+  .dropdown1 {
+    position:relative;
+    display: inline-block !important;
+  }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content1 {
+      position: absolute;
+      display: none ;
+      width: 100%;
+      background-color: #212121;
+      border: 1px solid white;
+      box-shadow: 0px 8px 16px 0px #2f89fc;
+      margin-left: 15px;
+      z-index: 1;
+
+    }
+
+    /* Links inside the dropdown */s
+    .dropdown-content1 a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content1 a:hover {
+      background-color: #2f89fc;
+    }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {display:block;}
+
+
+
+
+    /* DROPDOWN 2 ---------------------------------*/
+    div.dropdown2{
+      width: 100% !important;
+    }
+
+
+    .dropbtn2 {
+      background-color: #212121 !important;
+      color: rgba(255, 255, 255, 0.6) !important;
+      padding: 15px !important;
+      font-size: 15px !important;
+      border: none !important;
+      width: 100% !important;
+      justify-content: left !important;
+      text-align: left !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    span.dois.fa.fa-user.mr-3{
+      margin-left: 17px;
+    }
+
+    span.fa.fa-caret-down{
+      margin-left: 10px !important;
+    }
+
+    /* Dropdown button on hover & focus */
+    .dropbtn2:hover, .dropbtn2:focus {
+      background-color: #2f89fc !important;
+    }
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown2 {
+      position: relative !important;
+      display: inline-block !important;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content2 {
+      position: absolute !important;
+      display: none !important;
+      width: 100% !important;
+      background-color: #212121 !important;
+      border: 1px solid white !important;
+      box-shadow: 0px 8px 16px 0px #2f89fc  !important;
+      margin-left: 15px !important;
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */s
+    .dropdown-content2 a {
+      padding: 12px 16px !important;
+      text-decoration: none !important;
+      display: block !important;
+    }
+
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content3 a:hover {
+      background-color: #2f89fc !important;
+    }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {display:block !important;}
+
+
+
+
+
+
+
+
+    /* DROPDOWN 3 ---------------------------------*/
+    div.dropdown3{
+      width: 100% !important;
+    }
+
+    .dropbtn3 {
+      background-color: #3498db00 !important;
+      color: rgba(255, 255, 255, 0.6) !important;
+      padding: 15px !important;
+      font-size: 15px !important;
+      border: none !important;
+      width: 100% !important;
+      justify-content: left !important;
+      text-align: left !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+
+    span.fa.fa-cogs.mr-3{
+      margin-left: 15px !important;
+      margin-right: 14px !important;
+    }
+
+    span.fa.fa-caret-down{
+      margin-left: 10px !important;
+    }
+
+    /* Dropdown button on hover & focus */
+    .dropbtn3:hover, .dropbtn3:focus {
+      background-color: #2f89fc !important;
+    }
+
+    /* The container <div> - needed tqo position the dropdown content */
+    .dropdown3 {
+      position: relative !important;
+      display: inline-block !important;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content3 {
+      position: absolute !important;
+      display: none !important;
+      width: 100% !important;
+      background-color: #212121 !important;
+      border: 1px solid white !important;
+      box-shadow: 0px 8px 16px 0px #2f89fc  !important;
+      margin-left: 15px !important;
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */s
+    .dropdown-content3 a {
+      padding: 12px 16px !important;
+      text-decoration: none !important;
+      display: block !important;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content3 a:hover {
+      background-color: #2f89fc !important;
+    }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show{display:block!important;
+    }
+
+
+
+
+    /* DROPDOWN 4 ---------------------------------*/
+    div.dropdown4{
+      width: 100%;
+    }
+
+    .dropbtn4 {
+      background-color: #3498db00;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      justify-content: left;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    }
+
+    span.fa.fa-users.mr-3{
+      margin-left: 10px;
+    }
+
+    span.fa.fa-caret-down{
+      margin-left: 10px;
+    }
+
+    /* Dropdown button on hover & focus */
+    .dropbtn4:hover, .dropbtn4:focus {
+      background-color: #2f89fc;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown4 {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content4 {
+      position: absolute;
+      display: none;
+      width: 100%;
+      background-color: #212121;
+      border: 1px solid white;
+      box-shadow: 0px 8px 16px 0px  #2f89fc;
+      margin-left: 15px;
+      z-index: 1;
+
+    }
+
+    /* Links inside the dropdown */s
+    .dropdown-content4 a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content4 a:hover {background-color: rgb(230, 61, 61);}
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {display:block;}
+
+
+
+    span.dois.fa.fa-caret-down{
+      color: white;
+    }
+
+    span.fa.fa-home.mr-3{
+      margin-right: 14px !important;
+    }
+
+    span.dois.fa.fa-search.mr-3{
+      margin-right: 20px !important;
+    }
+
+    span.dois.fa.fa-address-card-o.mr-3{
+      margin-right: 18px !important;
+      color: white;
+    }
+
+    span.dois.fa.fa-user.mr-3{
+      color: white;
+    }
+
+
+
+
+  /* DROPDOWN 5---------------------------------*/
+  div.dropdown5{
+    width: 100%;
+  }
+
+  .dropbtn5 {
+    background-color: #3498db00;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    justify-content: left;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+  }
+
+  span.fa.fa-users.mr-3{
+    margin-left: 10px;
+  }
+
+  span.fa.fa-caret-down{
+    margin-left: 10px;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn5:hover, .dropbtn5:focus {
+    background-color: #2f89fc;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown5 {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content5 {
+    position: absolute;
+    display: none;
+    width: 100%;
+    background-color: #212121;
+    border: 1px solid white;
+    box-shadow: 0px 8px 16px 0px  #2f89fc;
+    margin-left: 15px;
+    z-index: 1;
+
+  }
+
+  /* Links inside the dropdown */s
+  .dropdown-content5 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content5 a:hover {background-color: rgb(230, 61, 61);}
+
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+  span.fa.fa-home.mr-3{
+    margin-right: 15px !important;
+  }
+
+  span.um.fa.fa-search.mr-3{
+    margin-left: 1px !important;
+    margin-right: 20px !important;
+  }
+
+  span.dois.fa.fa-search.mr-3{
+    margin-right: 20px !important;
+  }
+
+  span.dois.fa.fa-address-card-o.mr-3{
+    margin-right: 18px !important;
+  }
+
+  span.fa.fa-id-card.icone-titulo{
+    margin-right: 10px;
+  }
+
+  span.cinco.fa.fa-id-card.mr-3{
+    margin-left: 10px !important;
+    margin-right: 15px !important;
+  }
