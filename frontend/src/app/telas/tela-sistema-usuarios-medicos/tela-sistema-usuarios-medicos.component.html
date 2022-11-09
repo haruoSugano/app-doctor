@@ -106,7 +106,7 @@
          </ul>
        </nav>
 
-       
+
       <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
         <div class="row-1">
@@ -153,7 +153,6 @@
                         >{{ reverse ? "▲" : "▼" }}</span
                       >
                     </th>
-                    <th>Usuário</th>
                     <th>Senha</th>
                     <th style="width: 15%" class="text-center">Ação</th>
                   </tr>
@@ -168,17 +167,16 @@
                     "
                   >
                     <td class="td_item">{{ i + 1 }}</td>
-                    <td class="td_item">{{ user.email }}</td>
                     <td class="td_item">
                       <div class="div_item" *ngIf="user.isEdit">
                         <input
                           type="text"
                           class="form-control"
-                          [(ngModel)]="user.nome"
+                          [(ngModel)]="user.email"
                         />
                       </div>
                       <div class="div_item" *ngIf="!user.isEdit">
-                        {{ user.nome }}
+                        {{ user.email }}
                       </div>
                     </td>
                     <td class="td_item">

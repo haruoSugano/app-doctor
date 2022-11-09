@@ -6,12 +6,14 @@ const Agenda = require("../models/agenda.model");
 // const publish = require("../config/rabbit/publish");
 
 exports.create = async (req, res, next) => {
-  const { medico_id, paciente_id } = req.params;
-  const { data, hora } = req.body;
+  const { data, hora, cpf, medico_id } = req.body;
   try {
-    const paciente = await Paciente.findByPk(paciente_id);
+    const pacientes = await Paciente.findAll();
+    let medico = await Medico.findByPk(medico_id);
 
-    const medico = await Medico.findByPk(medico_id);
+    const paciente =  pacientes.filter(paciente => paciente.cpf == cpf);
+    const paciente_id = paciente[0].id;
+    const email = paciente[0].email;
 
     if (!medico) {
       return res.status(400).send({ message: "Medico não encontrado" });
@@ -29,7 +31,7 @@ exports.create = async (req, res, next) => {
       data,
       hora,
       medico_id,
-      paciente_id,
+      paciente_id
     });
 
     // const mail = {
@@ -73,6 +75,23 @@ exports.findAll = async (req, res, next) => {
   try {
     const agenda = await Agenda.findAll();
 
+    if (!agenda || agenda.length === 0) {
+      return res.status(400).send({ message: "Nenhum agendamento cadastrado" });
+    }
+
+    return res
+      .status(200)
+      .send({ message: "Agendamentos encontrado com sucesso!", agenda });
+  } catch (error) {
+    res
+      .status(500)
+      .send({ error: "Ocorreu um erro ao buscar os agendamentos" });
+  }
+};
+
+exports.findByCpf = async (req, res, next) => {
+  try {
+    const agenda = await Agenda.findAll();
     if (!agenda || agenda.length === 0) {
       return res.status(400).send({ message: "Nenhum agendamento cadastrado" });
     }

@@ -29,12 +29,12 @@ module.exports = {
         allowNull: false,
       },
       hora: {
-        type: Sequelize.TIME,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       status_agendamento: {
         type: Sequelize.STRING,
-        defaultValue: "ATIVADO",
+        defaultValue: "PENDENTE",
       },
       created_at: {
         type: Sequelize.DATE,
