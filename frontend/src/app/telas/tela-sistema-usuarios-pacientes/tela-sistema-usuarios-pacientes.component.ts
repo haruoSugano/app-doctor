@@ -13,6 +13,7 @@ import { AuthService } from 'src/services/auth.service';
 
 export class TelaSistemaUsuariosPacientesComponent implements OnInit {
   @Input() usuarioForm = {
+    email: "",
     senha: "",
   };
 

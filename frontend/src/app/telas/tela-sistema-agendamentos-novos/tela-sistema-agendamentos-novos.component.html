@@ -1,116 +1,181 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-  	<title>App Doctor</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>App Doctor</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
 
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="tela-sistema-agendamentos-novos.component.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="tela-sistema-agendamentos-novos.component.css"
+    />
   </head>
   <body>
-
-		<div class="wrapper d-flex align-items-stretch">
-
-			<nav id="sidebar">
-       <!--  <div class="custom-menu">
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <!--  <div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 	          <i class="fa fa-bars"></i>
 	          <span class="sr-only">Toggle Menu</span>
 	        </button>
         </div> -->
-	  		<h1><a href="tela-sistema.component.html" class="logo">AppDoctor</a></h1>
+        <h1>
+          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
+        </h1>
 
         <ul class="list-unstyled components mb-5">
-
           <li class="active">
-            <a routerLink="/home" routerLinkActive="active"><span class="fa fa-home mr-3"></span>Página Inicial</a>
+            <a routerLink="/home" routerLinkActive="active"
+              ><span class="fa fa-home mr-3"></span>Página Inicial</a
+            >
           </li>
 
           <div class="dropdown1">
-            <button onclick="dropdown1()" class="dropbtn1"><span class="um fa fa-user-md mr-3"></span>Médicos<span class="um fa fa-caret-down"></span></button>
+            <button onclick="dropdown1()" class="dropbtn1">
+              <span class="um fa fa-user-md mr-3"></span>Médicos<span
+                class="um fa fa-caret-down"
+              ></span>
+            </button>
             <div id="myDropdown1" class="dropdown-content1">
               <li>
-                <a routerLink="/cadastrar-medico" routerLinkActive="active"><span class="um fa fa-user-plus mr-3"></span>Cadastrar Médico</a>
+                <a routerLink="/cadastrar-medico" routerLinkActive="active"
+                  ><span class="um fa fa-user-plus mr-3"></span>Cadastrar
+                  Médico</a
+                >
               </li>
               <li>
-                <a routerLink="/pesquisar-medico" routerLinkActive="active"><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a>
+                <a routerLink="/pesquisar-medico" routerLinkActive="active"
+                  ><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a
+                >
               </li>
             </div>
           </div>
 
-
           <div class="dropdown2">
-            <button onclick="myFunction2()"  class="dropbtn2"><span class="dois fa fa-user mr-3"></span>Pacientes<span class="dois fa fa-caret-down"></span></button>
+            <button onclick="myFunction2()" class="dropbtn2">
+              <span class="dois fa fa-user mr-3"></span>Pacientes<span
+                class="dois fa fa-caret-down"
+              ></span>
+            </button>
             <div id="myDropdown2" class="dropdown-content2">
               <li>
-                <a routerLink="/cadastrar-paciente" routerLinkActive="active"><span class="dois fa fa-user-plus mr-3"></span>Cadastrar Paciente</a>
+                <a routerLink="/cadastrar-paciente" routerLinkActive="active"
+                  ><span class="dois fa fa-user-plus mr-3"></span>Cadastrar
+                  Paciente</a
+                >
               </li>
               <li>
-                <a routerLink="/pesquisar-paciente" routerLinkActive="active"><span class="dois fa fa-search mr-3"></span>Pesquisar Paciente</a>
+                <a routerLink="/pesquisar-paciente" routerLinkActive="active"
+                  ><span class="dois fa fa-search mr-3"></span>Pesquisar
+                  Paciente</a
+                >
               </li>
               <li>
-                <a routerLink="/realizar-consulta" routerLinkActive="active"><span class="dois fa fa-address-card-o mr-3"></span>Realizar Consulta</a>
+                <a routerLink="/realizar-consulta" routerLinkActive="active"
+                  ><span class="dois fa fa-address-card-o mr-3"></span>Realizar
+                  Consulta</a
+                >
               </li>
             </div>
           </div>
 
           <div class="dropdown5">
-            <button onclick="dropdown5()" class="dropbtn5"><span class="cinco fa fa-id-card mr-3"></span><strong>Agendamentos</strong><span class="cinco fa fa-caret-down"></span></button>
+            <button onclick="dropdown5()" class="dropbtn5">
+              <span class="cinco fa fa-id-card mr-3"></span
+              ><strong>Agendamentos</strong
+              ><span class="cinco fa fa-caret-down"></span>
+            </button>
             <div id="myDropdown5" class="dropdown-content5">
               <li>
-                <a routerLink="/agendamentos-historico" routerLinkActive="active"><span class="cinco fa fa-history mr-3"></span>Histórico</a>
+                <a
+                  routerLink="/agendamentos-historico"
+                  routerLinkActive="active"
+                  ><span class="cinco fa fa-history mr-3"></span>Histórico</a
+                >
               </li>
               <li>
-                <a routerLink="/agendamentos-novos" routerLinkActive="active"><span class="cinco fa fa-plus mr-3"></span><strong>Novo</strong></a>
+                <a routerLink="/agendamentos-novos" routerLinkActive="active"
+                  ><span class="cinco fa fa-plus mr-3"></span
+                  ><strong>Novo</strong></a
+                >
               </li>
               <li>
-                <a routerLink="/agendamentos-pendentes" routerLinkActive="active"><span class="cinco fa fa-clock-o mr-3"></span>Pendentes</a>
+                <a
+                  routerLink="/agendamentos-pendentes"
+                  routerLinkActive="active"
+                  ><span class="cinco fa fa-clock-o mr-3"></span>Pendentes</a
+                >
               </li>
             </div>
           </div>
 
-
           <div class="dropdown3">
-            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
+            <button onclick="myFunction3()" class="dropbtn3">
+              <span class="fa fa-cogs mr-3"></span>Configurações<span
+                class="fa fa-caret-down"
+              ></span>
+            </button>
             <div id="myDropdown3" class="dropdown-content3">
-
               <li>
-                <a href="#"><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a>
+                <a href="#"
+                  ><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a
+                >
               </li>
 
               <div class="dropdown4">
-                <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span>Usuários<span class="fa fa-caret-down"></span></button>
+                <button onclick="myFunction4()" class="dropbtn4">
+                  <span class="fa fa-users mr-3"></span>Usuários<span
+                    class="fa fa-caret-down"
+                  ></span>
+                </button>
                 <div id="myDropdown4" class="dropdown-content4">
                   <li>
-                    <a routerLink="/usuarios-pacientes" routerLinkActive="active"><span class="fa fa-user mr-3"></span>Pacientes</a>
+                    <a
+                      routerLink="/usuarios-pacientes"
+                      routerLinkActive="active"
+                      ><span class="fa fa-user mr-3"></span>Pacientes</a
+                    >
                   </li>
                   <li>
-                    <a routerLink="/usuarios-medicos" routerLinkActive="active"><span class="fa fa-user-md mr-3"></span>Médicos</a>
+                    <a routerLink="/usuarios-medicos" routerLinkActive="active"
+                      ><span class="fa fa-user-md mr-3"></span>Médicos</a
+                    >
                   </li>
                 </div>
               </div>
 
               <li>
-                <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span>Sair</a>
+                <a (click)="logout()"
+                  ><span class="fa fa-sign-out mr-3"></span>Sair</a
+                >
               </li>
-
             </div>
           </div>
         </ul>
-    	</nav>
+      </nav>
 
-        <!-- Page Content  -->
+      <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-
-
         <div class="formulario">
           <form id="formulario" name="formuser" action="#" method="POST">
             <div class="col-12">
               <header>
-                <h3 id="titulo"> <span class="fa fa-plus icone-titulo"></span>Agendar Nova Consulta</h3>
+                <h3 id="titulo">
+                  <span class="fa fa-plus icone-titulo"></span>Agendar Nova
+                  Consulta
+                </h3>
               </header>
             </div>
 
@@ -120,86 +185,122 @@
 
             <div class="row nome col-12">
               <div class="col nome">
-                <label>Nome Completo</label>
-                <input id="nome" name="nome" type="text" class="form-control input"  placeholder="Digite o nome do paciente">
+                <label>CPF</label>
+                <input
+                  [(ngModel)]="agendaForm.cpf"
+                  id="cpf"
+                  name="cpf"
+                  type="text"
+                  class="form-control input"
+                  placeholder="Digite o cpf do paciente"
+                />
               </div>
             </div>
-
-            <div class="row nascimento-crm-telefone col-12">
-                <div class="form-group col-6">
-                  <label class="data-nascimento">Data de Nascimento</label>
-                  <input  id="data"  name="begin" type="date" class="form-control input"   placeholder="Data de Nascimento" value="" min="1940-01-01" max="2023-12-31">
-                </div>
-
-                <div class="form-group col-6">
-                  <label>CPF</label>
-                  <input id="cpf" name="cpf" type="text" class="form-control input" placeholder="Digite o CPF" pattern="[0-9]{11}"  onblur="formataCPF(this)" required>
-                </div>
-            </div>
-
-
             <div class="div-consulta">
               <div class="titulo-consulta">
                 <h5 class="titulo-consulta">Informações da Consulta</h5>
               </div>
 
-             <div class="row nascimento-crm-telefone col-12">
+              <div class="row nascimento-crm-telefone col-12">
                 <div class="form-group col-6">
                   <label class="data-nascimento">Data</label>
-                  <input  id="data"  name="begin" type="date" class="form-control input"   placeholder="Data de Nascimento" value="" min="1940-01-01" max="2023-12-31">
+                  <input
+                    [(ngModel)]="agendaForm.data"
+                    id="data"
+                    name="begin"
+                    type="date"
+                    class="form-control input"
+                    placeholder="Data de Nascimento"
+                    value=""
+                    min="1940-01-01"
+                    max="2023-12-31"
+                  />
                 </div>
 
                 <div class="form-group col-6">
                   <label for="appt">Horário</label>
-                  <input id="appt" name="appt" type="time" class="form-control input"  required>
-                </div>
-            </div>
-
-
-            <div class="form-group col-12">
-              <label for="inputMedico">Médico Responsável</label>
-              <select id="inputMedico" class="form-control col input select" required>
-                <option selected>Escolher Médico...</option>
-                <option>Dr. Vinicius Alves</option>
-                <option>Dra. Alice</option>
-                <option>Dr. Helio</option>
-                <option>Dra. Nathalia</option>
-              </select>
-            </div>
-
-
-
-
-
-
-
-
-          </div>
-
-
-              <div class="row botoes col-12" >
-                <div class="col-md-4 col-sm-4">
-                  <button  id="cadastrar" type="button" class="btn btn-success" style="width:100%;"><span class="fa fa-user-plus mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Agendar</button>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                  <button onclick="limparForm()"  type="button" class="btn btn-danger" style="width:100%;"><span class="fa fa-close mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Limpar</button>
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                  <button routerLink="/home" id="home" type="button" class="btn btn-secondary" style="width:100%;"><span class="fa fa-home mr-3 icone"  style="color:rgb(255, 255, 255)"></span>Página Inicial</button>
+                  <input
+                    [(ngModel)]="agendaForm.hora"
+                    id="appt"
+                    name="hora"
+                    type="time"
+                    class="form-control input"
+                    required
+                  />
                 </div>
               </div>
 
+              <div class="form-group col-12">
+                <label for="inputMedico">Médico Responsável</label>
+                <select
+                  id="inputMedico"
+                  name="medico_id"
+                  class="form-control col input select"
+                  required
+                  [(ngModel)]="agendaForm.medico_id"
+                >
+                  <option
+                    *ngFor="let medico of Medico"
+                    selected
+                    [value]="medico.id"
+                  >
+                    {{ medico.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
 
+            <div class="row botoes col-12">
+              <div class="col-md-4 col-sm-4">
+                <button
+                  id="cadastrar"
+                  type="button"
+                  class="btn btn-success"
+                  style="width: 100%"
+                  (click)="addAgenda()"
+                >
+                  <span
+                    class="fa fa-user-plus mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Agendar
+                </button>
+              </div>
 
+              <div class="col-md-4 col-sm-4">
+                <button
+                  onclick="limparForm()"
+                  type="button"
+                  class="btn btn-danger"
+                  style="width: 100%"
+                >
+                  <span
+                    class="fa fa-close mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Limpar
+                </button>
+              </div>
 
+              <div class="col-md-4 col-sm-4">
+                <button
+                  routerLink="/home"
+                  id="home"
+                  type="button"
+                  class="btn btn-secondary"
+                  style="width: 100%"
+                >
+                  <span
+                    class="fa fa-home mr-3 icone"
+                    style="color: rgb(255, 255, 255)"
+                  ></span
+                  >Página Inicial
+                </button>
+              </div>
+            </div>
           </form>
-
         </div>
       </div>
-	</div>
-</body>
+    </div>
+  </body>
 </html>
-
-

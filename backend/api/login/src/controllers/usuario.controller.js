@@ -11,7 +11,7 @@ const publish = require("../config/rabbit/publish");
 
 // Utilizando async await
 exports.create = async (req, res, next) => {
-  const { nome, email, senha, confirmarSenha, isAdmin, isMedico } = req.body;
+  const { email, senha, confirmarSenha, isAdmin, isMedico } = req.body;
   try {
     if (!email || !senha || !confirmarSenha) {
       return res
@@ -29,14 +29,9 @@ exports.create = async (req, res, next) => {
         .send({ error: "Usuario com este e-mail ja existe" });
     }
 
-    if (await Usuario.findOne({ nome })) {
-      return res.status(400).send({ error: "Usuario com este nome ja existe" });
-    }
-
     const hash = await bcrypt.hash(senha, 12);
 
     const novoUsuario = new Usuario({
-      nome: nome,
       email: email,
       senha: hash,
       isAdmin: isAdmin,
@@ -166,11 +161,11 @@ exports.findById = async (req, res, next) => {
 };
 
 exports.update = async (req, res, next) => {
-  let { nome, senha } = req.body;
+  let { email, senha } = req.body;
   const { id } = req.params;
   try {
 
-    if (!nome || !senha) {
+    if (!email || !senha) {
       return res.status(404).send({ error: "Necessário preencher todos os campos" });
     }
 

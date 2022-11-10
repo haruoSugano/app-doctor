@@ -6,12 +6,6 @@
 const mongoose = require("../config/database");
 
 const UsuarioSchema = new mongoose.Schema({
-    nome: {
-        type: String,
-        required: true,
-        unique: true,
-        maxlength: 255
-    },
     email: {
         type: String,
         unique: true,

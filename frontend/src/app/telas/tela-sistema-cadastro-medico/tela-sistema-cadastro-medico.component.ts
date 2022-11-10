@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/services/auth.service';
 import { MedicoService } from 'src/services/medico.service';
+import { UsuarioService } from 'src/services/usuario.service';
 import { Router } from '@angular/router';
 import { mimeTypeValidator } from '../../shared/validators/mime-type.validator';
 
@@ -10,7 +11,6 @@ import { mimeTypeValidator } from '../../shared/validators/mime-type.validator';
   templateUrl: './tela-sistema-cadastro-medico.component.html',
   styleUrls: ['./tela-sistema-cadastro-medico.component.css']
 })
-
 export class TelaSistemaCadastroMedicoComponent implements OnInit {
   form: FormGroup;
   priview: String;
@@ -18,6 +18,7 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public medicoService: MedicoService,
+    public usuarioService: UsuarioService,
     public router: Router,
     public fb: FormBuilder
   ) {
@@ -32,7 +33,9 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
       cidade: [""],
       estado: [""],
       cep: [""],
-      assinatura: [null]
+      assinatura: [null],
+      senha: [""],
+      confirmSenha: [""],
     });
   }
 
@@ -72,6 +75,12 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
         validators: [Validators.required],
         asyncValidators: [mimeTypeValidator]
       }),
+      senha: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      confirmarSenha: new FormControl(null, {
+        validators: [Validators.required]
+      }),
     })
   }
 
@@ -92,7 +101,6 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
   addMedico() {
     this.medicoService.createMedico(this.form.value).subscribe((data) => {
       this.router.navigate(["/cadastrar-medico"]);
-
       this.form = this.fb.group({
         name: [""],
         email: [""],
@@ -109,6 +117,21 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
     });
 
     alert("Medico cadastrado com sucesso!");
+  }
+
+  addUser() {
+    const usuario = {
+      email: this.form.value.email,
+      senha: this.form.value.senha,
+      confirmarSenha: this.form.value.confirmarSenha,
+      isMedico: true,
+      isAdmin: false
+    };
+
+    this.usuarioService.createUsuario(usuario).subscribe((data) => {
+    });
+
+    alert("Usuário cadastrado com sucesso!");
   }
 
   logout() {
