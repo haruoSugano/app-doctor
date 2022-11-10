@@ -76,6 +76,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
   constructor(private router: Router, private route: ActivatedRoute) { }
 }
