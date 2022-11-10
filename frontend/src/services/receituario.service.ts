@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, Observable, retry, throwError } from "rxjs";
+import { catchError, Observable, retry, throwError } from "rxjs"
 import { environment } from "src/environments/environment";
-import { Agenda } from "src/app/shared/models/agenda";
+import { Receituario } from "src/app/shared/models/receituario";
 
 @Injectable({
   providedIn: "root"
 })
-export class AgendaService {
+export class ReceituarioService {
+
   apiUrl = environment.API_SISTEMA;
 
   constructor(private http: HttpClient) { }
@@ -18,20 +19,10 @@ export class AgendaService {
     }),
   };
 
-  createAgenda(agenda: Agenda): Observable<any> {
-    return this.http.post<Agenda>(`${this.apiUrl}/agendas`, agenda).pipe(retry(1), catchError(this.handleError));
-  }
-
-  getAgendas(): Observable<Agenda> {
+  createReceituario(receituario: Receituario): Observable<Receituario> {
     return this.http
-      .get<Agenda>(this.apiUrl + "/agendas")
+      .post<Receituario>(`${this.apiUrl}/receituarios`, receituario)
       .pipe(retry(1), catchError(this.handleError));
-  }
-
-  getAgendaByPaciente(id: string): Observable<any> {
-    return this.http
-    .get<Agenda>(`${this.apiUrl}/agendas/paciente/${id}`)
-    .pipe(retry(1), catchError(this.handleError));
   }
 
   handleError(error: any) {

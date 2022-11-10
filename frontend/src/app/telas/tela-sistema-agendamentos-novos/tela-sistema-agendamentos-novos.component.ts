@@ -4,8 +4,6 @@ import { Agenda } from 'src/app/shared/models/agenda';
 import { AgendaService } from 'src/services/agenda.service';
 import { MedicoService } from 'src/services/medico.service';
 import { AuthService } from 'src/services/auth.service';
-import { Medico } from 'src/app/shared/models/medico';
-
 
 @Component({
   selector: 'app-tela-sistema-agendamentos-novos',
@@ -35,12 +33,11 @@ export class TelaSistemaAgendamentosNovosComponent implements OnInit {
 
   addAgenda() {
     const agenda = this.agendaForm;
-    console.log(agenda)
     this.agendaService.createAgenda(agenda).subscribe((data: {}) => {
       // this.router.navigate(["/cadastrar-paciente"]);
     });
 
-    alert("Agenda com sucesso!");
+    alert("Agendandado com sucesso!");
   }
 
   loadMedico() {

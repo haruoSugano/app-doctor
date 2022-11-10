@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: 'home/medico', component: TelaSistemaMedicoPadraoComponent,},
   { path: 'cadastrar-paciente-medico-padrao', component: TelaCadastrarPacienteMedicoPadraoComponent,},
   { path: 'pesquisar-paciente-medico-padrao', component: TelaPesquisarPacienteMedicoPadraoComponent,},
-  { path: 'realizar-consulta-medico-padrao', component: TelaRealizarConsultaMedicoPadraoComponent,},
+  { path: 'medicos/paciente/:idPaciente/medico/:idMedico/agendamento/:idAgendamento', component: TelaRealizarConsultaMedicoPadraoComponent,},
   { path: 'usuarios-pacientes-medico-padrao', component: TelaUsuariosPacientesMedicoPadraoComponent,},
   { path: 'agendamentos-historico-medico-padrao', component: TelaAgendamentosHistoricoMedicoPadraoComponent,},
   { path: 'agendamentos-novos-medico-padrao', component: TelaAgendamentosNovosMedicoPadraoComponent,},
@@ -73,7 +73,9 @@ const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full' },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
