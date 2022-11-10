@@ -159,6 +159,8 @@ exports.findByPaciente = async (req, res, next) => {
       include: { association: "agendas" },
     });
 
+    console.log(paciente);
+
     return res.status(200).send({ paciente });
   } catch (error) {
     return res

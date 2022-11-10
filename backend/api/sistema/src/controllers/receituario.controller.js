@@ -4,8 +4,7 @@ const Agenda = require("../models/agenda.model");
 const Receituario = require("../models/receituario.model");
 
 exports.create = async (req, res, next) => {
-  const { agenda_id, medico_id, paciente_id } = req.params;
-  const { descricao } = req.body;
+  const { descricao, agenda_id, medico_id, paciente_id } = req.body;
 
   try {
     const paciente = await Paciente.findByPk(paciente_id);
@@ -34,7 +33,7 @@ exports.create = async (req, res, next) => {
       descricao,
       medico_id,
       paciente_id,
-      agenda_id
+      agenda_id,
     });
 
     return res.status(201).send({ receituario });
@@ -168,16 +167,18 @@ exports.delete = async (req, res, next) => {
   const { receituario_id } = req.params;
   try {
     const receituario = await Receituario.findByPk(receituario_id);
-    
+
     if (!receituario) {
       return res.status(400).send({ message: "Receituario não encontrado" });
     }
 
     await Receituario.destroy({
-        where: { id: receituario_id },
+      where: { id: receituario_id },
     });
 
-    return res.status(200).send({ message: "Receituario excluído com sucesso"});
+    return res
+      .status(200)
+      .send({ message: "Receituario excluído com sucesso" });
   } catch (error) {
     res
       .status(500)
