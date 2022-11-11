@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>App Doctor</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="tela-sistema-meu-perfil.component.css" />
+
+
+  </head>
+  <body>
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <h1>
+          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
+        </h1>
+
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a routerLink="/home" routerLinkActive="active"
+              ><span class="fa fa-home mr-3"></span
+              ><strong>Página Inicial</strong></a
+            >
+          </li>
+
+          <div class="dropdown1">
+            <button onclick="dropdown1()" class="dropbtn1">
+              <span class="um fa fa-user-md mr-3"></span>Médicos<span
+                class="fa fa-caret-down"
+              ></span>
+            </button>
+            <div id="myDropdown1" class="dropdown-content1">
+              <li>
+                <a routerLink="/cadastrar-medico" routerLinkActive="active"
+                  ><span class="um fa fa-user-plus mr-3"></span>Cadastrar
+                  Médico</a
+                >
+              </li>
+              <li>
+                <a routerLink="/pesquisar-medico" routerLinkActive="active"
+                  ><span class="um fa fa-search mr-3"></span>Pesquisar Médico</a
+                >
+              </li>
+            </div>
+          </div>
+
+          <div class="dropdown2">
+            <button onclick="myFunction2()" class="dropbtn2">
+              <span class="dois fa fa-user mr-3"></span>Pacientes<span
+                class="fa fa-caret-down"
+              ></span>
+            </button>
+            <div id="myDropdown2" class="dropdown-content2">
+              <li>
+                <a routerLink="/cadastrar-paciente" routerLinkActive="active"
+                  ><span class="dois fa fa-user-plus mr-3"></span>Cadastrar
+                  Paciente</a
+                >
+              </li>
+              <li>
+                <a routerLink="/pesquisar-paciente" routerLinkActive="active"
+                  ><span class="dois fa fa-search mr-3"></span>Pesquisar
+                  Paciente</a
+                >
+              </li>
+              <li>
+                <a routerLink="/realizar-consulta" routerLinkActive="active"
+                  ><span class="dois fa fa-address-card-o mr-3"></span>Realizar
+                  Consulta</a
+                >
+              </li>
+            </div>
+          </div>
+
+          <div class="dropdown5">
+            <button onclick="dropdown5()" class="dropbtn5">
+              <span class="cinco fa fa-id-card mr-3"></span>Agendamentos<span
+                class="fa fa-caret-down"
+              ></span>
+            </button>
+            <div id="myDropdown5" class="dropdown-content5">
+              <li>
+                <a
+                  routerLink="/agendamentos-historico"
+                  routerLinkActive="active"
+                  ><span class="um fa fa-history mr-3"></span>Histórico</a
+                >
+              </li>
+              <li>
+                <a routerLink="/agendamentos-novos" routerLinkActive="active"
+                  ><span class="um fa fa-plus mr-3"></span>Novo</a
+                >
+              </li>
+              <li>
+                <a
+                  routerLink="/agendamentos-pendentes"
+                  routerLinkActive="active"
+                  ><span class="dois fa fa-clock-o mr-3"></span>Pendentes</a
+                >
+              </li>
+            </div>
+          </div>
+
+          <div class="dropdown3">
+            <button onclick="myFunction3()" class="dropbtn3"><span class="fa fa-cogs mr-3"></span>Configurações<span class="fa fa-caret-down"></span></button>
+            <div id="myDropdown3" class="dropdown-content3">
+              <li>
+                <a href="#"
+                  ><span class="fa fa-user-circle mr-3"></span>Meu Perfil</a
+                >
+              </li>
+
+              <div class="dropdown4">
+                <button onclick="myFunction4()" class="dropbtn4"><span class="fa fa-users mr-3"></span> Usuários<span class="fa fa-caret-down"></span></button>
+                <div id="myDropdown4" class="dropdown-content4">
+                  <li>
+                    <a
+                      routerLink="/usuarios-pacientes"
+                      routerLinkActive="active"
+                      ><span class="fa fa-user mr-3"></span>Pacientes</a
+                    >
+                  </li>
+                  <li>
+                    <a routerLink="/usuarios-medicos" routerLinkActive="active"
+                      ><span class="fa fa-user-md mr-3"></span>Médicos</a
+                    >
+                  </li>
+                </div>
+              </div>
+
+              <li>
+                <a (click)="logout()"
+                  ><span class="fa fa-sign-out mr-3"></span> Sair</a
+                >
+              </li>
+            </div>
+          </div>
+        </ul>
+      </nav>
+
+      <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+        <section >
+          <div class="container py-5">
+
+            <div class="row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nav bg-light rounded-3 p-3 mb-4">
+                  <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">User</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4">
+
+                <div class="card mb-4"  *ngFor=" let user of userDados">
+                  <div class="card-body text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                      class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">{{user.nome_completo}}</h5>
+
+                    <p class="text-muted mb-1">Admin</p>
+
+                    <div class="d-flex justify-content-center mb-2" *ngIf="user.isEdit">
+                      <button class="btn btn-sm btn-success" style="margin-right: 5px;">Salvar</button>
+                      <button class="btn btn-sm btn-danger" (click)="user.isEdit = false">Cancelar</button>
+                    </div>
+                    <div class="d-flex justify-content-center mb-2"  *ngIf="!user.isEdit" >
+                      <button type="button" class="btn btn-primary" (click)="onEdit(user)">Editar Perfil</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12" *ngFor=" let user of userUsuario">
+                  <div class="card mb-4" >
+                    <div class="card-body" >
+                      <div class="row usuario">
+
+                        <div class="col-sm-4">
+                          <p class="mb-0 usurio-e-senha"><strong>Usuário</strong></p>
+                        </div>
+
+                        <div class="col-sm-8" *ngIf="user.isEdit">
+                          <input type="text" [(ngModel)]="user.usuario" class="text-muted mb-0">
+                        </div>
+                        <div class="col-sm-8" *ngIf="!user.isEdit">
+                          {{user.usuario}}
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <p class="mb-0 usurio-e-senha">Senha</p>
+                        </div>
+                        <div class="col-sm-8" *ngIf="user.isEdit">
+                          <input type="password" [(ngModel)]="user.senha" class="text-muted mb-0">
+                        </div>
+                        <div class="col-sm-8" *ngIf="!user.isEdit">
+                          {{user.senha}}
+                        </div>
+                        
+                      </div>
+                      <hr>
+
+                      <!-- <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                          <i class="fas fa-globe fa-lg text-warning"></i>
+                          <p class="mb-0">https://mdbootstrap.com</p>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                          <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                          <p class="mb-0">mdbootstrap</p>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                          <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                          <p class="mb-0">@mdbootstrap</p>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                          <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                          <p class="mb-0">mdbootstrap</p>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                          <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                          <p class="mb-0">mdbootstrap</p>
+                        </li>
+                      </ul> -->
+                    </div>
+                  </div>
+
+                </div>
+
+
+              </div>
+
+              <div class="col-lg-8" *ngFor=" let user of userDados">
+                <div class="card mb-4">
+                  <div class="card-body">
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Nome Completo</strong></p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{user.nome_completo}}</p>
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Data de Nascimento</strong></p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{user.data_nascimento}}</p>
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>CRM</strong></p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{user.crm}}</p>
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Telefone</strong></p>
+                      </div>
+                      <div class="col-sm-8" *ngIf="user.isEdit">
+                        <input type="text" [(ngModel)]="user.telefone" class="text-muted mb-0">
+                      </div>
+                      <div class="col-sm-8" *ngIf="!user.isEdit">
+                        {{user.telefone}}
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Endereço</strong></p>
+                      </div>
+                      <div class="col-sm-8" *ngIf="user.isEdit">
+                        <input type="text" [(ngModel)]="user.endereco" class="text-muted mb-0">
+                      </div>
+                      <div class="col-sm-8" *ngIf="!user.isEdit">
+                        {{user.endereco}}
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Número</strong></p>
+                      </div>
+                      <div class="col-sm-8" *ngIf="user.isEdit">
+                        <input type="text" [(ngModel)]="user.numero" class="text-muted mb-0">
+                      </div>
+                      <div class="col-sm-8" *ngIf="!user.isEdit">
+                        {{user.numero}}
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Cidade</strong></p>
+                      </div>
+                      <div class="col-sm-8" *ngIf="user.isEdit">
+                        <input type="text" [(ngModel)]="user.cidade" class="text-muted mb-0">
+                      </div>
+                      <div class="col-sm-8" *ngIf="!user.isEdit">
+                        {{user.cidade}}
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Estado</strong></p>
+                      </div>
+                      <div class="col-sm-8" *ngIf="user.isEdit">
+                        <input type="text" [(ngModel)]="user.estado" class="text-muted mb-0">
+                      </div>
+                      <div class="col-sm-8" *ngIf="!user.isEdit">
+                        {{user.estado}}
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>CEP</strong></p>
+                      </div>
+                      <div class="col-sm-8" *ngIf="user.isEdit">
+                        <input type="text" [(ngModel)]="user.cep" class="text-muted mb-0">
+                      </div>
+                      <div class="col-sm-8" *ngIf="!user.isEdit">
+                        {{user.cep}}
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-0"><strong>Assinatura</strong></p>
+                      </div>
+                      <div class="col-sm-8">
+                        <img style="width: 200px; height:100px; border-radius: 5px; border: solid 1px rgb(6, 80, 240);" src="https://static.vecteezy.com/system/resources/previews/000/537/457/original/manual-signature-for-documents-on-white-background-hand-drawn-calligraphy-lettering-vector-illustration.jpg">
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+        </section>
+    </div>
+  </div>
+  </body>
+</html>

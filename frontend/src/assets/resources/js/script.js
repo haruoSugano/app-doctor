@@ -234,7 +234,7 @@ for (i = 0; i < dropdowns.length; i++) {
 }
 }
 
-function dropdown2() {
+function myFunction2() {
   document.getElementById("myDropdown2").classList.toggle("show");
 }
 // Close the dropdown menu if the user clicks outside of it
@@ -253,7 +253,7 @@ for (i = 0; i < dropdowns.length; i++) {
 
 
 
-function dropdown3() {
+function myFunction3() {
   document.getElementById("myDropdown3").classList.toggle("show");
 }
 // Close the dropdown menu if the user clicks outside of it
@@ -272,7 +272,7 @@ window.onclick = function(event) {
 
 
 
-function dropdown4() {
+function myFunction4() {
   document.getElementById("myDropdown4").classList.toggle("show");
 }
 // Close the dropdown menu if the user clicks outside of it

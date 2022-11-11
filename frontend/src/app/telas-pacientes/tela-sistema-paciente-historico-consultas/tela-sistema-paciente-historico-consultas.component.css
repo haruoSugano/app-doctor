@@ -258,12 +258,13 @@ div.row-3{
   white-space: nowrap;
   margin-top: 20px;
   padding: 20px;
+  height: 600px;
 }
 
 
 div.col-12 {
   overflow-y: auto;
-  height: 400px;
+  height: 550px;
 }
 
 

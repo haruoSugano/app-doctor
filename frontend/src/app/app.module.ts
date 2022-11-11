@@ -35,6 +35,7 @@ import { TelaAgendamentosHistoricoMedicoPadraoComponent } from './telas-medico-p
 import { TelaAgendamentosNovosMedicoPadraoComponent } from './telas-medico-padrao/tela-agendamentos-novos-medico-padrao/tela-agendamentos-novos-medico-padrao.component';
 import { TelaAgendamentosPendentesMedicoPadraoComponent } from './telas-medico-padrao/tela-agendamentos-pendentes-medico-padrao/tela-agendamentos-pendentes-medico-padrao.component';
 import { TelaUsuariosPacientesMedicoPadraoComponent } from './telas-medico-padrao/tela-usuarios-pacientes-medico-padrao/tela-usuarios-pacientes-medico-padrao.component';
+import { TelaSistemaMeuPerfilComponent } from './telas/tela-sistema-meu-perfil/tela-sistema-meu-perfil.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { TelaUsuariosPacientesMedicoPadraoComponent } from './telas-medico-padra
     TelaAgendamentosNovosMedicoPadraoComponent,
     TelaAgendamentosPendentesMedicoPadraoComponent,
     TelaUsuariosPacientesMedicoPadraoComponent,
+    TelaSistemaMeuPerfilComponent,
   ],
 
   imports: [
