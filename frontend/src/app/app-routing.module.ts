@@ -1,3 +1,4 @@
+import { TelaSistemaMeuPerfilComponent } from './telas/tela-sistema-meu-perfil/tela-sistema-meu-perfil.component';
 //telas medico padrao imports
 import { TelaSistemaMedicoPadraoComponent } from './telas-medico-padrao/tela-sistema-medico-padrao/tela-sistema-medico-padrao.component';
 import { TelaAgendamentosPendentesMedicoPadraoComponent } from './telas-medico-padrao/tela-agendamentos-pendentes-medico-padrao/tela-agendamentos-pendentes-medico-padrao.component';
@@ -45,6 +46,8 @@ const routes: Routes = [
   { path: 'realizar-consulta', component: TelaSistemaRealizarConsultaComponent,  },
   { path: 'usuarios-medicos', component: TelaSistemaUsuariosMedicosComponent, },
   { path: 'usuarios-pacientes', component: TelaSistemaUsuariosPacientesComponent, },
+  { path: 'meu-perfil', component: TelaSistemaMeuPerfilComponent, },
+
 
   //telas agendamentos
   { path: 'agendamentos-pendentes', component: TelaSistemaAgendamentosPendentesComponent},
@@ -78,6 +81,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
   constructor(private router: Router, private route: ActivatedRoute) { }
 }

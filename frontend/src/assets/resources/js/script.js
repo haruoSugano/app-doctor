@@ -200,6 +200,23 @@ function limparForm() {
 }
  */
 
+document.querySelector('body').click(function(e){
+  //Essa condição verifica se o clique foi diretamente na sua div
+  if(e.target.id == "myDropdown1")
+     return;
+  //Essa condição verifica se o clique foi feito em algum elemento dentro      da sua div. Esse tem '#' porque é um seletor do jquery
+  if(document.querySelector(e.target).closest('#imyDropdown1').length)
+     return;
+
+ //Aqui você pode colocar seu código
+
+});
+
+
+
+
+
+
 function dropdown1() {
   document.getElementById("myDropdown1").classList.toggle("show");
 }
@@ -207,6 +224,23 @@ function dropdown1() {
 window.onclick = function(event) {
 if (!event.target.matches('.dropbtn1')) {
   var dropdowns = document.getElementsByClassName("dropdown-content1");
+  var a;
+for (i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
+}
+
+function myFunction2() {
+  document.getElementById("myDropdown2").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn2')) {
+  var dropdowns = document.getElementsByClassName("dropdown-content2");
   var i;
 for (i = 0; i < dropdowns.length; i++) {
   var openDropdown = dropdowns[i];
@@ -218,22 +252,6 @@ for (i = 0; i < dropdowns.length; i++) {
 }
 
 
-function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-}
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn2')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content2");
-    var i;
-  for (i = 0; i < dropdowns.length; i++) {
-    var openDropdown = dropdowns[i];
-    if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
 
 function myFunction3() {
   document.getElementById("myDropdown3").classList.toggle("show");
@@ -254,32 +272,13 @@ window.onclick = function(event) {
 
 
 
-
-  function myFunction4() {
-    document.getElementById("myDropdown4").classList.toggle("show");
-  }
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn4')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content4");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-
-function dropdown5() {
-  document.getElementById("myDropdown5").classList.toggle("show");
+function myFunction4() {
+  document.getElementById("myDropdown4").classList.toggle("show");
 }
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
-if (!event.target.matches('.dropbtn5')) {
-  var dropdowns = document.getElementsByClassName("dropdown-content5");
+if (!event.target.matches('.dropbtn4')) {
+  var dropdowns = document.getElementsByClassName("dropdown-content4");
   var i;
 for (i = 0; i < dropdowns.length; i++) {
   var openDropdown = dropdowns[i];
@@ -290,15 +289,55 @@ for (i = 0; i < dropdowns.length; i++) {
 }
 }
 
-  /*
-  var dropdown1 = document.getElementById("dropdown1");
-  document.documentElement.onclick = function(event){
-    if (event.target !== dropdown1) {
-        dropdown1.style.display = 'none';
+/* function myFunction2() {
+  $('#myDropdown1').toggleClass('show');
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn1')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content1");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
     }
   }
+} */
 
- */
+
+function dropdown5() {
+  document.getElementById("myDropdown5").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn5')) {
+  var dropdown = document.getElementsByClassName("dropdown-content5");
+  var i;
+for (i = 0; i < dropdown.length; i++) {
+  var openDropdown = dropdown[i];
+  if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}}
+
+
+
+
+
+/*
+*/
+
+var dropdown = document.getElementById("myDropdown1");
+  document.documentElement.onclick = function(event){
+    if (event.target !== dropdown) {
+        dropdown.style.display = 'none';
+    }
+}
+
+
 
 
 /*   $scope.delete = function ( idx ) {
@@ -310,4 +349,4 @@ for (i = 0; i < dropdowns.length; i++) {
   };
  */
 
-  
+

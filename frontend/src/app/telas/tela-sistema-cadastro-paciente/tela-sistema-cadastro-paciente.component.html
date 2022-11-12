@@ -190,7 +190,7 @@
               </div>
             </div>
 
-            <div class="row email col-12">
+          <!--   <div class="row email col-12">
               <div class="col email">
                 <label>E-mail</label>
                 <input
@@ -202,7 +202,7 @@
                   [(ngModel)]="pacienteForm.email"
                 />
               </div>
-            </div>
+            </div> -->
 
             <div class="row nascimento-crm-telefone col-12">
               <div class="form-group col-4">
@@ -343,6 +343,19 @@
                 <span class="usuario fa fa-user"></span>Usuário do Paciente
               </h3>
 
+              <div class="row email col-12">
+                <div class="col email">
+                  <label>E-mail</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-control input"
+                    placeholder="Digite o e-mail"
+                    [(ngModel)]="pacienteForm.email"
+                  />
+                </div>
+              </div>
               <!-- <div class="row email col-12">
                 <label>Email</label>
                 <input

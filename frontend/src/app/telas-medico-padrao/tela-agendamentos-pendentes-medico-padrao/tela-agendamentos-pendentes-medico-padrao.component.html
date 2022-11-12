@@ -68,7 +68,7 @@
               </li>
               <li>
                 <a
-                  routerLink="/realizar-consulta-medico-padrao"
+                  routerLink="/medicos/paciente/:idPaciente/medico/:idMedico/agendamento/:idAgendamento"
                   routerLinkActive="active"
                   ><span class="dois fa fa-address-card-o mr-3"></span>Realizar
                   Consulta</a
@@ -173,8 +173,7 @@
           <div class="row-3">
             <div class="col-12">
               <table
-                class="table table-striped table-bordered table-hover table-wrapper"
-              >
+                class="table table-striped table-bordered table-hover table-wrapper">
                 <thead>
                   <tr>
                     <th>Id Consulta</th>
@@ -195,14 +194,7 @@
                 </thead>
 
                 <tbody>
-                  <tr
-                    *ngFor="
-                      let user of usersArray
-                        | filter: filter
-                        | orderBy: key:reverse;
-                      let i = index
-                    "
-                  >
+                  <tr *ngFor="let user of usersArray | filter: filter | orderBy: key:reverse; let i = index">
                     <td class="td_item">{{ i + 1 }}</td>
 
                     <td class="td_item">
@@ -315,7 +307,7 @@
                       </div>
                       <div class="div_item" *ngIf="!user.isEdit">
                         <button
-                          routerLink="/realizar-consulta"
+                          routerLink="/medicos/paciente/:idPaciente/medico/:idMedico/agendamento/:idAgendamento"
                           class="btn btn-sm btn-success"
                         >
                           Realizar Consulta
