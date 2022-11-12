@@ -112,7 +112,7 @@ exports.findByPaciente = async (req, res, next) => {
 
     return res
       .status(200)
-      .send({ message: "Paciente encontrado com sucesso.", paciente });
+      .send({ paciente });
   } catch (error) {
     return res
       .status(500)

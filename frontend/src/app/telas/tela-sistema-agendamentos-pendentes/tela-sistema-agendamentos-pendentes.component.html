@@ -221,7 +221,7 @@
                 <tbody>
                   <tr
                     *ngFor="
-                      let agenda of Agendas.agenda
+                      let agenda of Agendas.agendas
                         | filter: filter
                         | orderBy: key:reverse;
                       let i = index
@@ -259,16 +259,16 @@
                       <div class="div_item" *ngIf="agenda.isEdit">
                         <input
                           type="text"
-                          [(ngModel)]="agenda.medico_id"
+                          [(ngModel)]="agenda.medicos.crm"
                           class="form-control"
                         />
                       </div>
                       <div class="div_item" *ngIf="!agenda.isEdit">
-                        {{ agenda.medico_id }}
+                        {{ agenda.medicos.crm }}
                       </div>
                     </td>
 
-                    <td class="td_item">{{ agenda.paciente_id }}</td>
+                    <td class="td_item">{{ agenda.pacientes.cpf }}</td>
                     <td>
                       <select class="select input" disabled="disabled">
                         <option>PENDENTE</option>

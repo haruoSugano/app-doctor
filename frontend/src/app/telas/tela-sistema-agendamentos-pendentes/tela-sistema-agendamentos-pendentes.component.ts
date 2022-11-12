@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgendaService } from 'src/services/agenda.service';
-import { Agenda } from 'src/app/shared/models/agenda';
 import { AuthService } from 'src/services/auth.service';
+import { PacienteService } from 'src/services/paciente.service';
+import { MedicoService } from 'src/services/medico.service';
 
 @Component({
   selector: 'app-tela-sistema-agendamentos-pendentes',
@@ -11,14 +12,18 @@ import { AuthService } from 'src/services/auth.service';
 })
 export class TelaSistemaAgendamentosPendentesComponent implements OnInit {
   Agendas: any = [{}];
-  paciente: {};
+  pacientes: any = [{}];
+  medico: any = [{}];
   filter: string;
   key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
   reverse: boolean = false;
+  id: "";
 
   constructor(
     public authService: AuthService,
     public agendaService: AgendaService,
+    public pacienteService: PacienteService,
+    public medicoService:MedicoService,
     public router: Router
   ) { }
 
@@ -34,7 +39,8 @@ export class TelaSistemaAgendamentosPendentesComponent implements OnInit {
   loadAgenda() {
     return this.agendaService.getAgendas().subscribe((data: {}) => {
       this.Agendas = data;
-    })
+      console.log(this.Agendas)
+    });
   }
 
   onEdit(item: any) {

@@ -73,15 +73,26 @@ exports.create = async (req, res, next) => {
 
 exports.findAll = async (req, res, next) => {
   try {
-    const agenda = await Agenda.findAll();
+    const agendas = await Agenda.findAll({
+      include: [{
+        model: Paciente,
+        as: "pacientes",
+        attributes: ["cpf"]
+      },
+      {
+        model: Medico,
+        as: "medicos",
+        attributes: ["crm"]
+      }]
+    });
 
-    if (!agenda || agenda.length === 0) {
+    if (!agendas || agendas.length === 0) {
       return res.status(400).send({ message: "Nenhum agendamento cadastrado" });
     }
 
     return res
       .status(200)
-      .send({ message: "Agendamentos encontrado com sucesso!", agenda });
+      .send({ agendas });
   } catch (error) {
     res
       .status(500)
