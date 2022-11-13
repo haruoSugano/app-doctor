@@ -21,7 +21,19 @@ export class AuthService {
       localStorage.setItem("access_token", res.token);
       this.getUserProfile(res.usuario._id).subscribe((res) => {
         this.currentUser = res;
-        this.router.navigate(["home"]);
+        Object.keys(this.currentUser).forEach((item) => {
+          if (this.currentUser["isAdmin"] === true && this.currentUser["isMedico"] === true) {
+            this.router.navigate(["home"]);
+          }
+
+          if (this.currentUser["isAdmin"] === false && this.currentUser["isMedico"] === false) {
+            this.router.navigate(["home/pacientes"]);
+          }
+
+          if (this.currentUser["isMedico"] === true && this.currentUser["isAdmin"] === false) {
+            this.router.navigate(["home/medico"]);
+          }
+        });
       });
     });
   }

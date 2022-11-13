@@ -35,7 +35,7 @@ export class TelaSistemaAgendamentosNovosComponent implements OnInit {
   addAgenda() {
     const agenda = this.agendaForm;
     this.agendaService.createAgenda(agenda).subscribe((data: {}) => {
-      // this.router.navigate(["/cadastrar-paciente"]);
+      window.location.reload();
     });
 
     alert("Agendandado com sucesso!");

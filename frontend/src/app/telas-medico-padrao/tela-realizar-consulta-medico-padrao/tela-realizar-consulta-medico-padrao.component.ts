@@ -12,15 +12,21 @@ import { ReceituarioService } from 'src/services/receituario.service';
   styleUrls: ['./tela-realizar-consulta-medico-padrao.component.css']
 })
 export class TelaRealizarConsultaMedicoPadraoComponent implements OnInit {
-@Input() receituarioForm: any = {
-  medico_id: "",
-  paciente_id: "",
-  agenda_id: "",
-  descricao: ""
-}
-  paciente: any;
-  medico: any;
-  Receituario: any;
+  @Input() receituarioForm: any = {
+    medico_id: "",
+    paciente_id: "",
+    agenda_id: "",
+    descricao: "",
+  }
+
+  @Input() agendaForm: any = {
+    status_agendamento: "CONCLUIDO",
+  }
+
+  paciente: any = [{}];
+  medico: any = [{}];
+  agenda: any = [{}];
+  Receituario: any = [{}];
 
   constructor(
     public authService: AuthService,
@@ -50,20 +56,27 @@ export class TelaRealizarConsultaMedicoPadraoComponent implements OnInit {
         this.medicoService.getMedico(idMedico).subscribe((data: {}) => {
           this.medico = data;
         });
+
+        this.agendaService.getAgenda(idAgendamento).subscribe((data: {}) => {
+          this.agenda = data;
+        })
       }
     })
   }
 
   addReceituario() {
     const receituario = this.receituarioForm;
-    this.receituarioService.createReceituario(receituario).subscribe((data: {}) => {
-    })
+    const status = this.agendaForm;
+    if (window.confirm("Você deseja gerar o pdf?")) {
+      this.receituarioService.createReceituario(receituario).subscribe((data: {}) => { })
+      // this.agendaService.updateAgendaStatus(receituario.agenda_id, status).subscribe((data: {}) => { });
+    }
 
     alert("Receituario gerado com sucesso!");
+    this.router.navigateByUrl('agendamentos-pendentes-medico-padrao');
   }
 
   logout() {
     this.authService.doLogout();
   }
-
 }

@@ -229,75 +229,11 @@
 
                     <td class="td_item">{{ agenda.pacientes.cpf }}</td>
 
-                    <!--  <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="tel" [(ngModel)]="user.telefone" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.telefone}}
-                          </div>
-                        </td>
- -->
-                    <!--  <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.endereco" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.endereco}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="number" [(ngModel)]="user.numero" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.numero}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.estado" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.estado}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.cidade" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.cidade}}
-                          </div>
-                        </td>
-
-                        <td class="td_item">
-                          <div class="div_item" *ngIf="user.isEdit">
-                            <input type="text" [(ngModel)]="user.cep" class="form-control"/>
-                          </div>
-                          <div class="div_item" *ngIf="!user.isEdit">
-                            {{user.cep}}
-                          </div>
-                        </td> -->
                     <td>
                       <select class="select input" disabled="disabled">
                         <option>{{agenda.status_agendamento}}</option>
                       </select>
                     </td>
-
-                    <!--  <td style="width: 15%;" class=" td_item text-center">
-                                <div class="div_item" *ngIf="user.isEdit">
-                                <button class="btn btn-sm btn-success" style="margin-right: 5px;">Atualizar</button>
-                                <button class="btn btn-sm btn-danger" (click)="user.isEdit = false">Cancelar</button>
-                                </div> -->
-                    <!--   <div class="div_item">
-                                <button class="btn btn-sm btn-success" (click)="onEdit(user)">Realizar consulta</button>
-                                <button (click)="removeUser(i)" class="btn btn-sm btn-danger" style="margin-left: 5px;">Remarcar consulta</button>
-                            </div> -->
-                    <!-- </td> -->
                   </tr>
                 </tbody>
               </table>

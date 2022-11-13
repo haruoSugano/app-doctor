@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { PacienteService } from 'src/services/paciente.service';
+import { UsuarioService } from 'src/services/usuario.service';
 
 @Component({
   selector: 'app-tela-cadastrar-paciente-medico-padrao',
@@ -9,7 +10,6 @@ import { PacienteService } from 'src/services/paciente.service';
   styleUrls: ['./tela-cadastrar-paciente-medico-padrao.component.css']
 })
 export class TelaCadastrarPacienteMedicoPadraoComponent implements OnInit {
-
   @Input() pacienteForm = {
     name: "",
     email: "",
@@ -21,11 +21,14 @@ export class TelaCadastrarPacienteMedicoPadraoComponent implements OnInit {
     estado: "",
     cidade: "",
     cep: 0,
+    senha: "",
+    confirmarSenha: ""
   };
 
   constructor(
     public authService: AuthService,
     public pacienteService: PacienteService,
+    public usuarioService: UsuarioService,
     public router: Router
   ) { }
 
@@ -49,8 +52,28 @@ export class TelaCadastrarPacienteMedicoPadraoComponent implements OnInit {
       estado: "",
       cidade: "",
       cep: 0,
+      senha: "",
+      confirmarSenha: ""
     };
     alert("Paciente cadastrado com sucesso!");
+  }
+
+  addUser() {
+    const usuario = {
+      email: this.pacienteForm.email,
+      senha: this.pacienteForm.senha,
+      confirmarSenha: this.pacienteForm.confirmarSenha,
+      isMedico: false,
+      isAdmin: false
+    }
+
+    console.log(usuario)
+
+    this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
+
+    alert("Usuario cadastrado com sucesso!");
+
+    this.router.navigate(["/cadastrar-paciente"]);
   }
 
   logout() {

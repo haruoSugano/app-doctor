@@ -85,7 +85,7 @@
             <div id="myDropdown5" class="dropdown-content5">
               <li>
                 <a
-                  routerLink="/tela-agendamentos-historico-medico-padrao"
+                  routerLink="/agendamentos-historico-medico-padrao"
                   routerLinkActive="active"
                   ><span class="cinco fa fa-history mr-3"></span>Histórico</a
                 >
@@ -158,47 +158,17 @@
 
             <div class="row nome col-12">
               <div class="col nome">
-                <label>Nome Completo</label>
-                <input
-                  id="nome"
-                  name="nome"
-                  type="text"
-                  class="form-control input"
-                  placeholder="Digite o nome do paciente"
-                />
-              </div>
-            </div>
-
-            <div class="row nascimento-crm-telefone col-12">
-              <div class="form-group col-6">
-                <label class="data-nascimento">Data de Nascimento</label>
-                <input
-                  id="data"
-                  name="begin"
-                  type="date"
-                  class="form-control input"
-                  placeholder="Data de Nascimento"
-                  value=""
-                  min="1940-01-01"
-                  max="2023-12-31"
-                />
-              </div>
-
-              <div class="form-group col-6">
                 <label>CPF</label>
                 <input
+                  [(ngModel)]="agendaForm.cpf"
                   id="cpf"
                   name="cpf"
                   type="text"
                   class="form-control input"
-                  placeholder="Digite o CPF"
-                  pattern="[0-9]{11}"
-                  onblur="formataCPF(this)"
-                  required
+                  placeholder="Digite o cpf do paciente"
                 />
               </div>
             </div>
-
             <div class="div-consulta">
               <div class="titulo-consulta">
                 <h5 class="titulo-consulta">Informações da Consulta</h5>
@@ -208,6 +178,7 @@
                 <div class="form-group col-6">
                   <label class="data-nascimento">Data</label>
                   <input
+                    [(ngModel)]="agendaForm.data"
                     id="data"
                     name="begin"
                     type="date"
@@ -222,8 +193,9 @@
                 <div class="form-group col-6">
                   <label for="appt">Horário</label>
                   <input
+                    [(ngModel)]="agendaForm.hora"
                     id="appt"
-                    name="appt"
+                    name="hora"
                     type="time"
                     class="form-control input"
                     required
@@ -235,14 +207,18 @@
                 <label for="inputMedico">Médico Responsável</label>
                 <select
                   id="inputMedico"
+                  name="medico_id"
                   class="form-control col input select"
                   required
+                  [(ngModel)]="agendaForm.medico_id"
                 >
-                  <option selected>Escolher Médico...</option>
-                  <option>Dr. Vinicius Alves</option>
-                  <option>Dra. Alice</option>
-                  <option>Dr. Helio</option>
-                  <option>Dra. Nathalia</option>
+                  <option
+                    *ngFor="let medico of Medico"
+                    selected
+                    [value]="medico.id"
+                  >
+                    {{ medico.name }}
+                  </option>
                 </select>
               </div>
             </div>
@@ -254,6 +230,7 @@
                   type="button"
                   class="btn btn-success"
                   style="width: 100%"
+                  (click)="addAgenda()"
                 >
                   <span
                     class="fa fa-user-plus mr-3 icone"
@@ -280,7 +257,7 @@
 
               <div class="col-md-4 col-sm-4">
                 <button
-                  routerLink="/home/medico"
+                  routerLink="/home"
                   id="home"
                   type="button"
                   class="btn btn-secondary"

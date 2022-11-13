@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Agenda } from 'src/app/shared/models/agenda';
+import { AgendaService } from 'src/services/agenda.service';
 import { AuthService } from 'src/services/auth.service';
+import { MedicoService } from 'src/services/medico.service';
+import { PacienteService } from 'src/services/paciente.service';
 
 @Component({
   selector: 'app-tela-agendamentos-pendentes-medico-padrao',
@@ -7,168 +12,58 @@ import { AuthService } from 'src/services/auth.service';
   styleUrls: ['./tela-agendamentos-pendentes-medico-padrao.component.css']
 })
 export class TelaAgendamentosPendentesMedicoPadraoComponent implements OnInit {
-
+  Agendas: any = [{}];
+  pacientes: any = [{}];
+  medico: any = [{}];
   filter: string;
-
   key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
   reverse: boolean = false;
+  id: "";
+
+  constructor(
+    public authService: AuthService,
+    public agendaService: AgendaService,
+    public pacienteService: PacienteService,
+    public medicoService: MedicoService,
+    public router: Router
+  ) { }
+
+  ngOnInit(): void {
+    this.loadAgenda();
+  }
+
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
   }
 
-
-  usersArray = [
-    {
-      "id": 1,
-      "dataConsulta": "28/09/2000",
-      "horarioConsulta": "13:20",
-      "idMedico": "001",
-      "idPaciente": "203.843.291-40",
-      "isEdit": false
-    },
-    {
-      "id": 2,
-      "dataConsulta": "28/09/2001",
-      "horarioConsulta": "13:20",
-      "idMedico": "001",
-      "idPaciente": "203.843.291-41",
-      "isEdit": false
-    },
-    {
-      "id": 3,
-      "dataConsulta": "28/09/2002",
-      "horarioConsulta": "13:20",
-      "idMedico": "002",
-      "idPaciente": "203.843.291-42",
-      "isEdit": false
-    },
-    {
-      "id": 4,
-      "dataConsulta": "28/09/2003",
-      "horarioConsulta": "13:20",
-      "idMedico": "005",
-      "idPaciente": "203.843.291-43",
-      "isEdit": false
-    },
-    {
-      "id": 5,
-      "dataConsulta": "28/09/2004",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-44",
-      "isEdit": false
-    },
-    {
-      "id": 6,
-      "dataConsulta": "28/09/2005",
-      "horarioConsulta": "13:20",
-      "idMedico": "009",
-      "idPaciente": "203.843.291-45",
-      "isEdit": false
-    },
-    {
-      "id": 7,
-      "dataConsulta": "28/09/2006",
-      "horarioConsulta": "13:20",
-      "idMedico": "006",
-      "idPaciente": "203.843.291-46",
-      "isEdit": false
-    },
-    {
-      "id": 8,
-      "dataConsulta": "28/09/2007",
-      "horarioConsulta": "13:20",
-      "idMedico": "002",
-      "idPaciente": "203.843.291-47",
-      "isEdit": false
-    },
-    {
-      "id": 9,
-      "dataConsulta": "28/09/2008",
-      "horarioConsulta": "13:20",
-      "idMedico": "005",
-      "idPaciente": "203.843.291-48",
-      "isEdit": false
-    },
-    {
-      "id": 10,
-      "dataConsulta": "28/09/2009",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-49",
-      "isEdit": false
-    },
-    {
-      "id": 11,
-      "dataConsulta": "28/09/2009",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-49",
-      "isEdit": false
-    },
-    {
-      "id": 10,
-      "dataConsulta": "28/09/2009",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-49",
-      "isEdit": false
-    },
-    {
-      "id": 12,
-      "dataConsulta": "28/09/2009",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-49",
-      "isEdit": false
-    },
-    {
-      "id": 13,
-      "dataConsulta": "28/09/2009",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-49",
-      "isEdit": false
-    },
-    {
-      "id": 14,
-      "dataConsulta": "28/09/2009",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-49",
-      "isEdit": false
-    },
-    {
-      "id": 15,
-      "dataConsulta": "28/09/2009",
-      "horarioConsulta": "13:20",
-      "idMedico": "007",
-      "idPaciente": "203.843.291-49",
-      "isEdit": false
-    },
-  ]
-
-  constructor(public authService: AuthService) {}
-
-  logout() {
-    this.authService.doLogout();
+  loadAgenda() {
+    return this.agendaService.getAgendasStatus().subscribe((data: {}) => {
+      this.Agendas = data;
+    });
   }
 
-  ngOnInit(): void {
+  update(id: number, agenda: Agenda) {
+    if (window.confirm("Você realmente quer remarcar a consulta?")) {
+      this.agendaService.updateAgenda(id, agenda).subscribe((data: {}) => {
+        window.alert("Atualizado com sucesso");
+        window.location.reload();
+      });
+    }
   }
 
   onEdit(item: any) {
-    debugger;
-    this.usersArray.forEach(element => {
+    this.Agendas.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;
   }
 
-  removeUser(index): void{
-    this.usersArray.splice(index, 1)
+  removeUser(index): void {
+    this.Agendas.splice(index, 1)
   }
 
-
+  logout() {
+    this.authService.doLogout();
+  }
 }

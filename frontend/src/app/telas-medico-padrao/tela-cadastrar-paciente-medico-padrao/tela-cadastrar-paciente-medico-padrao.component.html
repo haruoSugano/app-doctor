@@ -317,22 +317,24 @@
               </h3>
 
               <div class="row email col-12">
-                <label>Email</label>
-                <input
-                  class="form-control input email-usuario"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Digite o email do usuário"
-                  formControlName="email"
-                  required
-                />
+                <div class="col email">
+                  <label>E-mail</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-control input"
+                    placeholder="Digite o e-mail"
+                    [(ngModel)]="pacienteForm.email"
+                  />
+                </div>
               </div>
 
               <div class="row senha col-12">
                 <div class="col-6">
                   <label>Senha</label>
                   <input
+                    [(ngModel)]="pacienteForm.senha"
                     id="passwordSenha"
                     name="passwordSenha"
                     type="password"
@@ -349,6 +351,7 @@
                 <div class="col-6">
                   <label>Confirmar Senha</label>
                   <input
+                    [(ngModel)]="pacienteForm.confirmarSenha"
                     id="passwordConfirmarSenha"
                     name="passwordConfirmarSenha"
                     type="password"
@@ -373,7 +376,7 @@
 
               <div class="col-9">
                 <button
-                  onclick="validarSenha()"
+                  (click)="addUser()"
                   id="cadastrarUsuario"
                   type="button"
                   class="botao-cadastrar-usuario"
