@@ -232,7 +232,7 @@
                     <td class="td_item">
                       <div class="div_item" *ngIf="agenda.isEdit">
                         <input
-                          type="text"
+                          type="date"
                           [(ngModel)]="agenda.data"
                           class="form-control"
                         />
@@ -256,24 +256,27 @@
                     </td>
 
                     <td class="td_item">
-                      <div class="div_item" *ngIf="agenda.isEdit">
-                        <input
-                          type="text"
-                          [(ngModel)]="agenda.medicos.crm"
-                          class="form-control"
-                        />
-                      </div>
-                      <div class="div_item" *ngIf="!agenda.isEdit">
-                        {{ agenda.medicos.crm }}
-                      </div>
+                      {{ agenda.medicos.crm }}
                     </td>
 
                     <td class="td_item">{{ agenda.pacientes.cpf }}</td>
                     <td>
-                      <select class="select input" disabled="disabled">
-                        <option>PENDENTE</option>
-                        <option>CONCLUIDO</option>
-                        <option>REMARCADO</option>
+                      <div class="select input" *ngIf="agenda.isEdit">
+                        <select
+                          [(ngModel)]="agenda.status_agendamento"
+                          class="select input"
+                        >
+                          <option selected>REMARCADO</option>
+                        </select>
+                      </div>
+                      <select
+                        class="select input"
+                        *ngIf="!agenda.isEdit"
+                        disabled="disabled"
+                      >
+                        <option selected>
+                          {{ agenda.status_agendamento }}
+                        </option>
                       </select>
                     </td>
 
@@ -282,6 +285,7 @@
                         <button
                           class="btn btn-sm btn-success"
                           style="margin-right: 5px"
+                          (click)="update(agenda.id, agenda)"
                         >
                           Remarcar
                         </button>
@@ -294,13 +298,21 @@
                       </div>
                       <div class="div_item" *ngIf="!agenda.isEdit">
                         <button
-                          [routerLink]="['/realizar-consulta', agenda.paciente_id,'medico', agenda.medico_id, 'agendamento', agenda.id]"
+                          [routerLink]="[
+                            '/realizar-consulta',
+                            'paciente',
+                            agenda.paciente_id,
+                            'medico',
+                            agenda.medico_id,
+                            'agendamento',
+                            agenda.id
+                          ]"
                           class="btn btn-sm btn-success"
                         >
                           Realizar Consulta
                         </button>
                         <button
-                          (click)="onEdit(agenda)"
+                          (click)="agenda.isEdit = true"
                           class="btn btn-sm btn-danger"
                           style="margin-left: 5px"
                         >

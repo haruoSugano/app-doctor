@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgendaService } from 'src/services/agenda.service';
 import { AuthService } from 'src/services/auth.service';
 import { PacienteService } from 'src/services/paciente.service';
 import { MedicoService } from 'src/services/medico.service';
+import { Agenda } from 'src/app/shared/models/agenda';
 
 @Component({
   selector: 'app-tela-sistema-agendamentos-pendentes',
@@ -23,7 +24,7 @@ export class TelaSistemaAgendamentosPendentesComponent implements OnInit {
     public authService: AuthService,
     public agendaService: AgendaService,
     public pacienteService: PacienteService,
-    public medicoService:MedicoService,
+    public medicoService: MedicoService,
     public router: Router
   ) { }
 
@@ -37,14 +38,21 @@ export class TelaSistemaAgendamentosPendentesComponent implements OnInit {
   }
 
   loadAgenda() {
-    return this.agendaService.getAgendas().subscribe((data: {}) => {
+    return this.agendaService.getAgendasStatus().subscribe((data: {}) => {
       this.Agendas = data;
-      console.log(this.Agendas)
     });
   }
 
+  update(id: number, agenda: Agenda) {
+    if (window.confirm("Você realmente quer remarcar a consulta?")) {
+      this.agendaService.updateAgenda(id, agenda).subscribe((data: {}) => {
+        window.alert("Atualizado com sucesso");
+        window.location.reload();
+      });
+    }
+  }
+
   onEdit(item: any) {
-    debugger;
     this.Agendas.forEach(element => {
       element.isEdit = false;
     });

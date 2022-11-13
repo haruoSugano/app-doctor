@@ -15,7 +15,8 @@ export class TelaSistemaAgendamentosNovosComponent implements OnInit {
     data: new Date(),
     hora: "",
     cpf: "",
-    medico_id: 0
+    medico_id: 0,
+    status_agendamento: "PENDENTE"
   };
 
   Medico: any = [{}];

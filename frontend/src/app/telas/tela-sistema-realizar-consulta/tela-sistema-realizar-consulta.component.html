@@ -190,18 +190,6 @@
                   </h3>
                 </header>
               </div>
-              <div class="input-group col">
-                <input
-                  type="search"
-                  class="form-control rounded input-pesquisar"
-                  placeholder="Digite o nome do paciente"
-                  aria-label="Search"
-                  aria-describedby="search-addon"
-                />
-                <button type="button" class="btn btn-outline-primary">
-                  Pesquisar
-                </button>
-              </div>
             </div>
             <div class="row nome col-12">
               <div class="col nome">
@@ -213,7 +201,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.name"
+                  [value]="paciente.paciente.name"
                 />
               </div>
             </div>
@@ -223,14 +211,14 @@
                 <input
                   id="data"
                   name="begin"
-                  type="date"
+                  type="text"
                   class="form-control input"
                   value=""
                   min="1940-01-01"
                   max="2023-12-31"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.data_nascimento"
+                  [value]="paciente.paciente.data_nascimento"
                 />
               </div>
               <div class="form-group col-4">
@@ -243,7 +231,7 @@
                   onblur="formataCPF(this)"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.cpf"
+                  [value]="paciente.paciente.cpf"
                 />
               </div>
               <div class="form-group col-4">
@@ -256,7 +244,7 @@
                   onkeydown="return mascaraTelefone(event)"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.telefone"
+                  [value]="paciente.paciente.telefone"
                 />
                 <div class="help-block with-errors"></div>
               </div>
@@ -271,7 +259,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.endereco"
+                  [value]="paciente.paciente.endereco"
                 />
               </div>
               <div class="col-4">
@@ -283,7 +271,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.numero"
+                  [value]="paciente.paciente.numero"
                 />
               </div>
             </div>
@@ -297,7 +285,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.estado"
+                  [value]="paciente.paciente.estado"
                 >
                   <option selected></option>
                   <option>AC</option>
@@ -339,7 +327,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.cidade"
+                  [value]="paciente.paciente.cidade"
                 />
               </div>
               <div class="col-md-3 col-sm-3">
@@ -352,7 +340,7 @@
                   onblur="formataCEP(this)"
                   required
                   disabled="disabled"
-                  [(ngModel)]="paciente.cep"
+                  [value]="paciente.paciente.cep"
                 />
               </div>
             </div>
@@ -364,11 +352,7 @@
                 required
                 disabled
               >
-                <option selected>Escolher Médico...</option>
-                <option>Dr. Vinicius Alves</option>
-                <option>Dra. Alice</option>
-                <option>Dr. Helio</option>
-                <option>Dra. Nathalia</option>
+                <option [value]="medico.id" selected>{{ medico.name }}</option>
               </select>
             </div>
             <div class="form-group col-12">
@@ -380,6 +364,9 @@
                 id="exampleFormControlTextarea1"
                 rows="3"
                 required
+                type="text"
+                name="descricao"
+                [(ngModel)]="receituarioForm.descricao"
               ></textarea>
             </div>
             <div class="row atestado col-12">
@@ -419,6 +406,7 @@
                   type="button"
                   class="btn btn-success"
                   style="width: 100%"
+                  (click)="addReceituario()"
                 >
                   <span
                     class="fa fa-stethoscope mr-3 icone"

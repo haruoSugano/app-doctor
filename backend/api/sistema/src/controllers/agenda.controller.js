@@ -3,6 +3,7 @@
 const Medico = require("../models/medico.model");
 const Paciente = require("../models/paciente.model");
 const Agenda = require("../models/agenda.model");
+const { Op } = require("sequelize");
 // const publish = require("../config/rabbit/publish");
 
 exports.create = async (req, res, next) => {
@@ -11,7 +12,7 @@ exports.create = async (req, res, next) => {
     const pacientes = await Paciente.findAll();
     let medico = await Medico.findByPk(medico_id);
 
-    const paciente =  pacientes.filter(paciente => paciente.cpf == cpf);
+    const paciente = pacientes.filter((paciente) => paciente.cpf == cpf);
     const paciente_id = paciente[0].id;
     const email = paciente[0].email;
 
@@ -31,7 +32,7 @@ exports.create = async (req, res, next) => {
       data,
       hora,
       medico_id,
-      paciente_id
+      paciente_id,
     });
 
     // const mail = {
@@ -74,25 +75,60 @@ exports.create = async (req, res, next) => {
 exports.findAll = async (req, res, next) => {
   try {
     const agendas = await Agenda.findAll({
-      include: [{
-        model: Paciente,
-        as: "pacientes",
-        attributes: ["cpf"]
-      },
-      {
-        model: Medico,
-        as: "medicos",
-        attributes: ["crm"]
-      }]
+      include: [
+        {
+          model: Paciente,
+          as: "pacientes",
+          attributes: ["cpf"],
+        },
+        {
+          model: Medico,
+          as: "medicos",
+          attributes: ["crm"],
+        },
+      ],
     });
 
     if (!agendas || agendas.length === 0) {
       return res.status(400).send({ message: "Nenhum agendamento cadastrado" });
     }
 
-    return res
-      .status(200)
-      .send({ agendas });
+    return res.status(200).send({ agendas });
+  } catch (error) {
+    res
+      .status(500)
+      .send({ error: "Ocorreu um erro ao buscar os agendamentos" });
+  }
+};
+
+exports.findAllStatus = async (req, res, next) => {
+  try {
+    const agendas = await Agenda.findAll({
+      include: [
+        {
+          model: Paciente,
+          as: "pacientes",
+          attributes: ["cpf"],
+        },
+        {
+          model: Medico,
+          as: "medicos",
+          attributes: ["crm"],
+        },
+      ],
+      where: {
+        [Op.or]: [
+          { status_agendamento: "PENDENTE" },
+          { status_agendamento: "REMARCADO" }
+        ]
+      },
+    });
+
+    if (!agendas || agendas.length === 0) {
+      return res.status(400).send({ message: "Nenhum agendamento cadastrado" });
+    }
+
+    return res.status(200).send({ agendas });
   } catch (error) {
     res
       .status(500)
@@ -126,9 +162,7 @@ exports.findById = async (req, res, next) => {
       return res.status(400).send({ message: "Agendamento não encontrado" });
     }
 
-    return res
-      .status(200)
-      .send({ message: "Agendamento encontrado com sucesso!", agenda });
+    return res.status(200).send({ agenda });
   } catch (error) {
     res.status(500).send({ error: "Ocorreu um erro ao buscar o agendamento" });
   }
@@ -180,28 +214,14 @@ exports.findByPaciente = async (req, res, next) => {
   }
 };
 
-exports.update = async (req, res, next) => {
-  const { medico_id, paciente_id, agenda_id } = req.params;
-  const { data, hora, status_agendamento } = req.body;
+exports.updateStatus = async (req, res, next) => {
+  const { agenda_id } = req.params;
+  const { status_agendamento } = req.body;
   try {
-    const medico = await Medico.findByPk(medico_id);
-    const paciente = await Paciente.findByPk(paciente_id);
     const agenda = await Agenda.findByPk(agenda_id);
-
-    if (!medico) {
-      return res.status(400).send({ error: "Médico não encontrado" });
-    }
-
-    if (!paciente) {
-      return res.status(400).send({ error: "Paciente não encontrado" });
-    }
 
     if (!agenda) {
       return res.status(400).send({ error: "agendamento não encontrado" });
-    }
-
-    if (!data || !hora) {
-      return res.status(400).send({ message: "Data e a hora é obrigatório" });
     }
 
     if (!status_agendamento) {
@@ -210,23 +230,57 @@ exports.update = async (req, res, next) => {
         .send({ message: "É necessário informar a situação do agendamento" });
     }
 
-    const agenda_atualizada = await Agenda.update(
+    await Agenda.update(
       {
-        data,
-        hora,
         status_agendamento,
-        medico_id,
-        paciente_id,
       },
       {
         where: { id: agenda_id },
       }
     );
 
-    return res.status(201).send({
-      message: "Agendamento atualizado com sucesso",
-      agenda_atualizada,
-    });
+    return res
+      .status(201)
+      .send({ message: "Agendamento atualizado com sucesso" });
+  } catch (error) {
+    return res
+      .status(500)
+      .send({ error: "Ocorreu algum erro ao atualizar os dados" });
+  }
+};
+
+exports.update = async (req, res, next) => {
+  const { agenda_id } = req.params;
+  const { data, hora } = req.body;
+  try {
+    const agenda = await Agenda.findByPk(agenda_id);
+
+    if (!agenda) {
+      return res.status(400).send({ error: "agendamento não encontrado" });
+    }
+
+    if (!data || !hora) {
+      return res
+        .status(400)
+        .send({
+          message: "É necessário informar a hora e a data do agendamento",
+        });
+    }
+
+    await Agenda.update(
+      {
+        data: data,
+        hora: hora,
+        status_agendamento: "REMARCADO",
+      },
+      {
+        where: { id: agenda_id },
+      }
+    );
+
+    return res
+      .status(201)
+      .send({ message: "Agendamento atualizado com sucesso" });
   } catch (error) {
     return res
       .status(500)

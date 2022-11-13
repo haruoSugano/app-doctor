@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'pesquisar-medico', component: TelaSistemaPesquisarMedicoComponent, },
   { path: 'cadastrar-paciente', component: TelaSistemaCadastroPacienteComponent, },
   { path: 'pesquisar-paciente', component: TelaSistemaPesquisarPacienteComponent, },
-  { path: 'realizar-consulta', component: TelaSistemaRealizarConsultaComponent,  },
+  { path: 'realizar-consulta/paciente/:idPaciente/medico/:idMedico/agendamento/:idAgendamento', component: TelaSistemaRealizarConsultaComponent,  },
   { path: 'usuarios-medicos', component: TelaSistemaUsuariosMedicosComponent, },
   { path: 'usuarios-pacientes', component: TelaSistemaUsuariosPacientesComponent, },
   { path: 'meu-perfil', component: TelaSistemaMeuPerfilComponent, },

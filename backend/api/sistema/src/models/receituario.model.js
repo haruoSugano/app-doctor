@@ -5,6 +5,7 @@ class Receituario extends Model {
     super.init(
       {
         descricao: DataTypes.STRING,
+        pdf: DataTypes.STRING,
       },
       {
         sequelize,

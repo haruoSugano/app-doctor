@@ -70,8 +70,7 @@
               </li>
               <li>
                 <a routerLink="/pesquisar-paciente" routerLinkActive="active">
-                  <span class="dois fa fa-search mr-3"></span>Pesquisar
-                  Paciente
+                  <span class="dois fa fa-search mr-3"></span>Pesquisar Paciente
                 </a>
               </li>
               <li>
@@ -177,7 +176,7 @@
                   name="search"
                   [(ngModel)]="filter"
                   class="form-control rounded input-pesquisar"
-                  placeholder="Digite o nome do paciente"
+                  placeholder="Digite o CRM do Medico"
                   aria-label="Search"
                   aria-describedby="search-addon"
                 />
@@ -196,11 +195,11 @@
                 <thead>
                   <tr>
                     <th>Id Consulta</th>
-                    <th (click)="sort('dataConsulta')">
+                    <th (click)="sort('data')">
                       Data<span
                         role="button"
                         style="margin-left: 5px"
-                        *ngIf="key == 'dataConsulta'"
+                        *ngIf="key == 'data'"
                         >{{ reverse ? "▲" : "▼" }}</span
                       >
                     </th>
@@ -214,7 +213,7 @@
                 <tbody>
                   <tr
                     *ngFor="
-                      let user of usersArray
+                      let agenda of Agendas.agendas
                         | filter: filter
                         | orderBy: key:reverse;
                       let i = index
@@ -222,13 +221,13 @@
                   >
                     <td class="td_item">{{ i + 1 }}</td>
 
-                    <td class="td_item">{{ user.dataConsulta }}</td>
+                    <td class="td_item">{{ agenda.data }}</td>
 
-                    <td class="td_item">{{ user.horarioConsulta }}</td>
+                    <td class="td_item">{{ agenda.hora }}</td>
 
-                    <td class="td_item">{{ user.idMedico }}</td>
+                    <td class="td_item">{{ agenda.medicos.crm }}</td>
 
-                    <td class="td_item">{{ user.idPaciente }}</td>
+                    <td class="td_item">{{ agenda.pacientes.cpf }}</td>
 
                     <!--  <td class="td_item">
                           <div class="div_item" *ngIf="user.isEdit">
@@ -285,9 +284,7 @@
                         </td> -->
                     <td>
                       <select class="select input" disabled="disabled">
-                        <option>Concluído</option>
-                        <option>Pendente</option>
-                        <option>Remarcado</option>
+                        <option>{{agenda.status_agendamento}}</option>
                       </select>
                     </td>
 

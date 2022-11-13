@@ -28,10 +28,34 @@ export class AgendaService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getAgendaByPaciente(id: string): Observable<any> {
+  getAgendasStatus(): Observable<Agenda> {
     return this.http
-    .get<Agenda>(`${this.apiUrl}/agendas/paciente/${id}`)
-    .pipe(retry(1), catchError(this.handleError));
+      .get<Agenda>(this.apiUrl + "/agendas/status")
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getAgenda(id: number): Observable<any> {
+    return this.http
+      .get<Agenda>(`${this.apiUrl}/agenda/${id}`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getAgendaByPaciente(id: number): Observable<any> {
+    return this.http
+      .get<Agenda>(`${this.apiUrl}/agendas/paciente/${id}`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  updateAgendaStatus(id: number, status: string): Observable<any> {
+    return this.http
+      .put<Agenda>(this.apiUrl + "/agendas/" + id, status)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  updateAgenda(id: number, agenda: Agenda): Observable<any> {
+    return this.http
+      .put<Agenda>(`${this.apiUrl}/agendas/agenda/${id}`, agenda)
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   handleError(error: any) {

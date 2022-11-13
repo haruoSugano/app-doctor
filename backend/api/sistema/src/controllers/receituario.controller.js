@@ -2,10 +2,11 @@ const Medico = require("../models/medico.model");
 const Paciente = require("../models/paciente.model");
 const Agenda = require("../models/agenda.model");
 const Receituario = require("../models/receituario.model");
+const pdf = require("../../shared/pdf/receituario");
 
 exports.create = async (req, res, next) => {
   const { descricao, agenda_id, medico_id, paciente_id } = req.body;
-
+  const url = `${req.protocol}://${req.get("host")}`;
   try {
     const paciente = await Paciente.findByPk(paciente_id);
 
@@ -29,11 +30,14 @@ exports.create = async (req, res, next) => {
       return res.status(400).send({ message: "Descricão é obrigatório" });
     }
 
+    const arquivo_pdf = pdf(paciente, medico, agenda, descricao);
+
     const receituario = await Receituario.create({
       descricao,
       medico_id,
       paciente_id,
       agenda_id,
+      pdf: `${url}/${arquivo_pdf}`,
     });
 
     return res.status(201).send({ receituario });
@@ -46,13 +50,49 @@ exports.create = async (req, res, next) => {
 
 exports.findAll = async (req, res, next) => {
   try {
-    const receituario = await Receituario.findAll();
+    const receituario = await Receituario.findAll({
+      include: [
+        {
+          model: Paciente,
+          as: "pacientes",
+        },
+        {
+          model: Medico,
+          as: "medicos",
+        },
+        {
+          model: Agenda,
+          as: "agendas",
+        },
+      ],
+    });
 
     return res.status(200).send({ receituario });
   } catch (error) {
     res
       .status(500)
       .send({ error: "Ocorreu um erro ao buscar os receituarios" });
+  }
+};
+
+
+exports.downloads = async (req, res, next) => {
+  const { receituario_id } = req.params;
+  try {
+    const receituario = await Receituario.findByPk(receituario_id);
+
+    if (!receituario) {
+      return res.status(400).send({ message: "Receituario nao encontrado" });
+    }
+
+    const file = `${receituario.pdf}.pdf`;
+    const filepath = receituario.pdf;
+
+    return res.status(200).download(file, filepath);
+  } catch (err) {
+    res
+      .status(500)
+      .send({ error: "Erro ao exibir o arquivo pdf" });
   }
 };
 

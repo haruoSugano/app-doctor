@@ -4,6 +4,7 @@ const receituarioController = require("../controllers/receituario.controller");
 
 router.post("/receituarios", receituarioController.create);
 router.get("/receituarios", receituarioController.findAll);
+router.get("/receituarios/downloads", receituarioController.downloads);
 router.get("/receituarios/:receituario_id", receituarioController.findById);
 router.get("/receituarios/medico/:medico_id", receituarioController.findByMedico);
 router.get("/receituarios/paciente/:paciente_id", receituarioController.findByPaciente);
