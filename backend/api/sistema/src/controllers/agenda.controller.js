@@ -89,10 +89,6 @@ exports.findAll = async (req, res, next) => {
       ],
     });
 
-    if (!agendas || agendas.length === 0) {
-      return res.status(400).send({ message: "Nenhum agendamento cadastrado" });
-    }
-
     return res.status(200).send({ agendas });
   } catch (error) {
     res
@@ -123,10 +119,6 @@ exports.findAllStatus = async (req, res, next) => {
         ]
       },
     });
-
-    if (!agendas || agendas.length === 0) {
-      return res.status(400).send({ message: "Nenhum agendamento cadastrado" });
-    }
 
     return res.status(200).send({ agendas });
   } catch (error) {

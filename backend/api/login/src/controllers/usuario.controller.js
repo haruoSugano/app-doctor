@@ -72,7 +72,7 @@ exports.create = async (req, res, next) => {
 
     return res
       .status(201)
-      .send({ message: "Usuario criado com sucesso!", usuario });
+      .send({ message: "Usuario criado com sucesso!" });
   } catch (error) {
     return res.status(404).send({ message: `Erro ao criar um novo usuario` });
   }
@@ -152,7 +152,7 @@ exports.findById = async (req, res, next) => {
     }
     return res
       .status(200)
-      .send({ message: "Usuario encontrado com sucesso!", usuario });
+      .send(usuario);
   } catch (error) {
     return res
       .status(404)
