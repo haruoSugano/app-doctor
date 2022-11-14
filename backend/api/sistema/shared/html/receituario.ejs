@@ -5,9 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receituário</title>
+    <link rel="stylesheet" href="receituario.css">
 </head>
 <body>
-    <h1>Receituario</h1>
+    <div class="page">
+        <div class="hospital-box" style="background-color: rgb(7, 29, 156);">
+            <header style="display: flex;">
+                <img class="logo-receituario" src="img/reelogo-appdoctor2.png">
+                <h2 class="titulo-hospital">Hospital App Doctor</h2>
+            </header>
+        </div>
+    
+        <div class="titulo">
+            <h3 class="titulo_receituario">Receituário Médico</h3>
+        </div>
+    
+        <div class="dados-paciente">
+            <div class="titulo-dados">
+                <h4 class="titulo-dados-paciente">Dados Paciente</h4>
+            </div>
+            <div class="div-nome-cpf-dataNascimento">
+
+                <div class="div-nome">
+                    <div>
+                        <label><strong>Nome:</strong></label>
+                    </div>
+                    <div class="div-li-nome-paciente">
+                        <li class="li-nome-paciente"><%= namePaciente %></li>
+                    </div>       
+                </div>
+                
+                <div class="div-cpf">
+                    <div>
+                        <label><strong>CPF:</strong></label>
+                    </div>
+                    <div class="div-li-cpf-paciente">
+                        <li class="div-li-cpf-pacientee"><%= cpf %</li>
+                    </div>  
+                </div>
+
+                <div class="div-dataNascimento">
+                    <div>
+                        <label><strong>Data de Nascimento:</strong></label>
+                    </div>
+                    <div class="div-li-dataNascimento-paciente">
+                        <li class="li-dataNascimento-paciente">23/02/2001</li>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="div-endereco-numero">
+                <div class="div-endereco">
+                    <div>
+                        <label><strong>Endereço:</strong></label>
+                    </div>
+                    <div class="div-li-endereco-paciente">
+                        <li class="li-endereco-paciente">Rua App Doctor</li>
+                    </div>  
+                </div>
+                <div class="div-numero">
+                    <div>
+                        <label><strong>Número:</strong></label>
+                    </div>
+                    <div class="div-li-numero-paciente">
+                        <li class="li-numero-paciente">000</li>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    
+        <div class="prescricao">
+            <div class="titulo-prescricao">
+                <h4 class="titulo-prescricao-paciente">Prescrição Médica</h4>
+            </div>
+            <li class="descricao"><%= descricao %></li>
+        </div>
+    
+
+        <div class="div-data-assiantura">
+            <div class="div-data-receituario">
+                <div>
+                    <label><strong>Data:</strong></label>
+                </div>
+                <div class="div-li-data-receituario">
+                    <li class="li-data-receituario"><%= data %></li>
+                </div>    
+            </div>
+
+            <div class="div-assinatura-medico">
+                <div>
+                    <li><%= nameMedico %></li>
+                    <li>CRM: <%= crm %></li>
+                    <img src="<%- assinatura %>" alt="assinatura" width="150px" height="100px">
+                </div> 
+            </div>
+        </div>
+
+        <footer>
+            <div class="div-footer">
+                <p>Hospital App Doctor - Rua App Doctor, 00 - Telefone: (11) 1234-5678 </p>
+                <P>Cep: 12345-678-São Paulo - SP</P>
+            </div>
+        </footer>
+    </div>
+
+   <!--  <h1>Receituario</h1>
     <h2>Nome do paciente</h2>
     <ul>
         <li>Nome:<%= namePaciente %></li>
@@ -17,6 +119,6 @@
         <li>CRM:<%= crm %></li>
         <li>Descricao:<%= descricao %></li>
         <img src="<%- assinatura %>" alt="assinatura" width="150px" height="100px">
-    </ul>
+    </ul> -->
 </body>
 </html>
