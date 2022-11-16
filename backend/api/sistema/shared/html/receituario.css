@@ -14,7 +14,7 @@ body {
     font-size: 12px;
 }
 
-/* .page {
+.page {
     width: 210mm;
     min-height: 297mm;
     margin: 10mm auto;
@@ -43,7 +43,7 @@ body {
         box-shadow: initial;
         page-break-after: always;
     }
-}  */
+} 
 
 div.hospital-box{
     text-align: left !important;
@@ -280,23 +280,23 @@ div.div-assinatura-medico{
 
 
 
-/* footer{
+footer{
     text-align: left !important;
     justify-content: center;
     background-color: rgb(7, 29, 156);
     padding: 0;
     height: 60px;
-    margin-top: 80%;
-} */
+    margin-top: 21%;
+}
 /* FOOTER DO STACK */
-footer{
+/* footer{
     background-color: rgb(7, 29, 156);
     width: 100%;
     height: 60px;
     position: absolute;
     bottom: 0;
     left: 0;
-}
+} */
 
 div.div-footer{
     text-align: center;

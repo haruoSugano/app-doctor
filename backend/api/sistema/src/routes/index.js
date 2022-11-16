@@ -11,5 +11,6 @@ router.use("/api", pacienteRoutes);
 router.use("/api", receituarioRoutes);
 router.use("/api", agendaRoutes);
 router.use("/uploads", express.static(path.join(__dirname, "..", "..", "/uploads")));
+router.use("/pdfs", express.static(path.join(__dirname, "..", "..", "/pdfs")));
 
 module.exports = router;

@@ -19,5 +19,7 @@ router.all("/usuarios/medicos", usuarioMiddleware.checkToken, usuarioController.
 router.get("/usuarios/:id", usuarioController.findById);
 router.put("/usuarios/:id", usuarioMiddleware.checkToken, usuarioController.update);
 router.delete("/usuarios/:id", usuarioMiddleware.checkToken, usuarioController.delete);
+router.post("/forgot", usuarioController.sendMail);
+router.post("/forgot/user/:id", usuarioController.password);
 
 module.exports = router;

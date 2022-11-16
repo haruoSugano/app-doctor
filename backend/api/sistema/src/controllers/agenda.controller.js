@@ -1,10 +1,10 @@
-// require("dotenv").config();
-// const path = require("path");
+const { Op } = require("sequelize");
 const Medico = require("../models/medico.model");
 const Paciente = require("../models/paciente.model");
 const Agenda = require("../models/agenda.model");
-const { Op } = require("sequelize");
-// const publish = require("../config/rabbit/publish");
+const agendaMail = require("../../shared/email/agendaMail");
+const publish = require("../config/rabbit/publish");
+const url = `http://localhost:4200/`;
 
 exports.create = async (req, res, next) => {
   const { data, hora, cpf, medico_id } = req.body;
@@ -14,7 +14,6 @@ exports.create = async (req, res, next) => {
 
     const paciente = pacientes.filter((paciente) => paciente.cpf == cpf);
     const paciente_id = paciente[0].id;
-    const email = paciente[0].email;
 
     if (!medico) {
       return res.status(400).send({ message: "Medico não encontrado" });
@@ -35,36 +34,7 @@ exports.create = async (req, res, next) => {
       paciente_id,
     });
 
-    // const mail = {
-    //   from: process.env.EMAIL,
-    //   to: paciente.email,
-    //   subject: "[NO-REPLY] Agendamento APP DOCTOR",
-    //   text: "Agendamento realizado com sucesso",
-    //   html: `<body>
-    //           <h3>Agendamento</h3>
-    //           <ol>
-    //               <li>Médico: ${medico.name}</li>
-    //               <li>Nome: ${paciente.name}</li>
-    //               <li>Data: ${data}</li>
-    //               <li>Hora: ${hora}</li>
-    //           </ol>
-    //           <p>Verifique o seu agendamento no nosso aplicativo</p>
-    //           <p>Link de acesso:</p><a href="www.google.com">APP DOCTOR</a>
-    //         </body>
-    //         `,
-    //   attachments: [
-    //     {
-    //       filename: "logo.png",
-    //       path: path.resolve(__dirname, "..", "..", "tmp", "imgs", "logo.png"),
-    //       cid: "logo",
-    //     },
-    //   ],
-    //   auth: {
-    //     user: process.env.EMAIL,
-    //   },
-    // };
-
-    // publish(mail, "agendamento");
+    publish(agendaMail(agenda, paciente, medico, url), "agendamento");
 
     return res.status(201).send({ agenda });
   } catch (error) {
@@ -115,8 +85,8 @@ exports.findAllStatus = async (req, res, next) => {
       where: {
         [Op.or]: [
           { status_agendamento: "PENDENTE" },
-          { status_agendamento: "REMARCADO" }
-        ]
+          { status_agendamento: "REMARCADO" },
+        ],
       },
     });
 
@@ -148,13 +118,24 @@ exports.findByCpf = async (req, res, next) => {
 exports.findById = async (req, res, next) => {
   const { agenda_id } = req.params;
   try {
-    const agenda = await Agenda.findByPk(agenda_id);
+    const agenda = await Agenda.findByPk(agenda_id, {
+      include: [
+        {
+          model: Paciente,
+          as: "pacientes",
+        },
+        {
+          model: Medico,
+          as: "medicos",
+        },
+      ],
+    });
 
     if (!agenda) {
       return res.status(400).send({ message: "Agendamento não encontrado" });
     }
 
-    return res.status(200).send({ agenda });
+    return res.status(200).send(agenda);
   } catch (error) {
     res.status(500).send({ error: "Ocorreu um erro ao buscar o agendamento" });
   }
@@ -252,11 +233,9 @@ exports.update = async (req, res, next) => {
     }
 
     if (!data || !hora) {
-      return res
-        .status(400)
-        .send({
-          message: "É necessário informar a hora e a data do agendamento",
-        });
+      return res.status(400).send({
+        message: "É necessário informar a hora e a data do agendamento",
+      });
     }
 
     await Agenda.update(

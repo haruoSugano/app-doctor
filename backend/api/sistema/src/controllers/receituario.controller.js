@@ -3,6 +3,9 @@ const Paciente = require("../models/paciente.model");
 const Agenda = require("../models/agenda.model");
 const Receituario = require("../models/receituario.model");
 const pdf = require("../../shared/pdf/receituario");
+const publish = require("../config/rabbit/publish");
+const recetuarioMail = require("../../shared/email/receituarioMail");
+const urlApp = `http://localhost:4200/`;
 
 exports.create = async (req, res, next) => {
   const { descricao, agenda_id, medico_id, paciente_id } = req.body;
@@ -37,8 +40,20 @@ exports.create = async (req, res, next) => {
       medico_id,
       paciente_id,
       agenda_id,
-      pdf: `${url}/${arquivo_pdf}`,
+      pdf: `${url}/${arquivo_pdf}.pdf`,
     });
+
+    publish(
+      recetuarioMail(
+        paciente,
+        medico,
+        agenda,
+        receituario,
+        `${arquivo_pdf}.pdf`,
+        urlApp
+      ),
+      "receituario"
+    );
 
     return res.status(201).send({ receituario });
   } catch (error) {
@@ -75,24 +90,35 @@ exports.findAll = async (req, res, next) => {
   }
 };
 
-
-exports.downloads = async (req, res, next) => {
-  const { receituario_id } = req.params;
+exports.findAllPaciente = async (req, res, next) => {
+  const { email } = req.query;
   try {
-    const receituario = await Receituario.findByPk(receituario_id);
+    const receituario = await Receituario.findAll({
+      include: [
+        {
+          model: Paciente,
+          as: "pacientes",
+          required: true,
+          where: {
+            email: email,
+          },
+        },
+        {
+          model: Medico,
+          as: "medicos",
+        },
+        {
+          model: Agenda,
+          as: "agendas",
+        },
+      ],
+    });
 
-    if (!receituario) {
-      return res.status(400).send({ message: "Receituario nao encontrado" });
-    }
-
-    const file = `${receituario.pdf}.pdf`;
-    const filepath = receituario.pdf;
-
-    return res.status(200).download(file, filepath);
-  } catch (err) {
+    return res.status(200).send({ receituario });
+  } catch (error) {
     res
       .status(500)
-      .send({ error: "Erro ao exibir o arquivo pdf" });
+      .send({ error: "Ocorreu um erro ao buscar os receituarios" });
   }
 };
 

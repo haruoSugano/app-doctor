@@ -1,7 +1,8 @@
 require("dotenv").config();
-const path = require("path");
 const Paciente = require("../models/paciente.model");
-// const publish = require("../config/rabbit/publish");
+const pacienteMail = require("../../shared/email/pacienteMail");
+const publish = require("../config/rabbit/publish");
+const url = `http://localhost:4200/`;
 
 exports.create = async (req, res, next) => {
   const {
@@ -53,33 +54,7 @@ exports.create = async (req, res, next) => {
       status_consulta: false,
     });
 
-    // const mail = {
-    //   from: process.env.EMAIL,
-    //   to: email,
-    //   subject: "[NO-REPLY] Seus dados foram cadastrado no nosso aplicativo",
-    //   text: "Cadastro de seus dados",
-    //   html: `<body>
-    //           <h1>Comunicado</h1>
-    //           <p>Seus dados foram cadastrado com sucesso</p>
-    //           <ol>
-    //               <li>Dr(a): ${name}</li>
-    //               <li>CPF: ${cpf}</li>
-    //           </ol>
-    //         </body>
-    //         `,
-    //   attachments: [
-    //     {
-    //       filename: "logo.png",
-    //       path: path.resolve(__dirname, "..", "..", "tmp", "imgs", "logo.png"),
-    //       cid: "logo",
-    //     },
-    //   ],
-    //   auth: {
-    //     user: process.env.EMAIL,
-    //   },
-    // };
-
-    // publish(mail, "paciente");
+    publish(pacienteMail(paciente, url), "paciente");
 
     return res.status(201).send({ paciente });
   } catch (error) {

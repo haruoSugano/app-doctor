@@ -1,7 +1,5 @@
 require("dotenv").config();
-const path = require("path");
 const Medico = require("../models/medico.model");
-// const publish = require("../config/rabbit/publish");
 
 exports.create = async (req, res, next) => {
   let { name, email, data_nascimento, crm, telefone, endereco, numero, cidade, estado, cep } = req.body;
@@ -40,34 +38,6 @@ exports.create = async (req, res, next) => {
       cep,
       assinatura: `${imgURL}${url}`,
     });
-
-    // const mail = {
-    //   from: process.env.EMAIL,
-    //   to: email,
-    //   subject: "[NO-REPLY] Seus dados foram cadastrado no nosso aplicativo",
-    //   text: "Cadastro de seus dados",
-    //   html: `<body>
-    //           <h1>Comunicado</h1>
-    //           <p>Seus dados foram cadastrado com sucesso</p>
-    //           <ol>
-    //               <li>Dr(a): ${name}</li>
-    //               <li>CRM: ${crm}</li>
-    //           </ol>
-    //         </body>
-    //         `,
-    //   attachments: [
-    //     {
-    //       filename: "logo.png",
-    //       path: path.resolve(__dirname, "..", "..", "tmp", "imgs", "logo.png"),
-    //       cid: "logo",
-    //     },
-    //   ],
-    //   auth: {
-    //     user: process.env.EMAIL,
-    //   },
-    // };
-
-    // publish(mail, "medico");
 
     return res
       .status(201)
@@ -141,33 +111,6 @@ exports.update = async (req, res, next) => {
       cep,
       assinatura: assinatura ? assinatura : `${imgURL}${url}`,
     });
-
-    // const mail = {
-    //   from: process.env.EMAIL,
-    //   to: email,
-    //   subject: "[NO-REPLY] Seus dados foram atualizado",
-    //   text: "Atualização de seus dados",
-    //   html: `<body>
-    //           <h1>Comunicado</h1>
-    //           <p>Seus dados foram atualizados com sucesso</p>
-    //           <ol>
-    //               <li>Usuário: ${email}</li>
-    //           </ol>
-    //         </body>
-    //         `,
-    //   attachments: [
-    //     {
-    //       filename: "logo.png",
-    //       path: path.resolve(__dirname, "..", "tmp", "imgs", "logo.png"),
-    //       cid: "logo",
-    //     },
-    //   ],
-    //   auth: {
-    //     user: process.env.EMAIL,
-    //   },
-    // };
-
-    // publish(mail);
 
     return res
       .status(200)

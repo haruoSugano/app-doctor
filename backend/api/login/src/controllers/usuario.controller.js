@@ -1,17 +1,17 @@
-/**
- * Arquivo: controllers/usuario.controller.js
- * Descricao: arquivo responsavel pelo CRUD da classe usuario
- */
-require("dotenv").config();
-const path = require("path");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const Usuario = require("../models/usuario.model");
 const publish = require("../config/rabbit/publish");
+const createMail = require("../config/email/create");
+const updateMail = require("../config/email/update");
+const loginMail = require("../config/email/login");
+const forgotMail = require("../config/email/forgot");
+const url = `http://localhost:4200/`;
 
 // Utilizando async await
 exports.create = async (req, res, next) => {
   const { email, senha, confirmarSenha, isAdmin, isMedico } = req.body;
+
   try {
     if (!email || !senha || !confirmarSenha) {
       return res
@@ -38,41 +38,11 @@ exports.create = async (req, res, next) => {
       isMedico: isMedico,
     });
 
-    const usuario = await novoUsuario.save();
+    await novoUsuario.save();
 
-    // const mail = {
-    //   from: process.env.EMAIL,
-    //   to: email,
-    //   subject: "[NO-REPLY] Bem-vindo ao APP DOCTOR",
-    //   text: "Registrado com sucesso no nosso aplicativo!",
-    //   html: `<body>
-    //           <h1>Seja bem-vindo ao App Doctor!</h1>
-    //           <p>Ao logar com os dados abaixo, você poderá acessar todos os documentos gerados em sua consulta, tais como: Receituário e Atestado.</p>
-    //           <ol>
-    //               <li>Usuário: ${email}</li>
-    //               <li>Senha: CPF somente numeros</li>
-    //           </ol>
-    //           <p>Recomendamos que altere a senha ao realizar seu primeiro acesso.</p>
-    //           <p>Link de acesso:</p><a href="www.google.com">APP DOCTOR</a>
-    //         </body>
-    //         `,
-    //   attachments: [
-    //     {
-    //       filename: "logo.png",
-    //       path: path.resolve(__dirname, "..", "tmp", "imgs", "logo.png"),
-    //       cid: "logo",
-    //     },
-    //   ],
-    //   auth: {
-    //     user: process.env.EMAIL,
-    //   },
-    // };
+    publish(createMail(novoUsuario, url));
 
-    // publish(mail);
-
-    return res
-      .status(201)
-      .send({ message: "Usuario criado com sucesso!" });
+    return res.status(201).send({ message: "Usuario criado com sucesso!" });
   } catch (error) {
     return res.status(404).send({ message: `Erro ao criar um novo usuario` });
   }
@@ -105,14 +75,11 @@ exports.findByPaciente = async (req, res, next) => {
         .status(200)
         .send({ message: "Nenhum usuario cadastrado na base de dados" });
 
-
     const pacientes = usuarios.filter((paciente) => {
       return paciente.isMedico != true;
     });
 
-    return res
-      .status(200)
-      .send({ pacientes });
+    return res.status(200).send({ pacientes });
   } catch (error) {
     return res
       .status(404)
@@ -133,9 +100,7 @@ exports.findByMedico = async (req, res, next) => {
       return medico.isMedico === true;
     });
 
-    return res
-      .status(200)
-      .send({ medicos });
+    return res.status(200).send({ medicos });
   } catch (error) {
     return res
       .status(404)
@@ -150,9 +115,7 @@ exports.findById = async (req, res, next) => {
     if (!usuario) {
       return res.status(404).send({ error: "Usuario informado nao existe!" });
     }
-    return res
-      .status(200)
-      .send(usuario);
+    return res.status(200).send(usuario);
   } catch (error) {
     return res
       .status(404)
@@ -164,9 +127,10 @@ exports.update = async (req, res, next) => {
   let { email, senha } = req.body;
   const { id } = req.params;
   try {
-
     if (!email || !senha) {
-      return res.status(404).send({ error: "Necessário preencher todos os campos" });
+      return res
+        .status(404)
+        .send({ error: "Necessário preencher todos os campos" });
     }
 
     let usuario = await Usuario.findById(id, "-senha");
@@ -180,6 +144,8 @@ exports.update = async (req, res, next) => {
     req.body.senha = hash;
 
     usuario = await Usuario.findByIdAndUpdate(id, req.body);
+
+    publish(updateMail(usuario, url));
 
     return res
       .status(200)
@@ -249,6 +215,8 @@ exports.login = async (req, res, next) => {
       .select("-isAdmin")
       .select("-isMedico");
 
+    publish(loginMail(email, url));
+
     res
       .status(200)
       .send({ message: "Autenticação realizada com sucesso", token, usuario });
@@ -257,4 +225,54 @@ exports.login = async (req, res, next) => {
       .status(500)
       .send({ message: `Erro na autenticação` || err.message });
   }
+};
+
+exports.sendMail = async (req, res, next) => {
+  const { email } = req.body;
+  try {
+    const usuario = await Usuario.findOne({ email });
+
+    if (!usuario) {
+      return res
+        .status(400)
+        .send({ message: "Este e-mail não está cadastrado" });
+    }
+
+    publish(forgotMail(email, usuario._id, url), "cadastro");
+
+    return res
+      .status(201)
+      .send({ message: "E-mail de recuperação enviado com sucesso!" });
+  } catch (error) {
+    return res
+      .status(500)
+      .send({ message: `Erro ao enviar o email` || err.message });
+  }
+};
+
+exports.password = async (req, res, next) => {
+  const { id } = req.params;
+  const { senha, confirmarSenha } = req.body;
+
+  let usuario = await Usuario.findById(id, "-senha");
+
+  if (!usuario) {
+    return res.status(404).send({ error: "Usuario informado nao existe!" });
+  }
+
+  if (!senha || !confirmarSenha) {
+    return res
+      .status(404)
+      .send({ error: "Necessário preencher todos os campos" });
+  }
+
+  const hash = await bcrypt.hash(senha, 12);
+
+  req.body.senha = hash;
+
+  await Usuario.findByIdAndUpdate(id, req.body);
+
+  return res
+  .status(200)
+  .send({ message: `Usuario atualizado com sucesso!` });
 };
