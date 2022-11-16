@@ -1,0 +1,50 @@
+require("dotenv").config();
+const ejs = require("ejs");
+const path = require("path");
+
+module.exports = async (paciente, medico, agenda, receituario, pdf, url) => {
+  const filePath = path.join(__dirname, "..", "html", "emailReceituario.ejs");
+  const today = new Date(Date.now());
+  let arquivo_pdf = pdf.split("/");
+  let mail = {};
+  const dados = {
+    namePaciente: paciente.name,
+    emailPaciente: paciente.email,
+    dataAgendamento: agenda.data.toLocaleDateString('pt-br'),
+    horaAgendamento: agenda.hora,
+    nameMedico: medico.name,
+    emailMedico: medico.email,
+    url: url,
+  };
+
+  setTimeout(ejs.renderFile(filePath, dados, (err, html) => {
+    if (err) {
+      throw new Error("Erro ao carregar o arquivo html");
+    }
+
+    mail = {
+      from: process.env.EMAIL,
+      to: paciente.email,
+      subject: `[NO-REPLY]Consulta realizada ${today.toUTCString()}`,
+      text: "Consulta realizada",
+      html: html,
+      attachments: [
+        {
+          filename: "logo.png",
+          path: path.resolve(__dirname, "..", "imgs", "logo.png"),
+          cid: "logo",
+        },
+        {
+          filename: arquivo_pdf[1],
+          path: path.resolve(__dirname, "..", "..", "pdfs", `${arquivo_pdf[1]}}`),
+          cid: "receituario",
+        },
+      ],
+      auth: {
+        user: process.env.EMAIL,
+      },
+    };
+  }), 5000);
+
+  return mail;
+};

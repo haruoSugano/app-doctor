@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Doctor</title>
+  </head>
+  <body>
+    <h1>Alerta de segurança <%= today %></h1>
+    <p>
+      Olá, detectamos um novo logina sua Conta <%= email %>.
+    </p>
+    <p>Se foi você que fez isso, nenhuma ação é necessária. Se não foi, ajudaremos a proteger a sua conta</p>
+    <ul>
+      <li>Usuário: <%= email %></li>
+    </ul>
+    <p>Link de acesso:</p>
+    <a href="<%- url %>">APP DOCTOR</a>
+  </body>
+</html>
