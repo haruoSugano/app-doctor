@@ -33,6 +33,7 @@ export class AuthService {
           if (this.currentUser["isMedico"] === true && this.currentUser["isAdmin"] === false) {
             this.router.navigate(["home/medico"]);
           }
+          localStorage.setItem("email", this.currentUser["email"]);
         });
       });
     });

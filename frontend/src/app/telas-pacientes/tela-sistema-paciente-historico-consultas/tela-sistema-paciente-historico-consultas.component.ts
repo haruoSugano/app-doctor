@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReceituarioService } from 'src/services/receituario.service';
 import { AuthService } from 'src/services/auth.service';
 
 @Component({
@@ -8,104 +9,36 @@ import { AuthService } from 'src/services/auth.service';
 })
 
 export class TelaSistemaPacienteHistoricoConsultasComponent implements OnInit {
+  Receituario: any = [{}];
 
-  usersArray = [
-    {
-      "id": 1,
-      "dataConsulta": "01/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 2,
-      "dataConsulta": "05/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 3,
-      "dataConsulta": "10/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 4,
-      "dataConsulta": "14/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 5,
-      "dataConsulta": "17/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 6,
-      "dataConsulta": "20/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 7,
-      "dataConsulta": "24/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 8,
-      "dataConsulta": "26/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 9,
-      "dataConsulta": "28/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-    {
-      "id": 10,
-      "dataConsulta": "30/11/2022",
-      "horarioConsulta": "18:54",
-      "medicoResponsavel": "Dr. Vinicius Alves",
-      "crm": "123456",
-      "isEdit": false
-    },
-  ]
-
-  constructor(public authService: AuthService) {}
-
-  logout() {
-    this.authService.doLogout();
-  }
+  constructor(
+    public authService: AuthService,
+    public receituarioService: ReceituarioService
+    ) {}
 
   ngOnInit(): void {
+    this.loadReceituario();
+  }
+
+  loadReceituario() {
+    const email = localStorage.getItem("email");
+    return this.receituarioService.getReceituarios(email).subscribe((data: {}) => {
+      this.Receituario = data;
+    })
+  }
+
+  openPdf(url: string) {
+    window.open(url);
   }
 
   onEdit(item: any) {
-    debugger;
-    this.usersArray.forEach(element => {
+    this.Receituario.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;
+  }
+
+  logout() {
+    this.authService.doLogout();
   }
 }

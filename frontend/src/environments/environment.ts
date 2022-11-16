@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   API_LOGIN: "http://localhost:3000/api",
   API_SISTEMA: "http://localhost:4000/api",
-  API_EMAIL: "http://localhost:6000/api"
+  API_EMAIL: "http://localhost:6000/api",
+  API_DOWNLOAD: "http://localhost:4000/"
 };
 
 /*

@@ -20,7 +20,7 @@
       <p class="descrição">
         Insira o e-mail cadastrado para enviarmos um link de alteração de senha.
       </p>
-      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+      <form>
         <div class="input-group">
           <label for="email">E-mail</label>
           <input
@@ -28,14 +28,13 @@
             id="email"
             name="email"
             placeholder="Digite o seu email"
-            formControlName="email"
+            [(ngModel)]="form.email"
             required
           />
         </div>
         <div class="input-group">
           <button
-            [routerLink]="['/recuperar-senha-nova-senha']"
-            routerLinkActive="router-link-active"
+            (click)="(sendMail())"
           >
             Enviar link
           </button>

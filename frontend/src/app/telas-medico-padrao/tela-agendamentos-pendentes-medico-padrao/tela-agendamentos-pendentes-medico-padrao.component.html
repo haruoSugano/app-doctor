@@ -66,14 +66,6 @@
                   Paciente</a
                 >
               </li>
-              <li>
-                <a
-                  routerLink="/medicos/paciente/:idPaciente/medico/:idMedico/agendamento/:idAgendamento"
-                  routerLinkActive="active"
-                  ><span class="dois fa fa-address-card-o mr-3"></span>Realizar
-                  Consulta</a
-                >
-              </li>
             </div>
           </div>
 
@@ -274,14 +266,7 @@
                       </div>
                       <div class="div_item" *ngIf="!agenda.isEdit">
                         <button
-                          [routerLink]="[
-                            '/medicos/paciente/',
-                            agenda.paciente_id,
-                            'medico',
-                            agenda.medico_id,
-                            'agendamento',
-                            agenda.id
-                          ]"
+                          [routerLink]="['/medicos/agendamento',agenda.id]"
                           class="btn btn-sm btn-success"
                         >
                           Realizar Consulta

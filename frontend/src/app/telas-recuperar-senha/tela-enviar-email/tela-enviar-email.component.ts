@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
+import { UsuarioService } from 'src/services/usuario.service';
 
 @Component({
   selector: 'app-tela-enviar-email',
@@ -10,22 +11,23 @@ import { AuthService } from 'src/services/auth.service';
 })
 
 export class TelaEnviarEmailComponent implements OnInit {
-  signinForm: FormGroup;
+  @Input() form = {
+    email: ""
+  }
 
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
+    public usuarioService: UsuarioService,
     public router: Router
-  ) {
-    this.signinForm = this.fb.group({
-      email: [''],
-      senha: [''],
-    });
-  }
+  ) {}
 
   ngOnInit() { }
 
-  onSubmit() {
-    this.authService.signIn(this.signinForm.value);
+  sendMail() {
+    const mail = this.form;
+    this.usuarioService.sendMail(mail).subscribe((data: {}) => { })
+
+    this.router.navigateByUrl('/');
   }
 }

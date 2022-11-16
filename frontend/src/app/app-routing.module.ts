@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'pesquisar-medico', component: TelaSistemaPesquisarMedicoComponent, },
   { path: 'cadastrar-paciente', component: TelaSistemaCadastroPacienteComponent, },
   { path: 'pesquisar-paciente', component: TelaSistemaPesquisarPacienteComponent, },
-  { path: 'realizar-consulta/paciente/:idPaciente/medico/:idMedico/agendamento/:idAgendamento', component: TelaSistemaRealizarConsultaComponent,  },
+  { path: 'realizar-consulta/agendamento/:idAgendamento', component: TelaSistemaRealizarConsultaComponent,  },
   { path: 'usuarios-medicos', component: TelaSistemaUsuariosMedicosComponent, },
   { path: 'usuarios-pacientes', component: TelaSistemaUsuariosPacientesComponent, },
   { path: 'meu-perfil', component: TelaSistemaMeuPerfilComponent, },
@@ -56,7 +56,7 @@ const routes: Routes = [
 
   //telas para recuperar senha:
   { path: 'recuperar-senha-envio-email', component: TelaEnviarEmailComponent},
-  { path: 'recuperar-senha-nova-senha', component: TelaNovaSenhaComponent},
+  { path: 'recuperar-senha-nova-senha/:_id', component: TelaNovaSenhaComponent},
 
   //telas pacientes:
   { path: 'home/pacientes', component: TelaSistemaPacienteComponent,},
@@ -66,7 +66,7 @@ const routes: Routes = [
   { path: 'home/medico', component: TelaSistemaMedicoPadraoComponent,},
   { path: 'cadastrar-paciente-medico-padrao', component: TelaCadastrarPacienteMedicoPadraoComponent,},
   { path: 'pesquisar-paciente-medico-padrao', component: TelaPesquisarPacienteMedicoPadraoComponent,},
-  { path: 'medicos/paciente/:idPaciente/medico/:idMedico/agendamento/:idAgendamento', component: TelaRealizarConsultaMedicoPadraoComponent,},
+  { path: 'medicos/agendamento/:idAgendamento', component: TelaRealizarConsultaMedicoPadraoComponent,},
   { path: 'usuarios-pacientes-medico-padrao', component: TelaUsuariosPacientesMedicoPadraoComponent,},
   { path: 'agendamentos-historico-medico-padrao', component: TelaAgendamentosHistoricoMedicoPadraoComponent,},
   { path: 'agendamentos-novos-medico-padrao', component: TelaAgendamentosNovosMedicoPadraoComponent,},

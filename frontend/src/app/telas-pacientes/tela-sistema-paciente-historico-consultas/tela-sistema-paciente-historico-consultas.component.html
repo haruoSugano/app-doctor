@@ -106,6 +106,7 @@
                 <thead>
                   <tr>
                     <th>Id</th>
+                    <th>Nome</th>
                     <th>Data da Consulta</th>
                     <th>Horário</th>
                     <th>Médico Responsável</th>
@@ -114,17 +115,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let user of usersArray; let i = index">
+                  <tr *ngFor="let receituario of Receituario.receituario; let i = index">
                     <td class="td_item">{{ i + 1 }}</td>
-                    <td class="td_item">{{ user.dataConsulta }}</td>
-                    <td class="td_item">{{ user.horarioConsulta }}</td>
-                    <td class="td_item">{{ user.medicoResponsavel }}</td>
-                    <td class="td_item">{{ user.crm }}</td>
+                    <td class="td_item">{{ receituario.pacientes.name }}</td>
+                    <td class="td_item">{{ receituario.agendas.data }}</td>
+                    <td class="td_item">{{ receituario.agendas.hora }}</td>
+                    <td class="td_item">{{ receituario.medicos.name }}</td>
+                    <td class="td_item">{{ receituario.medicos.crm }}</td>
                     <td style="width: 15%" class="td_item text-center">
                       <div class="div_item">
-                        <button
+                          <button
                           class="btn btn-sm btn-success"
                           style="margin-right: 5px"
+                          (click)="openPdf(receituario.pdf)"
                         >
                           Acessar Receituário
                         </button>

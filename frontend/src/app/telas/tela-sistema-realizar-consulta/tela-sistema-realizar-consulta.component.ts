@@ -24,8 +24,6 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
     status_agendamento: "CONCLUIDO",
   }
 
-  paciente: any = [{}];
-  medico: any = [{}];
   agenda: any = [{}];
   Receituario: any = [{}];
 
@@ -41,25 +39,14 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.forEach((params: Params) => {
-      let idPaciente: number = +params['idPaciente'];
-      let idMedico: number = +params['idPaciente'];
       let idAgendamento: number = +params['idAgendamento'];
 
-      if (idPaciente && idMedico && idAgendamento) {
-        this.receituarioForm.paciente_id = idPaciente;
-        this.receituarioForm.medico_id = idMedico;
+      if (idAgendamento) {
         this.receituarioForm.agenda_id = idAgendamento;
-
-        this.pacienteService.getPaciente(idPaciente).subscribe((data: {}) => {
-          this.paciente = data;
-        });
-
-        this.medicoService.getMedico(idMedico).subscribe((data: {}) => {
-          this.medico = data;
-        });
-
         this.agendaService.getAgenda(idAgendamento).subscribe((data: {}) => {
           this.agenda = data;
+          this.receituarioForm.medico_id = this.agenda["medico_id"];
+          this.receituarioForm.paciente_id = this.agenda["paciente_id"];
         })
       }
     })
@@ -68,12 +55,13 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
   addReceituario() {
     const receituario = this.receituarioForm;
     const status = this.agendaForm;
+    console.log(receituario)
     if (window.confirm("Você deseja gerar o pdf?")) {
       this.receituarioService.createReceituario(receituario).subscribe((data: {}) => { })
       this.agendaService.updateAgendaStatus(receituario.agenda_id, status).subscribe((data: {}) => { });
+      alert("Receituario gerado com sucesso!");
     }
 
-    alert("Receituario gerado com sucesso!");
     this.router.navigateByUrl('agendamentos-pendentes');
   }
 

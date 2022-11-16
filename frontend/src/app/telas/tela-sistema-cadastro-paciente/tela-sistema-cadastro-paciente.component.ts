@@ -83,8 +83,6 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
       isAdmin: false
     }
 
-    console.log(usuario)
-
     this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
 
     alert("Usuario cadastrado com sucesso!");

@@ -178,7 +178,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.name"
+                  [value]="agenda.pacientes.name"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@
                   max="2023-12-31"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.data_nascimento"
+                  [value]="agenda.pacientes.data_nascimento"
                 />
               </div>
               <div class="form-group col-4">
@@ -208,7 +208,7 @@
                   onblur="formataCPF(this)"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.cpf"
+                  [value]="agenda.pacientes.cpf"
                 />
               </div>
               <div class="form-group col-4">
@@ -221,7 +221,7 @@
                   onkeydown="return mascaraTelefone(event)"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.telefone"
+                  [value]="agenda.pacientes.telefone"
                 />
                 <div class="help-block with-errors"></div>
               </div>
@@ -236,7 +236,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.endereco"
+                  [value]="agenda.pacientes.endereco"
                 />
               </div>
               <div class="col-4">
@@ -248,7 +248,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.numero"
+                  [value]="agenda.pacientes.numero"
                 />
               </div>
             </div>
@@ -262,7 +262,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.estado"
+                  [value]="agenda.pacientes.estado"
                 >
                   <option selected></option>
                   <option>AC</option>
@@ -304,7 +304,7 @@
                   class="form-control input"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.cidade"
+                  [value]="agenda.pacientes.cidade"
                 />
               </div>
               <div class="col-md-3 col-sm-3">
@@ -317,7 +317,7 @@
                   onblur="formataCEP(this)"
                   required
                   disabled="disabled"
-                  [value]="paciente.paciente.cep"
+                  [value]="agenda.pacientes.cep"
                 />
               </div>
             </div>
@@ -329,7 +329,12 @@
                 required
                 disabled
               >
-                <option [value]="medico.id" selected>{{ medico.name }}</option>
+                <option
+                  [value]="agenda.medicos.medico_id"
+                  selected
+                >
+                  {{ agenda.medicos.name }}
+                </option>
               </select>
             </div>
             <div class="form-group col-12">

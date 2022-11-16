@@ -44,6 +44,18 @@ export class UsuarioService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  sendMail(mail): Observable<any> {
+    return this.http
+      .post<Usuario>(this.URL + "/forgot", mail)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  passwordUpdate(id: string, password: any): Observable<any> {
+    return this.http
+    .post<Usuario>(`${this.URL}/forgot/user/${id}`, password)
+    .pipe(retry(1), catchError(this.handleError));
+  }
+
   logout(): Observable<any> {
     return this.http.post(`${this.URL}/logout`, {}, this.httpOptions);
   }

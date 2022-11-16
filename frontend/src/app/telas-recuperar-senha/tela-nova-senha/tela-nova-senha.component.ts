@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
+import { UsuarioService } from 'src/services/usuario.service';
 
 @Component({
   selector: 'app-tela-nova-senha',
@@ -10,22 +10,31 @@ import { AuthService } from 'src/services/auth.service';
 })
 
 export class TelaNovaSenhaComponent implements OnInit {
-  signinForm: FormGroup;
-
-  constructor(
-    public fb: FormBuilder,
-    public authService: AuthService,
-    public router: Router
-  ) {
-    this.signinForm = this.fb.group({
-      email: [''],
-      senha: [''],
-    });
+  @Input() userForm: any = {
+    senha: "",
+    confirmarSenha: ""
   }
 
-  ngOnInit() { }
+  id: string = "";
 
-  onSubmit() {
-    this.authService.signIn(this.signinForm.value);
+  constructor(
+    public authService: AuthService,
+    public usuarioService: UsuarioService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute
+  ) {
+
+  }
+
+  ngOnInit() {
+    this.id = this.activatedRoute.snapshot.params["_id"];
+  }
+
+  passwordUpdate() {
+    const password = this.userForm;
+    this.usuarioService.passwordUpdate(this.id, password).subscribe((data: {}) => { })
+    window.alert("Sua senha foi atualizado com sucesso!");
+
+    this.router.navigateByUrl('/');
   }
 }

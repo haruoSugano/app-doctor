@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, AfterContentChecked, HostListener } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 
 
@@ -9,6 +9,10 @@ import { AuthService } from 'src/services/auth.service';
 })
 export class TelaSistemaComponent implements OnInit {
   constructor(public authService: AuthService) { }
+
+  dropDown(id: string) {
+    document.getElementById(id).classList.toggle("show");
+  }
 
   logout() {
     this.authService.doLogout();
