@@ -2,9 +2,8 @@ const ejs = require("ejs");
 const path = require("path");
 const crypto = require("crypto").createHash("md5");
 const pdf = require("html-pdf");
-const moment = require("moment");
 
-module.exports = (paciente, medico, agenda, descricao) => {
+module.exports = async (paciente, medico, agenda, descricao) => {
   const filePath = path.join(__dirname, "..", "html", "receituario.ejs");
   const filename = `${crypto
     .update(Math.floor(Date.now() * Math.random()).toString(36))
@@ -16,7 +15,7 @@ module.exports = (paciente, medico, agenda, descricao) => {
     dataNascimento: paciente.data_nascimento,
     endereco: paciente.endereco,
     numero: paciente.numero,
-    data: moment(agenda.data).format("DD/MM/YYYY"),
+    data: agenda.data.toLocaleDateString('pt-br'),
     nameMedico: medico.name,
     crm: medico.crm,
     descricao: descricao,

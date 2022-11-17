@@ -55,10 +55,9 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
   addReceituario() {
     const receituario = this.receituarioForm;
     const status = this.agendaForm;
-    console.log(receituario)
     if (window.confirm("Você deseja gerar o pdf?")) {
-      this.receituarioService.createReceituario(receituario).subscribe((data: {}) => { })
-      this.agendaService.updateAgendaStatus(receituario.agenda_id, status).subscribe((data: {}) => { });
+      this.receituarioService.createReceituario(receituario).subscribe((data: {}) => { });
+      // this.agendaService.updateAgendaStatus(receituario.agenda_id, status).subscribe((data: {}) => { });
       alert("Receituario gerado com sucesso!");
     }
 

@@ -9,6 +9,7 @@ module.exports = async (message, queue) => {
       ch.assertQueue(queue, { durable: false });
 
       console.log("Sending message");
+
       ch.sendToQueue(queue, Buffer.from(JSON.stringify(message)), {
         persistent: true,
       });
