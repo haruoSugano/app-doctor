@@ -10,9 +10,17 @@ module.exports = async (message, queue) => {
 
       console.log("Sending message");
 
+      await delay(3);
+
       ch.sendToQueue(queue, Buffer.from(JSON.stringify(message)), {
         persistent: true,
       });
       console.log("[X] sent ", message);
     });
+
+  function delay(n) {
+    return new Promise(function (resolve) {
+      setTimeout(resolve, n * 1000);
+    });
+  }
 };

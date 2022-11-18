@@ -22,7 +22,7 @@ export class ReceituarioService {
   createReceituario(receituario: Receituario): Observable<Receituario> {
     return this.http
       .post<Receituario>(`${this.apiUrl}/receituarios`, receituario)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(retry(1), catchError(this.handleErrorCreate));
   }
 
   getReceituarios(email: string): Observable<any> {
@@ -31,12 +31,26 @@ export class ReceituarioService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  handleErrorCreate(error: any) {
+    let errorMessage = "";
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = error.status === 500 ? "Erro interno ao gerar o receituario" : "É necessário preencher a descrição";
+    }
+
+    window.alert(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
+  }
+
   handleError(error: any) {
     let errorMessage = "";
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
-      errorMessage = `Error Code: ${error.status}\Message: ${error.message}`;
+      errorMessage = "Ocorreu um erro ao buscar os receituarios";
     }
 
     window.alert(errorMessage);

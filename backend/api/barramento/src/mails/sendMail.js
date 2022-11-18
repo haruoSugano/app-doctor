@@ -28,7 +28,7 @@ module.exports = async (emailContent, cb) => {
         resolve(token);
       });
     });
-    console.log(accessToken);
+
     let transporter = nodemailer.createTransport({
       service: "gmail.googleapis.com",
       host: smtp,

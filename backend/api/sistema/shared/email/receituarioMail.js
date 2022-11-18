@@ -2,7 +2,7 @@ require("dotenv").config();
 const ejs = require("ejs");
 const path = require("path");
 
-module.exports = async (paciente, medico, agenda, receituario, pdf, url) => {
+module.exports = (paciente, medico, agenda, pdf, url) => {
   const filePath = path.join(__dirname, "..", "html", "emailReceituario.ejs");
   const today = new Date(Date.now());
   let arquivo_pdf = pdf.split("/");
@@ -17,7 +17,7 @@ module.exports = async (paciente, medico, agenda, receituario, pdf, url) => {
     url: url,
   };
 
-  setTimeout(ejs.renderFile(filePath, dados, (err, html) => {
+  ejs.renderFile(filePath, dados, (err, html) => {
     if (err) {
       throw new Error("Erro ao carregar o arquivo html");
     }
@@ -36,15 +36,14 @@ module.exports = async (paciente, medico, agenda, receituario, pdf, url) => {
         },
         {
           filename: arquivo_pdf[1],
-          path: path.resolve(__dirname, "..", "..", "pdfs", `${arquivo_pdf[1]}}`),
-          cid: "receituario",
+          path: path.resolve(__dirname, "..", "..", "pdfs", `${arquivo_pdf[1]}`),
+          contentType: 'application/pdf'
         },
       ],
       auth: {
         user: process.env.EMAIL,
       },
     };
-  }), 5000);
-
+  });
   return mail;
 };

@@ -3,7 +3,7 @@ const Paciente = require("../models/paciente.model");
 const Agenda = require("../models/agenda.model");
 const Receituario = require("../models/receituario.model");
 const pdf = require("../../shared/pdf/receituario");
-const publish = require("../config/rabbit/publish");
+const publish = require("../config/rabbit/publishReceituario");
 const recetuarioMail = require("../../shared/email/receituarioMail");
 const urlApp = `http://localhost:4200/`;
 
@@ -33,8 +33,8 @@ exports.create = async (req, res, next) => {
       return res.status(400).send({ message: "Descricão é obrigatório" });
     }
 
-    const arquivo_pdf = pdf(paciente, medico, agenda, descricao);
-
+    const arquivo_pdf = await pdf(paciente, medico, agenda, descricao);
+  
     const receituario = await Receituario.create({
       descricao,
       medico_id,
@@ -42,16 +42,9 @@ exports.create = async (req, res, next) => {
       agenda_id,
       pdf: `${url}/${arquivo_pdf}.pdf`,
     });
-
+    
     publish(
-      recetuarioMail(
-        paciente,
-        medico,
-        agenda,
-        receituario,
-        `${arquivo_pdf}.pdf`,
-        urlApp
-      ),
+      recetuarioMail(paciente, medico, agenda, `${arquivo_pdf}.pdf`, urlApp),
       "receituario"
     );
 
