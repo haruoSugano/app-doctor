@@ -1,9 +1,9 @@
 const amqp = require("amqplib");
 
-const URI = "admin:admin@localhost:5672"
+const URI = process.env.CLOUD_AMQP;
 
 const createConnectionAmqp = async () => {
-    const connection = await amqp.connect("amqp://" + URI);
+    const connection = await amqp.connect(URI);
     console.log("Rabbitmq conectado com sucesso");
     return connection;
 }

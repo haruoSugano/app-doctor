@@ -36,6 +36,8 @@ exports.create = async (req, res, next) => {
         .send({ message: "É necessário preencher todos os campos" });
     }
 
+    console.log(req.body)
+
     if (await Paciente.findOne({ where: { cpf } })) {
       return res.status(400).send({ message: "CPF já existe" });
     }

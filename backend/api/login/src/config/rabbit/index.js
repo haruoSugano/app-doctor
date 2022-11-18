@@ -1,9 +1,15 @@
+require("dotenv").config();
 const amqp = require("amqplib");
 
-const URI = "admin:admin@localhost";
+const URI = process.env.URI;
 
 const createConnectionAmqp = async () => {
-  const connection = await amqp.connect("amqp://" + URI);
+  let connection = await amqp.connect(URI || process.env.CLOUD_AMQP);
+
+  connection.on("error", (e) => {
+    console.log("Erro: " + e);
+  });
+
   console.log("Rabbitmq connectado com sucesso");
   return connection;
 };
