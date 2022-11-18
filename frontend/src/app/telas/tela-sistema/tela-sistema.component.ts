@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterContentChecked, HostListener } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
+import GLightbox from 'node_modules/glightbox';
+
 
 
 @Component({
@@ -17,7 +19,17 @@ export class TelaSistemaComponent implements OnInit {
   logout() {
     this.authService.doLogout();
   }
-  ngOnInit() {
-  }
+  lightbox:any;
 
+  ngOnInit() {
+     //lightbox settings
+     this.lightbox = GLightbox({
+      'href': 'https://www.youtube.com/watch?v=-lW5ftJ2Xpk',
+      'type': 'video',
+      'source': 'youtube', //vimeo, youtube or local
+      'width': 100,
+      'autoplayVideos': true,
+    });
+  }
 }
+

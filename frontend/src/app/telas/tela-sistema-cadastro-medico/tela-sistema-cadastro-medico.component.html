@@ -160,7 +160,16 @@
       </nav>
 
       <!-- Page Content  -->
+
       <div id="content" class="p-4 p-md-5 pt-5">
+        <div class="header-button fixed-top">
+          <button onclick="ocultarEMostrarMenu()" type="button" id="sidebarCollapse" class="menu-sidebar btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+        </div>
+
+
         <div class="formulario">
           <form
             id="formulario"
@@ -236,7 +245,7 @@
               </div>
             </div>
             <div class="row endereco-1 col-12">
-              <div class="col-8">
+              <div class="col-md-8 col-sm-8">
                 <label>Endereço</label>
                 <input
                   id="endereco"
@@ -247,7 +256,7 @@
                   formControlName="endereco"
                 />
               </div>
-              <div class="col-4">
+              <div class="col-md-4 col-sm-4">
                 <label>Número</label>
                 <input
                   id="numero"
@@ -347,7 +356,7 @@
 
                 />
               </div>
-              <div>
+              <div class="dica-senha">
                 <small id="dica-senha" class="form-text text-muted dica-senha">
                   O arquivo deve ser em um formato PNG*
                 </small>
@@ -375,7 +384,7 @@
                 <div class="col-6">
                   <label>Senha</label>
                   <input
-                    id="senha"
+                    id="passwordSenha"
                     name="senha"
                     type="password"
                     class="form-control input input-senha"
@@ -383,7 +392,7 @@
                     placeholder="Ex: App@doctor123"
                     formControlName="senha"
                   />
-                  <span
+                  <span onclick="mostrarSenha2()"
                     class="fa fa-eye senha"
                   ></span>
                 </div>
@@ -399,7 +408,7 @@
                     placeholder="Ex: App@doctor123"
                     formControlName="confirmarSenha"
                   />
-                  <span
+                  <span onclick="mostrarSenha3()"
                     class="fa fa-eye confirmar-senha"
                   ></span>
                 </div>

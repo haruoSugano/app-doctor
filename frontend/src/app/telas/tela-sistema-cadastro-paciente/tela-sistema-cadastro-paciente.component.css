@@ -788,3 +788,150 @@ select.form-control.input>option{
   }
 
 
+
+  /* MOBILE CSS */
+  @media (max-width: 430px){
+    div.header-button{
+      background-color: #212121;
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      position: fixed;
+      padding-left: 18px !important;
+      padding-top: 15px !important;
+      margin-top: 0;
+      height: 70px;
+    }
+
+    #sidebar {
+      display: none;
+      position: fixed;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: #212121;
+      color: #fff;
+      transition: all 0.3s !important;
+      width: 250px !important;
+      margin-left: 0px !important;
+      margin-top: 70px !important;
+    }
+
+
+      #content{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        margin-top: 50px;
+      }
+
+      div.formulario{
+        width: 100% !important;
+      }
+
+    form{
+      margin-top: 20px;
+      margin-left: 0;
+      background-color: #00000071;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-radius: 10px;
+      width: 100% !important;
+    }
+
+    div.row.usuario-paciente.col-12 {
+      width: 100% !important;
+      border: 1px white solid;
+      margin-left: -10px !important;
+    }
+
+
+
+    body{
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      align-items: center;
+      justify-content: center;
+      min-height: 300vh;
+      max-width: 100%;
+      background-color: rgb(38, 23, 253);
+      margin: 0 auto;
+    }
+
+    .botao-cadastrar-usuario{
+      margin: auto !important;
+      width: 100% !important;
+      padding: 0;
+      margin: 0;
+    }
+
+    .col-9 {
+      flex: 0 0 auto;
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 20px;
+      margin-top: 20px;
+    }
+
+    div.col.email{
+      padding-right: 0;
+    }
+
+    div.row.senha.col-12{
+      padding-right: 0 !important;
+    }
+
+    .col-4 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    .col-6 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    input#endereco{
+      width: 100% !important;
+    }
+
+    button#limpar{
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+
+  .fa-eye.senha{
+    color: rgb(24, 21, 240);
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 990px !important;
+    margin-right: 60px;
+  }
+
+  .fa-eye.confirmar-senha{
+    color: rgb(24, 21, 240);
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 1070px !important;
+    margin-right: 60px;
+  }
+}
+
+    @media (min-width: 991px){
+      button.menu-sidebar{
+        display: none;
+      }
+      #sidebar{
+        display: block;
+      }
+    }
+
+

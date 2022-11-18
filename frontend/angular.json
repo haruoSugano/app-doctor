@@ -24,15 +24,17 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css"
-
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/glightbox/dist/css/glightbox.min.css",
+              "node_modules/glightbox/dist/css/glightbox.css",
+              "node_modules/glightbox/dist/css/plyr.css",
+              "node_modules/glightbox/dist/css/plyr.min.css"
             ],
             "scripts": [
               "src/assets/resources/js/script.js",
-              "src/assets/resources/js/main.js",
-              "src/assets/resources/js/scriptdois.js",
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/glightbox/dist/js/glightbox.min.js",
+              "node_modules/glightbox/dist/js/glightbox.js"
             ]
           },
           "configurations": {
@@ -98,10 +100,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
             ],
             "scripts": [
-              "src/assets/resources/js/scriptdois.js"
             ]
           }
         }
@@ -111,4 +111,6 @@
   "cli": {
     "analytics": "58bcd4b8-81a2-4d2c-9f1a-588c3038d4b7"
   }
+
+
 }

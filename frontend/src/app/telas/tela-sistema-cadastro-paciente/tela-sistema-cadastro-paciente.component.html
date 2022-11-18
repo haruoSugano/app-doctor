@@ -165,6 +165,14 @@
 
       <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
+
+        <div class="header-button fixed-top">
+          <button onclick="ocultarEMostrarMenu()" type="button" id="sidebarCollapse" class="menu-sidebar btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+        </div>
+
         <div class="formulario">
           <form id="formulario" action="#">
             <div class="col-12">
@@ -249,7 +257,7 @@
               </div>
             </div>
             <div class="row endereco-1 col-12">
-              <div class="col-8">
+              <div class="col-md-8 col-sm-8">
                 <label>Endereço</label>
                 <input
                   id="endereco"
@@ -260,7 +268,7 @@
                   [(ngModel)]="pacienteForm.endereco"
                 />
               </div>
-              <div class="col-4">
+              <div class="col-md-4 col-sm-4">
                 <label>Número</label>
                 <input
                   id="numero"
@@ -449,6 +457,7 @@
               </div>
               <div class="col-md-4 col-sm-4">
                 <button
+                  id="limpar"
                   onclick="limparForm()"
                   type="button"
                   class="btn btn-danger"
