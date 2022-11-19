@@ -35,7 +35,7 @@ module.exports = (paciente, medico, agenda, pdf, url) => {
           cid: "logo",
         },
         {
-          filename: arquivo_pdf[1],
+          filename: `${arquivo_pdf[1]}`,
           path: path.resolve(__dirname, "..", "..", "pdfs", `${arquivo_pdf[1]}`),
           contentType: 'application/pdf'
         },

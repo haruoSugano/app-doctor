@@ -163,8 +163,7 @@
                   <tr
                     *ngFor="
                       let user of Usuario.pacientes
-                        | filter: filter
-                        | orderBy: key:reverse;
+                        | filter: filter;
                       let i = index
                     "
                   >

@@ -117,6 +117,7 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
     });
 
     alert("Medico cadastrado com sucesso!");
+    window.location.reload();
   }
 
   addUser() {

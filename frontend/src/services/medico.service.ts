@@ -52,7 +52,7 @@ export class MedicoService {
     formData.append("assinatura", medico.assinatura, medico.assinatura.name);
     return this.http
       .post<Medico>(this.apiUrl + "/medicos", formData)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(retry(1), catchError(this.handleErrorCreate));
   }
 
   updateMedico(id: any, medico: any): Observable<Medico> {
@@ -87,6 +87,20 @@ export class MedicoService {
       errorMessage = error.error.message;
     } else {
       errorMessage = `Error Code: ${error.status}\Message: ${error.message}`;
+    }
+
+    window.alert(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
+  }
+
+  handleErrorCreate(error: any) {
+    let errorMessage = "";
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Erro ao realizar o cadastro`;
     }
 
     window.alert(errorMessage);

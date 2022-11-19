@@ -1,14 +1,12 @@
 const ejs = require("ejs");
 const path = require("path");
-const crypto = require("crypto").createHash("md5");
 const pdf = require("html-pdf");
 
 module.exports = async (paciente, medico, agenda, descricao) => {
   const filePath = path.join(__dirname, "..", "html", "receituario.ejs");
-  const filename = `${crypto
-    .update(Math.floor(Date.now() * Math.random()).toString(36))
-    .digest("hex")}_${paciente.cpf}`;
+  const filename = `${Math.random().toString(36).substring(0,12)}_${paciente.cpf}`;
   const pdfPath = path.join("pdfs", filename);
+  const savePath = path.join(__dirname, "..", "..", "pdfs", filename); 
   const receituario = {
     namePaciente: paciente.name,
     cpf: paciente.cpf,
@@ -21,6 +19,7 @@ module.exports = async (paciente, medico, agenda, descricao) => {
     descricao: descricao,
     assinatura: medico.assinatura,
   };
+
   ejs.renderFile(filePath, receituario, (err, html) => {
     if (err) {
       throw new Error("Erro ao carregar o arquivo html");
@@ -31,7 +30,7 @@ module.exports = async (paciente, medico, agenda, descricao) => {
       width: "210mm",
     };
 
-    pdf.create(html, options).toFile(`${pdfPath}.pdf`, (err, data) => {
+    pdf.create(html, options).toFile(`${savePath}.pdf`, (err, data) => {
       if (err) {
         throw new Error("Erro ao gerar o arquivo pdf");
       }

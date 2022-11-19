@@ -54,7 +54,6 @@ export class TelaRealizarConsultaMedicoPadraoComponent implements OnInit {
   addReceituario() {
     const receituario = this.receituarioForm;
     const status = this.agendaForm;
-    console.log(receituario);
     if (window.confirm("Você deseja gerar o pdf?")) {
       this.receituarioService.createReceituario(receituario).subscribe((data: {}) => { })
       this.agendaService.updateAgendaStatus(receituario.agenda_id, status).subscribe((data: {}) => { });
@@ -62,6 +61,7 @@ export class TelaRealizarConsultaMedicoPadraoComponent implements OnInit {
 
     alert("Receituario gerado com sucesso!");
     this.router.navigateByUrl('agendamentos-pendentes-medico-padrao');
+    window.location.reload();
   }
 
   logout() {

@@ -39,6 +39,7 @@ export class TelaSistemaAgendamentosNovosComponent implements OnInit {
     });
 
     alert("Agendandado com sucesso!");
+    window.location.reload();
   }
 
   loadMedico() {

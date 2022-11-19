@@ -4,7 +4,7 @@ const Agenda = require("../models/agenda.model");
 const Receituario = require("../models/receituario.model");
 const pdf = require("../../shared/pdf/receituario");
 const publish = require("../config/rabbit/publishReceituario");
-const recetuarioMail = require("../../shared/email/receituarioMail");
+const receituarioMail = require("../../shared/email/receituarioMail");
 const urlApp = `http://localhost:4200/`;
 
 exports.create = async (req, res, next) => {
@@ -44,7 +44,7 @@ exports.create = async (req, res, next) => {
     });
     
     publish(
-      recetuarioMail(paciente, medico, agenda, `${arquivo_pdf}.pdf`, urlApp),
+      receituarioMail(paciente, medico, agenda, `${arquivo_pdf}.pdf`, urlApp),
       "receituario"
     );
 

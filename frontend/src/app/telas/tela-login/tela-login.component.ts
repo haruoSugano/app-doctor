@@ -26,7 +26,6 @@ export class TelaLoginComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-    console.log(this.signinForm.value)
     this.authService.signIn(this.signinForm.value);
   }
 }

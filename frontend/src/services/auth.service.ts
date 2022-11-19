@@ -21,7 +21,6 @@ export class AuthService {
       localStorage.setItem("access_token", res.token);
       this.getUserProfile(res.usuario._id).subscribe((res) => {
         this.currentUser = res;
-        console.log(this.currentUser);
         Object.keys(this.currentUser).forEach((item) => {
           if (this.currentUser["isAdmin"] === true && this.currentUser["isMedico"] === true) {
             this.router.navigate(["home"]);

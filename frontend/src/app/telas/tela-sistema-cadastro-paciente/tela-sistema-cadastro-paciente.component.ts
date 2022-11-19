@@ -50,8 +50,6 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
       cep: this.pacienteForm.cep,
     };
 
-    console.log(paciente)
-
     this.pacienteService.createPaciente(paciente).subscribe((data: {}) => { });
 
     this.pacienteForm = {
@@ -70,8 +68,7 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
     };
 
     alert("Paciente cadastrado com sucesso!");
-
-    this.router.navigate(["/cadastrar-paciente"]);
+    window.location.reload();
   }
 
   addUser() {
@@ -86,8 +83,6 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
     this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
 
     alert("Usuario cadastrado com sucesso!");
-
-    this.router.navigate(["/cadastrar-paciente"]);
   }
 
   logout() {
