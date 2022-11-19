@@ -743,3 +743,103 @@ select.select.input>option{
   }
 
 
+  
+  /* MOBILE CSS */
+  @media (max-width: 430px){
+
+    .input-group{
+        margin-top: -240px !important;
+        padding-left: 0;
+        margin-left: 5px;
+        margin-right: 0;
+    }
+  
+    .col-5{
+      flex: 0 0 auto !important;
+      width: 100% !important;
+    }
+  
+    div.row-1{
+      margin-left: 0 !important;
+      width: 100% !important;
+      margin-right: 0 !important;
+      margin-top: 20px !important;
+    }
+  
+    div.row-3{
+      width: 100%;
+      background-color: #00000071;
+      border-radius: 10px;
+      white-space: nowrap;
+      margin-top: 50px;
+      padding: 20px;
+       height: 600px;
+      margin-left: 0;
+    }
+  
+      div.header-button{
+        background-color: #212121;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        position: fixed;
+        padding-left: 18px !important;
+        padding-top: 15px !important;
+        margin-top: 0;
+        height: 70px;
+      }
+  
+      #sidebar {
+        display: none;
+        position: fixed;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background: #212121;
+        color: #fff;
+        transition: all 0.3s !important;
+        width: 250px !important;
+        margin-left: 0px !important;
+        margin-top: 70px !important;
+      }
+  
+  
+        #content{
+          width: 100%;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          padding: 0;
+          margin-top: 50px;
+        }
+  
+  
+      body{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+        justify-content: center;
+        min-height: 130vh;
+        max-width: 100%;
+        background-color: rgb(38, 23, 253);
+        margin: 0 auto;
+      }
+  
+  
+      button#limpar{
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+  }
+  
+
+  @media (min-width: 991px){
+     button.menu-sidebar{
+        display: none;
+     }
+  
+     #sidebar{
+          display: block;
+      }
+  }

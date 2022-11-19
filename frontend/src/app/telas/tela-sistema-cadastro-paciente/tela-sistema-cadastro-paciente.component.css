@@ -282,7 +282,8 @@ body{
 
   @media (max-width: 991.98px) {
     #sidebarCollapse span {
-      display: none; } }
+      display: none; } 
+  }
 
   /* #content {
     width: 100%;
