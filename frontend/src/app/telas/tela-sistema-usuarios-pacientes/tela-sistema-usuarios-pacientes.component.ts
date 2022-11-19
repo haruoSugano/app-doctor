@@ -36,6 +36,11 @@ export class TelaSistemaUsuariosPacientesComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
+  
+  deleteUsuario(id: string){
+    this.usuarioService.deleteUsuario(id).subscribe((data)=>{});
+    window.location.reload();
+  }
 
   logout() {
     this.authService.doLogout();

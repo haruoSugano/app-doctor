@@ -56,6 +56,12 @@ export class UsuarioService {
     .pipe(retry(1), catchError(this.handleError));
   }
 
+  deleteUsuario(id: string): Observable<Usuario>{
+    return this.http
+    .delete<Usuario>(this.URL + `/usuarios/${id}`, this.httpOptions)
+    .pipe(retry(1), catchError(this.handleError));
+  }
+
   logout(): Observable<any> {
     return this.http.post(`${this.URL}/logout`, {}, this.httpOptions);
   }

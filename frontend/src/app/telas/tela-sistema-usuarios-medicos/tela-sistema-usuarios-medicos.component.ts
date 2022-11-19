@@ -54,6 +54,11 @@ export class TelaSistemaUsuariosMedicosComponent implements OnInit {
     }
   }
 
+  deleteUsuario(id: string){
+    this.usuarioService.deleteUsuario(id).subscribe((data)=>{});
+    window.location.reload();
+  }
+
   logout() {
     this.authService.doLogout();
   }
