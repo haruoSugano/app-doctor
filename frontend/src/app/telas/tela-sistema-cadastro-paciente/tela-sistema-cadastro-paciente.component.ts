@@ -50,25 +50,16 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
       cep: this.pacienteForm.cep,
     };
 
-    this.pacienteService.createPaciente(paciente).subscribe((data: {}) => { });
+    if (paciente.name && paciente.email && paciente.data_nascimento && paciente.cpf
+      && paciente.telefone && paciente.endereco && paciente.numero &&
+      paciente.estado && paciente.cidade && paciente.cep) {
+      this.pacienteService.createPaciente(paciente).subscribe((data: {}) => { });
 
-    this.pacienteForm = {
-      name: "",
-      email: "",
-      data_nascimento: new Date(),
-      cpf: "",
-      telefone: "",
-      endereco: "",
-      numero: "",
-      estado: "",
-      cidade: "",
-      cep: 0,
-      senha: "",
-      confirmarSenha: ""
-    };
-
-    alert("Paciente cadastrado com sucesso!");
-    window.location.reload();
+      alert("Paciente cadastrado com sucesso!");
+      window.location.reload();
+    } else {
+      alert("É necessário preencher todos os campos");
+    }
   }
 
   addUser() {
@@ -80,9 +71,12 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
       isAdmin: false
     }
 
-    this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
-
-    alert("Usuario cadastrado com sucesso!");
+    if (usuario.email && usuario.senha && usuario.confirmarSenha && usuario.isAdmin && usuario.isMedico) {
+      this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
+      alert("Usuario cadastrado com sucesso!");
+    } else {
+      alert("É Necessário preencher todos os campos");
+    }
   }
 
   logout() {

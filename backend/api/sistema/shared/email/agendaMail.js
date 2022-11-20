@@ -3,7 +3,7 @@ const ejs = require("ejs");
 const path = require("path");
 
 module.exports = (agenda, paciente, medico, url) => {
-  const filePath = path.join(__dirname, "..", "html", "emailAgenda.ejs");
+  const filePath = path.join(__dirname, "..", "html", "emails", "emailAgenda.ejs");
   let mail = {};
   const dados = {
     data: agenda.data.toLocaleDateString('pt-br'),
@@ -29,8 +29,8 @@ module.exports = (agenda, paciente, medico, url) => {
     mail = {
       from: process.env.EMAIL,
       to: paciente[0].email,
-      subject: "[NO-REPLY] Consulta médica agendada",
-      text: "Sua consulta médica foi agendada",
+      subject: "[NO-REPLY] Sua consulta foi agendada",
+      text: "Consulta agendada",
       html: html,
       attachments: [
         {

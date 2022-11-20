@@ -5,6 +5,7 @@ const Medico = require("../models/medico.model");
 const Paciente = require("../models/paciente.model");
 const Receituario = require("../models/receituario.model");
 const Agenda = require("../models/agenda.model");
+const Atestado = require("../models/atestado.model");
 
 const connection = new Sequelize(dbconfig);
 
@@ -18,10 +19,12 @@ Medico.init(connection);
 Paciente.init(connection);
 Agenda.init(connection);
 Receituario.init(connection);
+Atestado.init(connection);
 
 Medico.associate(connection.models);
 Paciente.associate(connection.models);
 Agenda.associate(connection.models);
 Receituario.associate(connection.models);
+Atestado.associate(connection.models);
 
 module.exports = connection;

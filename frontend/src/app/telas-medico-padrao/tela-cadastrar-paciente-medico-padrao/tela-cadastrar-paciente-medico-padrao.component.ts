@@ -37,25 +37,16 @@ export class TelaCadastrarPacienteMedicoPadraoComponent implements OnInit {
 
   addPaciente() {
     const paciente = this.pacienteForm;
-    this.pacienteService.createPaciente(paciente).subscribe((data: {}) => {
-      this.router.navigate(["/cadastrar-paciente"]);
-    });
+    if (paciente.name && paciente.email && paciente.data_nascimento && paciente.cpf
+      && paciente.telefone && paciente.endereco && paciente.numero &&
+      paciente.estado && paciente.cidade && paciente.cep) {
+      this.pacienteService.createPaciente(paciente).subscribe((data: {}) => { });
 
-    this.pacienteForm = {
-      name: "",
-      email: "",
-      data_nascimento: new Date(),
-      cpf: "",
-      telefone: "",
-      endereco: "",
-      numero: "",
-      estado: "",
-      cidade: "",
-      cep: 0,
-      senha: "",
-      confirmarSenha: ""
-    };
-    alert("Paciente cadastrado com sucesso!");
+      alert("Paciente cadastrado com sucesso!");
+      window.location.reload();
+    } else {
+      alert("É necessário preencher todos os campos");
+    }
   }
 
   addUser() {
@@ -67,13 +58,12 @@ export class TelaCadastrarPacienteMedicoPadraoComponent implements OnInit {
       isAdmin: false
     }
 
-    console.log(usuario)
-
-    this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
-
-    alert("Usuario cadastrado com sucesso!");
-
-    this.router.navigate(["/cadastrar-paciente"]);
+    if (usuario.email && usuario.senha && usuario.confirmarSenha && usuario.isAdmin && usuario.isMedico) {
+      this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
+      alert("Usuario cadastrado com sucesso!");
+    } else {
+      alert("É Necessário preencher todos os campos");
+    }
   }
 
   logout() {

@@ -3,7 +3,7 @@ const Paciente = require("../models/paciente.model");
 const Agenda = require("../models/agenda.model");
 const Receituario = require("../models/receituario.model");
 const pdf = require("../../shared/pdf/receituario");
-const publish = require("../config/rabbit/publishReceituario");
+const publish = require("../config/rabbit/publishDelay");
 const receituarioMail = require("../../shared/email/receituarioMail");
 const urlApp = `http://localhost:4200/`;
 
@@ -40,11 +40,11 @@ exports.create = async (req, res, next) => {
       medico_id,
       paciente_id,
       agenda_id,
-      pdf: `${url}/${arquivo_pdf}.pdf`,
+      pdf: `${url}/${arquivo_pdf}`,
     });
     
     publish(
-      receituarioMail(paciente, medico, agenda, `${arquivo_pdf}.pdf`, urlApp),
+      receituarioMail(paciente, medico, agenda, arquivo_pdf, urlApp),
       "receituario"
     );
 
@@ -52,7 +52,7 @@ exports.create = async (req, res, next) => {
   } catch (error) {
     return res
       .status(500)
-      .send({ error: "Ocorreu um erro ao cadastrar o paciente" });
+      .send({ error: "Ocorreu um erro ao gerar o receituario" });
   }
 };
 

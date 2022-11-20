@@ -28,6 +28,10 @@ class Agenda extends Model {
       foreignKey: "agenda_id",
       as: "receituarios"
     });
+    this.hasMany(models.Receituario, {
+      foreignKey: "agenda_id",
+      as: "atestados"
+    });
   }
 }
 

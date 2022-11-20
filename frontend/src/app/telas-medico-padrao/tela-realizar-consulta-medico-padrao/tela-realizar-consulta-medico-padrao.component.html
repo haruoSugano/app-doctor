@@ -190,7 +190,6 @@
                   name="begin"
                   type="text"
                   class="form-control input"
-                  value=""
                   min="1940-01-01"
                   max="2023-12-31"
                   required
@@ -244,7 +243,7 @@
                 <input
                   id="numero"
                   name="numero"
-                  type="number"
+                  type="text"
                   class="form-control input"
                   required
                   disabled="disabled"
@@ -264,7 +263,7 @@
                   disabled="disabled"
                   [value]="agenda.pacientes.estado"
                 >
-                  <option selected></option>
+                  <option [value]="agenda.pacientes.estado" selected></option>
                   <option>AC</option>
                   <option>AL</option>
                   <option>AP</option>
@@ -329,10 +328,7 @@
                 required
                 disabled
               >
-                <option
-                  [value]="agenda.medicos.medico_id"
-                  selected
-                >
+                <option [value]="agenda.medicos.medico_id" selected>
                   {{ agenda.medicos.name }}
                 </option>
               </select>
@@ -351,26 +347,7 @@
                 [(ngModel)]="receituarioForm.descricao"
               ></textarea>
             </div>
-            <div class="row atestado col-12">
-              <div class="col-md-3">
-                <h5 class="adicionar-atestado-text">
-                  Deseja adicionar atestado?
-                </h5>
-              </div>
-              <div class="col-6 btn-adicionar-atestado">
-                <button
-                  id="btn-adicionar-atestado"
-                  class="btn-adicionar-atestado"
-                  onclick="mostrarDescricaoAtestado()"
-                >
-                  Adicionar
-                </button>
-              </div>
-            </div>
-            <div
-              class="form-group col-12 container-escondido"
-              style="display: none"
-            >
+            <div class="form-group col-12 container-escondido">
               <label for="exampleFormControlTextarea1"
                 >Descrição do Atestado</label
               >
@@ -379,6 +356,8 @@
                 id="exampleFormControlTextarea1"
                 rows="3"
                 required
+                name="descricao"
+                [(ngModel)]="atestadoForm.descricao"
               ></textarea>
             </div>
             <div class="row botoes col-12">
@@ -403,6 +382,7 @@
                   type="button"
                   class="btn btn-primary"
                   style="width: 100%"
+                  (click)="addAtestado()"
                 >
                   <span
                     class="fa fa-close mr-3 icone"
@@ -413,7 +393,7 @@
               </div>
               <div class="col-md-4 col-sm-4">
                 <button
-                  routerLink="/home/medico"
+                  (click)="finalizarConsulta()"
                   id="home"
                   type="button"
                   class="btn btn-secondary"
@@ -423,7 +403,7 @@
                     class="fa fa-home mr-3 icone"
                     style="color: rgb(255, 255, 255)"
                   ></span
-                  >Página Inicial
+                  >Finalizar a consulta
                 </button>
               </div>
             </div>

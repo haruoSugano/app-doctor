@@ -7,5 +7,6 @@ subscribe_mail("medico");
 subscribe_mail("paciente");
 subscribe_mail("agendamento");
 subscribe_mail("receituario");
+subscribe_mail("atestado");
 
 module.exports = router;
