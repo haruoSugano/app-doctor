@@ -918,3 +918,45 @@ input.password {
     }
   }
 
+
+
+@media (min-width: 1920px){
+
+  form{
+    margin-left: 365px !important;
+    margin-right: 0 !important;
+    width: 75% !important;
+}
+
+div.row.usuario-medico.col-12{
+  width: 98% !important;
+  padding-right: 50px;
+}
+
+.fa-eye.senha{
+  margin-top: 860px !important;
+  margin-right: 850px !important;
+}
+
+.fa-eye.confirmar-senha{
+  margin-top: 860px!important;
+  margin-right: 240px !important;
+}
+
+}
+
+
+@media (min-width: 1366px){
+  #content{
+    margin-right: 45px;
+  }
+
+  .fa-eye.senha{
+    margin-top: 865px;
+  }
+
+  .fa-eye.confirmar-senha{
+    margin-top: 865px;
+  }
+}
+

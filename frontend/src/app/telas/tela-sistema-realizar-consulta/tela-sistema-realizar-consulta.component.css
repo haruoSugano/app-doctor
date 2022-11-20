@@ -825,11 +825,15 @@ div.row.atestado.col-12{
       width: 100% !important;
     }
 
-    div.row.usuario-paciente.col-12 {
+    div.row.titulo-e-pesquisar.col-12 {
       width: 100% !important;
-      border: 1px white solid;
-      margin-left: -10px !important;
+      text-align: left;
+      justify-content: left !important;
     }
+
+    div.form-group.col-12{
+      width: 320px !important;
+  }
 
 
 
@@ -852,12 +856,10 @@ div.row.atestado.col-12{
       margin: 0;
     }
 
-    .col-9 {
+    .col-8 {
       flex: 0 0 auto;
       width: 100%;
       padding-left: 10px;
-      padding-right: 20px;
-      margin-top: 20px;
     }
 
     div.col.email{
@@ -876,6 +878,11 @@ div.row.atestado.col-12{
     .col-6 {
       flex: 0 0 auto;
       width: 100%;
+    }
+
+    .col-12{
+      margin-right: 0 !important;
+      padding-right: 0 !important;
     }
 
     input#endereco{

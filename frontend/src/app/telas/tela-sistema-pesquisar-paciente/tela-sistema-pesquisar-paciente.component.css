@@ -711,7 +711,7 @@ div.row-2{
   }
 
 
-  
+
   /* MOBILE CSS */
   @media (max-width: 430px){
 
@@ -721,30 +721,30 @@ div.row-2{
         margin-left: 5px;
         margin-right: 0;
     }
-  
+
     .col-5{
       flex: 0 0 auto !important;
       width: 100% !important;
     }
-  
+
     div.row-1{
       margin-left: 0 !important;
       width: 100% !important;
       margin-right: 0 !important;
       margin-top: 20px !important;
     }
-  
+
     div.row-3{
       width: 100%;
       background-color: #00000071;
       border-radius: 10px;
       white-space: nowrap;
-      margin-top: 50px;
+      margin-top: 60px;
       padding: 20px;
        height: 600px;
       margin-left: 0;
     }
-  
+
       div.header-button{
         background-color: #212121;
         width: 100%;
@@ -756,7 +756,7 @@ div.row-2{
         margin-top: 0;
         height: 70px;
       }
-  
+
       #sidebar {
         display: none;
         position: fixed;
@@ -771,8 +771,8 @@ div.row-2{
         margin-left: 0px !important;
         margin-top: 70px !important;
       }
-  
-  
+
+
         #content{
           width: 100%;
           margin-left: 0 !important;
@@ -780,8 +780,8 @@ div.row-2{
           padding: 0;
           margin-top: 50px;
         }
-  
-  
+
+
       body{
         background-position: center;
         background-repeat: no-repeat;
@@ -793,20 +793,20 @@ div.row-2{
         background-color: rgb(38, 23, 253);
         margin: 0 auto;
       }
-  
-  
+
+
       button#limpar{
         margin-top: 20px;
         margin-bottom: 20px;
       }
   }
-  
+
 
   @media (min-width: 991px){
      button.menu-sidebar{
         display: none;
      }
-  
+
      #sidebar{
           display: block;
       }

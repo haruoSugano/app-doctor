@@ -80,12 +80,12 @@
                   Paciente</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a routerLink="/medicos" routerLinkActive="active"
                   ><span class="dois fa fa-address-card-o mr-3"></span>Realizar
                   Consulta</a
                 >
-              </li>
+              </li> -->
             </div>
           </div>
 
@@ -166,11 +166,14 @@
 
       <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <button onclick="ocultarEMostrarMenu()" type="button" id="sidebarCollapse" class="menu-sidebar btn btn-primary">
-          <i class="fa fa-bars"></i>
-          <span class="sr-only">Toggle Menu</span>
-        </button>
-        
+        <!-- menu mobile -->
+        <div class="header-button fixed-top">
+          <button onclick="ocultarEMostrarMenu()" type="button" id="sidebarCollapse" class="menu-sidebar btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+        </div>
+
         <div class="row-1">
           <div class="row-2">
             <div class="row titulo-e-pesquisar col-12">

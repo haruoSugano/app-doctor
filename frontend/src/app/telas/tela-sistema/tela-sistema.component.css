@@ -498,15 +498,6 @@ span.um.fa.fa-user-md.mr-3{
     margin-right: 18px !important;
   }
 
-
-
-
-
-
-
-
-
-
   /* DROPDOWN 5---------------------------------*/
   div.dropdown5{
     width: 100%;
@@ -597,6 +588,11 @@ span.um.fa.fa-user-md.mr-3{
     margin-right: 15px !important;
 
   }
+
+
+
+
+
 
 
   /* PAGE CONTENT ------------------ */
@@ -1203,6 +1199,7 @@ img.img-logo{
 
 .details .content ul li {
   padding-bottom: 10px;
+  color: rgb(218, 218, 218);
 }
 
 .details .content ul i {
@@ -1870,6 +1867,37 @@ body{
   }
 
 }
+
+
+
+@media (min-width: 1920px){
+  button.menu-sidebar{
+    display: none;
+  }
+  #sidebar{
+    display: block !important;
+  }
+
+  div.logo{
+    margin-left: -160px;
+  }
+
+  .navbar{
+    margin-right: -160px !important;
+  }
+
+  #hero{
+    height: 85vh !important;
+    margin-top: 80px !important;
+  }
+
+  div.container-hero{
+    margin-top: 90px !important;
+  }
+
+}
+
+
 
 
 

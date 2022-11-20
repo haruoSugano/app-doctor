@@ -282,7 +282,7 @@ body{
 
   @media (max-width: 991.98px) {
     #sidebarCollapse span {
-      display: none; } 
+      display: none; }
   }
 
   /* #content {
@@ -936,3 +936,64 @@ select.form-control.input>option{
     }
 
 
+
+    @media (min-width: 1920px){
+      /* form{
+        margin-left: -50px !important;
+        margin-right: 500px !important;
+        width: 100% !important;
+    } */
+    form{
+      margin-left: 365px !important;
+      margin-right: 0 !important;
+      width: 75% !important;
+  }
+
+
+    div.row.usuario-paciente.col-12{
+      width: 98% !important;
+      padding-right: 0px;
+    }
+
+.fa-eye.senha{
+  margin-top: 595px !important;
+  margin-right: 850px !important;
+}
+
+.fa-eye.confirmar-senha{
+  margin-top: 595px!important;
+  margin-right: 240px !important;
+}
+
+  }
+
+/*
+@media (min-width: 1920px){
+
+  form{
+    margin-left: 365px !important;
+    margin-right: 0 !important;
+    width: 75% !important;
+}
+
+div.row.usuario-medico.col-12{
+  width: 98% !important;
+  padding-right: 50px;
+}
+
+.fa-eye.senha{
+  margin-top: 860px !important;
+  margin-right: 850px !important;
+}
+
+.fa-eye.confirmar-senha{
+  margin-top: 860px!important;
+  margin-right: 240px !important;
+}
+
+} */
+  @media (min-width: 1366px){
+    #content{
+      margin-right: 40px;
+    }
+  }
