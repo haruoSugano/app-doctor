@@ -258,9 +258,10 @@ CLOUD_AMQP=<amqps://> #rabbitmq
 
 Renomear o arquivo `credentials.json.dis` removendo o `.dist`. 
 
-> Etapas de configurações:
+> Como configurar
 
-Link: https://developers.google.com/gmail/api/quickstart/nodejs
+* [Node.js quickstart](https://developers.google.com/gmail/api/quickstart/nodejs)
+* [Google APIs Node.js Client](https://github.com/googleapis/google-api-nodejs-client#google-apis-nodejs-client)
 
 ---
 
