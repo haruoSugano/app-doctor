@@ -34,11 +34,15 @@ export class TelaAgendamentosNovosMedicoPadraoComponent implements OnInit {
 
   addAgenda() {
     const agenda = this.agendaForm;
-    this.agendaService.createAgenda(agenda).subscribe((data: {}) => {
-      window.location.reload();
-    });
+    if (agenda.data && agenda.hora && agenda.cpf) {
+      this.agendaService.createAgenda(agenda).subscribe((data: {}) => {
+        window.location.reload();
+      });
 
-    alert("Agendandado com sucesso!");
+      alert("Agendandado com sucesso!");
+    } else {
+      alert("Necessário preencher todos os campos!");
+    }
   }
 
   loadMedico() {

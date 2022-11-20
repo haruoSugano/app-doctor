@@ -3,7 +3,7 @@ const ejs = require("ejs");
 const path = require("path");
 
 module.exports = (paciente, medico, agenda, pdf, url) => {
-  const filePath = path.join(__dirname, "..", "html", "emails", "emailReceituario.ejs");
+  const filePath = path.join(__dirname, "..", "html", "emails", "emailAtestado.ejs");
   const today = new Date(Date.now());
   let arquivo_pdf = pdf.split("/");
   let mail = {};
@@ -25,8 +25,8 @@ module.exports = (paciente, medico, agenda, pdf, url) => {
     mail = {
       from: process.env.EMAIL,
       to: paciente.email,
-      subject: `[NO-REPLY]Consulta realizada ${today.toUTCString()}`,
-      text: "Consulta realizada",
+      subject: `[NO-REPLY]Atestado ${today.toUTCString()}`,
+      text: "Atestado foi gerado com sucesso",
       html: html,
       attachments: [
         {
@@ -35,8 +35,8 @@ module.exports = (paciente, medico, agenda, pdf, url) => {
           cid: "logo",
         },
         {
-          filename: arquivo_pdf[2],
-          path: path.resolve(__dirname, "..", "..", "pdfs", "receituarios", arquivo_pdf[2]),
+          filename: `${arquivo_pdf[2]}`,
+          path: path.resolve(__dirname, "..", "..", "pdfs", "atestados",`${arquivo_pdf[2]}`),
           contentType: 'application/pdf'
         },
       ],

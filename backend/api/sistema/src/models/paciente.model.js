@@ -32,6 +32,10 @@ class Paciente extends Model {
       foreignKey: "paciente_id",
       as: "agendas"
     });
+    this.hasMany(models.Agenda, {
+      foreignKey: "paciente_id",
+      as: "atestados"
+    });
   }
 }
 module.exports = Paciente;

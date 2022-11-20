@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { AgendaService } from 'src/services/agenda.service';
+import { AtestadoService } from 'src/services/atestado.service';
 import { AuthService } from 'src/services/auth.service';
 import { MedicoService } from 'src/services/medico.service';
 import { PacienteService } from 'src/services/paciente.service';
@@ -20,6 +21,13 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
     descricao: "",
   }
 
+  @Input() atestadoForm: any = {
+    medico_id: "",
+    paciente_id: "",
+    agenda_id: "",
+    descricao: "",
+  }
+
   @Input() agendaForm: any = {
     status_agendamento: "CONCLUIDO",
   }
@@ -33,6 +41,7 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
     public medicoService: MedicoService,
     public agendaService: AgendaService,
     public receituarioService: ReceituarioService,
+    public atestadoService: AtestadoService,
     public router: Router,
     public activatedRoute: ActivatedRoute
   ) { }
@@ -43,10 +52,13 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
 
       if (idAgendamento) {
         this.receituarioForm.agenda_id = idAgendamento;
+        this.atestadoForm.agenda_id = idAgendamento;
         this.agendaService.getAgenda(idAgendamento).subscribe((data: {}) => {
           this.agenda = data;
           this.receituarioForm.medico_id = this.agenda["medico_id"];
           this.receituarioForm.paciente_id = this.agenda["paciente_id"];
+          this.atestadoForm.medico_id = this.agenda["medico_id"];
+          this.atestadoForm.paciente_id = this.agenda["paciente_id"];
         })
       }
     })
@@ -54,14 +66,38 @@ export class TelaSistemaRealizarConsultaComponent implements OnInit {
 
   addReceituario() {
     const receituario = this.receituarioForm;
-    const status = this.agendaForm;
-    if (window.confirm("Você deseja gerar o pdf?")) {
-      this.receituarioService.createReceituario(receituario).subscribe();
-      this.agendaService.updateAgendaStatus(receituario.agenda_id, status).subscribe();
-      alert("Receituario gerado com sucesso!");
+    if (receituario.descricao) {
+      if (window.confirm("Você deseja gerar o receituario?")) {
+        this.receituarioService.createReceituario(receituario).subscribe();
+        alert("Receituario gerado com sucesso!");
+      }
+    } else {
+      alert("Necessário preencher o campo de descrição do receituário");
     }
+  }
 
-    this.router.navigateByUrl('agendamentos-pendentes');
+  addAtestado() {
+    const atestado = this.atestadoForm;
+    if (atestado.descricao) {
+      if (window.confirm("Você deseja gerar o atestado médico?")) {
+        this.atestadoService.createAtestado(atestado).subscribe();
+        alert("Atestado gerado com sucesso!");
+      }
+    } else {
+      alert("Necessário preencher o campo de descrição ao atestado");
+    }
+  }
+
+  finalizarConsulta() {
+    const receituario = this.receituarioForm;
+    const status = this.agendaForm;
+    if (window.confirm("Confirme se o paciente foi atendido")) {
+      this.agendaService.updateAgendaStatus(receituario.agenda_id, status).subscribe();
+      alert("Registro realizado como CONCLUIDO");
+    }
+    if (window.confirm("Você realmente quer finalizar a consulta?")) {
+      this.router.navigateByUrl("agendamentos-pendentes");
+    }
   }
 
   logout() {

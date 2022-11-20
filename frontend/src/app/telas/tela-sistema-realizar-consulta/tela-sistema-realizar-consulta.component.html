@@ -273,7 +273,7 @@
                 <input
                   id="numero"
                   name="numero"
-                  type="number"
+                  type="text"
                   class="form-control input"
                   required
                   disabled="disabled"
@@ -375,25 +375,8 @@
                 [(ngModel)]="receituarioForm.descricao"
               ></textarea>
             </div>
-            <div class="row atestado col-12">
-              <div class="col-md-3">
-                <h5 class="adicionar-atestado-text">
-                  Deseja adicionar atestado?
-                </h5>
-              </div>
-              <div class="col-6 btn-adicionar-atestado">
-                <button
-                  id="btn-adicionar-atestado"
-                  class="btn-adicionar-atestado"
-                  onclick="mostrarDescricaoAtestado()"
-                >
-                  Adicionar
-                </button>
-              </div>
-            </div>
             <div
               class="form-group col-12 container-escondido"
-              style="display: none"
             >
               <label for="exampleFormControlTextarea1"
                 >Descrição do Atestado</label
@@ -402,6 +385,8 @@
                 class="form-control input col-12"
                 id="exampleFormControlTextarea1"
                 rows="3"
+                name="descricao"
+                [(ngModel)]="atestadoForm.descricao"
                 required
               ></textarea>
             </div>
@@ -427,6 +412,7 @@
                   type="button"
                   class="btn btn-primary"
                   style="width: 100%"
+                  (click)="addAtestado()"
                 >
                   <span
                     class="fa fa-close mr-3 icone"
@@ -437,7 +423,7 @@
               </div>
               <div class="col-md-4 col-sm-4">
                 <button
-                  routerLink="/home"
+                  (click)="finalizarConsulta()"
                   id="home"
                   type="button"
                   class="btn btn-secondary"
@@ -447,7 +433,7 @@
                     class="fa fa-home mr-3 icone"
                     style="color: rgb(255, 255, 255)"
                   ></span
-                  >Página Inicial
+                  >Finalizar a consulta
                 </button>
               </div>
             </div>

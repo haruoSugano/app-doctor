@@ -32,6 +32,10 @@ class Medico extends Model {
       foreignKey: "medico_id",
       as: "agendas"
     });
+    this.hasMany(models.Agenda, {
+      foreignKey: "medico_id",
+      as: "atestados"
+    });
   }
 }
 

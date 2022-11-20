@@ -3,11 +3,11 @@ const path = require("path");
 const pdf = require("html-pdf");
 
 module.exports = async (paciente, medico, agenda, descricao) => {
-  const filePath = path.join(__dirname, "..", "html", "pdfs", "pdfReceituario.ejs");
+  const filePath = path.join(__dirname, "..", "html", "pdfs", "pdfAtestado.ejs");
   const filename = `${Math.random().toString(36).substring(0,12)}_${paciente.cpf}.pdf`;
-  const pdfPath = path.join("pdfs", "receituarios", filename);
-  const savePath = path.join(__dirname, "..", "..", "pdfs", "receituarios", filename); 
-  const receituario = {
+  const pdfPath = path.join("pdfs", "atestados", filename);
+  const savePath = path.join(__dirname, "..", "..", "pdfs", "atestados", filename); 
+  const atestado = {
     namePaciente: paciente.name,
     emailPaciente: paciente.email,
     cpf: paciente.cpf,
@@ -23,7 +23,7 @@ module.exports = async (paciente, medico, agenda, descricao) => {
     assinatura: medico.assinatura
   };
 
-  ejs.renderFile(filePath, receituario, (err, html) => {
+  ejs.renderFile(filePath, atestado, (err, html) => {
     if (err) {
       throw new Error("Erro ao carregar o arquivo html");
     }

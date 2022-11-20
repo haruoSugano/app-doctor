@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Doctor</title>
+  </head>
+  <body>
+    <h1>Atestado:</h1>
+    <p>
+      <strong>Segue em anexo, o atestado</strong>
+    </p>
+    <h3>Informações:</h3>
+    <ul>
+        <li>Nome: <%= namePaciente %></li>
+        <li>Email: <%= emailPaciente %></li>
+        <li>Data do agendamento: <%= dataAgendamento %></li>
+        <li>horaAgendamento: <%= horaAgendamento %></li>
+        <li>Médico responsável: <%= nameMedico %></li>
+        <li>E-mail de contato: <%= emailMedico %></li>
+    </ul>
+    <p>Você pode visualizar o seu receituário no nosso aplicativo.</p>
+    <p>Clique para acessar: <a href="<%- url %>">APP DOCTOR</a></p>
+  </body>
+</html>

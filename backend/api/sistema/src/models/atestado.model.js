@@ -1,16 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Agenda extends Model {
+class Atestado extends Model {
   static init(sequelize) {
     super.init(
       {
-        data: DataTypes.DATE,
-        hora: DataTypes.TIME,
-        status_agendamento: DataTypes.STRING,
+        descricao: DataTypes.STRING,
+        pdf: DataTypes.STRING,
       },
       {
         sequelize,
-        tableName: "agendas",
+        tableName: "atestados",
       }
     );
   }
@@ -24,15 +23,11 @@ class Agenda extends Model {
       foreignKey: "paciente_id",
       as: "pacientes",
     });
-    this.hasMany(models.Receituario, {
+    this.belongsTo(models.Agenda, {
       foreignKey: "agenda_id",
-      as: "receituarios"
-    });
-    this.hasMany(models.Receituario, {
-      foreignKey: "agenda_id",
-      as: "atestados"
+      as: "agendas"
     });
   }
 }
 
-module.exports = Agenda;
+module.exports = Atestado;

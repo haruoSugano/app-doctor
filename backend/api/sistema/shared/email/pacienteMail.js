@@ -3,7 +3,7 @@ const ejs = require("ejs");
 const path = require("path");
 
 module.exports = (paciente, url) => {
-  const filePath = path.join(__dirname, "..", "html", "emailPaciente.ejs");
+  const filePath = path.join(__dirname, "..", "html", "emails", "emailPaciente.ejs");
   let mail = {};
   const dados = {
     name: paciente.name,

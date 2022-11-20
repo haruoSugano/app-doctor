@@ -26,6 +26,12 @@ export class TelaLoginComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-    this.authService.signIn(this.signinForm.value);
+    const user = this.signinForm.value;
+    if (user.email && user.senha) {
+      this.authService.signIn(user);
+      window.alert("Realizado login com sucesso!");
+    } else {
+      window.alert("É necessário preencher os campos")
+    }
   }
 }

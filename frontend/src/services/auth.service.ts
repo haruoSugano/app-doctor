@@ -23,17 +23,19 @@ export class AuthService {
         this.currentUser = res;
         Object.keys(this.currentUser).forEach((item) => {
           if (this.currentUser["isAdmin"] === true && this.currentUser["isMedico"] === true) {
+            localStorage.setItem("email", this.currentUser["email"]);
             this.router.navigate(["home"]);
           }
 
           if (this.currentUser["isAdmin"] === false && this.currentUser["isMedico"] === false) {
+            localStorage.setItem("email", this.currentUser["email"]);
             this.router.navigate(["home/pacientes"]);
           }
 
           if (this.currentUser["isMedico"] === true && this.currentUser["isAdmin"] === false) {
+            localStorage.setItem("email", this.currentUser["email"]);
             this.router.navigate(["home/medico"]);
           }
-          localStorage.setItem("email", this.currentUser["email"]);
         });
       });
     });
@@ -75,7 +77,9 @@ export class AuthService {
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`
     }
 
-    return throwError(msg);
+    return throwError(() => {
+      return msg;
+    });
   }
 
 }

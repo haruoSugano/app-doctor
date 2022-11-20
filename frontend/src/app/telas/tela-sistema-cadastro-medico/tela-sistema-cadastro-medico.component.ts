@@ -99,25 +99,32 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
   }
 
   addMedico() {
-    this.medicoService.createMedico(this.form.value).subscribe((data) => {
-      this.router.navigate(["/cadastrar-medico"]);
-      this.form = this.fb.group({
-        name: [""],
-        email: [""],
-        data_nascimento: [""],
-        crm: [""],
-        telefone: [""],
-        endereco: [""],
-        numero: [""],
-        cidade: [""],
-        estado: [""],
-        cep: [""],
-        assinatura: [null]
-      });
-    });
+    const medico = this.form.value;
 
-    alert("Medico cadastrado com sucesso!");
-    window.location.reload();
+    if (medico.name && medico.email && medico.data_nascimento && medico.crm &&
+      medico.telefone && medico.endereco && medico.numero &&
+      medico.cidade && medico.estado && medico.cep && medico.assinatura) {
+        this.medicoService.createMedico(medico).subscribe((data) => {
+          this.router.navigate(["/cadastrar-medico"]);
+          this.form = this.fb.group({
+            name: [""],
+            email: [""],
+            data_nascimento: [""],
+            crm: [""],
+            telefone: [""],
+            endereco: [""],
+            numero: [""],
+            cidade: [""],
+            estado: [""],
+            cep: [""],
+            assinatura: [null]
+          });
+        });
+        alert("Medico cadastrado com sucesso!");
+        window.location.reload();
+      } else {
+        alert("Necessário preencher todos os campos para realizar o cadastro.");
+      }
   }
 
   addUser() {
@@ -129,10 +136,12 @@ export class TelaSistemaCadastroMedicoComponent implements OnInit {
       isAdmin: false
     };
 
-    this.usuarioService.createUsuario(usuario).subscribe((data) => {
-    });
-
-    alert("Usuário cadastrado com sucesso!");
+    if (usuario.email && usuario.senha && usuario.confirmarSenha) {
+      this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
+      alert("Usuario cadastrado com sucesso!");
+    } else {
+      alert("É Necessário preencher todos os campos");
+    }
   }
 
   logout() {
