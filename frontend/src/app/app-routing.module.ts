@@ -38,39 +38,39 @@ import { TelaSistemaPacienteHistoricoConsultasComponent } from './telas-paciente
 
 const routes: Routes = [
   { path: '', component: TelaLoginComponent },
-  { path: 'home', component: TelaSistemaComponent},
-  { path: 'cadastrar-medico', component: TelaSistemaCadastroMedicoComponent, },
-  { path: 'pesquisar-medico', component: TelaSistemaPesquisarMedicoComponent, },
-  { path: 'cadastrar-paciente', component: TelaSistemaCadastroPacienteComponent, },
-  { path: 'pesquisar-paciente', component: TelaSistemaPesquisarPacienteComponent, },
-  { path: 'realizar-consulta/agendamento/:idAgendamento', component: TelaSistemaRealizarConsultaComponent,  },
-  { path: 'usuarios-medicos', component: TelaSistemaUsuariosMedicosComponent, },
-  { path: 'usuarios-pacientes', component: TelaSistemaUsuariosPacientesComponent, },
-  { path: 'meu-perfil', component: TelaSistemaMeuPerfilComponent, },
+  { path: 'home', component: TelaSistemaComponent, canActivate: [AuthGuard]},
+  { path: 'cadastrar-medico', component: TelaSistemaCadastroMedicoComponent, canActivate: [AuthGuard]},
+  { path: 'pesquisar-medico', component: TelaSistemaPesquisarMedicoComponent, canActivate: [AuthGuard]},
+  { path: 'cadastrar-paciente', component: TelaSistemaCadastroPacienteComponent, canActivate: [AuthGuard]},
+  { path: 'pesquisar-paciente', component: TelaSistemaPesquisarPacienteComponent, canActivate: [AuthGuard]},
+  { path: 'realizar-consulta/agendamento/:idAgendamento', component: TelaSistemaRealizarConsultaComponent,  canActivate: [AuthGuard]},
+  { path: 'usuarios-medicos', component: TelaSistemaUsuariosMedicosComponent, canActivate: [AuthGuard]},
+  { path: 'usuarios-pacientes', component: TelaSistemaUsuariosPacientesComponent, canActivate: [AuthGuard]},
+  { path: 'meu-perfil', component: TelaSistemaMeuPerfilComponent, canActivate: [AuthGuard]},
 
 
   //telas agendamentos
-  { path: 'agendamentos-pendentes', component: TelaSistemaAgendamentosPendentesComponent},
-  { path: 'agendamentos-novos', component: TelaSistemaAgendamentosNovosComponent},
-  { path: 'agendamentos-historico', component: TelaSistemaAgendamentosHistoricoComponent},
+  { path: 'agendamentos-pendentes', component: TelaSistemaAgendamentosPendentesComponent, canActivate: [AuthGuard]},
+  { path: 'agendamentos-novos', component: TelaSistemaAgendamentosNovosComponent, canActivate: [AuthGuard]},
+  { path: 'agendamentos-historico', component: TelaSistemaAgendamentosHistoricoComponent, canActivate: [AuthGuard]},
 
   //telas para recuperar senha:
   { path: 'recuperar-senha-envio-email', component: TelaEnviarEmailComponent},
   { path: 'recuperar-senha-nova-senha/:_id', component: TelaNovaSenhaComponent},
 
   //telas pacientes:
-  { path: 'home/pacientes', component: TelaSistemaPacienteComponent,},
-  { path: 'historico-consultas', component: TelaSistemaPacienteHistoricoConsultasComponent,},
+  { path: 'home/pacientes', component: TelaSistemaPacienteComponent,canActivate: [AuthGuard]},
+  { path: 'historico-consultas', component: TelaSistemaPacienteHistoricoConsultasComponent,canActivate: [AuthGuard]},
 
   //telas medico padrao
-  { path: 'home/medico', component: TelaSistemaMedicoPadraoComponent,},
-  { path: 'cadastrar-paciente-medico-padrao', component: TelaCadastrarPacienteMedicoPadraoComponent,},
-  { path: 'pesquisar-paciente-medico-padrao', component: TelaPesquisarPacienteMedicoPadraoComponent,},
-  { path: 'medicos/agendamento/:idAgendamento', component: TelaRealizarConsultaMedicoPadraoComponent,},
-  { path: 'usuarios-pacientes-medico-padrao', component: TelaUsuariosPacientesMedicoPadraoComponent,},
-  { path: 'agendamentos-historico-medico-padrao', component: TelaAgendamentosHistoricoMedicoPadraoComponent,},
-  { path: 'agendamentos-novos-medico-padrao', component: TelaAgendamentosNovosMedicoPadraoComponent,},
-  { path: 'agendamentos-pendentes-medico-padrao', component: TelaAgendamentosPendentesMedicoPadraoComponent,},
+  { path: 'home/medico', component: TelaSistemaMedicoPadraoComponent, canActivate: [AuthGuard]},
+  { path: 'cadastrar-paciente-medico-padrao', component: TelaCadastrarPacienteMedicoPadraoComponent,canActivate: [AuthGuard]},
+  { path: 'pesquisar-paciente-medico-padrao', component: TelaPesquisarPacienteMedicoPadraoComponent, canActivate: [AuthGuard]},
+  { path: 'medicos/agendamento/:idAgendamento', component: TelaRealizarConsultaMedicoPadraoComponent, canActivate: [AuthGuard]},
+  { path: 'usuarios-pacientes-medico-padrao', component: TelaUsuariosPacientesMedicoPadraoComponent, canActivate: [AuthGuard]},
+  { path: 'agendamentos-historico-medico-padrao', component: TelaAgendamentosHistoricoMedicoPadraoComponent, canActivate: [AuthGuard]},
+  { path: 'agendamentos-novos-medico-padrao', component: TelaAgendamentosNovosMedicoPadraoComponent, canActivate: [AuthGuard]},
+  { path: 'agendamentos-pendentes-medico-padrao', component: TelaAgendamentosPendentesMedicoPadraoComponent, canActivate: [AuthGuard]},
 
 
   {path: '', redirectTo: '/', pathMatch: 'full' },

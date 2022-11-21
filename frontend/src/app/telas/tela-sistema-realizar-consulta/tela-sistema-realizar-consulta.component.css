@@ -924,3 +924,15 @@ div.row.atestado.col-12{
         display: block;
       }
     }
+
+    @media (min-width: 1366px){
+      #content{
+        margin-right: 0px !important;
+        margin-left: 1 !important;
+        width: 1160px;
+      }
+
+      body{
+        min-height: 150vh !important;
+      }
+    }
