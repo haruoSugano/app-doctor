@@ -1,56 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Receituário</title>
-  </head>
-  <body>
-    <div class="page">
-      
-      <div class="hospital-box" style="background-color: rgb(7, 29, 156)">
-        <header style="display: flex">
-          <h2 class="titulo-hospital">
-            Hospital App Doctor
-          </h2>
-        </header>
-      </div>
+  <header style="display: flex">
+    <h2 class="titulo-hospital">
+      Hospital App Doctor
+    </h2>
+  </header>
 
-      <div class="titulo">
-        <h3 class="titulo_receituario">Receituário Médico</h3>
-      </div>
+<br>
 
-      <div class="dados-paciente" style="border: 1px solid;">
-        <ul>
-          <li>Nome: <%= namePaciente %></li>
-          <li>CPF: <%= cpf %></li>
-          <li>Data de Nascimento <%= dataNascimento %></li>
-          <li>Endereço: <%= endereco %></li>
-          <li>Número: <%= numero %></li>
-        </ul>
-      </div>
-      <br>
-      <div class="dados-prescricao" style="border: 1px solid;">
-        <ul>
-          <li>Descricao: <%= descricao %></li>
-        </ul>
-      </div>
+<div class="titulo">
+  <h3 class="titulo_receituario">Receituário Médico</h3>
+</div>
 
-      <br>
+<br>
 
-      <div class="data" style="border: 1px solid;">
-        <ul>
-          <li>Data: <%= data %></li>
-        </ul>
-      </div>
+<div class="dados-paciente">
+  <ul>
+    <li>Nome: <%= namePaciente %></li>
+    <li>CPF: <%= cpf %></li>
+    <li>Data de Nascimento <%= dataNascimento %></li>
+    <li>Endereço: <%= endereco %></li>
+    <li>Número: <%= numero %></li>
+  </ul>
+</div>
 
-      <div class="div-assinatura-medico" style="border: 1px solid;">
-        <div>
-          <li><%= nameMedico %></li>
-          <li>CRM: <%= crm %></li>
-          <img
-            src="<%- assinatura %>"
-            alt="assinatura"
-            width="150px"
-            height="100px"
-          />
-        </div>
+<br>
+
+<div class="dados-prescricao">
+  <ul>
+    <li>Descricao: <%= descricao %></li>
+  </ul>
+</div>
+
+<br>
+
+<div class="data">
+  <ul>
+    <li>Data: <%= data %></li>
+  </ul>
+</div>
+
+<br>
+
+<div class="div-assinatura-medico">
+  <div>
+    <li><%= nameMedico %></li>
+    <li>CRM: <%= crm %></li>
+    <img
+      src="<%- assinatura %>"
+      alt="assinatura"
+      width="150px"
+      height="100px"
+    />
+  </div>
+  
