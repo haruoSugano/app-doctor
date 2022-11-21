@@ -12,7 +12,7 @@
 
 ## Resumo
 
-Uma aplicação Web voltada para a criação de receituários e prontuários onde o paciente receberá também, via e-mail, o seu receituário e o seu cadastro para  acessar a aplicação e verificar suas consultas.
+O APP Doctor é uma aplicação web desenvolvida para auxiliar os médicos na criação de receituários e prontuários. Aos pacientes serão enviadas informações de cadastro, para visualização de suas consultas agendadas, e de seus receituários.
 
 ---
 
@@ -313,9 +313,9 @@ Renomear o arquivo `credentials.json.dis` removendo o `.dist`.
 
 **Abrir o quarto terminal**
 
-*Navegue até a pasta email*
+*Navegue até a pasta barramento*
 
-`$ cd backend/api/email`
+`$ cd backend/api/barramento`
 
 *Digite o comando:*
 
