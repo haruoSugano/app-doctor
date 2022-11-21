@@ -265,7 +265,7 @@ Renomear o arquivo `credentials.json.dis` removendo o `.dist`.
 
 ---
 
-### Baixe/Atualize as dependências e configure o BD
+### Baixe/Atualize as dependências e configure o DB
 
 ---
 
@@ -340,3 +340,21 @@ Renomear o arquivo `credentials.json.dis` removendo o `.dist`.
 > barramento
 
 `$ npm start`
+
+---
+
+### Observação
+
+No sistema operacional Windows é necessário fazer algumas mudanças:
+
+> atestadaMail e receituarioMail
+
+```javascript
+let arquivo_pdf = pdf.split("/");
+```
+
+Troque a barra para
+
+```javascript
+let arquivo_pdf = pdf.split("\\");
+```
