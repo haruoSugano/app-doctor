@@ -770,3 +770,15 @@ div.row.atestado.col-12{
     margin-left: 10px !important;
     margin-right: 15px !important;
   }
+
+  @media (min-width: 1366px){
+    #content{
+     margin-right: -210px !important;
+     margin-left: 0 !important;
+     width: 100% !important;
+    }
+
+    body{
+      min-height: 150vh !important;
+    }
+   }

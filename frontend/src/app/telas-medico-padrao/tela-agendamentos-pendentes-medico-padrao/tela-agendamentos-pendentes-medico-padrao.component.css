@@ -741,3 +741,15 @@ select.select.input>option{
   color: white;
   margin-bottom: 10px;
   }
+
+  @media (min-width: 1366px){
+    #content{
+      margin-right: 0px !important;
+      margin-left: 0 !important;
+      width: 1350px;
+    }
+  
+    body{
+      min-height: 140vh !important;
+    }
+  }

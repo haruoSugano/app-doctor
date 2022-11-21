@@ -71,7 +71,7 @@ export class TelaSistemaCadastroPacienteComponent implements OnInit {
       isAdmin: false
     }
 
-    if (usuario.email && usuario.senha && usuario.confirmarSenha && usuario.isAdmin && usuario.isMedico) {
+    if (usuario.email && usuario.senha && usuario.confirmarSenha) {
       this.usuarioService.createUsuario(usuario).subscribe((data: {}) => { })
       alert("Usuario cadastrado com sucesso!");
     } else {

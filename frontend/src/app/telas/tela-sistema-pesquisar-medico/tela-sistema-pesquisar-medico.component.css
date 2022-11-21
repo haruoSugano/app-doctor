@@ -832,16 +832,3 @@ div.row-2{
 
   }
 
-
-@media (min-width: 1366px){
-  #content{
-    margin-right: 0px !important;
-    margin-left: 0 !important;
-    width: 1350px;
-  }
-
-  body{
-    min-height: 100vh !important;
-  }
-}
-
