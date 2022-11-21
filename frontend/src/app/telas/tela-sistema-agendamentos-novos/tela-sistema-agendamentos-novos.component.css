@@ -913,5 +913,15 @@ select.form-control.input>option{
     }
 
 
+    @media (min-width: 1366px){
+      #content{
+        margin-right: 0px !important;
+        margin-left: 0 !important;
+        width: 1160px;
+      }
 
+      body{
+        min-height: 100vh !important;
+      }
+    }
 

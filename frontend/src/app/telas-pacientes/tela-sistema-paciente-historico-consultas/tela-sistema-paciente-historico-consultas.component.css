@@ -412,7 +412,11 @@ div.row-2{
   }
 
 
-
+  @media (min-width: 1366px){  
+    body{
+      min-height: 140vh !important;
+    }
+  }
 
 
 

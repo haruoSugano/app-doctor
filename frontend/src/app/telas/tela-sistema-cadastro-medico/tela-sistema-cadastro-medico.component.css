@@ -948,7 +948,11 @@ div.row.usuario-medico.col-12{
 
 @media (min-width: 1366px){
   #content{
-    margin-right: 45px;
+    margin-right: -30px;
+  }
+
+  body{
+    min-height: 190vh !important;
   }
 
   .fa-eye.senha{
