@@ -21,7 +21,7 @@
     <div class="wrapper d-flex align-items-stretch">
       <nav id="sidebar">
         <h1>
-          <a href="tela-sistema.component.html" class="logo">AppDoctor</a>
+          <a routerLink="/home/medico" routerLinkActive="active" class="logo">AppDoctor</a>
         </h1>
 
         <ul class="list-unstyled components mb-5">
@@ -128,39 +128,347 @@
         </ul>
       </nav>
 
+
+
+
+
       <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5">
-        <div class="cabecalho">
-          <header>
-            <img
-              src="/assets/resources/img/logo.png"
-              width="200px"
-              height="150px"
-            />
-            <h2 class="mb-4">
-              Bem vindo ao AppDoctor - Essa vai ser uma tela HOME
-            </h2>
-          </header>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
+        <!-- ======= Header ======= -->
+           <nav id="header" class="fixed-top header-transparent header">
+             <div class="container-fluid">
+               <div class="container d-flex align-items-center justify-content-between">
+
+               <button onclick="ocultarEMostrarMenu()" type="button" id="sidebarCollapse" class="menu-sidebar btn btn-primary">
+                 <i class="fa fa-bars"></i>
+                 <span class="sr-only">Toggle Menu</span>
+               </button>
+
+
+                 <div class="logo" routerLink="/home/medico" routerLinkActive="active">
+                   <a routerLink="/home/medico" routerLinkActive="active" class="navbar-brand" href="#" style="font-size: 25px; color: rgb(1, 169, 247);">
+                     <img routerLink="/home/medico" routerLinkActive="active" class="img-logo-pequeno" src="/assets/resources/img/reelogo-appdoctor2.png" width="100" height="500" alt="">
+                   AppDoctor
+                 </a>
+                 </div>
+
+                 <button onclick="ocultarEMostrarMenu2()" class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                   <i class="fa fa-bars"></i>
+                 </button>
+
+                 <nav id="navbar" class="navbar">
+                   <ul>
+                     <li><a class="nav-link scrollto" [routerLink]="['/home/medico']" fragment="home">Página Inicial</a></li>
+                     <li><a class="nav-link scrollto" [routerLink]="['/home/medico']" fragment="features">Recursos</a></li>
+                     <li><a class="nav-link scrollto" [routerLink]="['/home/medico']" fragment="details">Vantagens</a></li>
+                     <li><a class="nav-link scrollto" [routerLink]="['/home/medico']" fragment="gallery">Galeria</a></li>
+                     <li><a class="nav-link scrollto" [routerLink]="['/home/medico']" fragment="pricing">Planos</a></li>
+                     <li><a class="nav-link scrollto" [routerLink]="['/home/medico']" fragment="contact">Contato</a></li>
+                     <li><a class="botao-iniciar getstarted scrollto" [routerLink]="['/home/medico']" fragment="home">Início</a></li>
+                   </ul>
+                   <i class="bi bi-list mobile-nav-toggle"></i>
+                 </nav><!-- .navbar -->
+
+               </div>
+             </div>
+
+         </nav><!-- End Header -->
+
+ <!-- ======= Hero Section ======= -->
+ <div id="home"></div>
+ <section id="hero" class="hero d-flex">
+   <div class="container container-hero">
+     <div class="img-logo">
+         <img class="img-logo" src="/assets/resources/img/azul.png"><p></p>
+     </div>
+     <div class="row">
+       <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+         <div>
+           <h1>AppDoctor</h1>
+           <h2>Um atendimento único e sustentável.</h2>
+<!--            <button class="glightbox">teste </button>
+-->           <a class="glightbox download-btn"><i class="bx bxl-play-store fa fa-play"></i>Apresentação do App</a>
+
+         </div>
+       </div>
+       <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
+         <img style="margin-right: 100x; margin-top: -100px;" src="/assets/resources/img/hero-img.png" class="img-fluid img-hero" alt="img">
+       </div>
+     </div>
+   </div>
+
+ </section><!-- End Hero -->
+
+ <main id="main">
+
+   <!-- ======= App Features Section ======= -->
+   <section id="features" class="features">
+     <div class="container">
+
+       <div class="section-title descricao-recursos">
+         <h2 class="h2-recursos" style="color: rgb(0, 116, 248);">Recursos do Aplicativo</h2>
+         <p>O AppDoctor é uma aplicação Web e sua utilização é voltada para clínicas médicas. Seus principais recursos são:</p>
+       </div>
+
+       <div class="div-recursos row-recursos row no-gutters">
+         <div class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1">
+           <div class="content d-flex flex-column justify-content-center">
+             <div class="row">
+               <div class="col-md-6 icon-box" data-aos="fade-up">
+                 <i class="bx bx-cube-alt fa fa-user-md" style="color: white;"></i>
+                 <h4 style="color: rgba(255, 255, 255, 0.726);">Cadastrar Médico</h4>
+                 <p>Cadastre, pesquise e remova os médicos da sua clínica.</p>
+               </div>
+               <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                 <i class="bx bx-cube-alt fa fa-user-plus" style="color: white;"></i>
+                 <h4 style="color: rgba(255, 255, 255, 0.726);">Cadastrar Paciente</h4>
+                 <p>Cadastre, pesquise e remova os pacientes que vão a sua clínica.</p>
+               </div>
+               <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                 <i class="bx bx-images fa fa-stethoscope" style="color: white;"></i>
+                 <h4 style="color: rgba(255, 255, 255, 0.726);">Gerar Receituário</h4>
+                 <p>Gere receituários com a prescrição médica e encaminhe via E-mail para o paciente.</p>
+               </div>
+               <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                 <i class="bx bx-shield fa fa-file-text" style="color: white;"></i>
+                 <h4 style="color: rgba(255, 255, 255, 0.726);">Gerar Atestado</h4>
+                 <p>Gere atestado médico e encaminhe via E-mail para o paciente.</p>
+               </div>
+               <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                 <i class="bx bx-cube-alt fa fa-id-card" style="color: white; width: 10px;"></i>
+                 <h4 style="color: rgba(255, 255, 255, 0.726);">Agendar Consulta</h4>
+                 <p>Faça o agendameno de consultas, controle o histórico e acesse os agendamentos pendentes. </p>
+               </div>
+               <div class="col-md-6 icon-box div-recurso" data-aos="fade-up" data-aos-delay="500">
+                 <i class="bx bx-id-card fa fa-users div-recurso" style="color: white;"></i>
+                 <h4 class="div-recurso"  style="color: rgba(255, 255, 255, 0.726);">Listar Usuários</h4>
+                 <p class="div-recurso">Tenha acesso a todos os usuários médicos e pacientes da sua clínica. Remova e edite usuários.</p>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="div-img-recursos image col-xl-5 d-flex align-items-stretch justify-content-center order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+           <img style="margin-top: 60px; border-radius:10px;" src="assets/resources/img/features.svg" class="img-fluid img-recursos" alt="">
+         </div>
+       </div>
+
+     </div>
+   </section><!-- End App Features Section -->
+
+   <!-- ======= Details Section ======= -->
+   <section id="details" class="details">
+     <div class="container">
+
+       <div class="row-vantagens row content">
+         <div class="col-md-4 div-img-vantagens" data-aos="fade-right">
+           <img src="assets/resources/img/details-6.png" class="img-fluid img-vantagens" alt="">
+         </div>
+         <div class="col-md-8 pt-4 div-vantagens-descricao" data-aos="fade-up">
+           <h3 class="h3-vantagens" style="color: rgb(0, 116, 248); font-family: Poppins;">Vantagens e diferenciais do AppDoctor</h3>
+           <p class="fst-italic">
+             Dentre os diferenciais e vantagens do AppDoctor, pode-se destacar:
+           </p>
+           <br>
+           <ul>
+             <li><i class="fa fa-desktop"></i> Intuitivo e simples de manuseio</li>
+             <br>
+             <li><i class="fa fa-leaf"></i> Voltado para a sustentabilidade</li>
+             <br>
+             <li><i class="fa fa-users"></i> Praticidade para médicos e pacientes</li>
+           </ul>
+         </div>
+       </div>
+     </div>
+   </section><!-- End Details Section -->
+
+   <!-- ======= Gallery Section ======= -->
+   <section id="gallery" class="gallery">
+     <div class="container" data-aos="fade-up">
+
+       <div class="section-title">
+         <h2 class="h2-galeria">Galeria</h2>
+         <p>Explore os recursos e funcionalidades do App Doctor através da galeria abaixo.</p>
+       </div>
+     </div>
+
+     <div class="row-galeria">
+       <div class="column">
+         <img src="assets/resources/img/galeria1.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria2.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria3.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria4.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria5.PNG" style="width:100%">
+       </div>
+       <div class="column">
+         <img src="assets/resources/img/galeria6.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria7.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria8.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria9.PNG" style="width:100%">
+         <img src="assets/resources/img/galeria10.PNG" style="width:100%">
+       </div>
+     </div>
+   </section><!-- End Gallery Section -->
+
+
+   <!-- ======= Pricing Section ======= -->
+   <section id="pricing" class="pricing">
+     <div class="container">
+
+       <div class="section-title">
+         <h2 class="h2-planos">Planos</h2>
+         <p>Explore nossos preços e escolha o plano ideal para sua empresa.</p>
+       </div>
+
+       <div class="row no-gutters">
+
+         <div style="margin-top: 30px;" class="col-lg-4 box" data-aos="fade-right">
+           <h3>Free</h3>
+           <h4>R$0<span>por mês</span></h4>
+           <ul>
+             <li><i class="bx bx-check"></i> Limite de 50 usuários</li>
+             <li><i class="bx bx-check"></i> 1GB de armazenamento</li>
+             <li class="na"><i class="bx bx-x"></i> <span>Suporte 24/7</span></li>
+             <li class="na"><i class="bx bx-x"></i> <span>Atendimento Padrão</span></li>
+           </ul>
+           <a href="#" class="get-started-btn">Selecionar Plano</a>
+         </div>
+
+         <div  class="col-lg-4 box-2 featured" data-aos="fade-up">
+           <h3>Business</h3>
+           <h4>R$156,59<span>por mês</span></h4>
+           <ul>
+             <li><i class="bx bx-check"></i> Usuários Ilimitados</li>
+             <li><i class="bx bx-check"></i> 500GB de armazenamento</li>
+             <li><i class="bx bx-check"></i> Suporte 12/7</li>
+             <li><i class="bx bx-check"></i> Atendimento Prioritário</li>
+           </ul>
+           <a href="#" class="get-started-btn">Slecionar Plano</a>
+         </div>
+
+         <div style="margin-top: 30px;" class="col-lg-4 box" data-aos="fade-left">
+           <h3>Premium</h3>
+           <h4>R$ 264,59<span>por mês</span></h4>
+           <ul>
+             <li><i class="bx bx-check"></i> Usuários Ilimitados</li>
+             <li><i class="bx bx-check"></i> Armazenamento Ilimitado</li>
+             <li><i class="bx bx-check"></i> Suporte 12/7</li>
+             <li><i class="bx bx-check"></i> Atendimento Prioritário</li>
+           </ul>
+           <a href="#" class="get-started-btn">Selecionar Plano</a>
+         </div>
+
+       </div>
+
+     </div>
+   </section><!-- End Pricing Section -->
+
+   <!-- ======= Contact Section ======= -->
+   <section id="contact" class="contact">
+     <div class="container" data-aos="fade-up">
+
+       <div class="section-title">
+         <h2>Contato</h2>
+         <p>Entre em contato para dúvidas, suporte, propostas ou qualquer outro assunto a respeito do AppDoctor.</p>
+       </div>
+
+       <div class="row">
+
+         <div class="col-lg-6 row-contatos">
+           <div class="row row-contatos">
+             <div class="col-lg-6 info">
+               <i class="bx bx-map"></i>
+               <h4>Endereço</h4>
+               <p>Rua App Doctor,<br>São Paulo, SP 01234-567</p>
+             </div>
+             <div class="col-lg-6 info">
+               <i class="bx bx-phone"></i>
+               <h4>Telefone</h4>
+               <p>(11) 91234-5678<br>(11) 1234-5678</p>
+             </div>
+             <div class="col-lg-6 info">
+               <i class="bx bx-envelope"></i>
+               <h4>Email</h4>
+               <p>contato@appdoctor.com.br<br><p></p></p>
+             </div>
+             <div class="col-lg-6 info">
+               <i class="bx bx-time-five"></i>
+               <h4>Funcionamento</h4>
+               <p>Segunda - Sexta: 08:00 às 18:00<br><p></p></p>
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+   </section><!-- End Contact Section -->
+ </main><!-- End #main -->
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+   <div class="footer-top">
+     <div class="container">
+       <div class="row">
+
+         <div class="col-lg-3 col-md-6 footer-contact">
+           <h3>AppDoctor</h3>
+           <p>
+             Rua App Doctor <br>
+             São Paulo, SP 01234-567<br>
+             Brasil <br><br>
+             <strong>Telefone:</strong> 55+ (11) 91234-5678<br>
+             <strong>Email:</strong> contato@appdoctor.com.br<br>
+           </p>
+         </div>
+
+         <div class="col-lg-3 col-md-6 footer-links">
+           <h4>Acesso Rápido</h4>
+           <ul class="links-footer">
+             <li><a href="#">Página Inicial</a></li>
+             <li><a href="#">Recursos do Aplicativo</a></li>
+             <li><a href="#">Vantagens</a></li>
+             <li><a href="#">Galeria</a></li>
+             <li><a href="#">Planos</a></li>
+             <li><a href="#">Contato</a></li>
+           </ul>
+         </div>
+
+         <div class="col-lg-3 col-md-6 footer-links">
+           <h4>Nossos Recursos</h4>
+           <ul class="links-footer">
+             <li><i class="bx bx-chevron-right"></i> <a href="#">Cadastro de usuários</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="#">Geração de Receituário</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="#">Agendamento de Consultas</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="#">Cadastro de Médicos</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="#">Cadastro de Pacientes</a></li>
+           </ul>
+         </div>
+
+         <div class="col-lg-3 col-md-6 footer-links">
+           <h4>Nossas redes sociais</h4>
+           <p>Nos acompanhe em todas as nossas redes.</p>
+           <div class="social-links mt-3">
+             <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+             <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+             <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+             <a href="#" class="google-plus"><i class="fa fa-google"></i></a>
+             <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+           </div>
+         </div>
+
+       </div>
+     </div>
+   </div>
+
+   <div class="container py-4">
+     <div class="copyright">
+       &copy; Copyright <strong><span>AppDoctor</span></strong>. Todos os direitos reservados.
+     </div>
+   </div>
+ </footer><!-- End Footer -->
+
+ <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+ </div>
+
     </div>
   </body>
 </html>

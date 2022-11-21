@@ -10,6 +10,7 @@ import GLightbox from 'node_modules/glightbox';
   styleUrls: ['./tela-sistema.component.css']
 })
 export class TelaSistemaComponent implements OnInit {
+
   constructor(public authService: AuthService) { }
 
   dropDown(id: string) {
