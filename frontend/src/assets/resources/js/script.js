@@ -338,6 +338,25 @@ for (i = 0; i < dropdown.length; i++) {
   }
 }}
 
+
+
+
+
+function dropdown6() {
+  document.getElementById("myDropdown6").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn6')) {
+  var dropdown = document.getElementsByClassName("dropdown-content6");
+  var i;
+for (i = 0; i < dropdown.length; i++) {
+  var openDropdown = dropdown[i];
+  if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}}
 /*
 */
 

@@ -746,6 +746,83 @@ select.form-control.input>option{
   }
 
 
+
+  /* DROPDOWN 6---------------------------------*/
+  div.dropdown6{
+    width: 100%;
+  }
+
+  .dropbtn6 {
+    background-color: #3498db00;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    justify-content: left;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+  }
+
+  span.fa.fa-users.mr-3{
+    margin-left: 10px;
+  }
+
+  span.fa.fa-caret-down{
+    margin-left: 10px;
+  }
+
+  /* Dropdown button on hover & focus */
+  .dropbtn6:hover, .dropbtn6:focus {
+    background-color: #2f89fc;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown6 {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content6 {
+    position: absolute;
+    display: none;
+    width: 100%;
+    background-color: #212121;
+    border: 1px solid white;
+    box-shadow: 0px 8px 16px 0px  #2f89fc;
+    margin-left: 15px;
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */s
+  .dropdown-content6 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content6 a:hover {
+    background-color: rgb(230, 61, 61);
+  }
+
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+span.seis.fa.fa-history.mr-3{
+  margin-left: 13px !important;
+}
+
+span.um.fa.fa-user-md.mr-3{
+  margin-left: 13px !important;
+}
+
+
+
+
    /* MOBILE CSS */
    @media (max-width: 430px){
     div.header-button{

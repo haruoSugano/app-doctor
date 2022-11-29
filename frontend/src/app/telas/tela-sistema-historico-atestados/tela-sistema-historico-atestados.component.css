@@ -213,7 +213,7 @@ a:hover, a:focus {
   position: absolute;
 }
 
-span.fa.fa-user-md.icone-titulo::before{
+span.fa.fa-user.icone-titulo::before{
   margin-right: 10px;
 }
 
@@ -234,7 +234,7 @@ div.row.titulo-e-pesquisar.col-12{
 }
 
 h3#titulo{
-  width: 300px;
+  width: 400px;
 }
 
 input.form-control.rounded.input-pesquisar{
@@ -266,6 +266,7 @@ div.col-12 {
   overflow-y: auto;
   height: 550px;
 }
+
 
 
 div.row-1{
@@ -595,13 +596,7 @@ div.row-2{
     .show {display:block;}
 
 
-    span.quatro.fa.fa-caret-down{
-      color: white;
-    }
 
-    span.tres.fa.fa-caret-down{
-      color: white;
-    }
 
     span.fa.fa-home.mr-3{
       margin-right: 14px !important;
@@ -615,109 +610,137 @@ div.row-2{
       margin-right: 18px !important;
     }
 
-    span.quatro.fa.fa-cogs.mr-3{
-      color: white;
-    }
-
-    span.quatro.fa.fa-users.mr-3{
-      color: white;
-    }
-
-    span.quatro.fa.fa-user-md.mr-3{
-      color: white;
-    }
 
 
 
-  /* DROPDOWN 5---------------------------------*/
-  div.dropdown5{
-    width: 100%;
+
+
+
+/* DROPDOWN 5---------------------------------*/
+div.dropdown5{
+  width: 100%;
+}
+
+.dropbtn5 {
+  background-color: #3498db00;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  justify-content: left;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+}
+
+span.fa.fa-users.mr-3{
+  margin-left: 10px;
+}
+
+span.fa.fa-caret-down{
+  margin-left: 10px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn5:hover, .dropbtn5:focus {
+  background-color: #2f89fc;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown5 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content5 {
+  position: absolute;
+  display: none;
+  width: 100%;
+  background-color: #212121;
+  border: 1px solid white;
+  box-shadow: 0px 8px 16px 0px  #2f89fc;
+  margin-left: 15px;
+  z-index: 1;
+
+}
+
+/* Links inside the dropdown */s
+.dropdown-content5 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content5 a:hover {background-color: rgb(230, 61, 61);}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+
+
+span.fa.fa-home.mr-3{
+  margin-right: 15px !important;
+}
+
+span.um.fa.fa-search.mr-3{
+  margin-left: 1px !important;
+  margin-right: 20px !important;
+}
+
+
+span.dois.fa.fa-search.mr-3{
+  margin-right: 20px !important;
+}
+
+span.dois.fa.fa-address-card-o.mr-3{
+  margin-right: 18px !important;
+}
+
+span.fa.fa-file.icone-titulo{
+  margin-right: 10px;
+}
+
+
+span.cinco.fa.fa-id-card.mr-3{
+  margin-left: 10px !important;
+  margin-right: 15px !important;
+}
+
+
+
+select.form-control.input>option{
+  background-color: #012e5e;
+}
+
+select.select.input{
+  margin-left: 100px;
+  border-radius: 10px;
+  background-color: #0c4888;
+  display: block;
+}
+
+select.select.input>option{
+  background-color: #012e5e;
+  display: block;
+}
+
+.input{
+  background-color: #dee2e615;
+  color: white;
+  margin-bottom: 10px;
   }
 
-  .dropbtn5 {
-    background-color: #3498db00;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%;
-    justify-content: left;
-    text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 
-  }
+/* menu atestados */
+span.fa.fa-file.mr-3{
+  color: white;
+}
 
-  span.fa.fa-users.mr-3{
-    margin-left: 10px;
-  }
-
-  span.fa.fa-caret-down{
-    margin-left: 10px;
-  }
-
-  /* Dropdown button on hover & focus */
-  .dropbtn5:hover, .dropbtn5:focus {
-    background-color: #2f89fc;
-  }
-
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown5 {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content5 {
-    position: absolute;
-    display: none;
-    width: 100%;
-    background-color: #212121;
-    border: 1px solid white;
-    box-shadow: 0px 8px 16px 0px  #2f89fc;
-    margin-left: 15px;
-    z-index: 1;
-
-  }
-
-  /* Links inside the dropdown */s
-  .dropdown-content5 a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  /* Change color of dropdown links on hover */
-  .dropdown-content5 a:hover {background-color: rgb(230, 61, 61);}
-
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;}
-
-  span.fa.fa-home.mr-3{
-    margin-right: 15px !important;
-  }
-
-  span.um.fa.fa-search.mr-3{
-    margin-left: 1px !important;
-    margin-right: 20px !important;
-  }
-
-  span.dois.fa.fa-search.mr-3{
-    margin-right: 20px !important;
-  }
-
-  span.dois.fa.fa-address-card-o.mr-3{
-    margin-right: 18px !important;
-  }
-
-  span.fa.fa-id-card.icone-titulo{
-    margin-right: 10px;
-  }
-
-  span.cinco.fa.fa-id-card.mr-3{
-    margin-left: 10px !important;
-    margin-right: 15px !important;
-  }
 
 
   /* DROPDOWN 6---------------------------------*/
@@ -793,127 +816,10 @@ span.um.fa.fa-user-md.mr-3{
   margin-left: 13px !important;
 }
 
+span.seis.fa.fa-history.mr-3{
+  color: white;
+}
 
-
-
-
-
-
-
-
-
-  /* MOBILE CSS */
-  @media (max-width: 430px){
-
-    .input-group{
-        margin-top: -240px !important;
-        padding-left: 0;
-        margin-left: 5px;
-        margin-right: 0;
-    }
-
-    .col-5{
-      flex: 0 0 auto !important;
-      width: 100% !important;
-    }
-
-    div.row-1{
-      margin-left: 0 !important;
-      width: 100% !important;
-      margin-right: 0 !important;
-      margin-top: 20px !important;
-    }
-
-    div.row-3{
-      width: 100%;
-      background-color: #00000071;
-      border-radius: 10px;
-      white-space: nowrap;
-      margin-top: 50px;
-      padding: 20px;
-       height: 600px;
-      margin-left: 0;
-    }
-
-      div.header-button{
-        background-color: #212121;
-        width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-        position: fixed;
-        padding-left: 18px !important;
-        padding-top: 15px !important;
-        margin-top: 0;
-        height: 70px;
-      }
-
-      #sidebar {
-        display: none;
-        position: fixed;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        background: #212121;
-        color: #fff;
-        transition: all 0.3s !important;
-        width: 250px !important;
-        margin-left: 0px !important;
-        margin-top: 70px !important;
-      }
-
-
-        #content{
-          width: 100%;
-          margin-left: 0 !important;
-          margin-right: 0 !important;
-          padding: 0;
-          margin-top: 50px;
-        }
-
-
-      body{
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        align-items: center;
-        justify-content: center;
-        min-height: 130vh;
-        max-width: 100%;
-        background-color: rgb(38, 23, 253);
-        margin: 0 auto;
-      }
-
-
-      button#limpar{
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-
-
-  }
-
-
-  @media (min-width: 991px){
-     button.menu-sidebar{
-        display: none;
-     }
-
-     #sidebar{
-          display: block;
-      }
-
-    }
-
-
-    @media (min-width: 1366px){
-      #content{
-        margin-right: 0px !important;
-        margin-left: 0 !important;
-        width: 1350px;
-      }
-
-      body{
-        min-height: 140vh !important;
-      }
-    }
+span.seis.fa.fa-caret-down{
+  color: white;
+}
