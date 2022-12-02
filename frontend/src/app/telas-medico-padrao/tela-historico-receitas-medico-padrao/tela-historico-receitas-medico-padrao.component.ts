@@ -21,8 +21,7 @@ export class TelaHistoricoReceitasMedicoPadraoComponent implements OnInit {
   }
 
   loadReceituario() {
-    const email = localStorage.getItem("email");
-    return this.receituarioService.getReceituarios(email).subscribe((data: {}) => {
+    return this.receituarioService.getAllReceituarios().subscribe((data: {}) => {
       this.Receituario = data;
     })
   }

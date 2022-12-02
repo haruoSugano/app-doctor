@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReceituarioService } from 'src/services/receituario.service';
+import { AtestadoService } from 'src/services/atestado.service';
 import { AuthService } from 'src/services/auth.service';
 
 @Component({
@@ -8,21 +8,20 @@ import { AuthService } from 'src/services/auth.service';
   styleUrls: ['./tela-historico-atestados-medico-padrao.component.css']
 })
 export class TelaHistoricoAtestadosMedicoPadraoComponent implements OnInit {
-  Receituario: any = [{}];
+  Atestado: any = [{}];
 
   constructor(
     public authService: AuthService,
-    public receituarioService: ReceituarioService
+    public atestadoService: AtestadoService,
     ) {}
 
   ngOnInit(): void {
-    this.loadReceituario();
+    this.loadAtestado();
   }
 
-  loadReceituario() {
-    const email = localStorage.getItem("email");
-    return this.receituarioService.getReceituarios(email).subscribe((data: {}) => {
-      this.Receituario = data;
+  loadAtestado() {
+    return this.atestadoService.getAllAtestados().subscribe((data: {}) => {
+      this.Atestado = data;
     })
   }
 
@@ -31,7 +30,7 @@ export class TelaHistoricoAtestadosMedicoPadraoComponent implements OnInit {
   }
 
   onEdit(item: any) {
-    this.Receituario.forEach(element => {
+    this.Atestado.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;

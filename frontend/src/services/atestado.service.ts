@@ -31,6 +31,12 @@ export class AtestadoService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  getAllAtestados(): Observable<any> {
+    return this.http
+      .get<Atestado>(`${this.apiUrl}/atestados`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
   handleErrorCreate(error: any) {
     let errorMessage = "";
     if (error.error instanceof ErrorEvent) {

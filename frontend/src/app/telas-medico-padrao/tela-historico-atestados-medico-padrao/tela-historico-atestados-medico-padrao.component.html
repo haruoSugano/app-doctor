@@ -202,19 +202,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let receituario of Receituario.receituario; let i = index">
+                  <tr *ngFor="let atestado of Atestado.atestado; let i = index">
                     <td class="td_item">{{ i + 1 }}</td>
-                    <td class="td_item">{{ receituario.pacientes.name }}</td>
-                    <td class="td_item">{{ receituario.agendas.data }}</td>
-                    <td class="td_item">{{ receituario.agendas.hora }}</td>
-                    <td class="td_item">{{ receituario.medicos.name }}</td>
-                    <td class="td_item">{{ receituario.medicos.crm }}</td>
+                    <td class="td_item">{{ atestado.pacientes.name }}</td>
+                    <td class="td_item">{{ atestado.agendas.data }}</td>
+                    <td class="td_item">{{ atestado.agendas.hora }}</td>
+                    <td class="td_item">{{ atestado.medicos.name }}</td>
+                    <td class="td_item">{{ atestado.medicos.crm }}</td>
                     <td style="width: 15%" class="td_item text-center">
                       <div class="div_item">
                           <button
                           class="btn btn-sm btn-success"
                           style="margin-right: 5px"
-                          (click)="openPdf(receituario.pdf)"
+                          (click)="openPdf(atestado.pdf)"
                         >
                           Acessar Atestado
                         </button>

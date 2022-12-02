@@ -31,6 +31,12 @@ export class ReceituarioService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  getAllReceituarios(): Observable<any> {
+    return this.http
+      .get<Receituario>(`${this.apiUrl}/receituarios`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
   handleErrorCreate(error: any) {
     let errorMessage = "";
     if (error.error instanceof ErrorEvent) {
